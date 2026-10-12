@@ -1057,6 +1057,14 @@ img, svg, iframe { display: block; max-width: 100%; }
 }
 .lms-switch-btn:hover { color: #fff; }
 .lms-switch-btn[aria-selected="true"] { background: #2a5c45; color: #fff; }
+.lms-switch-btn.is-unlocked {
+  background: rgba(169, 77, 46, 0.22);
+  color: #f7a88e;
+}
+.lms-switch-btn.is-unlocked:hover {
+  background: var(--terracotta);
+  color: #fff;
+}
 
 .lms-header-info {
   display: flex;
@@ -1788,27 +1796,303 @@ textarea.form-input { resize: vertical; min-height: 90px; line-height: 1.55; }
   .lms-switch-btn .switch-long { display: none; }
 }
 
+.print-contact-bar { display: none; }
+
 /* 15. STAMPA =============================================== */
+@page {
+  size: A4;
+  margin: 12mm 15mm;
+}
+
 @media print {
   :root, [data-theme="dark"] {
-    --bg: #fff; --surface: #fff; --surface-2: #fff; --text: #000; --text-muted: #222; --text-soft: #444;
-    --border: #ccc; --accent: #2a5c45; --terra: #a94d2e;
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #ffffff;
+    --surface-3: #f5f5f5;
+    --text: #111111;
+    --text-muted: #2d312e;
+    --text-soft: #4a504b;
+    --border: #d0d0d0;
+    --border-strong: #999999;
+    --accent: #2a5c45;
+    --terra: #a94d2e;
     color-scheme: light;
   }
-  body { font-size: 10.5pt; background: #fff; }
-  .site-header, .site-footer, .skip-link, .no-print, .toast-region { display: none !important; }
-  .page-intro { padding: 0 0 12pt; }
-  .intro-title { font-size: 22pt; max-width: none; margin-bottom: 6pt; }
-  .intro-lead { font-size: 10.5pt; max-width: none; }
-  .container { max-width: none; padding: 0; }
-  .section, .section-tight { padding: 0; }
-  .cv-card, .case-study, .essay-block {
-    box-shadow: none; border: none; padding: 0; margin-bottom: 14pt;
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
-  .cv-section-title { font-size: 14pt; margin-bottom: 10pt; border-bottom: 1px solid #ccc; padding-bottom: 4pt; }
-  .cv-section-title .fact-icon { display: none; }
-  .timeline-item { padding-bottom: 10pt; break-inside: avoid; }
-  .skills-box { break-inside: avoid; border-color: #ddd; }
-  .js .reveal { opacity: 1 !important; transform: none !important; }
-  a { color: inherit; }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 9pt;
+    line-height: 1.4;
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  /* Nascondi completamente navbar, pulsanti di azione, footer e controlli interattivi */
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .no-print,
+  .toast-region,
+  .nav-actions,
+  .nav-toggle,
+  .theme-toggle,
+  .icon-btn,
+  .btn,
+  .ui-dialog,
+  .nav-wrapper,
+  .footer-inner,
+  .footer-copy {
+    display: none !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .section, .section-tight {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Intestazione CV compatto per stampa */
+  .page-intro {
+    padding: 0 0 8pt 0 !important;
+    border-bottom: 1.5pt solid var(--accent);
+    margin-bottom: 10pt !important;
+  }
+  .intro-tag {
+    font-size: 7.5pt !important;
+    letter-spacing: 0.08em;
+    color: var(--terra) !important;
+    margin-bottom: 2pt !important;
+  }
+  .intro-title {
+    font-size: 18pt !important;
+    line-height: 1.15 !important;
+    margin-bottom: 4pt !important;
+    color: #111111 !important;
+  }
+  .intro-lead {
+    font-size: 8.8pt !important;
+    line-height: 1.35 !important;
+    max-width: 100% !important;
+    color: #2d312e !important;
+    margin-bottom: 6pt !important;
+  }
+
+  .print-contact-bar {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 3pt 14pt;
+    font-size: 8.2pt;
+    color: #333333;
+    padding-top: 4pt;
+    border-top: 0.5pt solid #e6e6e6;
+  }
+  .print-contact-bar span {
+    display: inline-flex;
+    align-items: center;
+    gap: 3pt;
+  }
+  .print-contact-bar strong {
+    color: #111111;
+  }
+
+  /* Card e sezioni del CV */
+  .cv-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 11pt !important;
+    break-inside: auto;
+  }
+
+  .cv-section-title {
+    font-size: 11pt !important;
+    font-weight: 700 !important;
+    color: var(--accent) !important;
+    border-bottom: 1pt solid var(--accent) !important;
+    padding-bottom: 2pt !important;
+    margin-bottom: 8pt !important;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .cv-section-title .fact-icon {
+    display: none !important;
+  }
+
+  /* Timeline compatta senza fronzoli */
+  .timeline {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
+  }
+  .timeline::before {
+    display: none !important;
+  }
+  .timeline-item {
+    position: static !important;
+    padding: 0 0 7pt 0 !important;
+    border-bottom: 0.5pt solid #eeeeee;
+    margin-bottom: 6pt !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .timeline-item:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .timeline-item::before {
+    display: none !important;
+  }
+
+  .job-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    gap: 6pt !important;
+    margin-bottom: 2pt !important;
+  }
+  .job-title {
+    font-size: 9.6pt !important;
+    font-weight: 700 !important;
+    color: #111111 !important;
+    line-height: 1.25 !important;
+  }
+  .job-period {
+    font-size: 8pt !important;
+    color: #555555 !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+  }
+  .job-company {
+    font-size: 8.8pt !important;
+    font-weight: 600 !important;
+    color: var(--accent) !important;
+    margin-bottom: 3pt !important;
+  }
+
+  .job-desc {
+    font-size: 8.5pt !important;
+    line-height: 1.35 !important;
+    color: #222222 !important;
+  }
+  .job-desc ul {
+    margin: 2pt 0 2pt 12pt !important;
+    gap: 1.5pt !important;
+    list-style: disc !important;
+  }
+  .job-desc li {
+    padding-left: 0 !important;
+    line-height: 1.35 !important;
+    font-size: 8.5pt !important;
+  }
+  .job-desc li::before {
+    display: none !important;
+  }
+  .job-desc p + p {
+    margin-top: 3pt !important;
+  }
+
+  .job-highlight {
+    display: inline-block !important;
+    font-size: 7.8pt !important;
+    padding: 1pt 5pt !important;
+    border: 0.5pt solid #d0d0d0 !important;
+    border-radius: 3px !important;
+    margin-top: 3pt !important;
+    color: var(--terra) !important;
+    background: #fafafa !important;
+  }
+  .job-highlight .icon {
+    display: none !important;
+  }
+
+  /* Competenze in 2 colonne su carta A4 */
+  .skills-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 7pt !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .skills-box {
+    background: #fafafa !important;
+    border: 0.5pt solid #dedede !important;
+    border-radius: 5px !important;
+    padding: 6pt 8pt !important;
+    margin: 0 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .skills-box h3 {
+    font-size: 8.8pt !important;
+    font-weight: 700 !important;
+    margin-bottom: 4pt !important;
+    color: #111111 !important;
+  }
+  .skills-box.green h3 { color: var(--accent) !important; }
+  .skills-box.terra h3 { color: var(--terra) !important; }
+  .skills-box h3 .icon { display: none !important; }
+
+  .chip-list {
+    gap: 2.5pt !important;
+  }
+  .chip {
+    font-size: 7.5pt !important;
+    padding: 1.5pt 5pt !important;
+    border: 0.5pt solid #cccccc !important;
+    background: #ffffff !important;
+    color: #222222 !important;
+    border-radius: 3px !important;
+    line-height: 1.25 !important;
+  }
+
+  .lang-list {
+    gap: 4pt !important;
+    margin-top: 2pt !important;
+  }
+  .lang-row {
+    grid-template-columns: 55pt 1fr 20pt !important;
+    gap: 6pt !important;
+    font-size: 7.8pt !important;
+  }
+  .lang-bar {
+    height: 3.5pt !important;
+    background: #e4e4e4 !important;
+  }
+  .lang-bar span {
+    background: var(--accent) !important;
+  }
+  .lang-level {
+    font-size: 7.5pt !important;
+  }
+
+  /* Rimuovi effetti grafici e animazioni */
+  .js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
 }

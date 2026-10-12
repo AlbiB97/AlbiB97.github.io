@@ -150,16 +150,127 @@
     }
   ];
 
-  // State Management
+  // State Management with Data Recovery Safety
   function loadStoredCourses() {
     try {
       const data = localStorage.getItem('alberto_lms_courses');
-      if (data) return JSON.parse(data);
+      if (data) {
+        const parsed = JSON.parse(data);
+        // Robustness check: must be a non-empty array with valid course objects and steps
+        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0] && Array.isArray(parsed[0].steps) && parsed[0].steps.length >= 2) {
+          return parsed;
+        }
+        console.warn('Dati corsi in localStorage non validi o corrotti. Ripristino corsi demo predefiniti.');
+        localStorage.removeItem('alberto_lms_courses');
+      }
     } catch (e) {
-      console.warn('Impossibile leggere i corsi salvati:', e);
+      console.warn('Impossibile leggere i corsi salvati (dati corrotti):', e);
+      try { localStorage.removeItem('alberto_lms_courses'); } catch (_) {}
     }
     return JSON.parse(JSON.stringify(defaultCourses));
   }
+
+  // Author Authentication & Security PIN (Configurable for Alberto Bedeschi)
+  const AUTHOR_PINS = ['1997', 'alberto2026', '2026'];
+  let isAuthorUnlocked = false;
+
+  function checkAuthorSession() {
+    try {
+      return sessionStorage.getItem('alberto_lms_author_unlocked') === 'true';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function updateAuthorModeUI() {
+    const btnEditor = document.getElementById('btnModeEditor');
+    const authToggleBtn = document.getElementById('btnAuthorAuthToggle');
+    const authIcon = document.getElementById('authorAuthIcon');
+    const authText = document.getElementById('authorAuthText');
+    const footerLinkText = document.getElementById('footerAuthorLinkText');
+
+    if (btnEditor) {
+      btnEditor.style.display = isAuthorUnlocked ? 'inline-flex' : 'none';
+    }
+
+    if (authToggleBtn) {
+      if (isAuthorUnlocked) {
+        authToggleBtn.classList.add('is-unlocked');
+        authToggleBtn.setAttribute('title', 'Modalità Autore attiva (PIN verificato). Clicca per bloccare.');
+        if (authText) authText.textContent = 'Blocca Autore';
+        if (authIcon) authIcon.innerHTML = '<use href="#i-unlock"></use>';
+      } else {
+        authToggleBtn.classList.remove('is-unlocked');
+        authToggleBtn.setAttribute('title', 'Accesso per l\'autore protetto da PIN');
+        if (authText) authText.textContent = 'Area Autore';
+        if (authIcon) authIcon.innerHTML = '<use href="#i-lock"></use>';
+      }
+    }
+
+    if (footerLinkText) {
+      footerLinkText.textContent = isAuthorUnlocked ? 'Blocca Area Autore (Attiva)' : 'Accesso Autore (PIN)';
+    }
+
+    // Se l'autore si è bloccato e si trova nella vista gestore, ripristina la vista studente
+    if (!isAuthorUnlocked && currentMode === 'editor') {
+      window.setLmsMode('player');
+    }
+  }
+
+  window.promptAuthorLogin = async function () {
+    if (isAuthorUnlocked) {
+      const lockNow = window.ui ? await window.ui.confirm({
+        title: 'Area Autore Attiva',
+        message: 'L\'Area Autore è attualmente sbloccata. Vuoi bloccarla e reimpostare la piattaforma in sola lettura?',
+        confirmText: 'Blocca Area Autore'
+      }) : confirm('L\'Area Autore è sbloccata. Vuoi bloccarla?');
+
+      if (lockNow) {
+        window.lockAuthorMode();
+      }
+      return;
+    }
+
+    const enteredPin = window.ui ? await window.ui.prompt({
+      title: 'Accesso Area Riservata Autore',
+      label: 'Inserisci il PIN di gestione per sbloccare l\'editor didattico:',
+      placeholder: 'PIN autore (es. 1997)...',
+      confirmText: 'Sblocca Gestione',
+      hint: 'I visitatori visualizzano il corso in sola lettura. PIN autore: 1997'
+    }) : prompt('Inserisci il PIN per accedere all\'Area Autore (es. 1997):');
+
+    if (enteredPin === null || enteredPin === undefined) return;
+
+    if (AUTHOR_PINS.includes(String(enteredPin).trim())) {
+      isAuthorUnlocked = true;
+      try {
+        sessionStorage.setItem('alberto_lms_author_unlocked', 'true');
+      } catch (e) {}
+      updateAuthorModeUI();
+      window.setLmsMode('editor');
+      showToast('Area Autore sbloccata! Ora puoi creare, modificare ed eliminare moduli.', 'success');
+    } else {
+      showToast('PIN errato. Accesso all\'Area Autore negato.', 'error');
+    }
+  };
+
+  window.lockAuthorMode = function () {
+    isAuthorUnlocked = false;
+    try {
+      sessionStorage.removeItem('alberto_lms_author_unlocked');
+    } catch (e) {}
+    window.setLmsMode('player');
+    updateAuthorModeUI();
+    showToast('Area Autore bloccata. Piattaforma ripristinata in sola lettura.', 'info');
+  };
+
+  window.toggleAuthorAuth = function () {
+    if (isAuthorUnlocked) {
+      window.promptAuthorLogin();
+    } else {
+      window.promptAuthorLogin();
+    }
+  };
 
   let courses = loadStoredCourses();
   let activeCourseIndex = 0;
@@ -230,9 +341,11 @@
 
   // Initialize
   document.addEventListener('DOMContentLoaded', () => {
+    isAuthorUnlocked = checkAuthorSession();
     loadProgress();
     renderCourseSelector();
     loadCourse(0);
+    updateAuthorModeUI();
   });
 
   // Render Course Selector in Toolbar
@@ -251,6 +364,12 @@
 
   // Switch Mode (Player vs Editor)
   window.setLmsMode = function (mode) {
+    if (mode === 'editor' && !isAuthorUnlocked) {
+      showToast('La Vista Gestore è riservata all\'autore. Inserisci il PIN.', 'info');
+      window.promptAuthorLogin();
+      return;
+    }
+
     currentMode = mode;
     const btnPlayer = document.getElementById('btnModePlayer');
     const btnEditor = document.getElementById('btnModeEditor');
@@ -901,6 +1020,10 @@
 
   // Save Course Metadata
   window.saveCourseMeta = function () {
+    if (!isAuthorUnlocked) {
+      showToast('Operazione riservata all\'autore. Sblocca la modalità con il PIN.', 'error');
+      return;
+    }
     const course = courses[activeCourseIndex];
     if (!course) return;
 
@@ -915,6 +1038,7 @@
 
   // Reorder Step (Up / Down)
   window.moveStep = function (idx, direction) {
+    if (!isAuthorUnlocked) return;
     const course = courses[activeCourseIndex];
     const newIdx = idx + direction;
     if (newIdx < 0 || newIdx >= course.steps.length) return;
@@ -934,6 +1058,7 @@
 
   // Duplicate Step
   window.duplicateStep = function (idx) {
+    if (!isAuthorUnlocked) return;
     const course = courses[activeCourseIndex];
     const original = course.steps[idx];
     const copy = JSON.parse(JSON.stringify(original));
@@ -947,6 +1072,10 @@
 
   // Delete Step with Safety Bounds Check (solves Bug 3)
   window.deleteStep = async function (idx) {
+    if (!isAuthorUnlocked) {
+      showToast('Operazione riservata all\'autore. Sblocca con il PIN.', 'error');
+      return;
+    }
     const course = courses[activeCourseIndex];
     if (course.steps.length <= 2) {
       showToast('Un percorso formativo deve contenere almeno 2 step.', 'error');
@@ -973,6 +1102,10 @@
 
   // Add New Step
   window.addNewStepDirectly = function (type) {
+    if (!isAuthorUnlocked) {
+      showToast('Operazione riservata all\'autore. Sblocca con il PIN.', 'error');
+      return;
+    }
     const course = courses[activeCourseIndex];
     const stepNum = course.steps.length + 1;
 
@@ -1016,6 +1149,10 @@
 
   // Create New Course
   window.handleCreateNewCourse = async function () {
+    if (!isAuthorUnlocked) {
+      showToast('Operazione riservata all\'autore. Sblocca con il PIN.', 'error');
+      return;
+    }
     const title = window.ui ? await window.ui.prompt({
       title: 'Nuova Pillola Formativa',
       label: 'Titolo del Corso / Microlearning:',
@@ -1120,12 +1257,20 @@
 
   // Trigger file import
   window.triggerImportJSON = function () {
+    if (!isAuthorUnlocked) {
+      showToast('Operazione riservata all\'autore. Sblocca con il PIN.', 'error');
+      return;
+    }
     const input = document.getElementById('lmsFileInput');
     if (input) input.click();
   };
 
   // Import JSON from file
   window.importCoursesFromFile = function (event) {
+    if (!isAuthorUnlocked) {
+      showToast('Importazione riservata all\'autore.', 'error');
+      return;
+    }
     const file = event.target.files && event.target.files[0];
     if (!file) return;
 
@@ -1156,6 +1301,10 @@
   // 3. STEP MODAL EDITOR WITH LIVE PREVIEW & OPTIONS DYNAMICS
   // =========================================================
   window.openStepModal = function (idx) {
+    if (!isAuthorUnlocked) {
+      showToast('Operazione riservata all\'autore. Sblocca con il PIN.', 'error');
+      return;
+    }
     currentEditingStepIndex = idx;
     const course = courses[activeCourseIndex];
     const step = course.steps[idx];
@@ -1342,6 +1491,10 @@
   };
 
   window.saveStepModal = function () {
+    if (!isAuthorUnlocked) {
+      showToast('Operazione riservata all\'autore.', 'error');
+      return;
+    }
     if (currentEditingStepIndex === null) return;
     const course = courses[activeCourseIndex];
     const step = course.steps[currentEditingStepIndex];

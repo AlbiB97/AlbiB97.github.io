@@ -61,7 +61,7 @@
         <div class="intro-tag">E-Learning Environment · Didattica Interattiva</div>
         <h1 class="intro-title">Piattaforma LMS: <em>Player Sequenziale</em> &amp; Gestore</h1>
         <p class="intro-lead">
-          Un ambiente e-learning ispirato alla logica di tracciamento e progressione vincolata di <strong>Moodle</strong>: per proseguire, il discente deve completare l'attività o superare il quesito precedente, sbloccando i moduli con lucchetto 🔒. Dalla scheda <em>Vista Gestore</em> puoi modificare i contenuti didattici, inserire video reali, riordinare gli step o creare nuove pillole.
+          Un ambiente e-learning ispirato alla logica di tracciamento e progressione vincolata di <strong>Moodle</strong>: per proseguire, il discente deve completare l'attività o superare il quesito precedente, sbloccando i moduli con lucchetto 🔒. La piattaforma è impostata in <strong>sola lettura per i visitatori</strong>; per i progettisti e docenti gli strumenti di authoring sono accessibili nell'<strong>Area Autore</strong> protetta da PIN.
         </p>
       </div>
     </section>
@@ -81,13 +81,19 @@
             </div>
 
             <div class="lms-switch-group" role="tablist" aria-label="Modalità piattaforma">
-              <button class="lms-switch-btn" id="btnModePlayer" type="button" role="tab" aria-selected="true" onclick="setLmsMode('player')">
+              <button class="lms-switch-btn active" id="btnModePlayer" type="button" role="tab" aria-selected="true" onclick="setLmsMode('player')">
                 <svg class="icon" aria-hidden="true"><use href="#i-eye"></use></svg>
-                <span>Vista Studente <span class="switch-long">(Player)</span></span>
+                <span>Vista Studente</span>
               </button>
-              <button class="lms-switch-btn" id="btnModeEditor" type="button" role="tab" aria-selected="false" onclick="setLmsMode('editor')">
+              <!-- Nascosto di default per i visitatori, sbloccato solo con PIN -->
+              <button class="lms-switch-btn" id="btnModeEditor" type="button" role="tab" aria-selected="false" onclick="setLmsMode('editor')" style="display:none;">
                 <svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg>
-                <span>Vista Gestore <span class="switch-long">(Authoring)</span></span>
+                <span>Vista Gestore</span>
+              </button>
+              <!-- Tasto discreto di accesso / blocco autore -->
+              <button class="lms-switch-btn" id="btnAuthorAuthToggle" type="button" onclick="toggleAuthorAuth()" title="Accesso per l'autore protetto da PIN">
+                <svg class="icon" id="authorAuthIcon" aria-hidden="true"><use href="#i-lock"></use></svg>
+                <span id="authorAuthText">Area Autore</span>
               </button>
             </div>
           </div>
@@ -274,6 +280,8 @@
             <li><a href="lms.html">Piattaforma LMS</a></li>
             <li><a href="progetti.html">Casi studio &amp; mappa</a></li>
             <li><a href="profilo.html">Curriculum</a></li>
+            <li><a href="#" onclick="promptAuthorLogin(); return false;"><svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg><span id="footerAuthorLinkText">Accesso Autore (PIN)</span></a></li>
+            <li><a href="#" onclick="handleResetCourses(); return false;"><svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg>Ripristina Corsi Demo</a></li>
           </ul>
         </div>
         <div class="footer-col">
