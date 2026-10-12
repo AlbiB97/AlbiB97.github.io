@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piattaforma LMS &amp; Gestore Pillole | Alberto Bedeschi</title>
+  <meta name="description" content="Ambiente di apprendimento microlearning: simulatore LMS con sblocco sequenziale automatico, player studenti e authoring tool per la creazione delle pillole formative.">
+  <meta name="author" content="Alberto Bedeschi">
+  <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Alberto Bedeschi — Portfolio">
+  <meta property="og:title" content="Piattaforma LMS &amp; Microlearning | Alberto Bedeschi">
+  <meta property="og:description" content="Simulatore LMS con sblocco sequenziale vincolato e strumento di authoring didattico.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>(function(){var d=document.documentElement,t;d.classList.add('js');try{t=localStorage.getItem('ab-theme')}catch(e){}if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.setAttribute('data-theme',t)})();</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Salta al contenuto</a>
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand" aria-label="Alberto Bedeschi, torna alla Home">
+        <span class="brand-mark" aria-hidden="true">AB</span>
+        <span class="brand-text">
+          <span class="brand-name">Alberto Bedeschi</span>
+          <span class="brand-role">Progettista Formativo Digitale</span>
+        </span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Navigazione principale">
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chi-sono.html">Chi sono</a></li>
+          <li><a href="lms.html" aria-current="page">Piattaforma LMS</a></li>
+          <li><a href="progetti.html">Casi studio</a></li>
+          <li><a href="profilo.html">Curriculum</a></li>
+          <li><a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-primary btn-sm nav-cta">Scrivimi</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Attiva tema scuro">
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+        </button>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Apri menu">
+          <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-intro">
+      <div class="container reveal">
+        <div class="intro-tag">E-Learning Environment · Didattica Interattiva</div>
+        <h1 class="intro-title">Piattaforma LMS: <em>Player Sequenziale</em> &amp; Gestore</h1>
+        <p class="intro-lead">
+          Un ambiente e-learning ispirato alla logica di tracciamento e progressione vincolata di <strong>Moodle</strong>: per proseguire, il discente deve completare l'attività o superare il quesito precedente, sbloccando i moduli con lucchetto 🔒. Dalla scheda <em>Vista Gestore</em> puoi modificare i contenuti didattici, inserire video reali, riordinare gli step o creare nuove pillole.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <!-- LMS Container -->
+        <div class="lms-box reveal">
+
+          <!-- Top Toolbar -->
+          <div class="lms-toolbar">
+            <div class="lms-course-picker">
+              <label for="lmsCourseSelect">Pillola formativa:</label>
+              <select class="lms-select" id="lmsCourseSelect" onchange="switchCourse(this.value)">
+                <!-- Populated by JS -->
+              </select>
+            </div>
+
+            <div class="lms-switch-group" role="tablist" aria-label="Modalità piattaforma">
+              <button class="lms-switch-btn" id="btnModePlayer" type="button" role="tab" aria-selected="true" onclick="setLmsMode('player')">
+                <svg class="icon" aria-hidden="true"><use href="#i-eye"></use></svg>
+                <span>Vista Studente <span class="switch-long">(Player)</span></span>
+              </button>
+              <button class="lms-switch-btn" id="btnModeEditor" type="button" role="tab" aria-selected="false" onclick="setLmsMode('editor')">
+                <svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg>
+                <span>Vista Gestore <span class="switch-long">(Authoring)</span></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 1. STUDENT PLAYER VIEW -->
+          <div id="lmsPlayerView" class="lms-player">
+            <div class="lms-header-info">
+              <div>
+                <span class="badge badge-green" id="lmsCourseBadge">Percorso a sblocco sequenziale</span>
+                <h2 class="lms-course-title" id="lmsCourseTitleHeader">Caricamento in corso...</h2>
+                <div class="lms-course-cat" id="lmsCourseCatHeader">Microlearning didattico</div>
+              </div>
+              <div class="lms-progress">
+                <div class="lms-progress-track" aria-hidden="true">
+                  <div id="lmsProgressFill" class="lms-progress-fill"></div>
+                </div>
+                <span id="lmsProgressText" class="lms-progress-text" aria-label="Progresso completamento">0%</span>
+              </div>
+            </div>
+
+            <div class="lms-grid-body">
+              <!-- Syllabus Sidebar -->
+              <aside class="lms-syllabus" id="lmsSyllabusCol">
+                <button type="button" class="syllabus-toggle" id="syllabusToggle" aria-expanded="false" aria-controls="lmsNavList" onclick="toggleSyllabusMobile()">
+                  <span>Moduli del percorso formativo</span>
+                  <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
+                </button>
+                <div class="syllabus-head">Progressione Moduli</div>
+                <ul class="syllabus-list" id="lmsNavList">
+                  <!-- Populated by JS with accessible buttons -->
+                </ul>
+              </aside>
+
+              <!-- Main Content Area -->
+              <div class="lms-view-content">
+                <div id="lmsStepContent" class="lms-step-area">
+                  <!-- Active Step content injected by JS -->
+                </div>
+
+                <div class="lms-footer-controls">
+                  <button class="btn btn-secondary btn-sm" id="btnPrev" type="button" onclick="prevStep()">
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow-left"></use></svg>Precedente
+                  </button>
+                  <span class="lms-step-counter">
+                    Modulo <strong id="currentStepNum">1</strong> di <strong id="totalStepsNum">1</strong>
+                  </span>
+                  <button class="btn btn-primary btn-sm" id="btnNext" type="button" onclick="nextStep()">
+                    Segna come completato &amp; Continua <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. GESTORE / AUTHORING EDITOR VIEW -->
+          <div id="lmsEditorView" class="editor-panel" hidden>
+            <div class="editor-head">
+              <div>
+                <h2>Authoring Tool: Gestione Pillole Didattiche</h2>
+                <p>Personalizza i testi pedagogici, riordina gli step, collega link a video YouTube/Vimeo o esporta i corsi in formato JSON.</p>
+              </div>
+              <div class="btn-bar">
+                <button class="btn btn-secondary btn-sm" type="button" onclick="exportCoursesJSON()" title="Scarica tutti i corsi salvati in formato JSON">
+                  <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>Esporta JSON
+                </button>
+                <button class="btn btn-secondary btn-sm" type="button" onclick="triggerImportJSON()" title="Carica corsi da un file JSON precedentemente salvato">
+                  <svg class="icon" aria-hidden="true"><use href="#i-upload"></use></svg>Importa JSON
+                </button>
+                <input type="file" id="lmsFileInput" accept=".json" style="display:none" onchange="importCoursesFromFile(event)">
+                <button class="btn btn-secondary btn-sm" type="button" onclick="handleResetCourses()">
+                  <svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg>Ripristina Predefiniti
+                </button>
+                <button class="btn btn-terra btn-sm" type="button" onclick="handleCreateNewCourse()">
+                  <svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>Nuova Pillola Formativa
+                </button>
+              </div>
+            </div>
+
+            <!-- Course Meta Card -->
+            <div class="editor-card">
+              <div class="editor-card-head">
+                <h3>Metadati della Pillola Attiva</h3>
+                <button class="btn btn-primary btn-sm" type="button" onclick="saveCourseMeta()">
+                  <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Salva Intestazione
+                </button>
+              </div>
+              <div class="editor-grid">
+                <div class="form-group">
+                  <label class="form-label" for="editCourseTitle">Titolo della Pillola Formativa:</label>
+                  <input type="text" class="form-input" id="editCourseTitle">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="editCourseBadge">Etichetta Modulo (es. Modulo 1 · Microlearning):</label>
+                  <input type="text" class="form-input" id="editCourseBadge">
+                </div>
+                <div class="form-group full">
+                  <label class="form-label" for="editCourseCategory">Categoria Didattica / Ambito:</label>
+                  <input type="text" class="form-input" id="editCourseCategory">
+                </div>
+              </div>
+            </div>
+
+            <!-- Steps List Card -->
+            <div class="editor-card">
+              <div class="editor-card-head">
+                <h3>Sequenza Didattica del Percorso</h3>
+                <div class="btn-bar">
+                  <button class="btn btn-secondary btn-sm" type="button" onclick="addNewStepDirectly('video')">+ Video</button>
+                  <button class="btn btn-secondary btn-sm" type="button" onclick="addNewStepDirectly('text')">+ Testo</button>
+                  <button class="btn btn-secondary btn-sm" type="button" onclick="addNewStepDirectly('game')">+ Gioco a Bivi</button>
+                  <button class="btn btn-secondary btn-sm" type="button" onclick="addNewStepDirectly('quiz')">+ Quiz</button>
+                </div>
+              </div>
+
+              <ul class="step-rows" id="editorStepsList">
+                <!-- Populated by JS with reorder (↑ ↓), duplicate, edit, delete -->
+              </ul>
+            </div>
+
+            <div class="editor-tip">
+              <svg class="icon" aria-hidden="true"><use href="#i-bulb"></use></svg>
+              <div>
+                <strong>Integrazione Contenuti Multimediali:</strong> Clicca sul pulsante <em>"Modifica"</em> accanto a uno step video per incollare il link del tuo video su YouTube (anche impostato con visibilità riservata <em>"Non in elenco"</em>) o Vimeo. Il sistema genererà automaticamente l'incorporamento responsive nel player per i discenti.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Step Editor Modal Dialog -->
+  <dialog class="ui-dialog" id="stepEditModal" aria-labelledby="stepModalTitle">
+    <div class="ui-dialog-head">
+      <h2 id="stepModalTitle">Modifica Step Formativo</h2>
+      <button type="button" class="icon-btn btn-sm" onclick="closeStepModal()" aria-label="Chiudi finestra">
+        <svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg>
+      </button>
+    </div>
+    <div class="ui-dialog-body" id="stepEditFields">
+      <!-- Injected by JS -->
+    </div>
+    <div class="ui-dialog-foot">
+      <button class="btn btn-secondary btn-sm" type="button" onclick="closeStepModal()">Annulla</button>
+      <button class="btn btn-primary btn-sm" type="button" onclick="saveStepModal()">
+        <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Salva Modifiche
+      </button>
+    </div>
+  </dialog>
+
+  <!-- Certificate Print Modal Dialog -->
+  <dialog class="ui-dialog sm" id="certModal" aria-labelledby="certModalTitle">
+    <div class="ui-dialog-head">
+      <h2 id="certModalTitle">Attestato di Completamento</h2>
+      <button type="button" class="icon-btn btn-sm" onclick="closeCertModal()" aria-label="Chiudi finestra">
+        <svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg>
+      </button>
+    </div>
+    <div class="ui-dialog-body" id="certModalBody">
+      <!-- Injected by JS -->
+    </div>
+    <div class="ui-dialog-foot">
+      <button class="btn btn-secondary btn-sm" type="button" onclick="closeCertModal()">Chiudi</button>
+      <button class="btn btn-primary btn-sm" type="button" onclick="printCertificate()">
+        <svg class="icon" aria-hidden="true"><use href="#i-printer"></use></svg>Stampa Attestato
+      </button>
+    </div>
+  </dialog>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">AB</span>
+          <h2>Alberto Bedeschi</h2>
+          <p>Progettista formativo digitale e studente magistrale in Teorie e Metodi del Digital Learning (LM-93).</p>
+        </div>
+        <div class="footer-col">
+          <h3>Esplora</h3>
+          <ul>
+            <li><a href="chi-sono.html">Chi sono</a></li>
+            <li><a href="lms.html">Piattaforma LMS</a></li>
+            <li><a href="progetti.html">Casi studio &amp; mappa</a></li>
+            <li><a href="profilo.html">Curriculum</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contatti</h3>
+          <ul>
+            <li><a href="mailto:alberto.bedeschi97@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>alberto.bedeschi97@gmail.com</a></li>
+            <li><a href="tel:+393405888657"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>340 588 8657</a></li>
+            <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Reggio Emilia · Automunito</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-copy">
+        <span>© <span data-year>2026</span> Alberto Bedeschi</span>
+        <span>Spazio professionale e didattico</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="lms_engine.js"></script>
+</body>
+</html>

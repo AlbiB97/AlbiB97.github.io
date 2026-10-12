@@ -1,0 +1,17 @@
+===========================================================
+PORTFOLIO & PIATTAFORMA LMS — ALBERTO BEDESCHI
+===========================================================
+
+AGGIORNAMENTO SKILLA & RELAZIONE DI TIROCINIO:
+I contenuti relativi a Skilla sono stati allineati punto per
+punto con la Relazione di Fine Tirocinio ufficiale (tutor Chiara Moroni):
+- Revisione e correzione di storyboard prima della messa in produzione
+- Stesura di test e quiz di verifica dell'apprendimento
+- Controllo dell'accessibilita' (WCAG) e materiali per traduzioni multimediali
+- Controllo, feedback e supporto operativo nell'ideazione di Arianna (AI gen)
+- Inserita la citazione del giudizio finale 'Ottimo'
+
+COME APRIRE IL SITO:
+Estrai tutti i file in una cartella e fai doppio clic su:
+--> index.html
+===========================================================
