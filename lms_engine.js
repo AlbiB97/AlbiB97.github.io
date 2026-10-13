@@ -29,7 +29,7 @@
   // Default Courses Database (Fallback & Template)
   const defaultCourses = [
     {
-      id: "corso-benessere",
+      id: "corso-clark-mayer",
       title: "Benessere Digitale & Gestione del Carico Cognitivo",
       category: "Instructional Design & AI",
       badge: "Modulo 1 · Microlearning",
@@ -198,6 +198,9 @@
   function loadProgress() {
     try {
       courseProgress = JSON.parse(localStorage.getItem('alberto_lms_progress') || '{}');
+      if (courseProgress['corso-benessere'] && !courseProgress['corso-clark-mayer']) {
+        courseProgress['corso-clark-mayer'] = courseProgress['corso-benessere'];
+      }
     } catch (e) {
       courseProgress = {};
     }
@@ -213,11 +216,17 @@
 
   function getCourseProgress(courseId) {
     if (!courseProgress[courseId]) {
-      courseProgress[courseId] = {
-        unlockedSteps: [0],
-        completedSteps: [],
-        lastStepIndex: 0
-      };
+      if (courseId === 'corso-clark-mayer' && courseProgress['corso-benessere']) {
+        courseProgress['corso-clark-mayer'] = courseProgress['corso-benessere'];
+      } else if (courseId === 'corso-benessere' && courseProgress['corso-clark-mayer']) {
+        courseProgress['corso-benessere'] = courseProgress['corso-clark-mayer'];
+      } else {
+        courseProgress[courseId] = {
+          unlockedSteps: [0],
+          completedSteps: [],
+          lastStepIndex: 0
+        };
+      }
     }
     const p = courseProgress[courseId];
     if (!Array.isArray(p.unlockedSteps) || p.unlockedSteps.length === 0) p.unlockedSteps = [0];
@@ -874,17 +883,36 @@
           </div>
         `;
 
+      const isModule1 = (activeCourseIndex === 0 || (course && (course.id === 'corso-clark-mayer' || course.id === 'corso-benessere')));
+      const infographicUrl = step.infographicUrl || (course && course.infographicUrl);
+      const infographicHTML = infographicUrl ? `
+        <div class="infographic-box" style="margin: 20px auto 26px auto; max-width: 620px; text-align: center;">
+          <p style="font-size: 0.88rem; font-weight: 600; color: var(--text-muted); margin-bottom: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+            <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-layers"></use></svg>
+            ${isModule1 ? "Mappa Concettuale Integrata: Scienza dell'Apprendimento Digitale" : "Copertina &amp; Identità Visiva del Learning Object"}
+          </p>
+          <a href="${escapeHtml(infographicUrl)}" target="_blank" rel="noopener" title="Clicca per ingrandire l'immagine ad alta risoluzione" style="display:block; border-radius:12px; overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--border); background:var(--surface);">
+            <img src="${escapeHtml(infographicUrl)}" alt="${escapeHtml(course.title)}" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:12px;">
+          </a>
+          <span style="display:block; font-size:0.78rem; color:var(--text-soft); margin-top:8px;">
+            🔍 Clicca sull'immagine per visualizzarla a schermo intero in una nuova scheda
+          </span>
+        </div>
+      ` : '';
+
       stepHTML += `
         <div class="completion">
           ${badgeHeroHTML}
           <span class="badge badge-green">Competenze Certificate con Successo</span>
           <h3 style="margin-top: 10px;">${escapeHtml(step.title || 'Percorso Concluso!')}</h3>
-          <div class="completion-body" style="margin: 14px 0 24px 0; color: var(--text-muted); line-height: 1.6;">
+          <div class="completion-body" style="margin: 14px 0 20px 0; color: var(--text-muted); line-height: 1.6;">
             ${step.text || '<p>Congratulazioni per aver completato con successo l\'intero percorso di microlearning.</p>'}
           </div>
 
+          ${infographicHTML}
+
           <div class="completion-actions">
-            ${course.id === 'corso-clark-mayer' ? `
+            ${isModule1 ? `
             <div class="completion-card">
               <h4>
                 <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-file-text"></use></svg>
@@ -1041,6 +1069,22 @@
       prog.lastStepIndex = currentStepIndex;
       saveProgress();
       renderPlayerUI();
+    }
+  };
+
+  // Direct Step Navigation Action
+  window.goToStep = function (idx) {
+    const course = courses[activeCourseIndex];
+    if (!course || !course.steps) return;
+    const targetIdx = Math.max(0, Math.min(Number(idx) || 0, course.steps.length - 1));
+    currentStepIndex = targetIdx;
+    const prog = getCourseProgress(course.id);
+    prog.lastStepIndex = currentStepIndex;
+    saveProgress();
+    renderPlayerUI();
+    const content = document.getElementById('lmsStepContent');
+    if (content) {
+      content.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -1879,6 +1923,11 @@
     const body = document.getElementById('certModalBody');
     if (!modal || !body) return;
 
+    const isModule1 = (activeCourseIndex === 0 || (course && (course.id === 'corso-clark-mayer' || course.id === 'corso-benessere')));
+    const certUrl = isModule1
+      ? 'attestato_completamento.html'
+      : 'attestato_giovane_paleontologo.html';
+
     const today = new Date().toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
     const badgeImg = course.badgeImage || (course.steps && course.steps.find(s => s.badgeImage)?.badgeImage);
     const badgeModalHTML = badgeImg
@@ -1889,16 +1938,18 @@
       <div style="text-align:center; padding:20px 16px; border:2px solid var(--accent); border-radius:14px; background:var(--surface-2);">
         ${badgeModalHTML}
         <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); font-weight:700; margin-bottom:6px;">
-          Micro-Attestato di Completamento
+          ${isModule1 ? 'Micro-Attestato di Completamento' : 'Diploma Ufficiale Giovane Paleontologo'}
         </div>
         <h3 style="font-family:var(--font-serif); font-size:1.45rem; color:var(--text); margin-bottom:12px;">
           ${escapeHtml(course.title)}
         </h3>
         <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:14px;">
-          Si certifica il completamento dell'intero percorso didattico asincrono a progressione vincolata, con esito positivo nelle prove di verifica formativa e situazionale.
+          ${isModule1
+            ? "Si certifica il completamento dell'intero percorso didattico asincrono a progressione vincolata, con esito positivo nelle prove di verifica formativa e situazionale."
+            : "Si certifica il completamento dell'intero Learning Object 'Dai Fossili alle Piume', con superamento di tutti i capitoli animati e delle prove di verifica paleontologica."}
         </p>
         <div style="margin-bottom:16px;">
-          <a href="${(course && course.id === 'corso-dinosauri-learning-object') ? 'attestato_giovane_paleontologo.html' : 'attestato_completamento.html'}" target="_blank" rel="noopener" class="btn btn-terra btn-sm" style="display:inline-flex; align-items:center; gap:8px;">
+          <a href="${certUrl}" target="_blank" rel="noopener" class="btn btn-terra btn-sm" style="display:inline-flex; align-items:center; gap:8px;">
             🎓 Apri Pagina Attestato A4 da Stampare / Salvare PDF
           </a>
         </div>
@@ -1909,6 +1960,11 @@
         </div>
       </div>
     `;
+
+    const footerLink = modal.querySelector('.ui-dialog-foot a');
+    if (footerLink) {
+      footerLink.href = certUrl;
+    }
 
     if (modal.showModal) modal.showModal();
     else modal.setAttribute('open', '');
@@ -1923,9 +1979,10 @@
 
   window.printCertificate = function () {
     const course = courses[activeCourseIndex];
-    const certUrl = (course && course.id === 'corso-dinosauri-learning-object')
-      ? 'attestato_giovane_paleontologo.html'
-      : 'attestato_completamento.html';
+    const isModule1 = (activeCourseIndex === 0 || (course && (course.id === 'corso-clark-mayer' || course.id === 'corso-benessere')));
+    const certUrl = isModule1
+      ? 'attestato_completamento.html'
+      : 'attestato_giovane_paleontologo.html';
     window.open(certUrl, '_blank');
   };
 
