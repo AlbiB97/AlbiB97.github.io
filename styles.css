@@ -1325,61 +1325,43 @@ img, svg, iframe { display: block; max-width: 100%; }
 .video-frame.video-vertical {
   aspect-ratio: 9 / 16;
   width: 100%;
-  max-width: 310px;
-  margin: 0 auto;
+  max-width: 320px;
+  max-height: 560px;
+  margin: 16px auto;
   border-radius: 20px;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-/* Layout affiancato per Video Verticali (Desktop Side-by-Side) */
-.video-step-layout {
-  display: grid;
-  grid-template-columns: 310px 1fr;
-  gap: 32px;
-  align-items: start;
-  margin-top: 4px;
-}
-
-.video-col-player {
-  display: flex;
-  justify-content: center;
-}
-
-.video-col-info {
+.objectives-list-step {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin: 18px 0;
 }
 
-.video-col-info .step-badge {
-  align-self: flex-start;
-  margin-bottom: 2px;
-}
-
-.video-col-info .step-title {
-  margin: 0;
-  font-size: 1.4rem;
-  line-height: 1.3;
-}
-
-.video-col-info .content-panel {
-  margin: 0;
-  padding: 16px 18px;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  background: var(--surface);
+.objectives-list-step .objective-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
+  font-size: 0.95rem;
 }
 
-.video-col-info .content-panel p:last-child {
-  margin-bottom: 0;
-}
-
-.video-col-info .unlock-banner {
-  margin: 4px 0 0 0;
-  padding: 10px 14px;
-  font-size: 0.86rem;
+.objectives-list-step .bloom-tag {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(42, 92, 69, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(42, 92, 69, 0.25);
 }
 
 /* Badge di Completamento Percorso */

@@ -601,94 +601,48 @@
     void contentArea.offsetWidth;
     contentArea.classList.add('is-entering');
 
-    // Bloom's Taxonomy Objectives Header (shown only on Step 1 to keep other steps clean and focused)
-    let objectivesHTML = '';
-    if (course.objectives && course.objectives.length > 0 && currentStepIndex === 0) {
-      objectivesHTML = `
-        <div class="course-objectives-panel" style="margin-bottom: 22px;">
-          <button type="button" class="objectives-toggle" onclick="toggleCourseObjectives()" id="btnCourseObjToggle" aria-expanded="false">
-            <span><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg> <strong>Obiettivi Formativi del Corso &amp; Tassonomia di Bloom</strong> (${course.objectives.length} traguardi)</span>
-            <svg class="icon toggle-arrow" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
-          </button>
-          <div class="objectives-list" id="courseObjectivesList" hidden>
-            ${course.objectives.map(obj => `
-              <div class="objective-item">
-                <span class="bloom-tag">${escapeHtml(obj.bloom || 'Comprendere')}</span>
-                <span>${escapeHtml(obj.text || '')}</span>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      `;
-    }
-
     const isStepAlreadyDone = completed.has(currentStepIndex);
-    let stepHTML = objectivesHTML;
-
-    // Prepend step title/badge for all steps EXCEPT vertical video (which renders them inside the right column)
-    const isVerticalVideo = (step.type === 'video' && Boolean(step.isVertical || step.format === 'vertical'));
-    if (!isVerticalVideo) {
-      stepHTML += `
-        <span class="step-badge">${escapeHtml(step.badge || 'Modulo Didattico')}</span>
-        <h3 class="step-title">${escapeHtml(step.title)}</h3>
-      `;
-    }
+    let stepHTML = `
+      <span class="step-badge">${escapeHtml(step.badge || 'Modulo Didattico')}</span>
+      <h3 class="step-title">${escapeHtml(step.title)}</h3>
+    `;
 
     // 1. VIDEO STEP
     if (step.type === 'video') {
       const embedUrl = formatVideoEmbed(step.videoUrl);
       const isVertical = Boolean(step.isVertical || step.format === 'vertical');
+      const frameClass = isVertical ? 'video-frame video-vertical' : 'video-frame';
 
       let unlockBannerHTML = '';
       if (isStepAlreadyDone) {
         unlockBannerHTML = `
-          <div class="unlock-banner ok">
+          <div class="unlock-banner ok" style="margin-top: 18px;">
             <svg class="icon" aria-hidden="true"><use href="#i-check-circle"></use></svg>
-            <div><strong>Modulo completato!</strong> Hai già confermato la visione di questa pillola.</div>
+            <div><strong>Modulo completato!</strong> Hai già confermato la visione di questa pillola. Puoi procedere.</div>
           </div>
         `;
       } else {
         unlockBannerHTML = `
-          <div class="unlock-banner">
+          <div class="unlock-banner" style="margin-top: 18px;">
             <svg class="icon" aria-hidden="true"><use href="#i-video"></use></svg>
-            <div>Guarda il video e clicca in basso per <strong>sbloccare il passaggio</strong>.</div>
+            <div>Guarda il video e clicca in basso per <strong>sbloccare il modulo successivo</strong>.</div>
           </div>
         `;
       }
 
       if (embedUrl) {
         const isDirectVideo = embedUrl.endsWith('.mp4') || embedUrl.endsWith('.webm') || embedUrl.endsWith('.mov') || embedUrl.includes('.mp4');
-        const frameClass = isVertical ? 'video-frame video-vertical' : 'video-frame';
-
         const mediaTag = isDirectVideo
           ? `<video src="${escapeHtml(embedUrl)}" controls playsinline preload="metadata" style="width:100%; height:100%; object-fit:contain; background:#000;"></video>`
           : `<iframe src="${embedUrl}" title="${escapeHtml(step.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 
-        if (isVertical) {
-          stepHTML += `
-            <div class="video-step-layout">
-              <div class="video-col-player">
-                <div class="${frameClass}">
-                  ${mediaTag}
-                </div>
-              </div>
-              <div class="video-col-info">
-                <span class="step-badge">${escapeHtml(step.badge || 'Pillola Mobile-First')}</span>
-                <h3 class="step-title">${escapeHtml(step.title)}</h3>
-                <div class="content-panel">${step.text || ''}</div>
-                ${unlockBannerHTML}
-              </div>
-            </div>
-          `;
-        } else {
-          stepHTML += `
-            <div class="${frameClass}" style="margin-bottom: 20px;">
-              ${mediaTag}
-            </div>
-            <div class="content-panel">${step.text || ''}</div>
-            ${unlockBannerHTML}
-          `;
-        }
+        stepHTML += `
+          <div class="${frameClass}">
+            ${mediaTag}
+          </div>
+          ${step.text ? `<div class="content-panel" style="margin-top: 16px;">${step.text}</div>` : ''}
+          ${unlockBannerHTML}
+        `;
       } else {
         stepHTML += `
           <button type="button" class="video-mockup" onclick="simulateVideoPlay(this)" aria-label="Riproduci simulazione video">
@@ -700,7 +654,7 @@
               <span>Durata: ${escapeHtml(step.videoDuration || '02:00')}</span>
             </div>
           </button>
-          <div class="content-panel">${step.text || ''}</div>
+          ${step.text ? `<div class="content-panel" style="margin-top: 16px;">${step.text}</div>` : ''}
           ${unlockBannerHTML}
         `;
       }

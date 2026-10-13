@@ -13,26 +13,37 @@
     ],
     "steps": [
       {
+        "type": "text",
+        "title": "1. Obiettivi Formativi & Tassonomia di Bloom",
+        "badge": "Fase Iniziale · Quadro delle Competenze",
+        "text": "<p>Benvenuto nel modulo di <strong>Mobile-First Microlearning</strong> dedicato all'evidence-based instructional design (Clark & Mayer). Prima di iniziare la visione delle pillole video, ecco i traguardi didattici categorizzati secondo la <strong>Tassonomia di Bloom</strong>:</p><div class='objectives-list-step'><div class='objective-item'><span class='bloom-tag'>Comprendere</span><span>Distinguere l'architettura cognitiva della memoria (di lavoro vs a lungo termine) e prevenire il sovraccarico essenziale (<em>essential overload</em>).</span></div><div class='objective-item'><span class='bloom-tag'>Applicare</span><span>Applicare il Principio di Segmentazione progettando unità didattiche autonome (<em>chunking</em>) fruite a ritmo controllato dal discente.</span></div><div class='objective-item'><span class='bloom-tag'>Valutare</span><span>Valutare storyboards e materiali digitali applicando il Principio di Coerenza, eliminando grafica decorativa e stimoli estranei.</span></div></div><div class='callout-quote'>🎯 <strong>Architettura del percorso:</strong> Ogni argomento è strutturato in una sequenza rigorosa: video pillola verticale, approfondimento teorico, flashcard di active retrieval, quiz situazionale e riflessione metacognitiva.</div>"
+      },
+      {
         "type": "video",
-        "title": "1. Video 1: Il Carico Cognitivo & La Memoria",
+        "title": "2. Video 1: Il Carico Cognitivo & La Memoria",
         "badge": "Pillola 1 · Mobile-First (9:16)",
         "videoTitle": "Architettura Cognitiva: Memoria di Lavoro vs Lungo Termine",
         "videoDuration": "00:45",
         "videoUrl": "videos/corso-clark-mayer/video1_carico_cognitivo.mp4",
-        "isVertical": true,
-        "text": "<p><strong>Concetto chiave:</strong> La memoria di lavoro ha una capacità limitata (pochi elementi simultanei) e una durata effimera; la memoria a lungo termine conserva gli schemi stabili. Sovraccaricare la mente con un flusso continuo di informazioni non digerite (<em>essential overload</em>) blocca l'elaborazione attiva e l'apprendimento.</p>"
+        "isVertical": true
+      },
+      {
+        "type": "text",
+        "title": "3. Quadro Didattico: Carico Cognitivo & Memoria",
+        "badge": "Fase 1 · Approfondimento Concettuale",
+        "text": "<p>L'architettura cognitiva dell'apprendimento (<strong>Clark & Mayer</strong>) individua due strutture mentali cardine per la formazione digitale:</p><ul><li><strong>Memoria di Lavoro:</strong> ha una capacità strettamente limitata (può gestire solo pochissimi elementi simultanei) ed è volatile ed effimera nel tempo.</li><li><strong>Memoria a Lungo Termine:</strong> è l'archivio permanente che immagazzina schemi mentali e competenze consolidate.</li></ul><div class='callout-quote'>⚠️ <strong>Essential Overload:</strong> Quando un corso digitale inonda la memoria di lavoro con un flusso ininterrotto di nozioni prima che abbia avuto il tempo di organizzarle, si verifica un blocco cognitivo immediato che annulla la ritenzione.</div>"
       },
       {
         "type": "flashcard",
-        "title": "2. Flashcard: Memoria di Lavoro vs Memoria a Lungo Termine",
+        "title": "4. Flashcard: Memoria di Lavoro vs Lungo Termine",
         "badge": "Fase 1 · Consolidamento Rapido",
-        "frontText": "🧠 Perché un corso e-learning denso di informazioni continue provoca 'Essential Overload'?",
-        "backText": "Perché la memoria di lavoro può gestire pochissimi elementi informativi alla volta ed è volatile. Senza pause e attivatori cognitivi per trasferire i dati nella memoria a lungo termine, le informazioni decadono rapidamente.",
+        "frontText": "🧠 Perché un corso e-learning denso di nozioni continue provoca 'Essential Overload'?",
+        "backText": "Perché la memoria di lavoro ha una capacità ridotta ed è effimera. Senza pause e attivatori per trasferire i dati nella memoria a lungo termine, le informazioni non vengono assimilate e decadono rapidamente.",
         "tip": "Clicca sulla card (o premi Spazio) per ruotarla e verificare la tua comprensione."
       },
       {
         "type": "quiz",
-        "title": "3. Quiz di Verifica: Architettura Cognitiva",
+        "title": "5. Quiz di Verifica: Architettura Cognitiva",
         "badge": "Fase 1 · Verifica Formativa",
         "question": "Secondo Clark e Mayer, quale strategia didattica previene il sovraccarico essenziale (essential overload)?",
         "options": [
@@ -43,24 +54,29 @@
       },
       {
         "type": "reflection",
-        "title": "4. Riflessione Metacognitiva: Il Tuo Carico Cognitivo",
+        "title": "6. Riflessione Metacognitiva: Il Tuo Carico Cognitivo",
         "badge": "Fase 1 · Diario Metacognitivo",
         "prompt": "✍️ <strong>Spazio di Auto-Valutazione:</strong> Pensa a un corso o a un manuale tecnico che hai studiato recentemente. In quale momento hai avvertito saturazione cognitiva e cosa avrebbe potuto fare il formatore per evitarla?",
         "placeholder": "Annota qui la tua riflessione personale (viene salvata in automatico nel tuo browser)..."
       },
       {
         "type": "video",
-        "title": "5. Video 2: Il Principio di Segmentazione (Microlearning)",
+        "title": "7. Video 2: Il Principio di Segmentazione (Microlearning)",
         "badge": "Pillola 2 · Mobile-First (9:16)",
         "videoTitle": "Segmenting Principle: Scomposizione in Unità Autonome",
         "videoDuration": "00:48",
         "videoUrl": "videos/corso-clark-mayer/video2_segmentazione.mp4",
-        "isVertical": true,
-        "text": "<p><strong>Concetto chiave:</strong> Scomporre processi formativi complessi in brevi unità didattiche autonome (<em>chunking</em>) fruite al ritmo controllato dal discente (<em>learner-paced</em>) riduce il carico essenziale e rende il microlearning efficace e memorabile.</p>"
+        "isVertical": true
+      },
+      {
+        "type": "text",
+        "title": "8. Quadro Didattico: Il Principio di Segmentazione",
+        "badge": "Fase 2 · Approfondimento Concettuale",
+        "text": "<p><strong>Il Principio di Segmentazione (Segmenting Principle):</strong> Clark e Mayer dimostrano che le persone apprendono meglio quando una materia complessa è suddivisa in <em>brevi unità didattiche autonome (chunking)</em> fruite al ritmo controllato dal discente (<em>learner-paced</em>).</p><div class='callout-quote'>⏱️ <strong>Il potere del Microlearning:</strong> Permettere allo studente di decidere quando passare al blocco successivo offre il tempo indispensabile per elaborare ciascun concetto prima di accogliere nuove nozioni.</div>"
       },
       {
         "type": "flashcard",
-        "title": "6. Flashcard: Segmentazione & Chunking",
+        "title": "9. Flashcard: Segmentazione & Chunking",
         "badge": "Fase 2 · Consolidamento Rapido",
         "frontText": "🧩 In che modo la segmentazione (chunking) rende il microlearning efficace e memorabile?",
         "backText": "Scomponendo compiti complessi in unità indipendenti a ritmo autonomo, il discente non subisce un flusso passivo: ha il tempo di riflettere e consolidare ogni singolo schema prima di procedere.",
@@ -68,7 +84,7 @@
       },
       {
         "type": "quiz",
-        "title": "7. Quiz di Progettazione: Applicare la Segmentazione",
+        "title": "10. Quiz di Progettazione: Applicare la Segmentazione",
         "badge": "Fase 2 · Verifica Formativa",
         "question": "Un'azienda ti commissiona un corso su una procedura complessa. Come applichi il Principio di Segmentazione?",
         "options": [
@@ -79,24 +95,29 @@
       },
       {
         "type": "reflection",
-        "title": "8. Riflessione Metacognitiva: Scomporre la Complessità",
+        "title": "11. Riflessione Metacognitiva: Scomporre la Complessità",
         "badge": "Fase 2 · Diario Metacognitivo",
         "prompt": "✍️ <strong>Laboratorio di Chunking:</strong> Individua una competenza complessa che insegni o usi nel tuo lavoro. Come la suddivideresti in 3 micro-moduli da 1 minuto ciascuno?",
         "placeholder": "Descrivi i tuoi 3 micro-chunk e la loro logica sequenziale..."
       },
       {
         "type": "video",
-        "title": "9. Video 3: Il Principio di Coerenza (Eliminare il Superfluo)",
+        "title": "12. Video 3: Il Principio di Coerenza (Eliminare il Superfluo)",
         "badge": "Pillola 3 · Mobile-First (9:16)",
         "videoTitle": "Coherence Principle: Eliminare Stimoli Estranei e Grafica Inutile",
         "videoDuration": "00:46",
         "videoUrl": "videos/corso-clark-mayer/video3_coerenza.mp4",
-        "isVertical": true,
-        "text": "<p><strong>Concetto chiave:</strong> Eliminare grafica puramente decorativa, testi ridondanti e musiche di sottofondo inutili è fondamentale nei corsi digitali: azzera il <em>carico estraneo</em> e concentra tutta l'attenzione sui contenuti centrali.</p>"
+        "isVertical": true
+      },
+      {
+        "type": "text",
+        "title": "13. Quadro Didattico: Il Principio di Coerenza",
+        "badge": "Fase 3 · Approfondimento Concettuale",
+        "text": "<p><strong>Il Principio di Coerenza (Coherence Principle):</strong> Clark e Mayer spiegano perché nei corsi e-learning è fondamentale eliminare grafica puramente decorativa, testi ridondanti e musiche di sottofondo inutili.</p><div class='callout-quote'>✂️ <strong>Eliminare gli stimoli estranei:</strong> Gli elementi visivi o sonori non pertinenti generano <em>carico cognitivo estraneo</em>, affaticando la mente dello studente e riducendo drasticamente la capacità di comprendere i contenuti centrali.</div>"
       },
       {
         "type": "flashcard",
-        "title": "10. Flashcard: Il Principio di Coerenza",
+        "title": "14. Flashcard: Il Principio di Coerenza",
         "badge": "Fase 3 · Consolidamento Rapido",
         "frontText": "✂️ Perché nei corsi digitali è fondamentale eliminare grafica puramente decorativa e musica di sottofondo inutile?",
         "backText": "Perché generano 'carico cognitivo estraneo'. Il cervello dello studente è costretto a spendere energia mentale per ignorare gli stimoli irrilevanti, riducendo la capacità di comprendere e memorizzare i contenuti centrali.",
@@ -104,7 +125,7 @@
       },
       {
         "type": "quiz",
-        "title": "11. Quiz di Revisione Didattica: Applicare la Coerenza",
+        "title": "15. Quiz di Revisione Didattica: Applicare la Coerenza",
         "badge": "Fase 3 · Verifica Formativa",
         "question": "Durante la revisione dello storyboard di un corso digitale, noti schermate cariche di illustrazioni decorative, testo ridondante e musica di sottofondo continua. Come intervieni?",
         "options": [
@@ -115,14 +136,14 @@
       },
       {
         "type": "reflection",
-        "title": "12. Riflessione Metacognitiva: Caccia al Carico Estraneo",
+        "title": "16. Riflessione Metacognitiva: Caccia al Carico Estraneo",
         "badge": "Fase 3 · Diario Metacognitivo",
         "prompt": "✍️ <strong>Audit di Coerenza:</strong> Pensa a un materiale e-learning, slide o video in cui hai notato elementi decorativi o ridondanti. Quale elemento avresti tagliato e perché?",
         "placeholder": "Condividi la tua analisi critica..."
       },
       {
         "type": "completion",
-        "title": "13. Completamento & Certificazione",
+        "title": "17. Completamento & Certificazione",
         "badge": "Traguardo Finale · Competenze Validate",
         "badgeImage": "videos/corso-clark-mayer/badge_certified_id.png",
         "text": "<p>Hai completato con successo l'intero percorso didattico sequenziale, dimostrando padronanza dell'architettura della memoria, del Principio di Segmentazione e del Principio di Coerenza secondo l'evidence-based design di <strong>Clark & Mayer</strong>.</p>"
