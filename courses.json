@@ -4,12 +4,21 @@
     "title": "Scienza dell'Apprendimento Digitale & Principi di Clark & Mayer",
     "category": "Instructional Design & E-Learning",
     "badge": "Modulo 1 · Mobile-First Microlearning",
-    "badgeImage": "videos/corso-clark-mayer/badge_certified_id.png",
-    "infographicUrl": "videos/corso-clark-mayer/scienza_apprendimento_digitale.png",
+    "badgeImage": "moduli-formativi/corso-clark-mayer/badge_certified_id.png",
+    "infographicUrl": "moduli-formativi/corso-clark-mayer/scienza_apprendimento_digitale.png",
     "objectives": [
-      { "bloom": "Comprendere", "text": "Distinguere l'architettura cognitiva della memoria (di lavoro vs a lungo termine) e prevenire l'essential overload." },
-      { "bloom": "Applicare", "text": "Applicare il Principio di Segmentazione progettando unità di microlearning autonome a ritmo controllato dal discente." },
-      { "bloom": "Valutare", "text": "Valutare l'efficacia di un corso e-learning tramite il Principio di Coerenza, eliminando elementi grafici e sonori estranei." }
+      {
+        "bloom": "Comprendere",
+        "text": "Distinguere l'architettura cognitiva della memoria (di lavoro vs a lungo termine) e prevenire l'essential overload."
+      },
+      {
+        "bloom": "Applicare",
+        "text": "Applicare il Principio di Segmentazione progettando unità di microlearning autonome a ritmo controllato dal discente."
+      },
+      {
+        "bloom": "Valutare",
+        "text": "Valutare l'efficacia di un corso e-learning tramite il Principio di Coerenza, eliminando elementi grafici e sonori estranei."
+      }
     ],
     "steps": [
       {
@@ -24,7 +33,7 @@
         "badge": "Pillola 1 · Mobile-First (9:16)",
         "videoTitle": "Architettura Cognitiva: Memoria di Lavoro vs Lungo Termine",
         "videoDuration": "00:45",
-        "videoUrl": "videos/corso-clark-mayer/video1_carico_cognitivo.mp4",
+        "videoUrl": "moduli-formativi/corso-clark-mayer/video1_carico_cognitivo.mp4",
         "isVertical": true
       },
       {
@@ -47,9 +56,21 @@
         "badge": "Fase 1 · Verifica Formativa",
         "question": "Secondo Clark e Mayer, quale strategia didattica previene il sovraccarico essenziale (essential overload)?",
         "options": [
-          { "text": "Condensare tutti i concetti in un'unica lezione intensiva da 30 minuti senza pause.", "correct": false, "feedback": "❌ Non corretto: supera la capacità della memoria di lavoro, provocando affaticamento e distrazione." },
-          { "text": "Strutturare il contenuto in nuclei graduali, permettendo alla memoria di lavoro di elaborare e integrare prima di proseguire.", "correct": true, "feedback": "✅ <strong>Esatto!</strong> Rispettare i limiti della memoria di lavoro garantisce il consolidamento nella memoria a lungo termine." },
-          { "text": "Aggiungere musica ritmata in sottofondo per tenere sveglia l'attenzione del discente.", "correct": false, "feedback": "❌ Non corretto: la musica aggiunge carico cognitivo estraneo." }
+          {
+            "text": "Condensare tutti i concetti in un'unica lezione intensiva da 30 minuti senza pause.",
+            "correct": false,
+            "feedback": "❌ Non corretto: supera la capacità della memoria di lavoro, provocando affaticamento e distrazione."
+          },
+          {
+            "text": "Strutturare il contenuto in nuclei graduali, permettendo alla memoria di lavoro di elaborare e integrare prima di proseguire.",
+            "correct": true,
+            "feedback": "✅ <strong>Esatto!</strong> Rispettare i limiti della memoria di lavoro garantisce il consolidamento nella memoria a lungo termine."
+          },
+          {
+            "text": "Aggiungere musica ritmata in sottofondo per tenere sveglia l'attenzione del discente.",
+            "correct": false,
+            "feedback": "❌ Non corretto: la musica aggiunge carico cognitivo estraneo."
+          }
         ]
       },
       {
@@ -65,7 +86,7 @@
         "badge": "Pillola 2 · Mobile-First (9:16)",
         "videoTitle": "Segmenting Principle: Scomposizione in Unità Autonome",
         "videoDuration": "00:48",
-        "videoUrl": "videos/corso-clark-mayer/video2_segmentazione.mp4",
+        "videoUrl": "moduli-formativi/corso-clark-mayer/video2_segmentazione.mp4",
         "isVertical": true
       },
       {
@@ -88,9 +109,21 @@
         "badge": "Fase 2 · Verifica Formativa",
         "question": "Un'azienda ti commissiona un corso su una procedura complessa. Come applichi il Principio di Segmentazione?",
         "options": [
-          { "text": "Mostri l'intera procedura in un'unica video-lezione continua da 40 minuti.", "correct": false, "feedback": "❌ Non corretto: viola il principio di segmentazione e sovraccarica il discente." },
-          { "text": "Scomponi il percorso in micro-pillole da 1-2 minuti focalizzate su singoli task, con navigazione controllata dal discente.", "correct": true, "feedback": "✅ <strong>Risposta Corretta!</strong> La scomposizione modulare a ritmo autonomo azzera il sovraccarico e massimizza la memorizzazione operativa." },
-          { "text": "Invii un unico documento PDF da 80 pagine invitando i colleghi a leggerlo autonomamente.", "correct": false, "feedback": "❌ Non corretto: manca la mediazione didattica e la gradualità interattiva." }
+          {
+            "text": "Mostri l'intera procedura in un'unica video-lezione continua da 40 minuti.",
+            "correct": false,
+            "feedback": "❌ Non corretto: viola il principio di segmentazione e sovraccarica il discente."
+          },
+          {
+            "text": "Scomponi il percorso in micro-pillole da 1-2 minuti focalizzate su singoli task, con navigazione controllata dal discente.",
+            "correct": true,
+            "feedback": "✅ <strong>Risposta Corretta!</strong> La scomposizione modulare a ritmo autonomo azzera il sovraccarico e massimizza la memorizzazione operativa."
+          },
+          {
+            "text": "Invii un unico documento PDF da 80 pagine invitando i colleghi a leggerlo autonomamente.",
+            "correct": false,
+            "feedback": "❌ Non corretto: manca la mediazione didattica e la gradualità interattiva."
+          }
         ]
       },
       {
@@ -106,7 +139,7 @@
         "badge": "Pillola 3 · Mobile-First (9:16)",
         "videoTitle": "Coherence Principle: Eliminare Stimoli Estranei e Grafica Inutile",
         "videoDuration": "00:46",
-        "videoUrl": "videos/corso-clark-mayer/video3_coerenza.mp4",
+        "videoUrl": "moduli-formativi/corso-clark-mayer/video3_coerenza.mp4",
         "isVertical": true
       },
       {
@@ -129,9 +162,21 @@
         "badge": "Fase 3 · Verifica Formativa",
         "question": "Durante la revisione dello storyboard di un corso digitale, noti schermate cariche di illustrazioni decorative, testo ridondante e musica di sottofondo continua. Come intervieni?",
         "options": [
-          { "text": "Mantieni tutto invariato perché gli stimoli visivi e sonori rendono la lezione più accattivante.", "correct": false, "feedback": "❌ Non corretto: gli stimoli decorativi causano l'effetto 'seductive details' e riducono l'apprendimento." },
-          { "text": "Elimini le illustrazioni decorative, rimuovi la musica di sottofondo e ripulisci il testo per focalizzare l'attenzione sui contenuti centrali.", "correct": true, "feedback": "✅ <strong>Esatto!</strong> Il Principio di Coerenza impone di eliminare qualsiasi elemento che non supporti direttamente l'obiettivo pedagogico." },
-          { "text": "Aggiungi ulteriori effetti sonori per ogni interazione dell'utente.", "correct": false, "feedback": "❌ Non corretto: aumenta ulteriormente il rumore cognitivo estraneo." }
+          {
+            "text": "Mantieni tutto invariato perché gli stimoli visivi e sonori rendono la lezione più accattivante.",
+            "correct": false,
+            "feedback": "❌ Non corretto: gli stimoli decorativi causano l'effetto 'seductive details' e riducono l'apprendimento."
+          },
+          {
+            "text": "Elimini le illustrazioni decorative, rimuovi la musica di sottofondo e ripulisci il testo per focalizzare l'attenzione sui contenuti centrali.",
+            "correct": true,
+            "feedback": "✅ <strong>Esatto!</strong> Il Principio di Coerenza impone di eliminare qualsiasi elemento che non supporti direttamente l'obiettivo pedagogico."
+          },
+          {
+            "text": "Aggiungi ulteriori effetti sonori per ogni interazione dell'utente.",
+            "correct": false,
+            "feedback": "❌ Non corretto: aumenta ulteriormente il rumore cognitivo estraneo."
+          }
         ]
       },
       {
@@ -145,72 +190,198 @@
         "type": "completion",
         "title": "17. Completamento & Certificazione",
         "badge": "Traguardo Finale · Competenze Validate",
-        "badgeImage": "videos/corso-clark-mayer/badge_certified_id.png",
+        "badgeImage": "moduli-formativi/corso-clark-mayer/badge_certified_id.png",
         "text": "<p>Hai completato con successo l'intero percorso didattico sequenziale, dimostrando padronanza dell'architettura della memoria, del Principio di Segmentazione e del Principio di Coerenza secondo l'evidence-based design di <strong>Clark & Mayer</strong>.</p>"
       }
     ]
   },
   {
-    "id": "corso-territorio",
-    "title": "Mappatura Territoriale & Risorse Educative (Accento)",
-    "category": "Educativa & Digital Tools",
-    "badge": "Modulo 2 · Gestione Risorse",
+    "id": "corso-dinosauri-learning-object",
+    "title": "Dai Fossili alle Piume · Dinosauri ed Evoluzione",
+    "category": "Didattica Primaria & Learning Object (BES)",
+    "badge": "Modulo 2 · Progetto K-12 & Illustrazioni Originali",
+    "badgeImage": "moduli-formativi/corso-dinosauri-learning-object/badge_giovane_paleontologo.png",
+    "infographicUrl": "moduli-formativi/corso-dinosauri-learning-object/copertina_dai_fossili_alle_piume.jpg",
     "objectives": [
-      { "bloom": "Riconoscere", "text": "Identificare i nodi chiave della rete educativa sul territorio di Reggio Emilia." },
-      { "bloom": "Organizzare", "text": "Strutturare banche dati condivise e georeferenziate su Google My Maps per équipe multidisciplinari." },
-      { "bloom": "Valutare", "text": "Garantire il rispetto del GDPR e della riservatezza nella gestione della documentazione dei minori (DOS)." }
+      {
+        "bloom": "Comprendere",
+        "text": "Distinguere le tre ere geologiche del Mesozoico (Triassico, Giurassico, Cretacico) e l'importanza dei fossili per ricostruire la vita del passato."
+      },
+      {
+        "bloom": "Analizzare",
+        "text": "Comprendere la funzione biologica originaria delle piume nei dinosauri (termoregolazione e protezione) prima dello sviluppo del volo."
+      },
+      {
+        "bloom": "Valutare",
+        "text": "Riconoscere l'Archaeopteryx come anello di congiunzione anatomico tra dinosauri e uccelli moderni (ossa cave, sterno carenato, ali)."
+      }
     ],
     "steps": [
       {
-        "type": "video",
-        "title": "1. Video Intro: La Frammentazione Territoriale",
-        "badge": "Fase 1 · Il Contesto",
-        "videoTitle": "Pillola Video: Il Lavoro dell'Educatore sul Territorio",
-        "videoDuration": "01:30",
-        "videoUrl": "",
-        "text": "L'esperienza sul campo con <strong>Accento Cooperativa Sociale</strong>: il raccordo costante con i Servizi Sociali di Reggio Emilia e la necessità di una mappa condivisa."
+        "type": "text",
+        "title": "1. Inquadramento Pedagogico & Scheda del Learning Object",
+        "badge": "Fase 1 · Progettazione & Target",
+        "text": "<p>Benvenuto nel Learning Object <strong>Dai Fossili alle Piume</strong>, un percorso multimediale animato progettato per avvicinare i bambini alla paleontologia e alla teoria dell'evoluzione biologica.</p><div class='objectives-list-step'><div class='objective-item'><span class='bloom-tag'>Target & BES</span><span>Progettato per la <strong>scuola primaria (6–9 anni)</strong>, percorsi informali e allievi con <strong>Bisogni Educativi Speciali (BES)</strong>, grazie a video brevi, linguaggio chiaro ed empatia visiva.</span></div><div class='objective-item'><span class='bloom-tag'>Co-Design Artistico</span><span><strong>Progettazione didattica, storyboard e montaggio audio-video:</strong> Alberto Bedeschi (esame universitario UNIMORE, Prof. Poletti, 2021).<br><strong>Illustrazioni e sfondi originali disegnati a mano con Procreate:</strong> Zoe Pinzuti.</span></div><div class='objective-item'><span class='bloom-tag'>LMS Multi-Piattaforma</span><span>Validato su <strong>Moodle</strong> (ambiente completo con forum cooperativi) e su <strong>TalentLMS</strong> (ambiente lineare, immediato e accessibile da casa).</span></div></div><div class='callout-quote'>🦖 <strong>Approccio Didattico:</strong> Struttura lineare conforme agli indici di Brenda Laurel (frequenza e variabilità calibrate per l'età), arricchita da verifiche formative gamificate e attestato finale.</div>"
       },
       {
-        "type": "text",
-        "title": "2. Architettura dei Dati: Google My Maps & Gecos",
-        "badge": "Fase 2 · Integrazione Strumenti",
-        "text": "<p>Unire strumenti gestionali (Gecos per le ore, Google Drive per i dossier DOS) a una mappa geografica interattiva per visualizzare a colpo d'occhio sportelli di ascolto, centri pomeridiani e risorse per minori.</p><div class='callout-quote'>📍 <strong>Impatto:</strong> Riduzione dei tempi di orientamento delle famiglie e maggiore efficacia per le équipe multidisciplinari.</div>"
+        "type": "video",
+        "title": "2. Capitolo 1: Chi siamo noi dinosauri?",
+        "badge": "Capitolo 1 · Video Animato (16:9)",
+        "videoTitle": "Capitolo 1: Chi siamo noi dinosauri? (Le origini e i fossili)",
+        "videoDuration": "01:28",
+        "videoUrl": "moduli-formativi/corso-dinosauri-learning-object/capitolo1_chi_siamo_noi_dinosauri.mp4",
+        "isVertical": false
       },
       {
         "type": "flashcard",
-        "title": "3. Flashcard: Il Principio di Riservatezza DOS",
-        "badge": "Fase 3 · Consolidamento Normativo",
-        "frontText": "📋 Quali precauzioni sono imprescindibili quando si digitalizzano dossier educativi su minori?",
-        "backText": "Accesso con privilegi minimi su Google Drive aziendale, pseudonimizzazione delle informazioni sensibili, divieto di condivisione su canali non protetti e conformità al GDPR e ai regolamenti dei Servizi Sociali.",
-        "tip": "Gira la flashcard per verificare la regola di compliance."
-      },
-      {
-        "type": "game",
-        "title": "4. Attività Interattiva: Scelta della Risorsa",
-        "badge": "Fase 4 · Decisione Operativa",
-        "scenario": "🎯 <strong>Scenario Operativo:</strong> Una famiglia seguita dal servizio sociale necessita di un supporto pomeridiano per compiti e socializzazione per un minore. Quale risorsa mappata sul territorio selezioni?",
-        "options": [
-          { "text": "A) Pronto Soccorso Ospedaliero.", "correct": false, "feedback": "❌ Risorsa medica per emergenze, non pertinente al bisogno educativo." },
-          { "text": "B) Polo Educativo Territoriale con laboratori di media education e spazio compiti.", "correct": true, "feedback": "🎉 <strong>Esatto!</strong> Il Polo Educativo risponde sia al bisogno didattico sia alla prevenzione del ritiro sociale. Attività superata!" },
-          { "text": "C) Ufficio Tributi Comunale.", "correct": false, "feedback": "❌ Ente amministrativo non correlato." }
-        ]
+        "title": "3. Flashcard: Come conosciamo i Dinosauri?",
+        "badge": "Fase 2 · Consolidamento Concettuale",
+        "frontText": "🦴 Come facciamo a sapere che aspetto avevano i dinosauri se nessun essere umano li ha mai visti vivi?",
+        "backText": "Attraverso i reperti fossili! Nel corso di milioni di anni, resti di ossa, uova, impronte, foglie e perfino escrementi si sono trasformati in roccia solida, conservando indizi preziosi per gli scienziati paleontologi.",
+        "tip": "Clicca sulla card per girarla e scoprire come si formano i fossili."
       },
       {
         "type": "quiz",
-        "title": "5. Quiz di Verifica: Privacy & Documentazione DOS",
-        "badge": "Fase 5 · Conformità & Metodo",
-        "question": "Nell'aggiornamento della documentazione DOS su cloud, quale principio è prioritario?",
+        "title": "4. Quiz: Alla Scoperta dei Fossili",
+        "badge": "Verifica Capitolo 1",
+        "question": "Quali elementi del passato possono trasformarsi in fossili dopo milioni di anni?",
         "options": [
-          { "text": "Condividere i dati sensibili pubblicamente senza protezioni.", "correct": false, "feedback": "⚠️ Grave violazione della normativa privacy." },
-          { "text": "Rispetto rigoroso della riservatezza (GDPR) e tracciamento orario certificato.", "correct": true, "feedback": "✅ <strong>Corretto!</strong> Riservatezza ed etica documentale sono il cardine del lavoro educativo." },
-          { "text": "Evitare qualsiasi verbalizzazione scritta.", "correct": false, "feedback": "⚠️ La tracciabilità condivisa è fondamentale per l'équipe." }
+          {
+            "text": "Solo oggetti di plastica e metalli moderni.",
+            "correct": false,
+            "feedback": "❌ No: la plastica e i metalli moderni non esistevano all'epoca dei dinosauri!"
+          },
+          {
+            "text": "Ossa, uova, impronte e foglie ricoperte da strati di fango e roccia.",
+            "correct": true,
+            "feedback": "🎉 <strong>Bravissimo!</strong> I fossili sono proprio resti di esseri viventi trasformati in pietra nel corso del tempo."
+          },
+          {
+            "text": "Solo l'acqua del mare e le nuvole nel cielo.",
+            "correct": false,
+            "feedback": "❌ No: l'acqua e le nuvole evaporano e cambiano forma continuamente."
+          }
         ]
       },
       {
+        "type": "video",
+        "title": "5. Capitolo 2: Che fine abbiamo fatto?",
+        "badge": "Capitolo 2 · Video Animato (16:9)",
+        "videoTitle": "Capitolo 2: L'Era Mesozoica e la Grande Estinzione",
+        "videoDuration": "01:26",
+        "videoUrl": "moduli-formativi/corso-dinosauri-learning-object/capitolo2_che_fine_abbiamo_fatto.mp4",
+        "isVertical": false
+      },
+      {
+        "type": "flashcard",
+        "title": "6. Flashcard: Le Tre Ere del Mesozoico",
+        "badge": "Fase 3 · Consolidamento Temporale",
+        "frontText": "⏳ Quali sono i tre grandi periodi dell'Era Mesozoica in cui vissero i dinosauri?",
+        "backText": "Triassico (comparsa dei primi dinosauri), Giurassico (il periodo d'oro in cui dominarono la Terra) e Cretacico (il terzo periodo, conclusosi 65 milioni di anni fa con l'impatto del meteorite).",
+        "tip": "Gira la card per memorizzare le tre epoche geologiche."
+      },
+      {
+        "type": "quiz",
+        "title": "7. Quiz: Il Mistero dell'Estinzione",
+        "badge": "Verifica Capitolo 2",
+        "question": "Cosa accadde circa 65 milioni di anni fa sulla Terra?",
+        "options": [
+          {
+            "text": "Un gigantesco meteorite e grandi cambiamenti climatici causarono l'estinzione di molte specie, ma alcuni sopravvissuti iniziarono a evolversi.",
+            "correct": true,
+            "feedback": "🎉 <strong>Esatto!</strong> L'impatto e il clima spazzarono via molte specie, ma i sopravvissuti intrapresero un lungo cammino evolutivo."
+          },
+          {
+            "text": "Tutti i dinosauri salirono su navicelle spaziali e lasciarono la Terra.",
+            "correct": false,
+            "feedback": "❌ No: questa è solo fantascienza!"
+          },
+          {
+            "text": "Non cambiò assolutamente nulla e la Terra rimase identica a prima.",
+            "correct": false,
+            "feedback": "❌ No: il pianeta subì sconvolgimenti epocali."
+          }
+        ]
+      },
+      {
+        "type": "video",
+        "title": "8. Capitolo 3: Dinosauri Piumati",
+        "badge": "Capitolo 3 · Video Animato (16:9)",
+        "videoTitle": "Capitolo 3: I Dromeosauri e il Segreto delle Piume",
+        "videoDuration": "01:26",
+        "videoUrl": "moduli-formativi/corso-dinosauri-learning-object/capitolo3_dinosauri_piumati.mp4",
+        "isVertical": false
+      },
+      {
+        "type": "video",
+        "title": "9. Capitolo 3.5: Focus Archaeopteryx",
+        "badge": "Capitolo 3.5 · Video Animato (16:9)",
+        "videoTitle": "Capitolo 3.5: L'Antica Penna e il Fossile di Berlino",
+        "videoDuration": "01:26",
+        "videoUrl": "moduli-formativi/corso-dinosauri-learning-object/capitolo3_5_archaeopteryx.mp4",
+        "isVertical": false
+      },
+      {
+        "type": "flashcard",
+        "title": "10. Flashcard: A cosa servivano le Piume?",
+        "badge": "Fase 4 · Principio Evolutivo",
+        "frontText": "🪶 A cosa servivano le prime piume comparse sui piccoli dinosauri milioni di anni fa?",
+        "backText": "Non per volare! I dinosauri erano animali a sangue caldo: le prime piume servivano come un 'cappotto termico' per trattenere il calore corporeo e per farsi notare dai propri simili con colori vivaci.",
+        "tip": "Gira la card per verificare la vera funzione biologica originaria."
+      },
+      {
+        "type": "quiz",
+        "title": "11. Quiz: Le Abilità dell'Archaeopteryx",
+        "badge": "Verifica Capitolo 3 & 3.5",
+        "question": "Come si muoveva l'Archaeopteryx (l'antica penna) nel suo ambiente naturale?",
+        "options": [
+          {
+            "text": "Nuotava velocissimo negli abissi marini come uno squalo.",
+            "correct": false,
+            "feedback": "❌ No: l'Archaeopteryx viveva sulla terraferma tra la vegetazione."
+          },
+          {
+            "text": "Si arrampicava sugli alberi con i suoi lunghi artigli e planava grazie alle sue antiche ali piumate.",
+            "correct": true,
+            "feedback": "🎉 <strong>Corretto!</strong> Non volava ancora battendo le ali come gli uccelli moderni, ma era un provetto arrampicatore e planatore."
+          },
+          {
+            "text": "Scavava gallerie sotto terra per nascondersi dalla luce.",
+            "correct": false,
+            "feedback": "❌ No: non era un animale sotterraneo."
+          }
+        ]
+      },
+      {
+        "type": "video",
+        "title": "12. Capitolo 4: Dai dinosauri agli uccelli",
+        "badge": "Capitolo 4 · Video Animato (16:9)",
+        "videoTitle": "Capitolo 4: L'Evoluzione dei Polsi, delle Ossa Cave e del Volo",
+        "videoDuration": "01:26",
+        "videoUrl": "moduli-formativi/corso-dinosauri-learning-object/capitolo4_dai_dinosauri_agli_uccelli.mp4",
+        "isVertical": false
+      },
+      {
+        "type": "flashcard",
+        "title": "13. Flashcard: Il Segreto del Volo",
+        "badge": "Fase 5 · Anatomia Comparata",
+        "frontText": "🕊️ Quali trasformazioni fisiche permisero ai dinosauri sopravvissuti di diventare uccelli e conquistare il cielo?",
+        "backText": "Le ossa sono diventate cave e leggerissime, i muscoli pettorali si sono potenziati grazie a uno sterno con carena, gli artigli hanno lasciato spazio alle ali e la lunga coda ossea si è accorciata.",
+        "tip": "Gira la card per ripassare gli adattamenti al volo."
+      },
+      {
+        "type": "reflection",
+        "title": "14. Diario dell'Esploratore: Uno Sguardo al Cielo",
+        "badge": "Fase 6 · Attivazione Metacognitiva",
+        "scenario": "🔭 <strong>Diario del Giovane Paleontologo:</strong><br>Hai mai guardato un passero, una rondine o un piccione pensando che sono i discendenti diretti dei dinosauri? Quale curiosità ti ha colpito di più in questo viaggio evolutivo? Raccontalo con parole tue!",
+        "tip": "Scrivi una breve riflessione (almeno 15 caratteri) per condividere la tua scoperta scientifica e sbloccare l'attestato finale."
+      },
+      {
         "type": "completion",
-        "title": "6. Scheda Finale del Caso Accento",
-        "badge": "Fase 6 · Conclusione",
-        "text": "Modulo completato! Dimostrazione dell'integrazione tra competenze educative territoriali e digitalizzazione dei processi."
+        "title": "15. Missione Paleontologica Completata!",
+        "badge": "Fase 7 · Traguardo Finale",
+        "badgeImage": "moduli-formativi/corso-dinosauri-learning-object/badge_giovane_paleontologo.png",
+        "text": "<p>Congratulazioni! Hai completato l'intero Learning Object multimediale <strong>Dai Fossili alle Piume</strong>.</p><p>Hai scoperto come i dinosauri sono sopravvissuti, perché hanno sviluppato le prime piume e come l'Archaeopteryx rappresenti il ponte evolutivo verso gli uccelli che vediamo volare oggi intorno a noi.</p><div class='callout-quote'>🎓 <strong>Riconoscimento delle Competenze:</strong> Clicca sui pulsanti in basso per visualizzare e stampare l'<strong>Attestato di Giovane Paleontologo</strong> con il badge ufficiale disegnato da Zoe Pinzuti!</div>"
       }
     ]
   }

@@ -884,6 +884,7 @@
           </div>
 
           <div class="completion-actions">
+            ${course.id === 'corso-clark-mayer' ? `
             <div class="completion-card">
               <h4>
                 <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-file-text"></use></svg>
@@ -898,13 +899,36 @@
             <div class="completion-card">
               <h4>
                 <svg class="icon" aria-hidden="true" style="color:var(--terra);"><use href="#i-award"></use></svg>
-                Attestato di Competenze
+                Attestato di Competenze ID
               </h4>
-              <p>Visualizza e stampa l'attestato nominativo con il badge ufficiale delle competenze acquisite.</p>
+              <p>Visualizza e stampa l'attestato nominativo con il badge Certified ID.</p>
               <a href="attestato_completamento.html" target="_blank" rel="noopener" class="btn btn-terra btn-sm">
                 Apri Attestato Ufficiale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
               </a>
             </div>
+            ` : `
+            <div class="completion-card">
+              <h4>
+                <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-file-text"></use></svg>
+                Scheda del Learning Object
+              </h4>
+              <p>Progettazione didattica, target 6-9 anni, illustrazioni di Zoe Pinzuti e validazione Moodle/TalentLMS.</p>
+              <button type="button" class="btn btn-primary btn-sm" onclick="goToStep(0)">
+                Rileggi Scheda Didattica <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              </button>
+            </div>
+
+            <div class="completion-card">
+              <h4>
+                <svg class="icon" aria-hidden="true" style="color:var(--terra);"><use href="#i-award"></use></svg>
+                Attestato Giovane Paleontologo
+              </h4>
+              <p>Visualizza e stampa il diploma ufficiale A4 con il badge dell'Archaeopteryx.</p>
+              <a href="attestato_giovane_paleontologo.html" target="_blank" rel="noopener" class="btn btn-terra btn-sm">
+                Apri Attestato Ufficiale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+              </a>
+            </div>
+            `}
           </div>
         </div>
       `;
@@ -1856,7 +1880,7 @@
           Si certifica il completamento dell'intero percorso didattico asincrono a progressione vincolata, con esito positivo nelle prove di verifica formativa e situazionale.
         </p>
         <div style="margin-bottom:16px;">
-          <a href="attestato_completamento.html" target="_blank" rel="noopener" class="btn btn-terra btn-sm" style="display:inline-flex; align-items:center; gap:8px;">
+          <a href="${(course && course.id === 'corso-dinosauri-learning-object') ? 'attestato_giovane_paleontologo.html' : 'attestato_completamento.html'}" target="_blank" rel="noopener" class="btn btn-terra btn-sm" style="display:inline-flex; align-items:center; gap:8px;">
             🎓 Apri Pagina Attestato A4 da Stampare / Salvare PDF
           </a>
         </div>
@@ -1880,7 +1904,11 @@
   };
 
   window.printCertificate = function () {
-    window.open('attestato_completamento.html', '_blank');
+    const course = courses[activeCourseIndex];
+    const certUrl = (course && course.id === 'corso-dinosauri-learning-object')
+      ? 'attestato_giovane_paleontologo.html'
+      : 'attestato_completamento.html';
+    window.open(certUrl, '_blank');
   };
 
   // Learning Analytics & Progress Modal

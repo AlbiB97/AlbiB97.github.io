@@ -1067,14 +1067,28 @@ img, svg, iframe { display: block; max-width: 100%; }
 .skills-box.terra h3 { color: var(--terra); }
 
 .lang-list { display: grid; gap: 14px; margin-top: 4px; }
-.lang-row { display: grid; grid-template-columns: 90px 1fr 36px; align-items: center; gap: 12px; font-size: 0.9rem; }
+.lang-row { display: grid; grid-template-columns: 85px 1fr auto; align-items: center; gap: 12px; font-size: 0.9rem; }
 .lang-row strong { font-weight: 600; }
 .lang-bar { height: 6px; background: var(--surface-3); border-radius: 99px; overflow: hidden; }
 .lang-bar span { display: block; height: 100%; background: var(--accent); border-radius: inherit; }
 .w-100 { width: 100%; }
 .w-67 { width: 67%; }
 .w-50 { width: 50%; }
-.lang-level { font-size: 0.8rem; font-weight: 700; color: var(--text-soft); text-align: right; }
+.lang-level { font-size: 0.8rem; font-weight: 700; color: var(--text-soft); text-align: right; min-width: 32px; white-space: nowrap; }
+
+.cv-gdpr-notice {
+  margin-top: 32px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--border);
+  text-align: center;
+}
+.cv-gdpr-notice p {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0;
+}
 
 /* 10. PIATTAFORMA LMS ====================================== */
 .lms-box {
@@ -2219,7 +2233,7 @@ textarea.form-input { resize: vertical; min-height: 90px; line-height: 1.55; }
   .step-row-actions { width: 100%; justify-content: flex-end; padding-left: 36px; }
   .map-embed iframe { height: 320px; }
   .timeline-item { padding-left: 32px; }
-  .lang-row { grid-template-columns: 80px 1fr 32px; }
+  .lang-row { grid-template-columns: 80px 1fr auto; }
 }
 
 @media (max-width: 520px) {
@@ -2507,7 +2521,7 @@ textarea.form-input { resize: vertical; min-height: 90px; line-height: 1.55; }
     margin-top: 2pt !important;
   }
   .lang-row {
-    grid-template-columns: 55pt 1fr 20pt !important;
+    grid-template-columns: 55pt 1fr auto !important;
     gap: 6pt !important;
     font-size: 7.8pt !important;
   }
@@ -2520,6 +2534,23 @@ textarea.form-input { resize: vertical; min-height: 90px; line-height: 1.55; }
   }
   .lang-level {
     font-size: 7.5pt !important;
+    white-space: nowrap !important;
+  }
+
+  .cv-gdpr-notice {
+    margin-top: 10pt !important;
+    padding-top: 5pt !important;
+    border-top: 0.5pt solid #cccccc !important;
+    text-align: center !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .cv-gdpr-notice p {
+    font-size: 6.8pt !important;
+    color: #555555 !important;
+    font-style: italic !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
   }
 
   /* Rimuovi effetti grafici e animazioni */

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attestato di Giovane Paleontologo · Dai Fossili alle Piume | Alberto Bedeschi & Zoe Pinzuti</title>
+  <meta name="description" content="Certificato del Learning Object 'Dai Fossili alle Piume': didattica per la scuola primaria e bisogni educativi speciali. Progettazione didattica di Alberto Bedeschi, illustrazioni di Zoe Pinzuti.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --bg: #f5f2ea;
+      --diploma-bg: #fdfbf7;
+      --text: #171b18;
+      --text-muted: #3d433f;
+      --text-soft: #636a65;
+      --accent: #2a5c45;
+      --accent-gold: #c29342;
+      --terra: #a94d2e;
+      --border-outer: #2a5c45;
+      --border-inner: #c29342;
+      --font-serif: "Fraunces", "Charter", Georgia, serif;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px 16px 48px;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .toolbar-nav {
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: #ffffff;
+      border: 1px solid #dcd6c8;
+      transition: all 0.2s ease;
+    }
+    .btn-back:hover {
+      background: #f0eae0;
+      color: var(--terra);
+    }
+
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(42, 92, 69, 0.25);
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+    .btn-print:hover {
+      background: #1e4231;
+      transform: translateY(-1px);
+    }
+
+    /* Struttura del Diploma */
+    .diploma-wrapper {
+      width: 100%;
+      max-width: 960px;
+      background: var(--diploma-bg);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .diploma-outer-frame {
+      border: 3px solid var(--border-outer);
+      padding: 12px;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .diploma-inner-frame {
+      border: 1.5px solid var(--border-inner);
+      padding: 34px 38px;
+      border-radius: 4px;
+      text-align: center;
+      position: relative;
+      background: radial-gradient(circle at center, #ffffff 40%, #fcf9f2 100%);
+    }
+
+    /* Angoli ornamentali */
+    .diploma-inner-frame::before,
+    .diploma-inner-frame::after {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-color: var(--accent-gold);
+      pointer-events: none;
+    }
+    .diploma-inner-frame::before {
+      top: 6px;
+      left: 6px;
+      border-top: 2px solid var(--accent-gold);
+      border-left: 2px solid var(--accent-gold);
+    }
+    .diploma-inner-frame::after {
+      bottom: 6px;
+      right: 6px;
+      border-bottom: 2px solid var(--accent-gold);
+      border-right: 2px solid var(--accent-gold);
+    }
+
+    .corner-tr, .corner-bl {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      pointer-events: none;
+    }
+    .corner-tr {
+      top: 6px;
+      right: 6px;
+      border-top: 2px solid var(--accent-gold);
+      border-right: 2px solid var(--accent-gold);
+    }
+    .corner-bl {
+      bottom: 6px;
+      left: 6px;
+      border-bottom: 2px solid var(--accent-gold);
+      border-left: 2px solid var(--accent-gold);
+    }
+
+    .badge-hero {
+      width: 145px;
+      height: auto;
+      margin: 0 auto 12px auto;
+      display: block;
+      filter: drop-shadow(0 8px 18px rgba(42, 92, 69, 0.25));
+    }
+
+    .diploma-header-tag {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .diploma-title {
+      font-family: var(--font-serif);
+      font-size: 2.15rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .diploma-subtitle {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--terra);
+      margin-bottom: 16px;
+    }
+
+    .diploma-divider {
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+      margin: 0 auto 16px auto;
+    }
+
+    .diploma-statement {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 740px;
+      margin: 0 auto 18px auto;
+      line-height: 1.65;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .diploma-recipient {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 6px 0;
+    }
+
+    .competencies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 20px auto;
+      max-width: 840px;
+      text-align: left;
+    }
+
+    .competency-card {
+      background: #ffffff;
+      border: 1px solid #e5dfd3;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .competency-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(42, 92, 69, 0.1);
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .diploma-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px dashed #dcd6c8;
+      max-width: 840px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-col {
+      text-align: left;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+    .footer-col.right {
+      text-align: right;
+    }
+
+    .signatures-row {
+      display: flex;
+      gap: 32px;
+      justify-content: flex-end;
+    }
+
+    .signature-block {
+      border-top: 1px solid var(--text);
+      padding-top: 4px;
+      margin-top: 14px;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+      min-width: 170px;
+    }
+
+    .signature-role {
+      font-size: 0.73rem;
+      font-weight: 400;
+      color: var(--text-soft);
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 12px 10px 32px; }
+      .diploma-inner-frame { padding: 22px 16px; }
+      .diploma-title { font-size: 1.6rem; }
+      .competencies-grid { grid-template-columns: 1fr; }
+      .diploma-footer { flex-direction: column; align-items: center; text-align: center; }
+      .footer-col.right { text-align: center; }
+      .signatures-row { flex-direction: column; gap: 16px; width: 100%; }
+      .signature-block { width: 100%; }
+    }
+
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 8mm;
+      }
+
+      body {
+        padding: 0 !important;
+        background: #ffffff !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .diploma-wrapper {
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        border-radius: 0 !important;
+      }
+
+      .diploma-inner-frame {
+        padding: 20px 28px !important;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar-nav no-print">
+    <a href="lms.html" class="btn-back">← Torna alla Piattaforma LMS</a>
+    <button type="button" class="btn-print" onclick="window.print()">🖨️ Stampa o Salva PDF</button>
+  </div>
+
+  <main class="diploma-wrapper">
+    <div class="diploma-outer-frame">
+      <div class="diploma-inner-frame">
+        <span class="corner-tr"></span>
+        <span class="corner-bl"></span>
+
+        <!-- Badge Ufficiale Giovane Paleontologo -->
+        <img src="moduli-formativi/corso-dinosauri-learning-object/badge_giovane_paleontologo.png" alt="Badge Giovane Paleontologo - Archaeopteryx" class="badge-hero">
+
+        <div class="diploma-header-tag">Learning Object Didattico per la Scuola Primaria (6–9 anni) &amp; BES</div>
+        <h1 class="diploma-title">Attestato di Giovane Paleontologo</h1>
+        <div class="diploma-subtitle">Dai Fossili alle Piume · Dinosauri ed Evoluzione</div>
+        
+        <div class="diploma-divider"></div>
+
+        <p class="diploma-statement">
+          Si certifica con entusiasmo che il giovane esploratore della scienza ha completato con successo tutte le videopillole animate, le flashcard concettuali e i quiz di verifica del Learning Object didattico:
+        </p>
+
+        <div class="diploma-recipient">
+          Dai Fossili alle Piume: Come i Dinosauri sono arrivati fino a noi
+        </div>
+
+        <!-- Competenze Acquisite -->
+        <div class="competencies-grid">
+          <div class="competency-card">
+            <span class="competency-tag">Mesozoico &amp; Fossili</span>
+            <div><strong>Il Tempo Profondo:</strong> Conoscenza delle tre ere geologiche (Triassico, Giurassico, Cretacico) e di come le rocce abbiano custodito ossa, foglie e impronte.</div>
+          </div>
+          <div class="competency-card">
+            <span class="competency-tag">Dinosauri Piumati</span>
+            <div><strong>Il Calore Prima del Volo:</strong> Scoperta dei dinosauri a sangue caldo (Dromeosauri) e del ruolo originale delle piume come protezione termica.</div>
+          </div>
+          <div class="competency-card">
+            <span class="competency-tag">Archaeopteryx &amp; Uccelli</span>
+            <div><strong>La Conquista del Cielo:</strong> Riconoscimento dell'Archaeopteryx e dei mutamenti ossei (sterno carenato, polsi, ossa cave) fino agli uccelli odierni.</div>
+          </div>
+        </div>
+
+        <div class="diploma-footer">
+          <div class="footer-col">
+            <div>Data di Conseguimento: <strong id="certDate">13 ottobre 2026</strong></div>
+            <div>Didattica Inclusiva: <strong>Accessibilità BES &amp; Criteri Brenda Laurel</strong></div>
+            <div>Piattaforme di Verifica: <strong>Erogato su Moodle &amp; TalentLMS (UNIMORE)</strong></div>
+          </div>
+          <div class="footer-col right">
+            <div class="signatures-row">
+              <div class="signature-block">
+                Alberto Bedeschi
+                <span class="signature-role">Progettazione Didattica &amp; Video</span>
+              </div>
+              <div class="signature-block">
+                Zoe Pinzuti
+                <span class="signature-role">Illustrazioni Originali (Procreate)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const el = document.getElementById('certDate');
+      if (el) {
+        el.textContent = new Date().toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+      }
+    });
+  </script>
+</body>
+</html>
