@@ -89,6 +89,10 @@
                 <svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg>
                 <span>Sandbox Authoring</span>
               </button>
+              <button class="lms-switch-btn" id="btnAnalytics" type="button" onclick="openAnalyticsModal()" title="Visualizza Learning Analytics e Diario di Bordo">
+                <svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg>
+                <span>I Miei Progressi</span>
+              </button>
             </div>
           </div>
 
@@ -270,6 +274,25 @@
       <button class="btn btn-secondary btn-sm" type="button" onclick="closeCertModal()">Chiudi</button>
       <button class="btn btn-primary btn-sm" type="button" onclick="printCertificate()">
         <svg class="icon" aria-hidden="true"><use href="#i-printer"></use></svg>Stampa Attestato
+      </button>
+    </div>
+  </dialog>
+
+  <!-- Modal: Learning Analytics & Progress Summary -->
+  <dialog class="ui-dialog" id="analyticsModal" aria-labelledby="analyticsModalTitle">
+    <div class="ui-dialog-head">
+      <h2 id="analyticsModalTitle">Learning Analytics &amp; Diario di Bordo</h2>
+      <button type="button" class="icon-btn btn-sm" onclick="closeAnalyticsModal()" aria-label="Chiudi finestra">
+        <svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg>
+      </button>
+    </div>
+    <div class="ui-dialog-body" id="analyticsModalBody">
+      <!-- Populated dynamically by JS -->
+    </div>
+    <div class="ui-dialog-foot">
+      <button class="btn btn-secondary btn-sm" type="button" onclick="closeAnalyticsModal()">Chiudi</button>
+      <button class="btn btn-primary btn-sm" type="button" onclick="exportXApiLog()">
+        <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>Esporta Statement xAPI
       </button>
     </div>
   </dialog>

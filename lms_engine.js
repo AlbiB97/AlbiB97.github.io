@@ -191,6 +191,8 @@
   let currentEditingStepIndex = null;
   let modalTempOptions = [];
   let courseProgress = {};
+  let lastExperiencedStepKey = null;
+  let flashcardFlippedSteps = new Set();
 
   // Persistent User Progress per Course
   function loadProgress() {
@@ -301,16 +303,53 @@
   window.toggleFlashcardFlip = function (elem) {
     if (!elem) return;
     elem.classList.toggle('is-flipped');
+    const course = courses[activeCourseIndex];
+    if (course) {
+      flashcardFlippedSteps.add(`${course.id}_step_${currentStepIndex}`);
+      // Record verification statement in xAPI
+      recordXApiStatement('interacted', 'ha girato la flashcard per verifica attiva', course.steps[currentStepIndex]?.title || 'Flashcard');
+      const btnNext = document.getElementById('btnNext');
+      if (btnNext && btnNext.dataset.awaitingFlip === 'true') {
+        btnNext.disabled = false;
+        btnNext.dataset.awaitingFlip = 'false';
+        btnNext.innerHTML = `Continua allo Step Successivo <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>`;
+        const banner = document.getElementById('flashcardUnlockBanner');
+        if (banner) {
+          banner.className = 'unlock-banner ok';
+          banner.innerHTML = `<svg class="icon" aria-hidden="true"><use href="#i-check-circle"></use></svg><div><strong>Flashcard verificata!</strong> Concetto assimilato. Ora puoi proseguire allo step successivo.</div>`;
+        }
+      }
+    }
   };
 
-  // Reflection journal auto-save
+  // Reflection journal auto-save with threshold validation
   window.saveReflectionDraft = function (key, value) {
     try {
       const saved = JSON.parse(localStorage.getItem('alberto_lms_reflections') || '{}');
       saved[key] = value;
       localStorage.setItem('alberto_lms_reflections', JSON.stringify(saved));
+      const valTrimmed = (value || '').trim();
       const st = document.getElementById('reflectionStatus');
-      if (st) st.textContent = '✓ Note salvate in memoria locale';
+      if (st) {
+        if (valTrimmed.length >= 10) {
+          st.textContent = `✓ Bozza memorizzata in locale (${valTrimmed.length} caratteri)`;
+        } else {
+          st.textContent = `Scrivi ancora ${10 - valTrimmed.length} caratteri per sbloccare il passaggio`;
+        }
+      }
+      const btnNext = document.getElementById('btnNext');
+      const banner = document.getElementById('reflectionUnlockBanner');
+      if (btnNext && btnNext.dataset.awaitingReflection === 'true') {
+        if (valTrimmed.length >= 10) {
+          btnNext.disabled = false;
+          btnNext.dataset.awaitingReflection = 'false';
+          btnNext.innerHTML = `Continua allo Step Successivo <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>`;
+          if (banner) {
+            banner.className = 'unlock-banner ok';
+            banner.innerHTML = `<svg class="icon" aria-hidden="true"><use href="#i-check-circle"></use></svg><div><strong>Riflessione completata!</strong> Le tue annotazioni sono memorizzate. Ora puoi procedere.</div>`;
+          }
+        }
+      }
     } catch (e) {}
   };
 
@@ -550,8 +589,12 @@
     const contentArea = document.getElementById('lmsStepContent');
     if (!contentArea || !step) return;
 
-    // Record xAPI Learning Experience Statement
-    recordXApiStatement('experienced', 'ha fruito', step.title);
+    // Record xAPI Learning Experience Statement (deduplicated per step visit)
+    const currentStepKey = `${course.id}_step_${currentStepIndex}`;
+    if (lastExperiencedStepKey !== currentStepKey) {
+      recordXApiStatement('experienced', 'ha fruito', step.title);
+      lastExperiencedStepKey = currentStepKey;
+    }
 
     // Add entering animation
     contentArea.classList.remove('is-entering');
@@ -653,9 +696,9 @@
           </div>
           ${step.tip ? `<p class="form-hint" style="margin-top:10px;">💡 ${escapeHtml(step.tip)}</p>` : ''}
         </div>
-        <div class="unlock-banner ${isStepAlreadyDone ? 'ok' : ''}">
+        <div class="unlock-banner ${isStepAlreadyDone ? 'ok' : ''}" id="flashcardUnlockBanner">
           <svg class="icon" aria-hidden="true"><use href="#i-${isStepAlreadyDone ? 'check-circle' : 'layers'}"></use></svg>
-          <div>${isStepAlreadyDone ? '<strong>Flashcard appresa!</strong> Puoi proseguire o girarla di nuovo per ripassare.' : 'Gira la card per verificare la comprensione, poi clicca in basso per <strong>sbloccare il modulo successivo</strong>.'}</div>
+          <div>${isStepAlreadyDone ? '<strong>Flashcard appresa!</strong> Puoi proseguire o girarla di nuovo per ripassare.' : 'Gira la card per verificare la comprensione e <strong>sbloccare il modulo successivo</strong>.'}</div>
         </div>
       `;
     }
@@ -700,7 +743,7 @@
               `;
             }).join('')}
           </div>
-          <div class="feedback-box" id="gameFeedback" style="display:${isStepAlreadyDone ? 'block' : 'none'};" class="${isStepAlreadyDone ? 'feedback-box ok' : 'feedback-box'}">
+          <div class="feedback-box ${isStepAlreadyDone ? 'ok' : ''}" id="gameFeedback" style="display:${isStepAlreadyDone ? 'block' : 'none'};">
             ${isStepAlreadyDone ? '🎉 <strong>Attività già superata!</strong> Il passaggio successivo è sbloccato.' : ''}
           </div>
         </div>
@@ -720,6 +763,7 @@
       try { savedReflections = JSON.parse(localStorage.getItem('alberto_lms_reflections') || '{}'); } catch(e){}
       const refKey = `${course.id}_step_${currentStepIndex}`;
       const savedVal = savedReflections[refKey] || '';
+      const hasEnough = savedVal.trim().length >= 10;
 
       stepHTML += `
         <div class="activity-box">
@@ -732,13 +776,13 @@
             <label for="reflectionInput" class="form-label" style="font-size:0.8rem; color:var(--text-soft);">Le tue annotazioni (salvate automaticamente nel browser):</label>
             <textarea class="form-input reflection-textarea" id="reflectionInput" placeholder="${escapeHtml(step.placeholder || 'Scrivi qui la tua riflessione...')}" oninput="saveReflectionDraft('${refKey}', this.value)">${escapeHtml(savedVal)}</textarea>
             <div class="reflection-actions">
-              <span class="form-hint" id="reflectionStatus">${savedVal ? '✓ Note salvate in locale' : 'Salvato automaticamente nel tuo browser'}</span>
+              <span class="form-hint" id="reflectionStatus">${hasEnough ? `✓ Bozza memorizzata in locale (${savedVal.trim().length} caratteri)` : (savedVal ? `Scrivi ancora ${10 - savedVal.trim().length} caratteri per sbloccare` : 'Scrivi almeno 10 caratteri per sbloccare lo step')}</span>
             </div>
           </div>
         </div>
-        <div class="unlock-banner ${isStepAlreadyDone ? 'ok' : ''}">
-          <svg class="icon" aria-hidden="true"><use href="#i-${isStepAlreadyDone ? 'check-circle' : 'edit'}"></use></svg>
-          <div>${isStepAlreadyDone ? '<strong>Riflessione memorizzata!</strong> Le tue considerazioni rimangono nel tuo browser.' : 'Scrivi le tue annotazioni didattiche, poi clicca in basso per <strong>sbloccare lo step successivo</strong>.'}</div>
+        <div class="unlock-banner ${(isStepAlreadyDone || hasEnough) ? 'ok' : ''}" id="reflectionUnlockBanner">
+          <svg class="icon" aria-hidden="true"><use href="#i-${(isStepAlreadyDone || hasEnough) ? 'check-circle' : 'edit'}"></use></svg>
+          <div>${(isStepAlreadyDone || hasEnough) ? '<strong>Riflessione memorizzata!</strong> Le tue considerazioni rimangono nel tuo browser.' : 'Scrivi una breve riflessione (minimo 10 caratteri) per <strong>sbloccare lo step successivo</strong>.'}</div>
         </div>
       `;
     }
@@ -764,7 +808,7 @@
               `;
             }).join('')}
           </div>
-          <div class="feedback-box" id="quizFeedback" style="display:${isStepAlreadyDone ? 'block' : 'none'};" class="${isStepAlreadyDone ? 'feedback-box ok' : 'feedback-box'}">
+          <div class="feedback-box ${isStepAlreadyDone ? 'ok' : ''}" id="quizFeedback" style="display:${isStepAlreadyDone ? 'block' : 'none'};">
             ${isStepAlreadyDone ? '✅ <strong>Quiz già superato!</strong> Puoi accedere alla schermata di completamento.' : ''}
           </div>
         </div>
@@ -837,6 +881,8 @@
 
     const btnNext = document.getElementById('btnNext');
     if (btnNext) {
+      btnNext.dataset.awaitingFlip = 'false';
+      btnNext.dataset.awaitingReflection = 'false';
       const isLastStep = (currentStepIndex === totalSteps - 1);
       const isGameOrQuiz = (step.type === 'game' || step.type === 'quiz');
       const isNextUnlocked = unlocked.has(currentStepIndex + 1);
@@ -846,6 +892,28 @@
         btnNext.disabled = false;
         btnNext.className = 'btn btn-secondary btn-sm';
         btnNext.onclick = handleRestartCourse;
+      } else if (step.type === 'flashcard' && !isStepAlreadyDone && !isNextUnlocked && !flashcardFlippedSteps.has(`${course.id}_step_${currentStepIndex}`)) {
+        btnNext.innerHTML = `<svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg>Gira la flashcard per proseguire`;
+        btnNext.disabled = true;
+        btnNext.dataset.awaitingFlip = 'true';
+        btnNext.className = 'btn btn-primary btn-sm';
+        btnNext.onclick = nextStep;
+      } else if (step.type === 'reflection' && !isStepAlreadyDone && !isNextUnlocked) {
+        let savedReflections = {};
+        try { savedReflections = JSON.parse(localStorage.getItem('alberto_lms_reflections') || '{}'); } catch(e){}
+        const savedVal = (savedReflections[`${course.id}_step_${currentStepIndex}`] || '').trim();
+        if (savedVal.length < 10) {
+          btnNext.innerHTML = `<svg class="icon" aria-hidden="true"><use href="#i-edit"></use></svg>Scrivi una riflessione per proseguire`;
+          btnNext.disabled = true;
+          btnNext.dataset.awaitingReflection = 'true';
+          btnNext.className = 'btn btn-primary btn-sm';
+          btnNext.onclick = nextStep;
+        } else {
+          btnNext.innerHTML = `Continua allo Step Successivo <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>`;
+          btnNext.disabled = false;
+          btnNext.className = 'btn btn-primary btn-sm';
+          btnNext.onclick = nextStep;
+        }
       } else if (isGameOrQuiz && !isStepAlreadyDone && !isNextUnlocked) {
         btnNext.innerHTML = `<svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg>Completa l'attività per proseguire`;
         btnNext.disabled = true;
@@ -1407,8 +1475,14 @@
     reader.onload = function (e) {
       try {
         const parsed = JSON.parse(e.target.result);
-        if (!Array.isArray(parsed) || parsed.length === 0 || !parsed[0].steps) {
-          throw new Error('Formato non conforme.');
+        if (!Array.isArray(parsed) || parsed.length === 0) {
+          throw new Error('Il file deve contenere un elenco di pillole formative.');
+        }
+        for (let i = 0; i < parsed.length; i++) {
+          const c = parsed[i];
+          if (!c.id || !c.title || !Array.isArray(c.steps) || c.steps.length === 0) {
+            throw new Error(`La pillola #${i + 1} (${c.title || 'senza titolo'}) non ha una struttura valida.`);
+          }
         }
         courses = parsed;
         saveCourses();
@@ -1419,7 +1493,7 @@
         renderEditorUI();
         showToast(`Importate ${courses.length} pillole formative con successo!`, 'success');
       } catch (err) {
-        showToast('File JSON non valido o struttura dei corsi non corretta.', 'error');
+        showToast(`Errore nell'importazione: ${err.message || 'File JSON non conforme.'}`, 'error');
       }
       event.target.value = '';
     };
@@ -1741,6 +1815,95 @@
 
   window.printCertificate = function () {
     window.print();
+  };
+
+  // Learning Analytics & Progress Modal
+  window.openAnalyticsModal = function () {
+    const modal = document.getElementById('analyticsModal');
+    const body = document.getElementById('analyticsModalBody');
+    if (!modal || !body) return;
+
+    loadProgress();
+    let savedReflections = {};
+    try { savedReflections = JSON.parse(localStorage.getItem('alberto_lms_reflections') || '{}'); } catch(e){}
+    let xapiLog = [];
+    try { xapiLog = JSON.parse(localStorage.getItem('alberto_lms_xapi_log') || '[]'); } catch(e){}
+
+    const totalCourses = courses.length;
+    let completedCoursesCount = 0;
+    let totalCompletedSteps = 0;
+
+    courses.forEach(c => {
+      const p = getCourseProgress(c.id);
+      const isComplete = p.completedSteps && p.completedSteps.length >= c.steps.length;
+      if (isComplete) completedCoursesCount++;
+      if (p.completedSteps) totalCompletedSteps += p.completedSteps.length;
+    });
+
+    const reflectionEntries = Object.entries(savedReflections).filter(([k, v]) => v && v.trim().length > 0);
+
+    body.innerHTML = `
+      <div class="analytics-stats-grid">
+        <div class="analytics-stat-card">
+          <span class="analytics-stat-num">${completedCoursesCount}/${totalCourses}</span>
+          <span class="analytics-stat-label">Pillole Concluse</span>
+        </div>
+        <div class="analytics-stat-card">
+          <span class="analytics-stat-num">${totalCompletedSteps}</span>
+          <span class="analytics-stat-label">Step Superati</span>
+        </div>
+        <div class="analytics-stat-card">
+          <span class="analytics-stat-num">${reflectionEntries.length}</span>
+          <span class="analytics-stat-label">Diari Compilati</span>
+        </div>
+        <div class="analytics-stat-card">
+          <span class="analytics-stat-num">${xapiLog.length}</span>
+          <span class="analytics-stat-label">Statement xAPI</span>
+        </div>
+      </div>
+
+      <div class="analytics-section-title">
+        <svg class="icon" aria-hidden="true" style="color:var(--terra);"><use href="#i-edit"></use></svg>
+        <span>Diario di Bordo &amp; Riflessioni Metacognitive</span>
+      </div>
+      ${reflectionEntries.length === 0
+        ? '<p style="font-size:0.88rem; color:var(--text-soft); font-style:italic;">Nessuna riflessione ancora annotata. Esplora i moduli per scrivere le tue considerazioni.</p>'
+        : reflectionEntries.map(([k, text]) => `
+            <div class="analytics-journal-item">
+              <div class="analytics-journal-head">${escapeHtml(k.replace('_', ' · '))}</div>
+              <div>${escapeHtml(text)}</div>
+            </div>
+          `).join('')
+      }
+
+      <div class="analytics-section-title">
+        <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-layers"></use></svg>
+        <span>Ultime Interazioni Tracciate (Simulazione xAPI)</span>
+      </div>
+      ${xapiLog.length === 0
+        ? '<p style="font-size:0.88rem; color:var(--text-soft); font-style:italic;">Nessuno statement registrato. Naviga nei corsi per generare Learning Analytics.</p>'
+        : `
+          <ul class="analytics-xapi-list">
+            ${xapiLog.slice(-5).reverse().map(stmt => `
+              <li class="analytics-xapi-item">
+                <span><strong>${escapeHtml(stmt.verb?.display?.['it-IT'] || stmt.verb?.id || '')}</strong>: ${escapeHtml(stmt.object?.definition?.name?.['it-IT'] || '')}</span>
+                <span style="color:var(--text-soft);">${new Date(stmt.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+              </li>
+            `).join('')}
+          </ul>
+        `
+      }
+    `;
+
+    if (modal.showModal) modal.showModal();
+    else modal.setAttribute('open', '');
+  };
+
+  window.closeAnalyticsModal = function () {
+    const modal = document.getElementById('analyticsModal');
+    if (!modal) return;
+    if (modal.close) modal.close();
+    else modal.removeAttribute('open');
   };
 
 })();
