@@ -601,13 +601,13 @@
     void contentArea.offsetWidth;
     contentArea.classList.add('is-entering');
 
-    // Bloom's Taxonomy Objectives Header (if defined on course)
+    // Bloom's Taxonomy Objectives Header (shown only on Step 1 to keep other steps clean and focused)
     let objectivesHTML = '';
-    if (course.objectives && course.objectives.length > 0) {
+    if (course.objectives && course.objectives.length > 0 && currentStepIndex === 0) {
       objectivesHTML = `
-        <div class="course-objectives-panel">
+        <div class="course-objectives-panel" style="margin-bottom: 22px;">
           <button type="button" class="objectives-toggle" onclick="toggleCourseObjectives()" id="btnCourseObjToggle" aria-expanded="false">
-            <span><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg> <strong>Obiettivi Formativi &amp; Tassonomia di Bloom</strong> (${course.objectives.length} traguardi)</span>
+            <span><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg> <strong>Obiettivi Formativi del Corso &amp; Tassonomia di Bloom</strong> (${course.objectives.length} traguardi)</span>
             <svg class="icon toggle-arrow" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
           </button>
           <div class="objectives-list" id="courseObjectivesList" hidden>
@@ -622,40 +622,73 @@
       `;
     }
 
-    let stepHTML = objectivesHTML + `
-      <span class="step-badge">${escapeHtml(step.badge || 'Modulo Didattico')}</span>
-      <h3 class="step-title">${escapeHtml(step.title)}</h3>
-    `;
-
     const isStepAlreadyDone = completed.has(currentStepIndex);
+    let stepHTML = objectivesHTML;
+
+    // Prepend step title/badge for all steps EXCEPT vertical video (which renders them inside the right column)
+    const isVerticalVideo = (step.type === 'video' && Boolean(step.isVertical || step.format === 'vertical'));
+    if (!isVerticalVideo) {
+      stepHTML += `
+        <span class="step-badge">${escapeHtml(step.badge || 'Modulo Didattico')}</span>
+        <h3 class="step-title">${escapeHtml(step.title)}</h3>
+      `;
+    }
 
     // 1. VIDEO STEP
     if (step.type === 'video') {
       const embedUrl = formatVideoEmbed(step.videoUrl);
+      const isVertical = Boolean(step.isVertical || step.format === 'vertical');
+
+      let unlockBannerHTML = '';
+      if (isStepAlreadyDone) {
+        unlockBannerHTML = `
+          <div class="unlock-banner ok">
+            <svg class="icon" aria-hidden="true"><use href="#i-check-circle"></use></svg>
+            <div><strong>Modulo completato!</strong> Hai già confermato la visione di questa pillola.</div>
+          </div>
+        `;
+      } else {
+        unlockBannerHTML = `
+          <div class="unlock-banner">
+            <svg class="icon" aria-hidden="true"><use href="#i-video"></use></svg>
+            <div>Guarda il video e clicca in basso per <strong>sbloccare il passaggio</strong>.</div>
+          </div>
+        `;
+      }
 
       if (embedUrl) {
         const isDirectVideo = embedUrl.endsWith('.mp4') || embedUrl.endsWith('.webm') || embedUrl.endsWith('.mov') || embedUrl.includes('.mp4');
-        const isVertical = Boolean(step.isVertical || step.format === 'vertical');
         const frameClass = isVertical ? 'video-frame video-vertical' : 'video-frame';
 
         const mediaTag = isDirectVideo
           ? `<video src="${escapeHtml(embedUrl)}" controls playsinline preload="metadata" style="width:100%; height:100%; object-fit:contain; background:#000;"></video>`
           : `<iframe src="${embedUrl}" title="${escapeHtml(step.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 
-        const verticalNotice = isVertical ? `
-          <div class="mobile-first-notice">
-            <span class="badge-mobile-first">📱 Mobile-First Microlearning (9:16)</span>
-            <span class="mobile-first-sub">Ottimizzato per smartphone e fruizione on-the-job</span>
-          </div>
-        ` : '';
-
-        stepHTML += `
-          ${verticalNotice}
-          <div class="${frameClass}" style="margin-bottom: 20px;">
-            ${mediaTag}
-          </div>
-          <div class="content-panel">${step.text || ''}</div>
-        `;
+        if (isVertical) {
+          stepHTML += `
+            <div class="video-step-layout">
+              <div class="video-col-player">
+                <div class="${frameClass}">
+                  ${mediaTag}
+                </div>
+              </div>
+              <div class="video-col-info">
+                <span class="step-badge">${escapeHtml(step.badge || 'Pillola Mobile-First')}</span>
+                <h3 class="step-title">${escapeHtml(step.title)}</h3>
+                <div class="content-panel">${step.text || ''}</div>
+                ${unlockBannerHTML}
+              </div>
+            </div>
+          `;
+        } else {
+          stepHTML += `
+            <div class="${frameClass}" style="margin-bottom: 20px;">
+              ${mediaTag}
+            </div>
+            <div class="content-panel">${step.text || ''}</div>
+            ${unlockBannerHTML}
+          `;
+        }
       } else {
         stepHTML += `
           <button type="button" class="video-mockup" onclick="simulateVideoPlay(this)" aria-label="Riproduci simulazione video">
@@ -667,24 +700,8 @@
               <span>Durata: ${escapeHtml(step.videoDuration || '02:00')}</span>
             </div>
           </button>
-          <p class="video-hint">💡 <em>Per mostrare un tuo video reale, incolla il link YouTube o Vimeo nella scheda "Sandbox Authoring".</em></p>
           <div class="content-panel">${step.text || ''}</div>
-        `;
-      }
-
-      if (isStepAlreadyDone) {
-        stepHTML += `
-          <div class="unlock-banner ok">
-            <svg class="icon" aria-hidden="true"><use href="#i-check-circle"></use></svg>
-            <div><strong>Modulo completato!</strong> Hai già confermato la visione di questa pillola. Puoi procedere al modulo successivo.</div>
-          </div>
-        `;
-      } else {
-        stepHTML += `
-          <div class="unlock-banner">
-            <svg class="icon" aria-hidden="true"><use href="#i-video"></use></svg>
-            <div>Clicca sul pulsante in basso per confermare la visione della pillola e <strong>sbloccare il modulo successivo</strong>.</div>
-          </div>
+          ${unlockBannerHTML}
         `;
       }
     }
@@ -848,33 +865,46 @@
         recordXApiStatement('completed', 'ha completato il modulo formativo', course.title, { completion: true });
       }
 
-      stepHTML += `
-        <div class="completion">
+      const badgeSrc = step.badgeImage || course.badgeImage;
+      const badgeHeroHTML = badgeSrc
+        ? `
+          <div class="completion-badge-showcase">
+            <img src="${escapeHtml(badgeSrc)}" alt="Badge di Certificazione" class="completion-badge-img">
+          </div>
+        `
+        : `
           <div class="completion-trophy">
             <svg class="icon" aria-hidden="true"><use href="#i-award"></use></svg>
           </div>
-          <span class="badge badge-green">Percorso Concluso con Successo</span>
-          <h3>Tutti i moduli sono stati completati!</h3>
-          <p>${escapeHtml(step.text || 'Congratulazioni per aver completato con successo l\'intero percorso di microlearning.')}</p>
+        `;
+
+      stepHTML += `
+        <div class="completion">
+          ${badgeHeroHTML}
+          <span class="badge badge-green">Competenze Certificate con Successo</span>
+          <h3 style="margin-top: 10px;">${escapeHtml(step.title || 'Percorso Concluso!')}</h3>
+          <div class="completion-body" style="margin: 14px 0 24px 0; color: var(--text-muted); line-height: 1.6;">
+            ${step.text || '<p>Congratulazioni per aver completato con successo l\'intero percorso di microlearning.</p>'}
+          </div>
 
           <div class="completion-actions">
             <div class="completion-card">
               <h4>
                 <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-file-text"></use></svg>
-                Dispensa Didattica
+                Dispensa &amp; Mappa Concettuale
               </h4>
-              <p>Mappa concettuale riassuntiva, checklist e sintesi metodologica pronte per la stampa.</p>
-              <a href="dispensa_didattica_riassuntiva.html" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
-                Apri la Dispensa Finale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+              <p>Mappa di sintesi della Scienza dell'Apprendimento Digitale e checklist operativa.</p>
+              <a href="${course.infographicUrl || 'videos/corso-clark-mayer/scienza_apprendimento_digitale.png'}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                Apri Mappa Concettuale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
               </a>
             </div>
 
             <div class="completion-card">
               <h4>
                 <svg class="icon" aria-hidden="true" style="color:var(--terra);"><use href="#i-award"></use></svg>
-                Attestato Formativo
+                Attestato di Competenze
               </h4>
-              <p>Visualizza e stampa il certificato nominativo di partecipazione generato per questa pillola.</p>
+              <p>Visualizza e stampa l'attestato nominativo con il badge ufficiale delle competenze acquisite.</p>
               <button type="button" class="btn btn-terra btn-sm" onclick="openCertModal()">
                 Visualizza Attestato <svg class="icon" aria-hidden="true"><use href="#i-printer"></use></svg>
               </button>
@@ -1802,10 +1832,15 @@
     if (!modal || !body) return;
 
     const today = new Date().toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+    const badgeImg = course.badgeImage || (course.steps && course.steps.find(s => s.badgeImage)?.badgeImage);
+    const badgeModalHTML = badgeImg
+      ? `<img src="${escapeHtml(badgeImg)}" alt="Badge Certificato" style="width:115px; height:auto; margin:0 auto 12px auto; display:block; filter:drop-shadow(0 6px 16px rgba(0,0,0,0.18));">`
+      : '';
 
     body.innerHTML = `
-      <div style="text-align:center; padding:16px 12px; border:2px solid var(--accent); border-radius:12px; background:var(--surface-2);">
-        <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); font-weight:700; margin-bottom:8px;">
+      <div style="text-align:center; padding:20px 16px; border:2px solid var(--accent); border-radius:14px; background:var(--surface-2);">
+        ${badgeModalHTML}
+        <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); font-weight:700; margin-bottom:6px;">
           Micro-Attestato di Completamento
         </div>
         <h3 style="font-family:var(--font-serif); font-size:1.45rem; color:var(--text); margin-bottom:12px;">

@@ -4,6 +4,8 @@
     "title": "Scienza dell'Apprendimento Digitale & Principi di Clark & Mayer",
     "category": "Instructional Design & E-Learning",
     "badge": "Modulo 1 · Mobile-First Microlearning",
+    "badgeImage": "videos/corso-clark-mayer/badge_certified_id.png",
+    "infographicUrl": "videos/corso-clark-mayer/scienza_apprendimento_digitale.png",
     "objectives": [
       { "bloom": "Comprendere", "text": "Distinguere l'architettura cognitiva della memoria (di lavoro vs a lungo termine) e prevenire l'essential overload." },
       { "bloom": "Applicare", "text": "Applicare il Principio di Segmentazione progettando unità di microlearning autonome a ritmo controllato dal discente." },
@@ -18,7 +20,7 @@
         "videoDuration": "00:45",
         "videoUrl": "videos/corso-clark-mayer/video1_carico_cognitivo.mp4",
         "isVertical": true,
-        "text": "<p><strong>Architettura cognitiva dell'apprendimento (Clark & Mayer):</strong> La memoria di lavoro ha una capacità limitata (pochi elementi simultanei) e una durata effimera, mentre la memoria a lungo termine conserva le competenze e gli schemi stabili.</p><div class='callout-quote'>⚠️ <strong>Essential Overload:</strong> Sovraccaricare la memoria con un flusso continuo di informazioni non digerite blocca l'elaborazione attiva e la ritenzione nei corsi digitali.</div>"
+        "text": "<p><strong>Concetto chiave:</strong> La memoria di lavoro ha una capacità limitata (pochi elementi simultanei) e una durata effimera; la memoria a lungo termine conserva gli schemi stabili. Sovraccaricare la mente con un flusso continuo di informazioni non digerite (<em>essential overload</em>) blocca l'elaborazione attiva e l'apprendimento.</p>"
       },
       {
         "type": "flashcard",
@@ -43,7 +45,7 @@
         "type": "reflection",
         "title": "4. Riflessione Metacognitiva: Il Tuo Carico Cognitivo",
         "badge": "Fase 1 · Diario Metacognitivo",
-        "prompt": "✍️ <strong>Spazio di Auto-Valutazione:</strong> Pensa a un corso o a un manuale tecnico che hai studiato recentemente. In quale momento hai avvertito saturazione cognitiva e cosa avrebbe potuto fare il progettista per evitarla?",
+        "prompt": "✍️ <strong>Spazio di Auto-Valutazione:</strong> Pensa a un corso o a un manuale tecnico che hai studiato recentemente. In quale momento hai avvertito saturazione cognitiva e cosa avrebbe potuto fare il formatore per evitarla?",
         "placeholder": "Annota qui la tua riflessione personale (viene salvata in automatico nel tuo browser)..."
       },
       {
@@ -54,14 +56,14 @@
         "videoDuration": "00:48",
         "videoUrl": "videos/corso-clark-mayer/video2_segmentazione.mp4",
         "isVertical": true,
-        "text": "<p><strong>Il Principio di Segmentazione (Segmenting Principle):</strong> Clark e Mayer dimostrano che le persone apprendono meglio quando una materia complessa è suddivisa in <em>brevi unità didattiche autonome (chunking)</em> fruite al ritmo controllato dal discente (<em>learner-paced</em>).</p><div class='callout-quote'>⏱️ <strong>Il potere del Microlearning:</strong> Permettere allo studente di decidere quando passare al blocco successivo offre il tempo indispensabile per elaborare ciascun concetto prima di accogliere nuove nozioni.</div>"
+        "text": "<p><strong>Concetto chiave:</strong> Scomporre processi formativi complessi in brevi unità didattiche autonome (<em>chunking</em>) fruite al ritmo controllato dal discente (<em>learner-paced</em>) riduce il carico essenziale e rende il microlearning efficace e memorabile.</p>"
       },
       {
         "type": "flashcard",
         "title": "6. Flashcard: Segmentazione & Chunking",
         "badge": "Fase 2 · Consolidamento Rapido",
         "frontText": "🧩 In che modo la segmentazione (chunking) rende il microlearning efficace e memorabile?",
-        "backText": "Scomponendo processi complessi in brevi unità didattiche autonome fruite al ritmo del discente, la memoria di lavoro ha il tempo necessario per comprendere ogni passaggio prima di affrontare il successivo.",
+        "backText": "Scomponendo compiti complessi in unità indipendenti a ritmo autonomo, il discente non subisce un flusso passivo: ha il tempo di riflettere e consolidare ogni singolo schema prima di procedere.",
         "tip": "Gira la flashcard per verificare il principio pedagogico del chunking."
       },
       {
@@ -90,7 +92,7 @@
         "videoDuration": "00:46",
         "videoUrl": "videos/corso-clark-mayer/video3_coerenza.mp4",
         "isVertical": true,
-        "text": "<p><strong>Il Principio di Coerenza (Coherence Principle):</strong> L'apprendimento è più profondo quando parole, immagini e suoni non pertinenti vengono sistematicamente <em>eliminati</em> dall'esperienza formativa.</p><div class='callout-quote'>✂️ <strong>Less is More:</strong> Elementi grafici puramente ornamentali, testi ridondanti e musiche di sottofondo inutili competono con le risorse cognitive dello studente, affaticando la mente e riducendo la comprensione dei concetti centrali.</div>"
+        "text": "<p><strong>Concetto chiave:</strong> Eliminare grafica puramente decorativa, testi ridondanti e musiche di sottofondo inutili è fondamentale nei corsi digitali: azzera il <em>carico estraneo</em> e concentra tutta l'attenzione sui contenuti centrali.</p>"
       },
       {
         "type": "flashcard",
@@ -120,9 +122,10 @@
       },
       {
         "type": "completion",
-        "title": "13. Completamento & Quadro di Sintesi",
-        "badge": "Fase Finale · Conclusione del Percorso",
-        "text": "<h4>Complimenti per aver completato il percorso didattico!</h4><p>Hai padroneggiato i tre pilastri della progettazione e-learning basata sull'evidenza scientifica (<strong>Clark & Mayer</strong>):</p><ul><li><strong>Architettura della Memoria:</strong> Salvaguardare la memoria di lavoro dal sovraccarico essenziale.</li><li><strong>Principio di Segmentazione:</strong> Organizzare il microlearning in chunk autonomi a ritmo controllato dal discente.</li><li><strong>Principio di Coerenza:</strong> Eliminare il rumore cognitivo, la grafica ornamentale e gli stimoli estranei.</li></ul><div class='infographic-box' style='margin-top: 24px; text-align: center;'><p style='font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;'>📊 <strong>Mappa Concettuale Integrata:</strong> Scienza dell'Apprendimento Digitale</p><img src='videos/corso-clark-mayer/scienza_apprendimento_digitale.png' alt='Mappa concettuale Scienza dell'Apprendimento Digitale' style='max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border);'></div>"
+        "title": "13. Completamento & Certificazione",
+        "badge": "Traguardo Finale · Competenze Validate",
+        "badgeImage": "videos/corso-clark-mayer/badge_certified_id.png",
+        "text": "<p>Hai completato con successo l'intero percorso didattico sequenziale, dimostrando padronanza dell'architettura della memoria, del Principio di Segmentazione e del Principio di Coerenza secondo l'evidence-based design di <strong>Clark & Mayer</strong>.</p>"
       }
     ]
   },

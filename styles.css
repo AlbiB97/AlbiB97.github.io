@@ -1324,38 +1324,82 @@ img, svg, iframe { display: block; max-width: 100%; }
 
 .video-frame.video-vertical {
   aspect-ratio: 9 / 16;
-  max-width: 320px;
-  margin: 0 auto 20px auto;
+  width: 100%;
+  max-width: 310px;
+  margin: 0 auto;
   border-radius: 20px;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-.mobile-first-notice {
+/* Layout affiancato per Video Verticali (Desktop Side-by-Side) */
+.video-step-layout {
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-top: 4px;
+}
+
+.video-col-player {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: 14px;
-  text-align: center;
 }
 
-.badge-mobile-first {
-  display: inline-flex;
+.video-col-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-col-info .step-badge {
+  align-self: flex-start;
+  margin-bottom: 2px;
+}
+
+.video-col-info .step-title {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+.video-col-info .content-panel {
+  margin: 0;
+  padding: 16px 18px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.video-col-info .content-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.video-col-info .unlock-banner {
+  margin: 4px 0 0 0;
+  padding: 10px 14px;
+  font-size: 0.86rem;
+}
+
+/* Badge di Completamento Percorso */
+.completion-badge-showcase {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  background: rgba(42, 92, 69, 0.14);
-  color: var(--accent);
-  border: 1px solid rgba(42, 92, 69, 0.3);
+  margin: 0 auto 16px auto;
 }
 
-.mobile-first-sub {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+.completion-badge-img {
+  width: 150px;
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 12px 28px rgba(42, 92, 69, 0.35));
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.completion-badge-img:hover {
+  transform: scale(1.06) rotate(1deg);
 }
 
 .infographic-box img {
@@ -1368,9 +1412,14 @@ img, svg, iframe { display: block; max-width: 100%; }
   border: 1px solid var(--border);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .video-step-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
   .video-frame.video-vertical {
     max-width: 100%;
+    max-height: 520px;
     border-radius: 16px;
   }
 }
