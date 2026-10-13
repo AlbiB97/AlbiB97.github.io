@@ -253,11 +253,28 @@
     }
   }
 
-  // Async Initialization: localStorage > courses.json > inline defaultCourses
+  // Async Initialization: courses.json (live) > localStorage > inline defaultCourses
   async function initLmsData() {
     loadProgress();
 
-    // 1. Check local Sandbox override
+    // 1. Fetch official courses.json first with cache-buster
+    try {
+      const res = await fetch('courses.json?v=' + Date.now());
+      if (res.ok) {
+        const remote = await res.json();
+        if (Array.isArray(remote) && remote.length > 0) {
+          courses = remote;
+          // Clear any outdated local sandbox cache to prevent stale data
+          try { localStorage.removeItem('alberto_lms_courses'); } catch (e) {}
+          finishInit();
+          return;
+        }
+      }
+    } catch (err) {
+      console.info('Fetch courses.json non disponibile (es. protocollo file://), procedo con fallback:', err);
+    }
+
+    // 2. Check local Sandbox override ONLY as fallback
     try {
       const local = localStorage.getItem('alberto_lms_courses');
       if (local) {
@@ -268,24 +285,7 @@
           return;
         }
       }
-    } catch (e) {
-      console.warn('Errore lettura localStorage, procedo con fetch:', e);
-    }
-
-    // 2. Fetch official courses.json
-    try {
-      const res = await fetch('courses.json');
-      if (res.ok) {
-        const remote = await res.json();
-        if (Array.isArray(remote) && remote.length > 0) {
-          courses = remote;
-          finishInit();
-          return;
-        }
-      }
-    } catch (err) {
-      console.info('Fetch courses.json non disponibile (es. protocollo file://), uso fallback inline:', err);
-    }
+    } catch (e) {}
 
     // 3. Fallback inline
     courses = JSON.parse(JSON.stringify(defaultCourses));
@@ -845,11 +845,11 @@
             <div class="completion-card">
               <h4>
                 <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-file-text"></use></svg>
-                Dispensa &amp; Mappa Concettuale
+                Dispensa Didattica Riassuntiva
               </h4>
-              <p>Mappa di sintesi della Scienza dell'Apprendimento Digitale e checklist operativa.</p>
-              <a href="${course.infographicUrl || 'videos/corso-clark-mayer/scienza_apprendimento_digitale.png'}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
-                Apri Mappa Concettuale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+              <p>Evidence-Based Instructional Design: Architettura Cognitiva &amp; Principi di Clark &amp; Mayer (2024).</p>
+              <a href="dispensa_didattica_riassuntiva.html" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                Apri la Scheda Finale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
               </a>
             </div>
 

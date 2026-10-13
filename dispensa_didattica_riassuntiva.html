@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dispensa Didattica: Benessere Digitale &amp; Carico Cognitivo | Alberto Bedeschi</title>
-  <meta name="description" content="Scheda didattica riassuntiva: Cognitive Load Theory, microlearning, IA e checklist di qualità a cura di Alberto Bedeschi.">
+  <title>Scheda Didattica Riassuntiva · Evidence-Based Instructional Design | Alberto Bedeschi</title>
+  <meta name="description" content="Scheda didattica riassuntiva: Architettura Cognitiva, Principi di Clark & Mayer (2024), Microlearning Mobile-First e checklist operativa a cura di Alberto Bedeschi.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
     }
 
     .toolbar-nav {
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 auto 20px;
       display: flex;
       justify-content: space-between;
@@ -88,7 +88,7 @@
     }
 
     .sheet {
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 auto;
       background: var(--surface);
       padding: 52px 56px;
@@ -101,10 +101,6 @@
       border-bottom: 2px solid var(--accent);
       padding-bottom: 22px;
       margin-bottom: 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
     }
 
     .badge {
@@ -118,33 +114,36 @@
       letter-spacing: 0.06em;
       padding: 4px 10px;
       border-radius: 999px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     h1 {
       font-family: var(--font-serif);
-      font-size: 1.85rem;
+      font-size: 1.75rem;
       font-weight: 600;
       color: var(--text);
-      line-height: 1.25;
+      line-height: 1.3;
       letter-spacing: -0.015em;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
-    .author-info {
+    .meta-box {
       font-size: 0.9rem;
       color: var(--text-muted);
-    }
-    .author-info strong {
-      color: var(--text);
+      line-height: 1.6;
+      background: var(--surface-2);
+      padding: 12px 16px;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+      margin-top: 10px;
     }
 
     h2 {
       font-family: var(--font-serif);
-      font-size: 1.28rem;
+      font-size: 1.25rem;
       font-weight: 600;
       color: var(--text);
-      margin-top: 28px;
+      margin-top: 32px;
       margin-bottom: 12px;
       border-left: 3px solid var(--terra);
       padding-left: 12px;
@@ -158,9 +157,9 @@
     }
 
     ul, ol {
-      margin: 12px 0 16px 24px;
+      margin: 10px 0 16px 22px;
       display: grid;
-      gap: 8px;
+      gap: 10px;
     }
 
     li {
@@ -176,8 +175,8 @@
       background: var(--surface-2);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 20px 24px;
-      margin: 22px 0;
+      padding: 18px 22px;
+      margin: 18px 0;
     }
     .callout-title {
       font-size: 0.95rem;
@@ -186,11 +185,38 @@
       margin-bottom: 8px;
     }
 
+    .checklist-grid {
+      display: grid;
+      gap: 10px;
+      margin: 14px 0;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .checklist-box {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--accent);
+      border-radius: 4px;
+      display: grid;
+      place-items: center;
+      margin-top: 2px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+
     .footer-stamp {
       margin-top: 44px;
       padding-top: 20px;
       border-top: 1px solid var(--border);
-      font-size: 0.84rem;
+      font-size: 0.85rem;
       color: var(--text-soft);
       display: flex;
       justify-content: space-between;
@@ -200,8 +226,8 @@
 
     @media (max-width: 680px) {
       body { padding: 16px 12px 32px; }
-      .sheet { padding: 32px 24px; border-radius: 12px; }
-      h1 { font-size: 1.5rem; }
+      .sheet { padding: 28px 20px; border-radius: 12px; }
+      h1 { font-size: 1.45rem; }
     }
 
     @media print {
@@ -214,7 +240,7 @@
         max-width: none !important;
       }
       h2 { break-after: avoid; }
-      .callout { break-inside: avoid; }
+      .callout, .meta-box { break-inside: avoid; }
     }
   </style>
 </head>
@@ -226,48 +252,98 @@
 
   <main class="sheet">
     <header class="header">
-      <div>
-        <span class="badge">Scheda Didattica Riassuntiva</span>
-        <h1>Benessere Digitale &amp; Gestione del Carico Cognitivo</h1>
-        <div class="author-info">A cura di <strong>Alberto Bedeschi</strong> · Progettista Formativo Digitale &amp; Studente Magistrale LM-93</div>
+      <span class="badge">Scheda Didattica Riassuntiva · Dispensa di Modulo</span>
+      <h1>Evidence-Based Instructional Design: Architettura Cognitiva &amp; Principi Multimediali</h1>
+      <div class="meta-box">
+        <div>A cura di: <strong>Alberto Bedeschi</strong> · Progettista Formativo Digitale &amp; Studente Magistrale LM-93</div>
+        <div style="font-size: 0.85rem; margin-top: 4px; color: var(--text-soft);">
+          Riferimento scientifico: <strong>Clark, R. C., &amp; Mayer, R. E. (2024).</strong> <em>"e-Learning and the Science of Instruction"</em> (5th Edition). Wiley / Pfeiffer.
+        </div>
       </div>
     </header>
 
     <section>
-      <h2>1. Sintesi Pedagogica: Cognitive Load Theory</h2>
-      <p>La progettazione e-learning efficace non consiste nell'accumulare contenuti multimediali, ma nel governare accuratamente il carico cognitivo del discente (John Sweller):</p>
+      <h2>1. Architettura della Mente e Gestione del Carico Cognitivo</h2>
+      <p>L'apprendimento multimediale significativo non avviene per accumulo passivo di informazioni, ma attraverso un'elaborazione attiva mediata da una memoria di lavoro a capacità limitata (<em>Dual-Channel Theory &amp; Cognitive Load Theory</em>):</p>
       <ul>
-        <li><strong>Carico Intrinseco:</strong> la difficoltà intrinseca del contenuto stesso. Si gestisce con un'attenta scomposizione per obiettivi e gradualità didattica (Tassonomia di Bloom).</li>
-        <li><strong>Carico Estraneo:</strong> il rumore mentale generato da elementi grafici sovrabbondanti, slide dense o interfacce confuse. Deve tendere a zero.</li>
-        <li><strong>Carico Pertinente:</strong> l'energia mentale impiegata dal discente nella reale costruzione e integrazione di schemi cognitivi stabili. Va massimizzato.</li>
+        <li>
+          <strong>Memoria di Lavoro (Working Memory):</strong> Dispone di due canali indipendenti (visivo e uditivo) ma severamente limitati: può elaborare simultaneamente solo 3-4 elementi informativi per circa 20 secondi senza consolidamento. Rappresenta il vero collo di bottiglia dell'apprendimento.
+        </li>
+        <li>
+          <strong>Memoria a Lungo Termine (Long-Term Memory):</strong> Archivio permanente e illimitato di schemi mentali stabili e modelli procedurali. L'apprendimento si verifica solo quando le nuove informazioni vengono integrate con gli schemi preesistenti.
+        </li>
+        <li>
+          <strong>I Tre Tipi di Carico Mentale (Tassonomia di Sweller, Clark &amp; Mayer):</strong>
+          <ul style="margin-top: 8px;">
+            <li><strong>Carico Intrinseco (Intrinsic Load):</strong> la complessità irriducibile del compito, proporzionale all'interattività degli elementi da apprendere. <br>→ <em>Azione di Design:</em> GESTIRE mediante scomposizione graduale e propedeuticità concettuale.</li>
+            <li><strong>Carico Estraneo (Extraneous Load):</strong> il rumore mentale provocato da cattivo design, testi ridondanti, grafiche decorative o interfacce confuse. <br>→ <em>Azione di Design:</em> MINIMIZZARE (tendente a zero).</li>
+            <li><strong>Carico Germano/Pertinente (Germane Load):</strong> lo sforzo cognitivo costruttivo orientato alla creazione e al consolidamento dei nuovi schemi mentali. <br>→ <em>Azione di Design:</em> PROMUOVERE con esercitazioni attive e contesti realistici.</li>
+          </ul>
+        </li>
       </ul>
     </section>
 
     <section>
-      <h2>2. Metodologia del Microlearning</h2>
+      <h2>2. I Principi Scientifici Chiave (Clark &amp; Mayer, 2024)</h2>
+      <p>Per evitare il sovraccarico essenziale (<em>Essential Overload</em>) ed estraneo (<em>Extraneous Overload</em>), la progettazione e-learning deve applicare evidenze empiriche validate:</p>
+      <ul>
+        <li><strong>Principio di Segmentazione (Segmenting Principle - Cap. 13):</strong> Scomporre percorsi estesi e continui in unità didattiche brevi e autonome (<em>chunking</em>), lasciando al discente il controllo autonomo del ritmo (<em>pacing control</em>) tra uno step e l'altro.</li>
+        <li><strong>Principio di Pre-formazione (Pretraining Principle - Cap. 13):</strong> Introdurre definizioni, componenti e concetti chiave prima di illustrare processi o procedure complesse, riducendo il carico essenziale al momento della dimostrazione.</li>
+        <li><strong>Principio di Coerenza (Coherence Principle - Cap. 9):</strong> Eliminare sistematicamente musica di sottofondo, effetti ambientali, elementi visivi decorativi (<em>seductive details</em>) e testi prolissi non strettamente necessari all'obiettivo formativo.</li>
+        <li><strong>Principio di Ridondanza &amp; Modalità (Redundancy &amp; Modality Principles - Cap. 7 &amp; 8):</strong> Spiegare grafiche o animazioni complesse tramite commento vocale anziché testo a schermo prolisso, evitando che canale visivo e canale verbale vadano in conflitto o che il discente debba sincronizzare forzatamente testo e parlato identici.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Framework Operativo: Il Microlearning Mobile-First</h2>
+      <p>Nell'e-learning moderno e nella formazione aziendale continua, il formato verticale (9:16) e la brevità modulare rispondono a precise esigenze ergonomiche:</p>
       <div class="callout">
-        <div class="callout-title">La Formula dei 3 Minuti per la Formazione Continua:</div>
         <ol>
-          <li><strong>Gancio Iniziale (0-30s):</strong> Esposizione di un dilemma situazionale, un bisogno reale o un quesito pratico per attivare l'attenzione.</li>
-          <li><strong>Nucleo Didattico (30-150s):</strong> Massima essenzialità concettuale, focalizzata su un unico learning outcome con supporto audio/video esplicativo.</li>
-          <li><strong>Attivazione Metacognitiva (150-180s):</strong> Domanda di riflessione o micro-quiz applicativo con feedback formativo immediato.</li>
+          <li><strong>Gancio Contestuale (00–15s):</strong> Attivazione immediata dell'attenzione tramite un problema reale, un dilemma di performance o un misconcetto frequente.</li>
+          <li><strong>Nucleo Essenziale (15–45s):</strong> Focus su un unico learning outcome misurabile, supportato da narrazione audio pulita e grafica funzionale (non decorativa).</li>
+          <li><strong>Sintesi &amp; Attivazione (45–60s):</strong> Chiusura con regola operativa memorabile, seguita immediatamente da una micro-attività di verifica.</li>
         </ol>
       </div>
     </section>
 
     <section>
-      <h2>3. L'Intelligenza Artificiale come Co-Pilota</h2>
-      <p>Nell'Instructional Design moderno, strumenti come <strong>NotebookLM</strong> e modelli linguistici dedicati consentono di elaborare basi documentali complesse per ricavarne schemi concettuali e pillole esplicative. L'accuratezza è garantita dall'ancoraggio rigoroso (<em>grounding</em>) alle sole fonti certificate caricate dal progettista formativo umano, che mantiene costantemente la supervisione pedagogica e il controllo finale sui contenuti.</p>
+      <h2>4. Valutazione Formativa e Feedback Esplicativo (Cap. 12)</h2>
+      <p>La misurazione delle competenze non deve limitarsi alla verifica sommativa (giusto/sbagliato):</p>
+      <ul>
+        <li><strong>Task-Process Feedback:</strong> ogni opzione di risposta (corretta o distrattore) fornisce una spiegazione metacognitiva immediata che chiarisce il principio teorico sottostante.</li>
+        <li><strong>L'errore come opportunità:</strong> il feedback guida il discente a riallineare il modello mentale prima di proseguire, consolidando l'apprendimento a lungo termine.</li>
+      </ul>
     </section>
 
     <section>
-      <h2>4. Checklist Operativa di Qualità del Corso</h2>
+      <h2>5. Intelligenza Artificiale Generativa &amp; Grounding Didattico</h2>
+      <p>Nell'Instructional Design 4.0, modelli avanzati e ambienti di sintesi documentale (es. NotebookLM) agiscono come co-piloti analitici:</p>
       <ul>
-        <li><strong>Accessibilità WCAG 2.1:</strong> Contrasti cromatici ad alta leggibilità, sottotitoli ai contributi video, navigabilità completa da tastiera e gerarchia chiara dei titoli.</li>
-        <li><strong>Tracciamento &amp; Standard:</strong> Piena compatibilità con standard SCORM 1.2 / 2004 e xAPI per il monitoraggio della progressione vincolata su LMS (Moodle).</li>
-        <li><strong>Fruibilità Multidispositivo:</strong> Ottimizzazione responsive completa per una fruizione fluida sia da desktop che da smartphone durante le pause lavorative.</li>
-        <li><strong>Feedback Metacognitivo:</strong> Spiegazione formativa dettagliata per ciascuna opzione di risposta nei quiz, orientata all'apprendimento e non solo alla valutazione sommativa.</li>
+        <li><strong>Grounding Rigoroso:</strong> le sintesi, i copioni e le schede concettuali derivano esclusivamente da fonti accademiche caricate e validate dal progettista.</li>
+        <li><strong>Supervisione Umana Indispensabile:</strong> il progettista formativo mantiene il controllo pedagogico, la verifica linguistica, l'accuratezza tassonomica e la coerenza del percorso.</li>
       </ul>
+    </section>
+
+    <section>
+      <h2>6. Checklist di Qualità Tecnica &amp; Accessibilità</h2>
+      <div class="checklist-grid">
+        <div class="checklist-item">
+          <div class="checklist-box">✓</div>
+          <div><strong>Accessibilità WCAG 2.1 (Livello AA):</strong> Contrasto cromatico minimo garantito (≥ 4.5:1), sottotitolazione ai contenuti video, piena navigabilità via tastiera e gerarchia semantica corretta.</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-box">✓</div>
+          <div><strong>Compatibilità LMS &amp; Standard:</strong> Tracciamento conforme a specifiche SCORM 1.2 / 2004 e predisposizione xAPI per Learning Record Store (LRS).</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-box">✓</div>
+          <div><strong>Ergonomia Responsive:</strong> Interfaccia adattiva testata per smartphone, tablet e desktop, ottimizzata per la fruizione durante micro-pause lavorative.</div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-box">✓</div>
+          <div><strong>Valutazione del Transfer:</strong> Connessione esplicita tra contenuti didattici e applicazione concreta nel contesto professionale.</div>
+        </div>
+      </div>
     </section>
 
     <footer class="footer-stamp">
