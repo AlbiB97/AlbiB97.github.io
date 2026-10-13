@@ -1067,6 +1067,24 @@
     showToast('Percorso riavviato. Buon apprendimento!', 'info');
   }
 
+  // Recruiter Mode: Unlock All Steps Instantly for HR Reviews
+  window.unlockAllRecruiterMode = function () {
+    courses.forEach(c => {
+      if (c && c.steps) {
+        const p = getCourseProgress(c.id);
+        const allIdx = c.steps.map((_, i) => i);
+        p.unlockedSteps = allIdx;
+        p.completedSteps = allIdx;
+      }
+    });
+    saveProgress();
+    setLmsMode('player');
+    const btn = document.getElementById('btnRecruiterUnlock');
+    if (btn) btn.classList.add('is-unlocked');
+    renderPlayerUI();
+    showToast('🔓 Modalità Recruiter attiva: tutti i moduli e l\'attestato sono stati sbloccati per la consultazione rapida!', 'success');
+  };
+
   // Video Play Simulation
   window.simulateVideoPlay = function (btn) {
     showToast('Simulazione avviata! Incolla il link del tuo video YouTube o Vimeo nel gestore per vederlo riprodotto direttamente qui.', 'info');
