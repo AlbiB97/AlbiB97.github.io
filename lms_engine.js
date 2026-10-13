@@ -859,9 +859,9 @@
                 Attestato di Competenze
               </h4>
               <p>Visualizza e stampa l'attestato nominativo con il badge ufficiale delle competenze acquisite.</p>
-              <button type="button" class="btn btn-terra btn-sm" onclick="openCertModal()">
-                Visualizza Attestato <svg class="icon" aria-hidden="true"><use href="#i-printer"></use></svg>
-              </button>
+              <a href="attestato_completamento.html" target="_blank" rel="noopener" class="btn btn-terra btn-sm">
+                Apri Attestato Ufficiale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+              </a>
             </div>
           </div>
         </div>
@@ -869,6 +869,23 @@
     }
 
     contentArea.innerHTML = stepHTML;
+
+    // Dynamic height calculation for flashcards so card never overflows text
+    if (step.type === 'flashcard') {
+      const adjustFlashcardHeight = () => {
+        const card = contentArea.querySelector('.flashcard-card');
+        const front = contentArea.querySelector('.flashcard-front');
+        const back = contentArea.querySelector('.flashcard-back');
+        if (card && front && back) {
+          const frontH = front.scrollHeight;
+          const backH = back.scrollHeight;
+          const maxH = Math.max(frontH, backH, 290);
+          card.style.minHeight = (maxH + 16) + 'px';
+        }
+      };
+      adjustFlashcardHeight();
+      setTimeout(adjustFlashcardHeight, 60);
+    }
 
     // Step Counter and Footer Controls
     const stepNumEl = document.getElementById('currentStepNum');
@@ -1803,6 +1820,11 @@
         <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:14px;">
           Si certifica il completamento dell'intero percorso didattico asincrono a progressione vincolata, con esito positivo nelle prove di verifica formativa e situazionale.
         </p>
+        <div style="margin-bottom:16px;">
+          <a href="attestato_completamento.html" target="_blank" rel="noopener" class="btn btn-terra btn-sm" style="display:inline-flex; align-items:center; gap:8px;">
+            🎓 Apri Pagina Attestato A4 da Stampare / Salvare PDF
+          </a>
+        </div>
         <div style="font-size:0.82rem; color:var(--text-soft); border-top:1px dashed var(--border); padding-top:12px;">
           Rilasciato per: <strong>Discente del Portfolio</strong><br>
           Progettazione: <strong>Alberto Bedeschi</strong> · Reggio Emilia<br>
@@ -1823,7 +1845,7 @@
   };
 
   window.printCertificate = function () {
-    window.print();
+    window.open('attestato_completamento.html', '_blank');
   };
 
   // Learning Analytics & Progress Modal

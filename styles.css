@@ -1633,7 +1633,7 @@ img, svg, iframe { display: block; max-width: 100%; }
 .flashcard-card {
   position: relative;
   width: 100%;
-  min-height: 230px;
+  min-height: 290px;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: var(--radius-lg);
@@ -1648,11 +1648,13 @@ img, svg, iframe { display: block; max-width: 100%; }
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: var(--radius-lg);
-  padding: 28px 24px;
+  padding: 24px 22px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border: 1.5px solid var(--border);
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 .flashcard-front {
   background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
@@ -1676,10 +1678,15 @@ img, svg, iframe { display: block; max-width: 100%; }
 }
 .flashcard-text {
   font-family: var(--font-serif);
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
-  line-height: 1.55;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.6;
   color: var(--text);
-  margin: 16px 0;
+  margin: 12px 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .flashcard-hint {
   font-size: 0.78rem;
@@ -1693,6 +1700,20 @@ img, svg, iframe { display: block; max-width: 100%; }
   width: 14px;
   height: 14px;
   color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .flashcard-card {
+    min-height: 340px;
+  }
+  .flashcard-face {
+    padding: 16px 14px;
+  }
+  .flashcard-text {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin: 8px 0;
+  }
 }
 
 /* Metacognitive Reflection Journal */
