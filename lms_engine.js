@@ -634,9 +634,25 @@
       const embedUrl = formatVideoEmbed(step.videoUrl);
 
       if (embedUrl) {
+        const isDirectVideo = embedUrl.endsWith('.mp4') || embedUrl.endsWith('.webm') || embedUrl.endsWith('.mov') || embedUrl.includes('.mp4');
+        const isVertical = Boolean(step.isVertical || step.format === 'vertical');
+        const frameClass = isVertical ? 'video-frame video-vertical' : 'video-frame';
+
+        const mediaTag = isDirectVideo
+          ? `<video src="${escapeHtml(embedUrl)}" controls playsinline preload="metadata" style="width:100%; height:100%; object-fit:contain; background:#000;"></video>`
+          : `<iframe src="${embedUrl}" title="${escapeHtml(step.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+
+        const verticalNotice = isVertical ? `
+          <div class="mobile-first-notice">
+            <span class="badge-mobile-first">📱 Mobile-First Microlearning (9:16)</span>
+            <span class="mobile-first-sub">Ottimizzato per smartphone e fruizione on-the-job</span>
+          </div>
+        ` : '';
+
         stepHTML += `
-          <div class="video-frame" style="margin-bottom: 20px;">
-            <iframe src="${embedUrl}" title="${escapeHtml(step.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          ${verticalNotice}
+          <div class="${frameClass}" style="margin-bottom: 20px;">
+            ${mediaTag}
           </div>
           <div class="content-panel">${step.text || ''}</div>
         `;
@@ -1657,9 +1673,13 @@
     if (!previewContainer) return;
     const embed = formatVideoEmbed(url);
     if (embed) {
+      const isDirect = embed.endsWith('.mp4') || embed.endsWith('.webm') || embed.includes('.mp4');
+      const media = isDirect
+        ? `<video src="${escapeHtml(embed)}" controls playsinline style="width:100%; height:100%; object-fit:contain; background:#000;"></video>`
+        : `<iframe src="${embed}" style="width:100%; height:100%; border:0;" allowfullscreen></iframe>`;
       previewContainer.innerHTML = `
-        <div style="position:relative; aspect-ratio:16/9; max-height:200px; border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-top:10px;">
-          <iframe src="${embed}" style="width:100%; height:100%; border:0;" allowfullscreen></iframe>
+        <div style="position:relative; aspect-ratio:16/9; max-height:200px; border-radius:8px; overflow:hidden; border:1px solid var(--border); margin-top:10px; background:#000;">
+          ${media}
         </div>
       `;
     } else {

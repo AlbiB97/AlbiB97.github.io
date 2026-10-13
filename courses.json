@@ -1,90 +1,128 @@
 [
   {
     "id": "corso-benessere",
-    "title": "Benessere Digitale & Gestione del Carico Cognitivo",
-    "category": "Instructional Design & AI",
-    "badge": "Modulo 1 · Microlearning",
+    "title": "Scienza dell'Apprendimento Digitale & Principi di Clark & Mayer",
+    "category": "Instructional Design & E-Learning",
+    "badge": "Modulo 1 · Mobile-First Microlearning",
     "objectives": [
-      { "bloom": "Comprendere", "text": "Distinguere le tre componenti della Cognitive Load Theory (intrinseco, estraneo, pertinente)." },
-      { "bloom": "Applicare", "text": "Progettare sequenze di microlearning asincrono per prevenire il sovraccarico e il tecnostress." },
-      { "bloom": "Valutare", "text": "Verificare la qualità dei materiali e-learning prima del rilascio con criteri di accessibilità e tracciamento." }
+      { "bloom": "Comprendere", "text": "Distinguere l'architettura cognitiva della memoria (di lavoro vs a lungo termine) e prevenire l'essential overload." },
+      { "bloom": "Applicare", "text": "Applicare il Principio di Segmentazione progettando unità di microlearning autonome a ritmo controllato dal discente." },
+      { "bloom": "Valutare", "text": "Valutare l'efficacia di un corso e-learning tramite il Principio di Coerenza, eliminando elementi grafici e sonori estranei." }
     ],
     "steps": [
       {
         "type": "video",
-        "title": "1. Video Intro: Attenzione e Tecnostress",
-        "badge": "Fase 1 · Ingaggio Iniziale",
-        "videoTitle": "Pillola Video 1: L'impatto del Sovraccarico Cognitivo",
-        "videoDuration": "01:45",
-        "videoUrl": "",
-        "text": "<strong>Obiettivo didattico:</strong> Esplorare l'impatto del continuo cambio di contesto (<em>context switching</em>) e come la progettazione formativa a micro-blocchi favorisce il recupero dell'attenzione."
-      },
-      {
-        "type": "text",
-        "title": "2. Quadro Didattico: Cognitive Load Theory",
-        "badge": "Fase 2 · Approfondimento Concettuale",
-        "text": "<p>La <strong>Cognitive Load Theory (Sweller)</strong> suddivide il carico cognitivo in tre componenti fondamentali:</p><ul><li><strong>Carico Intrinseco:</strong> la difficoltà intrinseca del contenuto stesso. Si gestisce con una corretta gradualità didattica (Tassonomia di Bloom).</li><li><strong>Carico Estraneo:</strong> il rumore generato da una cattiva interfaccia, slide dense o audio disturbato. Deve tendere a zero.</li><li><strong>Carico Pertinente:</strong> l'energia mentale dedicata alla reale costruzione di schemi mentali stabili. Va massimizzato.</li></ul><div class='callout-quote'>💡 <strong>Regola per l'Instructional Designer:</strong> Riduciamo a zero il carico estraneo affinché tutto il potenziale cognitivo dello studente sia canalizzato nella comprensione reale.</div>"
+        "title": "1. Video 1: Il Carico Cognitivo & La Memoria",
+        "badge": "Pillola 1 · Mobile-First (9:16)",
+        "videoTitle": "Architettura Cognitiva: Memoria di Lavoro vs Lungo Termine",
+        "videoDuration": "00:45",
+        "videoUrl": "videos/corso-clark-mayer/video1_carico_cognitivo.mp4",
+        "isVertical": true,
+        "text": "<p><strong>Architettura cognitiva dell'apprendimento (Clark & Mayer):</strong> La memoria di lavoro ha una capacità limitata (pochi elementi simultanei) e una durata effimera, mentre la memoria a lungo termine conserva le competenze e gli schemi stabili.</p><div class='callout-quote'>⚠️ <strong>Essential Overload:</strong> Sovraccaricare la memoria con un flusso continuo di informazioni non digerite blocca l'elaborazione attiva e la ritenzione nei corsi digitali.</div>"
       },
       {
         "type": "flashcard",
-        "title": "3. Flashcard Didattica: I 3 Carichi Cognitivi",
-        "badge": "Fase 3 · Consolidamento Rapido",
-        "frontText": "🧠 Che cos'è il 'Carico Pertinente' (Germane Load) e perché l'Instructional Designer deve massimizzarlo?",
-        "backText": "È lo sforzo cognitivo impiegato nell'elaborazione attiva e nell'integrazione delle nuove nozioni nella memoria a lungo termine. Va massimizzato guidando lo studente a collegare il nuovo contenuto alle conoscenze pregresse.",
+        "title": "2. Flashcard: Memoria di Lavoro vs Memoria a Lungo Termine",
+        "badge": "Fase 1 · Consolidamento Rapido",
+        "frontText": "🧠 Perché un corso e-learning denso di informazioni continue provoca 'Essential Overload'?",
+        "backText": "Perché la memoria di lavoro può gestire pochissimi elementi informativi alla volta ed è volatile. Senza pause e attivatori cognitivi per trasferire i dati nella memoria a lungo termine, le informazioni decadono rapidamente.",
         "tip": "Clicca sulla card (o premi Spazio) per ruotarla e verificare la tua comprensione."
       },
       {
-        "type": "video",
-        "title": "4. Video 2: Caso Studio Pratico con AI",
-        "badge": "Fase 4 · Applicazione Pratica",
-        "videoTitle": "Pillola Video 2: Ristrutturare un Manuale di 50 Pagine",
-        "videoDuration": "02:10",
-        "videoUrl": "",
-        "text": "<strong>Caso reale:</strong> Analisi di documentazione aziendale complessa tramite NotebookLM su fonti certificate, con validazione pedagogica umana e scomposizione in moduli da 3 minuti."
-      },
-      {
-        "type": "game",
-        "title": "5. Gioco Didattico: Scenario di Progettazione",
-        "badge": "Fase 5 · Attività Gamificata (Sblocca il passaggio)",
-        "scenario": "🎯 <strong>Scenario di Decisione:</strong> Un'azienda ti chiede di formare 200 dipendenti su una nuova procedura interna. I dipendenti hanno solo 10 minuti di pausa tra un turno e l'altro. Quale strategia didattica applichi per garantire efficacia senza sovraccarico?",
+        "type": "quiz",
+        "title": "3. Quiz di Verifica: Architettura Cognitiva",
+        "badge": "Fase 1 · Verifica Formativa",
+        "question": "Secondo Clark e Mayer, quale strategia didattica previene il sovraccarico essenziale (essential overload)?",
         "options": [
-          { "text": "A) Invio di un manuale PDF di 60 pagine con richiesta di firma di presa visione via email.", "correct": false, "feedback": "❌ <strong>Scelta non idonea:</strong> Crea un forte sovraccarico cognitivo, disimpegno e un tasso di ritenzione quasi nullo. Riprova!" },
-          { "text": "B) Una sequenza di 3 micro-pillole da 2 minuti fruibili su smartphone, ciascuna seguita da una singola domanda situazionale.", "correct": true, "feedback": "🎉 <strong>Risposta Corretta!</strong> Il microlearning asincrono da 2 minuti rispetta i vincoli di tempo ed elimina il sovraccarico cognitivo. L'attività è superata e lo step successivo è ora sbloccato!" },
-          { "text": "C) Un webinar sincrono obbligatorio di 4 ore registrato senza momenti interattivi.", "correct": false, "feedback": "❌ <strong>Scelta non idonea:</strong> Non compatibile con i turni operativi e causa rapido affaticamento mentale (digital burnout). Riprova!" }
+          { "text": "Condensare tutti i concetti in un'unica lezione intensiva da 30 minuti senza pause.", "correct": false, "feedback": "❌ Non corretto: supera la capacità della memoria di lavoro, provocando affaticamento e distrazione." },
+          { "text": "Strutturare il contenuto in nuclei graduali, permettendo alla memoria di lavoro di elaborare e integrare prima di proseguire.", "correct": true, "feedback": "✅ <strong>Esatto!</strong> Rispettare i limiti della memoria di lavoro garantisce il consolidamento nella memoria a lungo termine." },
+          { "text": "Aggiungere musica ritmata in sottofondo per tenere sveglia l'attenzione del discente.", "correct": false, "feedback": "❌ Non corretto: la musica aggiunge carico cognitivo estraneo." }
         ]
       },
       {
         "type": "reflection",
-        "title": "6. Riflessione Metacognitiva: Diario di Bordo",
-        "badge": "Fase 6 · Attività Riflessiva",
-        "prompt": "✍️ <strong>Spazio di Auto-Valutazione:</strong> Pensa a un corso o una lezione che hai frequentato recentemente in cui hai sperimentato sovraccarico informativo. Quale elemento 'estraneo' (slide sovraccariche, spiegazioni ridondanti, distrazioni) avrebbe potuto essere eliminato con un buon instructional design?",
-        "placeholder": "Annota qui la tua riflessione personale (viene salvata automaticamente nel tuo browser)..."
+        "title": "4. Riflessione Metacognitiva: Il Tuo Carico Cognitivo",
+        "badge": "Fase 1 · Diario Metacognitivo",
+        "prompt": "✍️ <strong>Spazio di Auto-Valutazione:</strong> Pensa a un corso o a un manuale tecnico che hai studiato recentemente. In quale momento hai avvertito saturazione cognitiva e cosa avrebbe potuto fare il progettista per evitarla?",
+        "placeholder": "Annota qui la tua riflessione personale (viene salvata in automatico nel tuo browser)..."
       },
       {
         "type": "video",
-        "title": "7. Video 3: Checklist Operativa di Qualità",
-        "badge": "Fase 7 · Consolidamento & Sintesi",
-        "videoTitle": "Pillola Video 3: I 4 Criteri di Validazione di un Corso",
-        "videoDuration": "01:30",
-        "videoUrl": "",
-        "text": "In questa pillola finale vengono fissati i 4 criteri di qualità prima del rilascio in piattaforma e-learning: coerenza con gli obiettivi di Bloom, conformità WCAG, feedback metacognitivo e tracciamento SCORM/xAPI."
+        "title": "5. Video 2: Il Principio di Segmentazione (Microlearning)",
+        "badge": "Pillola 2 · Mobile-First (9:16)",
+        "videoTitle": "Segmenting Principle: Scomposizione in Unità Autonome",
+        "videoDuration": "00:48",
+        "videoUrl": "videos/corso-clark-mayer/video2_segmentazione.mp4",
+        "isVertical": true,
+        "text": "<p><strong>Il Principio di Segmentazione (Segmenting Principle):</strong> Clark e Mayer dimostrano che le persone apprendono meglio quando una materia complessa è suddivisa in <em>brevi unità didattiche autonome (chunking)</em> fruite al ritmo controllato dal discente (<em>learner-paced</em>).</p><div class='callout-quote'>⏱️ <strong>Il potere del Microlearning:</strong> Permettere allo studente di decidere quando passare al blocco successivo offre il tempo indispensabile per elaborare ciascun concetto prima di accogliere nuove nozioni.</div>"
+      },
+      {
+        "type": "flashcard",
+        "title": "6. Flashcard: Segmentazione & Chunking",
+        "badge": "Fase 2 · Consolidamento Rapido",
+        "frontText": "🧩 In che modo la segmentazione (chunking) rende il microlearning efficace e memorabile?",
+        "backText": "Scomponendo processi complessi in brevi unità didattiche autonome fruite al ritmo del discente, la memoria di lavoro ha il tempo necessario per comprendere ogni passaggio prima di affrontare il successivo.",
+        "tip": "Gira la flashcard per verificare il principio pedagogico del chunking."
       },
       {
         "type": "quiz",
-        "title": "8. Quiz Finale di Valutazione",
-        "badge": "Fase 8 · Valutazione Formativa (Sblocca la certificazione)",
-        "question": "Qual è il vantaggio pedagogico principale nell'uso di NotebookLM per l'Instructional Designer?",
+        "title": "7. Quiz di Progettazione: Applicare la Segmentazione",
+        "badge": "Fase 2 · Verifica Formativa",
+        "question": "Un'azienda ti commissiona un corso su una procedura complessa. Come applichi il Principio di Segmentazione?",
         "options": [
-          { "text": "Generare contenuti fittizi e teorie inventate in modo totalmente autonomo.", "correct": false, "feedback": "⚠️ Non corretto: l'obiettivo non è inventare, ma elaborare fonti reali senza allucinazioni." },
-          { "text": "Ancorare l'estrazione dei concetti e le sintesi esclusivamente ai documenti primari caricati dal formatore umano.", "correct": true, "feedback": "✅ <strong>Esatto!</strong> L'ancoraggio rigoroso (grounding) previene le allucinazioni e garantisce fedeltà pedagogica e scientifica. Quiz superato!" },
-          { "text": "Sostituire la figura del progettista formativo ed eliminare ogni supervisione umana.", "correct": false, "feedback": "⚠️ Non corretto: il giudizio pedagogico umano rimane il fulcro insostituibile." }
+          { "text": "Mostri l'intera procedura in un'unica video-lezione continua da 40 minuti.", "correct": false, "feedback": "❌ Non corretto: viola il principio di segmentazione e sovraccarica il discente." },
+          { "text": "Scomponi il percorso in micro-pillole da 1-2 minuti focalizzate su singoli task, con navigazione controllata dal discente.", "correct": true, "feedback": "✅ <strong>Risposta Corretta!</strong> La scomposizione modulare a ritmo autonomo azzera il sovraccarico e massimizza la memorizzazione operativa." },
+          { "text": "Invii un unico documento PDF da 80 pagine invitando i colleghi a leggerlo autonomamente.", "correct": false, "feedback": "❌ Non corretto: manca la mediazione didattica e la gradualità interattiva." }
         ]
       },
       {
+        "type": "reflection",
+        "title": "8. Riflessione Metacognitiva: Scomporre la Complessità",
+        "badge": "Fase 2 · Diario Metacognitivo",
+        "prompt": "✍️ <strong>Laboratorio di Chunking:</strong> Individua una competenza complessa che insegni o usi nel tuo lavoro. Come la suddivideresti in 3 micro-moduli da 1 minuto ciascuno?",
+        "placeholder": "Descrivi i tuoi 3 micro-chunk e la loro logica sequenziale..."
+      },
+      {
+        "type": "video",
+        "title": "9. Video 3: Il Principio di Coerenza (Eliminare il Superfluo)",
+        "badge": "Pillola 3 · Mobile-First (9:16)",
+        "videoTitle": "Coherence Principle: Eliminare Stimoli Estranei e Grafica Inutile",
+        "videoDuration": "00:46",
+        "videoUrl": "videos/corso-clark-mayer/video3_coerenza.mp4",
+        "isVertical": true,
+        "text": "<p><strong>Il Principio di Coerenza (Coherence Principle):</strong> L'apprendimento è più profondo quando parole, immagini e suoni non pertinenti vengono sistematicamente <em>eliminati</em> dall'esperienza formativa.</p><div class='callout-quote'>✂️ <strong>Less is More:</strong> Elementi grafici puramente ornamentali, testi ridondanti e musiche di sottofondo inutili competono con le risorse cognitive dello studente, affaticando la mente e riducendo la comprensione dei concetti centrali.</div>"
+      },
+      {
+        "type": "flashcard",
+        "title": "10. Flashcard: Il Principio di Coerenza",
+        "badge": "Fase 3 · Consolidamento Rapido",
+        "frontText": "✂️ Perché nei corsi digitali è fondamentale eliminare grafica puramente decorativa e musica di sottofondo inutile?",
+        "backText": "Perché generano 'carico cognitivo estraneo'. Il cervello dello studente è costretto a spendere energia mentale per ignorare gli stimoli irrilevanti, riducendo la capacità di comprendere e memorizzare i contenuti centrali.",
+        "tip": "Gira la flashcard per analizzare il ruolo del carico cognitivo estraneo."
+      },
+      {
+        "type": "quiz",
+        "title": "11. Quiz di Revisione Didattica: Applicare la Coerenza",
+        "badge": "Fase 3 · Verifica Formativa",
+        "question": "Durante la revisione dello storyboard di un corso digitale, noti schermate cariche di illustrazioni decorative, testo ridondante e musica di sottofondo continua. Come intervieni?",
+        "options": [
+          { "text": "Mantieni tutto invariato perché gli stimoli visivi e sonori rendono la lezione più accattivante.", "correct": false, "feedback": "❌ Non corretto: gli stimoli decorativi causano l'effetto 'seductive details' e riducono l'apprendimento." },
+          { "text": "Elimini le illustrazioni decorative, rimuovi la musica di sottofondo e ripulisci il testo per focalizzare l'attenzione sui contenuti centrali.", "correct": true, "feedback": "✅ <strong>Esatto!</strong> Il Principio di Coerenza impone di eliminare qualsiasi elemento che non supporti direttamente l'obiettivo pedagogico." },
+          { "text": "Aggiungi ulteriori effetti sonori per ogni interazione dell'utente.", "correct": false, "feedback": "❌ Non corretto: aumenta ulteriormente il rumore cognitivo estraneo." }
+        ]
+      },
+      {
+        "type": "reflection",
+        "title": "12. Riflessione Metacognitiva: Caccia al Carico Estraneo",
+        "badge": "Fase 3 · Diario Metacognitivo",
+        "prompt": "✍️ <strong>Audit di Coerenza:</strong> Pensa a un materiale e-learning, slide o video in cui hai notato elementi decorativi o ridondanti. Quale elemento avresti tagliato e perché?",
+        "placeholder": "Condividi la tua analisi critica..."
+      },
+      {
         "type": "completion",
-        "title": "9. Completamento & Dispensa Finale",
-        "badge": "Fase 9 · Conclusione del Percorso",
-        "text": "Congratulazioni! Hai completato l'intero percorso didattico sequenziale, superando la flashcard, il dilemma situazionale, la riflessione guidata e il test finale di verifica formativa."
+        "title": "13. Completamento & Quadro di Sintesi",
+        "badge": "Fase Finale · Conclusione del Percorso",
+        "text": "<h4>Complimenti per aver completato il percorso didattico!</h4><p>Hai padroneggiato i tre pilastri della progettazione e-learning basata sull'evidenza scientifica (<strong>Clark & Mayer</strong>):</p><ul><li><strong>Architettura della Memoria:</strong> Salvaguardare la memoria di lavoro dal sovraccarico essenziale.</li><li><strong>Principio di Segmentazione:</strong> Organizzare il microlearning in chunk autonomi a ritmo controllato dal discente.</li><li><strong>Principio di Coerenza:</strong> Eliminare il rumore cognitivo, la grafica ornamentale e gli stimoli estranei.</li></ul><div class='infographic-box' style='margin-top: 24px; text-align: center;'><p style='font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;'>📊 <strong>Mappa Concettuale Integrata:</strong> Scienza dell'Apprendimento Digitale</p><img src='videos/corso-clark-mayer/scienza_apprendimento_digitale.png' alt='Mappa concettuale Scienza dell'Apprendimento Digitale' style='max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border);'></div>"
       }
     ]
   },
