@@ -1348,6 +1348,13 @@ img, svg, iframe { display: block; max-width: 100%; }
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-size: 0.95rem;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.objectives-list-step .objective-item > span:last-child {
+  flex: 1;
+  min-width: 0;
 }
 
 .objectives-list-step .bloom-tag {
@@ -1480,7 +1487,7 @@ img, svg, iframe { display: block; max-width: 100%; }
 .option-list { display: grid; gap: 10px; }
 .option-btn {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
   width: 100%;
   padding: 14px 16px;
@@ -1494,6 +1501,12 @@ img, svg, iframe { display: block; max-width: 100%; }
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.option-btn span {
+  min-width: 0;
 }
 .option-btn:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
 .option-btn:disabled { cursor: default; }
@@ -1678,15 +1691,15 @@ img, svg, iframe { display: block; max-width: 100%; }
 }
 .flashcard-text {
   font-family: var(--font-serif);
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
   line-height: 1.6;
   color: var(--text);
-  margin: 12px 0;
+  margin: 14px 0;
   flex: 1;
-  display: flex;
-  align-items: center;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 .flashcard-hint {
   font-size: 0.78rem;
@@ -1695,6 +1708,7 @@ img, svg, iframe { display: block; max-width: 100%; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  margin-top: auto;
 }
 .flashcard-hint .icon {
   width: 14px;
@@ -1703,16 +1717,37 @@ img, svg, iframe { display: block; max-width: 100%; }
 }
 
 @media (max-width: 600px) {
+  .lms-view-content {
+    padding: 16px 12px;
+  }
+  .activity-box {
+    padding: 16px 12px;
+  }
   .flashcard-card {
-    min-height: 340px;
+    min-height: 380px;
   }
   .flashcard-face {
-    padding: 16px 14px;
+    padding: 18px 14px;
+    overflow-y: auto;
   }
   .flashcard-text {
     font-size: 0.92rem;
-    line-height: 1.5;
+    line-height: 1.55;
     margin: 8px 0;
+  }
+  .objectives-list-step .objective-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 14px;
+  }
+  .option-btn {
+    padding: 12px 12px;
+    gap: 10px;
+    font-size: 0.88rem;
+  }
+  .completion-actions {
+    grid-template-columns: 1fr;
   }
 }
 

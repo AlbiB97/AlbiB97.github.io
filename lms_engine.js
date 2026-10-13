@@ -299,10 +299,52 @@
 
   document.addEventListener('DOMContentLoaded', initLmsData);
 
-  // Flashcard 3D flip toggle
+  // Flashcard dynamic measurement & 3D flip toggle
+  window.adjustCurrentFlashcardHeight = function () {
+    const contentArea = document.getElementById('stepContentArea');
+    if (!contentArea) return;
+    const card = contentArea.querySelector('.flashcard-card');
+    const front = contentArea.querySelector('.flashcard-front');
+    const back = contentArea.querySelector('.flashcard-back');
+    if (!card || !front || !back) return;
+
+    const measureFace = (face) => {
+      const clone = face.cloneNode(true);
+      clone.style.position = 'fixed';
+      clone.style.left = '-9999px';
+      clone.style.top = '0';
+      clone.style.width = (card.offsetWidth > 40 ? card.offsetWidth : 300) + 'px';
+      clone.style.height = 'auto';
+      clone.style.maxHeight = 'none';
+      clone.style.minHeight = '0';
+      clone.style.transform = 'none';
+      clone.style.visibility = 'hidden';
+      clone.style.overflow = 'visible';
+      document.body.appendChild(clone);
+      const h = clone.offsetHeight;
+      document.body.removeChild(clone);
+      return h;
+    };
+
+    const frontH = measureFace(front);
+    const backH = measureFace(back);
+    const maxH = Math.max(frontH, backH, 320);
+    card.style.minHeight = (maxH + 18) + 'px';
+    card.style.height = (maxH + 18) + 'px';
+  };
+
+  window.addEventListener('resize', () => {
+    if (typeof window.adjustCurrentFlashcardHeight === 'function') {
+      window.adjustCurrentFlashcardHeight();
+    }
+  }, { passive: true });
+
   window.toggleFlashcardFlip = function (elem) {
     if (!elem) return;
     elem.classList.toggle('is-flipped');
+    if (typeof window.adjustCurrentFlashcardHeight === 'function') {
+      window.adjustCurrentFlashcardHeight();
+    }
     const course = courses[activeCourseIndex];
     if (course) {
       flashcardFlippedSteps.add(`${course.id}_step_${currentStepIndex}`);
@@ -872,19 +914,12 @@
 
     // Dynamic height calculation for flashcards so card never overflows text
     if (step.type === 'flashcard') {
-      const adjustFlashcardHeight = () => {
-        const card = contentArea.querySelector('.flashcard-card');
-        const front = contentArea.querySelector('.flashcard-front');
-        const back = contentArea.querySelector('.flashcard-back');
-        if (card && front && back) {
-          const frontH = front.scrollHeight;
-          const backH = back.scrollHeight;
-          const maxH = Math.max(frontH, backH, 290);
-          card.style.minHeight = (maxH + 16) + 'px';
-        }
-      };
-      adjustFlashcardHeight();
-      setTimeout(adjustFlashcardHeight, 60);
+      window.adjustCurrentFlashcardHeight();
+      setTimeout(window.adjustCurrentFlashcardHeight, 60);
+      setTimeout(window.adjustCurrentFlashcardHeight, 300);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(window.adjustCurrentFlashcardHeight);
+      }
     }
 
     // Step Counter and Footer Controls
