@@ -26,13 +26,18 @@
     return trimmed;
   }
 
-  // Default Courses Database
+  // Default Courses Database (Fallback & Template)
   const defaultCourses = [
     {
       id: "corso-benessere",
       title: "Benessere Digitale & Gestione del Carico Cognitivo",
       category: "Instructional Design & AI",
       badge: "Modulo 1 · Microlearning",
+      objectives: [
+        { bloom: "Comprendere", text: "Distinguere le tre componenti della Cognitive Load Theory (intrinseco, estraneo, pertinente)." },
+        { bloom: "Applicare", text: "Progettare sequenze di microlearning asincrono per prevenire il sovraccarico e il tecnostress." },
+        { bloom: "Valutare", text: "Verificare la qualità dei materiali e-learning prima del rilascio con criteri di accessibilità e tracciamento." }
+      ],
       steps: [
         {
           type: "video",
@@ -50,9 +55,17 @@
           text: "<p>La <strong>Cognitive Load Theory (Sweller)</strong> suddivide il carico cognitivo in tre componenti fondamentali:</p><ul><li><strong>Carico Intrinseco:</strong> la difficoltà intrinseca del contenuto stesso. Si gestisce con una corretta gradualità didattica (Tassonomia di Bloom).</li><li><strong>Carico Estraneo:</strong> il rumore generato da una cattiva interfaccia, slide dense o audio disturbato. Deve tendere a zero.</li><li><strong>Carico Pertinente:</strong> l'energia mentale dedicata alla reale costruzione di schemi mentali stabili. Va massimizzato.</li></ul><div class='callout-quote'>💡 <strong>Regola per l'Instructional Designer:</strong> Riduciamo a zero il carico estraneo affinché tutto il potenziale cognitivo dello studente sia canalizzato nella comprensione reale.</div>"
         },
         {
+          type: "flashcard",
+          title: "3. Flashcard Didattica: I 3 Carichi Cognitivi",
+          badge: "Fase 3 · Consolidamento Rapido",
+          frontText: "🧠 Che cos'è il 'Carico Pertinente' (Germane Load) e perché l'Instructional Designer deve massimizzarlo?",
+          backText: "È lo sforzo cognitivo impiegato nell'elaborazione attiva e nell'integrazione delle nuove nozioni nella memoria a lungo termine. Va massimizzato guidando lo studente a collegare il nuovo contenuto alle conoscenze pregresse.",
+          tip: "Clicca sulla card (o premi Spazio) per ruotarla e verificare la tua comprensione."
+        },
+        {
           type: "video",
-          title: "3. Video 2: Caso Studio Pratico con AI",
-          badge: "Fase 3 · Applicazione Pratica",
+          title: "4. Video 2: Caso Studio Pratico con AI",
+          badge: "Fase 4 · Applicazione Pratica",
           videoTitle: "Pillola Video 2: Ristrutturare un Manuale di 50 Pagine",
           videoDuration: "02:10",
           videoUrl: "",
@@ -60,8 +73,8 @@
         },
         {
           type: "game",
-          title: "4. Gioco Didattico: Scenario di Progettazione",
-          badge: "Fase 4 · Attività Gamificata (Sblocca il passaggio)",
+          title: "5. Gioco Didattico: Scenario di Progettazione",
+          badge: "Fase 5 · Attività Gamificata (Sblocca il passaggio)",
           scenario: "🎯 <strong>Scenario di Decisione:</strong> Un'azienda ti chiede di formare 200 dipendenti su una nuova procedura interna. I dipendenti hanno solo 10 minuti di pausa tra un turno e l'altro. Quale strategia didattica applichi per garantire efficacia senza sovraccarico?",
           options: [
             { text: "A) Invio di un manuale PDF di 60 pagine con richiesta di firma di presa visione via email.", correct: false, feedback: "❌ <strong>Scelta non idonea:</strong> Crea un forte sovraccarico cognitivo, disimpegno e un tasso di ritenzione quasi nullo. Riprova!" },
@@ -70,18 +83,25 @@
           ]
         },
         {
+          type: "reflection",
+          title: "6. Riflessione Metacognitiva: Diario di Bordo",
+          badge: "Fase 6 · Attività Riflessiva",
+          prompt: "✍️ <strong>Spazio di Auto-Valutazione:</strong> Pensa a un corso o una lezione che hai frequentato recentemente in cui hai sperimentato sovraccarico informativo. Quale elemento 'estraneo' (slide dense, spiegazioni ridondanti, distrazioni) avrebbe potuto essere eliminato con un buon instructional design?",
+          placeholder: "Annota qui la tua riflessione personale (viene salvata automaticamente nel tuo browser)..."
+        },
+        {
           type: "video",
-          title: "5. Video 3: Checklist Operativa di Qualità",
-          badge: "Fase 5 · Consolidamento & Sintesi",
+          title: "7. Video 3: Checklist Operativa di Qualità",
+          badge: "Fase 7 · Consolidamento & Sintesi",
           videoTitle: "Pillola Video 3: I 4 Criteri di Validazione di un Corso",
           videoDuration: "01:30",
           videoUrl: "",
-          text: "In questa pillola finale vengono fissati i 4 criteri di qualità prima del rilascio in piattaforma Moodle: coerenza con gli obiettivi di Bloom, conformità WCAG, feedback metacognitivo e tracciamento SCORM/xAPI."
+          text: "In questa pillola finale vengono fissati i 4 criteri di qualità prima del rilascio in piattaforma e-learning: coerenza con gli obiettivi di Bloom, conformità WCAG, feedback metacognitivo e tracciamento SCORM/xAPI."
         },
         {
           type: "quiz",
-          title: "6. Quiz Finale di Valutazione",
-          badge: "Fase 6 · Valutazione Formativa (Sblocca la certificazione)",
+          title: "8. Quiz Finale di Valutazione",
+          badge: "Fase 8 · Valutazione Formativa (Sblocca la certificazione)",
           question: "Qual è il vantaggio pedagogico principale nell'uso di NotebookLM per l'Instructional Designer?",
           options: [
             { text: "Generare contenuti fittizi e teorie inventate in modo totalmente autonomo.", correct: false, feedback: "⚠️ Non corretto: l'obiettivo non è inventare, ma elaborare fonti reali senza allucinazioni." },
@@ -91,9 +111,9 @@
         },
         {
           type: "completion",
-          title: "7. Completamento & Dispensa Finale",
-          badge: "Fase 7 · Conclusione del Percorso",
-          text: "Congratulazioni! Hai completato l'intero percorso didattico sequenziale, superando sia l'attività di gamification sia il test di verifica formativa."
+          title: "9. Completamento & Dispensa Finale",
+          badge: "Fase 9 · Conclusione del Percorso",
+          text: "Congratulazioni! Hai completato l'intero percorso didattico sequenziale, superando la flashcard, il dilemma situazionale, la riflessione guidata e il test finale di verifica formativa."
         }
       ]
     },
@@ -102,6 +122,11 @@
       title: "Mappatura Territoriale & Risorse Educative (Accento)",
       category: "Educativa & Digital Tools",
       badge: "Modulo 2 · Gestione Risorse",
+      objectives: [
+        { bloom: "Riconoscere", text: "Identificare i nodi chiave della rete educativa sul territorio di Reggio Emilia." },
+        { bloom: "Organizzare", text: "Strutturare banche dati condivise e georeferenziate su Google My Maps per équipe multidisciplinari." },
+        { bloom: "Valutare", text: "Garantire il rispetto del GDPR e della riservatezza nella gestione della documentazione dei minori (DOS)." }
+      ],
       steps: [
         {
           type: "video",
@@ -119,9 +144,17 @@
           text: "<p>Unire strumenti gestionali (Gecos per le ore, Google Drive per i dossier DOS) a una mappa geografica interattiva per visualizzare a colpo d'occhio sportelli di ascolto, centri pomeridiani e risorse per minori.</p><div class='callout-quote'>📍 <strong>Impatto:</strong> Riduzione dei tempi di orientamento delle famiglie e maggiore efficacia per le équipe multidisciplinari.</div>"
         },
         {
+          type: "flashcard",
+          title: "3. Flashcard: Il Principio di Riservatezza DOS",
+          badge: "Fase 3 · Consolidamento Normativo",
+          frontText: "📋 Quali precauzioni sono imprescindibili quando si digitalizzano dossier educativi su minori?",
+          backText: "Accesso con privilegi minimi su Google Drive aziendale, pseudonimizzazione delle informazioni sensibili, divieto di condivisione su canali non protetti e conformità al GDPR e ai regolamenti dei Servizi Sociali.",
+          tip: "Gira la flashcard per verificare la regola di compliance."
+        },
+        {
           type: "game",
-          title: "3. Attività Interattiva: Scelta della Risorsa",
-          badge: "Fase 3 · Decisione Operativa",
+          title: "4. Attività Interattiva: Scelta della Risorsa",
+          badge: "Fase 4 · Decisione Operativa",
           scenario: "🎯 <strong>Scenario Operativo:</strong> Una famiglia seguita dal servizio sociale necessita di un supporto pomeridiano per compiti e socializzazione per un minore. Quale risorsa mappata sul territorio selezioni?",
           options: [
             { text: "A) Pronto Soccorso Ospedaliero.", correct: false, feedback: "❌ Risorsa medica per emergenze, non pertinente al bisogno educativo." },
@@ -131,8 +164,8 @@
         },
         {
           type: "quiz",
-          title: "4. Quiz di Verifica: Privacy & Documentazione DOS",
-          badge: "Fase 4 · Conformità & Metodo",
+          title: "5. Quiz di Verifica: Privacy & Documentazione DOS",
+          badge: "Fase 5 · Conformità & Metodo",
           question: "Nell'aggiornamento della documentazione DOS su cloud, quale principio è prioritario?",
           options: [
             { text: "Condividere i dati sensibili pubblicamente senza protezioni.", correct: false, feedback: "⚠️ Grave violazione della normativa privacy." },
@@ -142,145 +175,24 @@
         },
         {
           type: "completion",
-          title: "5. Scheda Finale del Caso Accento",
-          badge: "Fase 5 · Conclusione",
+          title: "6. Scheda Finale del Caso Accento",
+          badge: "Fase 6 · Conclusione",
           text: "Modulo completato! Dimostrazione dell'integrazione tra competenze educative territoriali e digitalizzazione dei processi."
         }
       ]
     }
   ];
 
-  // State Management with Data Recovery Safety
-  function loadStoredCourses() {
-    try {
-      const data = localStorage.getItem('alberto_lms_courses');
-      if (data) {
-        const parsed = JSON.parse(data);
-        // Robustness check: must be a non-empty array with valid course objects and steps
-        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0] && Array.isArray(parsed[0].steps) && parsed[0].steps.length >= 2) {
-          return parsed;
-        }
-        console.warn('Dati corsi in localStorage non validi o corrotti. Ripristino corsi demo predefiniti.');
-        localStorage.removeItem('alberto_lms_courses');
-      }
-    } catch (e) {
-      console.warn('Impossibile leggere i corsi salvati (dati corrotti):', e);
-      try { localStorage.removeItem('alberto_lms_courses'); } catch (_) {}
-    }
-    return JSON.parse(JSON.stringify(defaultCourses));
-  }
-
-  // Author Authentication & Security PIN (Configurable for Alberto Bedeschi)
-  const AUTHOR_PINS = ['1997', 'alberto2026', '2026'];
-  let isAuthorUnlocked = false;
-
-  function checkAuthorSession() {
-    try {
-      return sessionStorage.getItem('alberto_lms_author_unlocked') === 'true';
-    } catch (e) {
-      return false;
-    }
-  }
-
-  function updateAuthorModeUI() {
-    const btnEditor = document.getElementById('btnModeEditor');
-    const authToggleBtn = document.getElementById('btnAuthorAuthToggle');
-    const authIcon = document.getElementById('authorAuthIcon');
-    const authText = document.getElementById('authorAuthText');
-    const footerLinkText = document.getElementById('footerAuthorLinkText');
-
-    if (btnEditor) {
-      btnEditor.style.display = isAuthorUnlocked ? 'inline-flex' : 'none';
-    }
-
-    if (authToggleBtn) {
-      if (isAuthorUnlocked) {
-        authToggleBtn.classList.add('is-unlocked');
-        authToggleBtn.setAttribute('title', 'Modalità Autore attiva (PIN verificato). Clicca per bloccare.');
-        if (authText) authText.textContent = 'Blocca Autore';
-        if (authIcon) authIcon.innerHTML = '<use href="#i-unlock"></use>';
-      } else {
-        authToggleBtn.classList.remove('is-unlocked');
-        authToggleBtn.setAttribute('title', 'Accesso per l\'autore protetto da PIN');
-        if (authText) authText.textContent = 'Area Autore';
-        if (authIcon) authIcon.innerHTML = '<use href="#i-lock"></use>';
-      }
-    }
-
-    if (footerLinkText) {
-      footerLinkText.textContent = isAuthorUnlocked ? 'Blocca Area Autore (Attiva)' : 'Accesso Autore (PIN)';
-    }
-
-    // Se l'autore si è bloccato e si trova nella vista gestore, ripristina la vista studente
-    if (!isAuthorUnlocked && currentMode === 'editor') {
-      window.setLmsMode('player');
-    }
-  }
-
-  window.promptAuthorLogin = async function () {
-    if (isAuthorUnlocked) {
-      const lockNow = window.ui ? await window.ui.confirm({
-        title: 'Area Autore Attiva',
-        message: 'L\'Area Autore è attualmente sbloccata. Vuoi bloccarla e reimpostare la piattaforma in sola lettura?',
-        confirmText: 'Blocca Area Autore'
-      }) : confirm('L\'Area Autore è sbloccata. Vuoi bloccarla?');
-
-      if (lockNow) {
-        window.lockAuthorMode();
-      }
-      return;
-    }
-
-    const enteredPin = window.ui ? await window.ui.prompt({
-      title: 'Accesso Area Riservata Autore',
-      label: 'Inserisci il PIN di gestione per sbloccare l\'editor didattico:',
-      placeholder: 'PIN autore (es. 1997)...',
-      confirmText: 'Sblocca Gestione',
-      hint: 'I visitatori visualizzano il corso in sola lettura. PIN autore: 1997'
-    }) : prompt('Inserisci il PIN per accedere all\'Area Autore (es. 1997):');
-
-    if (enteredPin === null || enteredPin === undefined) return;
-
-    if (AUTHOR_PINS.includes(String(enteredPin).trim())) {
-      isAuthorUnlocked = true;
-      try {
-        sessionStorage.setItem('alberto_lms_author_unlocked', 'true');
-      } catch (e) {}
-      updateAuthorModeUI();
-      window.setLmsMode('editor');
-      showToast('Area Autore sbloccata! Ora puoi creare, modificare ed eliminare moduli.', 'success');
-    } else {
-      showToast('PIN errato. Accesso all\'Area Autore negato.', 'error');
-    }
-  };
-
-  window.lockAuthorMode = function () {
-    isAuthorUnlocked = false;
-    try {
-      sessionStorage.removeItem('alberto_lms_author_unlocked');
-    } catch (e) {}
-    window.setLmsMode('player');
-    updateAuthorModeUI();
-    showToast('Area Autore bloccata. Piattaforma ripristinata in sola lettura.', 'info');
-  };
-
-  window.toggleAuthorAuth = function () {
-    if (isAuthorUnlocked) {
-      window.promptAuthorLogin();
-    } else {
-      window.promptAuthorLogin();
-    }
-  };
-
-  let courses = loadStoredCourses();
+  // State Management with Async Data Loading & Local Sandbox Persistence
+  let courses = [];
   let activeCourseIndex = 0;
   let currentStepIndex = 0;
   let currentMode = 'player'; // 'player' | 'editor'
   let currentEditingStepIndex = null;
   let modalTempOptions = [];
-
-  // Persistent User Progress per Course (solves Bug 4)
   let courseProgress = {};
+
+  // Persistent User Progress per Course
   function loadProgress() {
     try {
       courseProgress = JSON.parse(localStorage.getItem('alberto_lms_progress') || '{}');
@@ -339,14 +251,127 @@
     }
   }
 
-  // Initialize
-  document.addEventListener('DOMContentLoaded', () => {
-    isAuthorUnlocked = checkAuthorSession();
+  // Async Initialization: localStorage > courses.json > inline defaultCourses
+  async function initLmsData() {
     loadProgress();
+
+    // 1. Check local Sandbox override
+    try {
+      const local = localStorage.getItem('alberto_lms_courses');
+      if (local) {
+        const parsed = JSON.parse(local);
+        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0]?.steps?.length >= 2) {
+          courses = parsed;
+          finishInit();
+          return;
+        }
+      }
+    } catch (e) {
+      console.warn('Errore lettura localStorage, procedo con fetch:', e);
+    }
+
+    // 2. Fetch official courses.json
+    try {
+      const res = await fetch('courses.json');
+      if (res.ok) {
+        const remote = await res.json();
+        if (Array.isArray(remote) && remote.length > 0) {
+          courses = remote;
+          finishInit();
+          return;
+        }
+      }
+    } catch (err) {
+      console.info('Fetch courses.json non disponibile (es. protocollo file://), uso fallback inline:', err);
+    }
+
+    // 3. Fallback inline
+    courses = JSON.parse(JSON.stringify(defaultCourses));
+    finishInit();
+  }
+
+  function finishInit() {
     renderCourseSelector();
     loadCourse(0);
-    updateAuthorModeUI();
-  });
+  }
+
+  document.addEventListener('DOMContentLoaded', initLmsData);
+
+  // Flashcard 3D flip toggle
+  window.toggleFlashcardFlip = function (elem) {
+    if (!elem) return;
+    elem.classList.toggle('is-flipped');
+  };
+
+  // Reflection journal auto-save
+  window.saveReflectionDraft = function (key, value) {
+    try {
+      const saved = JSON.parse(localStorage.getItem('alberto_lms_reflections') || '{}');
+      saved[key] = value;
+      localStorage.setItem('alberto_lms_reflections', JSON.stringify(saved));
+      const st = document.getElementById('reflectionStatus');
+      if (st) st.textContent = '✓ Note salvate in memoria locale';
+    } catch (e) {}
+  };
+
+  // Toggle Bloom Objectives Panel
+  window.toggleCourseObjectives = function () {
+    const list = document.getElementById('courseObjectivesList');
+    const btn = document.getElementById('btnCourseObjToggle');
+    if (!list) return;
+    const isHidden = list.hidden;
+    list.hidden = !isHidden;
+    if (btn) btn.setAttribute('aria-expanded', String(isHidden));
+  };
+
+  // Simulated xAPI Statement Logger (Learning Analytics)
+  function recordXApiStatement(verbId, verbDisplay, objectName, resultData = null) {
+    try {
+      const log = JSON.parse(localStorage.getItem('alberto_lms_xapi_log') || '[]');
+      const course = courses[activeCourseIndex];
+      const statement = {
+        id: 'urn:uuid:' + (crypto.randomUUID ? crypto.randomUUID() : ('stmt-' + Date.now() + '-' + Math.floor(Math.random() * 10000))),
+        timestamp: new Date().toISOString(),
+        actor: {
+          name: "Discente del Portfolio",
+          mbox: "mailto:discente.portfolio@digital-learning.it"
+        },
+        verb: {
+          id: "http://adlnet.gov/expapi/verbs/" + verbId,
+          display: { "it-IT": verbDisplay, "en-US": verbId }
+        },
+        object: {
+          id: `https://albib97.github.io/lms#${course ? course.id : 'corso'}/${encodeURIComponent(objectName)}`,
+          definition: {
+            name: { "it-IT": objectName },
+            type: "http://adlnet.gov/expapi/activities/microlearning-module"
+          }
+        }
+      };
+      if (resultData) statement.result = resultData;
+      log.push(statement);
+      if (log.length > 100) log.shift();
+      localStorage.setItem('alberto_lms_xapi_log', JSON.stringify(log));
+    } catch (e) {
+      console.warn('Errore salvataggio xAPI:', e);
+    }
+  }
+
+  window.exportXApiLog = function () {
+    const log = JSON.parse(localStorage.getItem('alberto_lms_xapi_log') || '[]');
+    if (!log || log.length === 0) {
+      showToast('Nessuna interazione xAPI registrata. Esplora i moduli per generare tracciamenti!', 'info');
+      return;
+    }
+    const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(log, null, 2));
+    const dlAnchor = document.createElement('a');
+    dlAnchor.setAttribute('href', dataStr);
+    dlAnchor.setAttribute('download', `xapi_statements_alberto_bedeschi_${new Date().toISOString().slice(0, 10)}.json`);
+    document.body.appendChild(dlAnchor);
+    dlAnchor.click();
+    dlAnchor.remove();
+    showToast(`Esportati ${log.length} statement xAPI con successo!`, 'success');
+  };
 
   // Render Course Selector in Toolbar
   function renderCourseSelector() {
@@ -362,19 +387,19 @@
     select.value = activeCourseIndex;
   }
 
-  // Switch Mode (Player vs Editor)
+  // Switch Mode (Player vs Editor / Sandbox)
   window.setLmsMode = function (mode) {
-    if (mode === 'editor' && !isAuthorUnlocked) {
-      showToast('La Vista Gestore è riservata all\'autore. Inserisci il PIN.', 'info');
-      window.promptAuthorLogin();
-      return;
-    }
-
     currentMode = mode;
     const btnPlayer = document.getElementById('btnModePlayer');
     const btnEditor = document.getElementById('btnModeEditor');
-    if (btnPlayer) btnPlayer.setAttribute('aria-selected', String(mode === 'player'));
-    if (btnEditor) btnEditor.setAttribute('aria-selected', String(mode === 'editor'));
+    if (btnPlayer) {
+      btnPlayer.setAttribute('aria-selected', String(mode === 'player'));
+      btnPlayer.classList.toggle('active', mode === 'player');
+    }
+    if (btnEditor) {
+      btnEditor.setAttribute('aria-selected', String(mode === 'editor'));
+      btnEditor.classList.toggle('active', mode === 'editor');
+    }
 
     const playerArea = document.getElementById('lmsPlayerView');
     const editorArea = document.getElementById('lmsEditorView');
@@ -482,13 +507,15 @@
 
         let iconName = 'file-text';
         if (step.type === 'video') iconName = 'video';
+        else if (step.type === 'flashcard') iconName = 'layers';
         else if (step.type === 'game') iconName = 'target';
+        else if (step.type === 'reflection') iconName = 'edit';
         else if (step.type === 'quiz') iconName = 'help';
         else if (step.type === 'completion') iconName = 'award';
 
         let stateIcon = '';
         if (!isUnlocked) {
-          stateIcon = `<span class="syllabus-state" title="Modulo blocc"><svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg></span>`;
+          stateIcon = `<span class="syllabus-state" title="Modulo bloccato"><svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg></span>`;
         } else if (isDone) {
           stateIcon = `<span class="syllabus-state" style="color:var(--accent);" title="Completato"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span>`;
         }
@@ -523,12 +550,36 @@
     const contentArea = document.getElementById('lmsStepContent');
     if (!contentArea || !step) return;
 
+    // Record xAPI Learning Experience Statement
+    recordXApiStatement('experienced', 'ha fruito', step.title);
+
     // Add entering animation
     contentArea.classList.remove('is-entering');
     void contentArea.offsetWidth;
     contentArea.classList.add('is-entering');
 
-    let stepHTML = `
+    // Bloom's Taxonomy Objectives Header (if defined on course)
+    let objectivesHTML = '';
+    if (course.objectives && course.objectives.length > 0) {
+      objectivesHTML = `
+        <div class="course-objectives-panel">
+          <button type="button" class="objectives-toggle" onclick="toggleCourseObjectives()" id="btnCourseObjToggle" aria-expanded="false">
+            <span><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg> <strong>Obiettivi Formativi &amp; Tassonomia di Bloom</strong> (${course.objectives.length} traguardi)</span>
+            <svg class="icon toggle-arrow" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
+          </button>
+          <div class="objectives-list" id="courseObjectivesList" hidden>
+            ${course.objectives.map(obj => `
+              <div class="objective-item">
+                <span class="bloom-tag">${escapeHtml(obj.bloom || 'Comprendere')}</span>
+                <span>${escapeHtml(obj.text || '')}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    let stepHTML = objectivesHTML + `
       <span class="step-badge">${escapeHtml(step.badge || 'Modulo Didattico')}</span>
       <h3 class="step-title">${escapeHtml(step.title)}</h3>
     `;
@@ -557,7 +608,7 @@
               <span>Durata: ${escapeHtml(step.videoDuration || '02:00')}</span>
             </div>
           </button>
-          <p class="video-hint">💡 <em>Per mostrare un tuo video reale, incolla il link YouTube o Vimeo nella scheda "Vista Gestore".</em></p>
+          <p class="video-hint">💡 <em>Per mostrare un tuo video reale, incolla il link YouTube o Vimeo nella scheda "Sandbox Authoring".</em></p>
           <div class="content-panel">${step.text || ''}</div>
         `;
       }
@@ -578,7 +629,37 @@
         `;
       }
     }
-    // 2. TEXT STEP
+    // 2. FLASHCARD STEP (Active Retrieval Practice)
+    else if (step.type === 'flashcard') {
+      stepHTML += `
+        <div class="activity-box">
+          <div class="activity-meta">
+            <span>Microlearning Flashcard</span>
+            <span>Consolidamento Attivo</span>
+          </div>
+          <div class="flashcard-container" onclick="toggleFlashcardFlip(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFlashcardFlip(this);}" tabindex="0" role="button" aria-label="Gira la flashcard per verificare la spiegazione">
+            <div class="flashcard-card">
+              <div class="flashcard-face flashcard-front">
+                <span class="flashcard-badge">Concetto da verificare (Clicca per girare)</span>
+                <div class="flashcard-text">${step.frontText || ''}</div>
+                <div class="flashcard-hint"><svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg> Clicca o premi Spazio per girare</div>
+              </div>
+              <div class="flashcard-face flashcard-back">
+                <span class="flashcard-badge">Spiegazione &amp; Approfondimento</span>
+                <div class="flashcard-text">${step.backText || ''}</div>
+                <div class="flashcard-hint"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> Concetto assimilato</div>
+              </div>
+            </div>
+          </div>
+          ${step.tip ? `<p class="form-hint" style="margin-top:10px;">💡 ${escapeHtml(step.tip)}</p>` : ''}
+        </div>
+        <div class="unlock-banner ${isStepAlreadyDone ? 'ok' : ''}">
+          <svg class="icon" aria-hidden="true"><use href="#i-${isStepAlreadyDone ? 'check-circle' : 'layers'}"></use></svg>
+          <div>${isStepAlreadyDone ? '<strong>Flashcard appresa!</strong> Puoi proseguire o girarla di nuovo per ripassare.' : 'Gira la card per verificare la comprensione, poi clicca in basso per <strong>sbloccare il modulo successivo</strong>.'}</div>
+        </div>
+      `;
+    }
+    // 3. TEXT STEP
     else if (step.type === 'text') {
       stepHTML += `<div class="content-panel">${step.text || ''}</div>`;
       if (isStepAlreadyDone) {
@@ -633,7 +714,35 @@
         </div>
       `;
     }
-    // 4. QUIZ STEP (Assessment)
+    // 5. REFLECTION STEP (Metacognitive Journaling)
+    else if (step.type === 'reflection') {
+      let savedReflections = {};
+      try { savedReflections = JSON.parse(localStorage.getItem('alberto_lms_reflections') || '{}'); } catch(e){}
+      const refKey = `${course.id}_step_${currentStepIndex}`;
+      const savedVal = savedReflections[refKey] || '';
+
+      stepHTML += `
+        <div class="activity-box">
+          <div class="activity-meta">
+            <span>Riflessione Metacognitiva</span>
+            <span>Diario di Bordo del Discente</span>
+          </div>
+          <div class="activity-prompt">${step.prompt || 'Annota qui la tua riflessione personale:'}</div>
+          <div class="reflection-box">
+            <label for="reflectionInput" class="form-label" style="font-size:0.8rem; color:var(--text-soft);">Le tue annotazioni (salvate automaticamente nel browser):</label>
+            <textarea class="form-input reflection-textarea" id="reflectionInput" placeholder="${escapeHtml(step.placeholder || 'Scrivi qui la tua riflessione...')}" oninput="saveReflectionDraft('${refKey}', this.value)">${escapeHtml(savedVal)}</textarea>
+            <div class="reflection-actions">
+              <span class="form-hint" id="reflectionStatus">${savedVal ? '✓ Note salvate in locale' : 'Salvato automaticamente nel tuo browser'}</span>
+            </div>
+          </div>
+        </div>
+        <div class="unlock-banner ${isStepAlreadyDone ? 'ok' : ''}">
+          <svg class="icon" aria-hidden="true"><use href="#i-${isStepAlreadyDone ? 'check-circle' : 'edit'}"></use></svg>
+          <div>${isStepAlreadyDone ? '<strong>Riflessione memorizzata!</strong> Le tue considerazioni rimangono nel tuo browser.' : 'Scrivi le tue annotazioni didattiche, poi clicca in basso per <strong>sbloccare lo step successivo</strong>.'}</div>
+        </div>
+      `;
+    }
+    // 6. QUIZ STEP (Assessment)
     else if (step.type === 'quiz') {
       const opts = step.options || [];
       stepHTML += `
@@ -669,13 +778,14 @@
         </div>
       `;
     }
-    // 5. COMPLETION STEP
+    // 7. COMPLETION STEP
     else if (step.type === 'completion') {
       // Mark completion step as done automatically
       if (!completed.has(currentStepIndex)) {
         completed.add(currentStepIndex);
         prog.completedSteps = Array.from(completed);
         saveProgress();
+        recordXApiStatement('completed', 'ha completato il modulo formativo', course.title, { completion: true });
       }
 
       stepHTML += `
@@ -985,6 +1095,8 @@
       const isFirst = (idx === 0);
       const isLast = (idx === course.steps.length - 1);
       const videoTag = (step.type === 'video' && step.videoUrl) ? '<span class="tag-video">🎬 Video collegato</span>' : '';
+      const flashTag = (step.type === 'flashcard') ? '<span class="tag-video" style="background:rgba(42,92,69,0.15);color:var(--accent);">🃏 Flashcard</span>' : '';
+      const refTag = (step.type === 'reflection') ? '<span class="tag-video" style="background:rgba(169,77,46,0.15);color:var(--terra);">✍️ Riflessione</span>' : '';
 
       li.innerHTML = `
         <span class="step-row-num">${idx + 1}.</span>
@@ -992,7 +1104,7 @@
           <div class="step-row-title">${escapeHtml(step.title)}</div>
           <div class="step-row-type">
             <span>[${step.type.toUpperCase()}] ${escapeHtml(step.badge || '')}</span>
-            ${videoTag}
+            ${videoTag}${flashTag}${refTag}
           </div>
         </div>
         <div class="step-row-actions">
@@ -1020,10 +1132,6 @@
 
   // Save Course Metadata
   window.saveCourseMeta = function () {
-    if (!isAuthorUnlocked) {
-      showToast('Operazione riservata all\'autore. Sblocca la modalità con il PIN.', 'error');
-      return;
-    }
     const course = courses[activeCourseIndex];
     if (!course) return;
 
@@ -1038,7 +1146,6 @@
 
   // Reorder Step (Up / Down)
   window.moveStep = function (idx, direction) {
-    if (!isAuthorUnlocked) return;
     const course = courses[activeCourseIndex];
     const newIdx = idx + direction;
     if (newIdx < 0 || newIdx >= course.steps.length) return;
@@ -1058,7 +1165,6 @@
 
   // Duplicate Step
   window.duplicateStep = function (idx) {
-    if (!isAuthorUnlocked) return;
     const course = courses[activeCourseIndex];
     const original = course.steps[idx];
     const copy = JSON.parse(JSON.stringify(original));
@@ -1070,12 +1176,8 @@
     showToast('Step duplicato con successo!', 'success');
   };
 
-  // Delete Step with Safety Bounds Check (solves Bug 3)
+  // Delete Step with Safety Bounds Check
   window.deleteStep = async function (idx) {
-    if (!isAuthorUnlocked) {
-      showToast('Operazione riservata all\'autore. Sblocca con il PIN.', 'error');
-      return;
-    }
     const course = courses[activeCourseIndex];
     if (course.steps.length <= 2) {
       showToast('Un percorso formativo deve contenere almeno 2 step.', 'error');
@@ -1102,10 +1204,6 @@
 
   // Add New Step
   window.addNewStepDirectly = function (type) {
-    if (!isAuthorUnlocked) {
-      showToast('Operazione riservata all\'autore. Sblocca con il PIN.', 'error');
-      return;
-    }
     const course = courses[activeCourseIndex];
     const stepNum = course.steps.length + 1;
 
@@ -1120,12 +1218,23 @@
       newStep.videoTitle = 'Pillola Formativa Video';
       newStep.videoDuration = '02:00';
       newStep.videoUrl = '';
+    } else if (type === 'flashcard') {
+      newStep.title = `${stepNum}. Flashcard: Concetto Chiave`;
+      newStep.badge = `Fase ${stepNum} · Flashcard`;
+      newStep.frontText = 'Domanda o concetto chiave da verificare';
+      newStep.backText = 'Spiegazione concettuale e approfondimento didattico';
+      newStep.tip = 'Gira la card per verificare la spiegazione.';
     } else if (type === 'game') {
       newStep.scenario = '🎯 <strong>Scenario di prova:</strong> Come risolveresti questa situazione applicativa?';
       newStep.options = [
         { text: 'Opzione A (Corretta)', correct: true, feedback: '🎉 Ottimo! Decisione pedagogicamente corretta.' },
         { text: 'Opzione B (Errata)', correct: false, feedback: '❌ Non appropriato per questo scenario. Riprova!' }
       ];
+    } else if (type === 'reflection') {
+      newStep.title = `${stepNum}. Riflessione Metacognitiva`;
+      newStep.badge = `Fase ${stepNum} · Diario di Bordo`;
+      newStep.prompt = '✍️ <strong>Spazio di Auto-Valutazione:</strong> Quali considerazioni operative puoi trarre da questa fase per la tua pratica?';
+      newStep.placeholder = 'Scrivi qui la tua riflessione personale...';
     } else if (type === 'quiz') {
       newStep.question = 'Qual è il punto chiave di questa pillola didattica?';
       newStep.options = [
@@ -1149,10 +1258,6 @@
 
   // Create New Course
   window.handleCreateNewCourse = async function () {
-    if (!isAuthorUnlocked) {
-      showToast('Operazione riservata all\'autore. Sblocca con il PIN.', 'error');
-      return;
-    }
     const title = window.ui ? await window.ui.prompt({
       title: 'Nuova Pillola Formativa',
       label: 'Titolo del Corso / Microlearning:',
@@ -1184,9 +1289,17 @@
           text: '<p>Inserisci qui la spiegazione teorica ed evidenzia i concetti fondamentali.</p>'
         },
         {
+          type: 'flashcard',
+          title: '3. Flashcard di Consolidamento',
+          badge: 'Fase 3 · Flashcard',
+          frontText: 'Concetto chiave da memorizzare',
+          backText: 'Definizione ed esempi pratici',
+          tip: 'Clicca per verificare la spiegazione.'
+        },
+        {
           type: 'game',
-          title: '3. Gioco Didattico a Bivi',
-          badge: 'Fase 3 · Scenario Applicativo',
+          title: '4. Gioco Didattico a Bivi',
+          badge: 'Fase 4 · Scenario Applicativo',
           scenario: '🎯 <strong>Scenario applicativo:</strong> Come risolveresti questo dilemma?',
           options: [
             { text: 'Scelta Ragionata (Corretta)', correct: true, feedback: '🎉 Corretto!' },
@@ -1194,9 +1307,16 @@
           ]
         },
         {
+          type: 'reflection',
+          title: '5. Diario di Bordo',
+          badge: 'Fase 5 · Riflessione',
+          prompt: 'Qual è il takeaway principale di questa pillola per te?',
+          placeholder: 'Annota le tue considerazioni...'
+        },
+        {
           type: 'quiz',
-          title: '4. Quiz di Valutazione',
-          badge: 'Fase 4 · Verifica',
+          title: '6. Quiz di Valutazione',
+          badge: 'Fase 6 · Verifica',
           question: 'Qual è il punto chiave di questa pillola didattica?',
           options: [
             { text: 'Risposta Esatta', correct: true, feedback: '✅ Esatto!' },
@@ -1205,8 +1325,8 @@
         },
         {
           type: 'completion',
-          title: '5. Completamento & Attestato',
-          badge: 'Fase 5 · Conclusione',
+          title: '7. Completamento & Attestato',
+          badge: 'Fase 7 · Conclusione',
           text: 'Hai completato con successo questa pillola formativa!'
         }
       ]
@@ -1219,11 +1339,11 @@
     showToast(`Pillola "${title}" creata con successo!`, 'success');
   };
 
-  // Reset to Defaults (solves Bug 2: deep clone + cleanup)
+  // Reset to Defaults (solves Bug: deep clone + cleanup)
   window.handleResetCourses = async function () {
     const ok = window.ui ? await window.ui.confirm({
       title: 'Ripristina Corsi Predefiniti',
-      message: 'Vuoi ripristinare i corsi originali? Tutte le pillole create e le modifiche salvate localmente verranno azzerate.',
+      message: 'Vuoi ripristinare i corsi originali? Tutte le pillole create e le modifiche salvate localmente nella sandbox verranno azzerate.',
       confirmText: 'Ripristina Tutto',
       danger: true
     }) : confirm('Vuoi ripristinare i corsi predefiniti?');
@@ -1232,7 +1352,24 @@
 
     localStorage.removeItem('alberto_lms_courses');
     localStorage.removeItem('alberto_lms_progress');
-    courses = JSON.parse(JSON.stringify(defaultCourses));
+    localStorage.removeItem('alberto_lms_reflections');
+
+    try {
+      const res = await fetch('courses.json');
+      if (res.ok) {
+        const remote = await res.json();
+        if (Array.isArray(remote) && remote.length > 0) {
+          courses = remote;
+        } else {
+          courses = JSON.parse(JSON.stringify(defaultCourses));
+        }
+      } else {
+        courses = JSON.parse(JSON.stringify(defaultCourses));
+      }
+    } catch (e) {
+      courses = JSON.parse(JSON.stringify(defaultCourses));
+    }
+
     courseProgress = {};
     activeCourseIndex = 0;
     currentStepIndex = 0;
@@ -1240,37 +1377,29 @@
     renderCourseSelector();
     renderPlayerUI();
     renderEditorUI();
-    showToast('Corsi e progressi ripristinati ai valori predefiniti.', 'success');
+    showToast('Corsi e progressi ripristinati con successo.', 'success');
   };
 
-  // Export JSON
+  // Export JSON (generates courses.json ready to replace in repository)
   window.exportCoursesJSON = function () {
     const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(courses, null, 2));
     const dlAnchor = document.createElement('a');
     dlAnchor.setAttribute('href', dataStr);
-    dlAnchor.setAttribute('download', `pillole_lms_alberto_bedeschi_${new Date().toISOString().slice(0, 10)}.json`);
+    dlAnchor.setAttribute('download', 'courses.json');
     document.body.appendChild(dlAnchor);
     dlAnchor.click();
     dlAnchor.remove();
-    showToast('File JSON delle pillole esportato con successo!', 'success');
+    showToast('File courses.json scaricato! Sostituiscilo nella cartella del repository per aggiornare i corsi ufficiali.', 'success');
   };
 
   // Trigger file import
   window.triggerImportJSON = function () {
-    if (!isAuthorUnlocked) {
-      showToast('Operazione riservata all\'autore. Sblocca con il PIN.', 'error');
-      return;
-    }
     const input = document.getElementById('lmsFileInput');
     if (input) input.click();
   };
 
   // Import JSON from file
   window.importCoursesFromFile = function (event) {
-    if (!isAuthorUnlocked) {
-      showToast('Importazione riservata all\'autore.', 'error');
-      return;
-    }
     const file = event.target.files && event.target.files[0];
     if (!file) return;
 
@@ -1301,10 +1430,6 @@
   // 3. STEP MODAL EDITOR WITH LIVE PREVIEW & OPTIONS DYNAMICS
   // =========================================================
   window.openStepModal = function (idx) {
-    if (!isAuthorUnlocked) {
-      showToast('Operazione riservata all\'autore. Sblocca con il PIN.', 'error');
-      return;
-    }
     currentEditingStepIndex = idx;
     const course = courses[activeCourseIndex];
     const step = course.steps[idx];
@@ -1353,6 +1478,23 @@
         </div>
       `;
     }
+    // FLASHCARD FIELDS
+    else if (step.type === 'flashcard') {
+      fieldsHTML += `
+        <div class="form-group">
+          <label class="form-label" for="m_frontText">Fronte della Card (Domanda / Concetto):</label>
+          <textarea class="form-input" id="m_frontText" style="min-height:80px;">${escapeHtml(step.frontText || '')}</textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="m_backText">Retro della Card (Spiegazione / Risposta):</label>
+          <textarea class="form-input" id="m_backText" style="min-height:100px;">${escapeHtml(step.backText || '')}</textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="m_tip">Suggerimento / Istruzione per il discente:</label>
+          <input type="text" class="form-input" id="m_tip" value="${escapeHtml(step.tip || '')}">
+        </div>
+      `;
+    }
     // TEXT FIELDS
     else if (step.type === 'text') {
       fieldsHTML += `
@@ -1377,6 +1519,19 @@
           <div id="modalOptionsContainer">
             ${renderModalOptionsList('game')}
           </div>
+        </div>
+      `;
+    }
+    // REFLECTION FIELDS
+    else if (step.type === 'reflection') {
+      fieldsHTML += `
+        <div class="form-group">
+          <label class="form-label" for="m_prompt">Prompt di Riflessione / Domanda-Guida:</label>
+          <textarea class="form-input" id="m_prompt" style="min-height:90px;">${escapeHtml(step.prompt || '')}</textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="m_placeholder">Placeholder per il diario del discente:</label>
+          <input type="text" class="form-input" id="m_placeholder" value="${escapeHtml(step.placeholder || '')}">
         </div>
       `;
     }
@@ -1491,10 +1646,6 @@
   };
 
   window.saveStepModal = function () {
-    if (!isAuthorUnlocked) {
-      showToast('Operazione riservata all\'autore.', 'error');
-      return;
-    }
     if (currentEditingStepIndex === null) return;
     const course = courses[activeCourseIndex];
     const step = course.steps[currentEditingStepIndex];
@@ -1513,6 +1664,13 @@
       if (vTitleEl) step.videoTitle = vTitleEl.value.trim();
       if (vDurEl) step.videoDuration = vDurEl.value.trim();
       if (textEl) step.text = textEl.value;
+    } else if (step.type === 'flashcard') {
+      const frontEl = document.getElementById('m_frontText');
+      const backEl = document.getElementById('m_backText');
+      const tipEl = document.getElementById('m_tip');
+      if (frontEl) step.frontText = frontEl.value.trim();
+      if (backEl) step.backText = backEl.value.trim();
+      if (tipEl) step.tip = tipEl.value.trim();
     } else if (step.type === 'text') {
       const textEl = document.getElementById('m_text');
       if (textEl) step.text = textEl.value;
@@ -1520,6 +1678,11 @@
       const scenEl = document.getElementById('m_scenario');
       if (scenEl) step.scenario = scenEl.value;
       step.options = JSON.parse(JSON.stringify(modalTempOptions));
+    } else if (step.type === 'reflection') {
+      const promptEl = document.getElementById('m_prompt');
+      const phEl = document.getElementById('m_placeholder');
+      if (promptEl) step.prompt = promptEl.value;
+      if (phEl) step.placeholder = phEl.value.trim();
     } else if (step.type === 'quiz') {
       const qEl = document.getElementById('m_question');
       if (qEl) step.question = qEl.value;

@@ -61,7 +61,7 @@
         <div class="intro-tag">E-Learning Environment · Didattica Interattiva</div>
         <h1 class="intro-title">Piattaforma LMS: <em>Player Sequenziale</em> &amp; Gestore</h1>
         <p class="intro-lead">
-          Un ambiente e-learning ispirato alla logica di tracciamento e progressione vincolata di <strong>Moodle</strong>: per proseguire, il discente deve completare l'attività o superare il quesito precedente, sbloccando i moduli con lucchetto 🔒. La piattaforma è impostata in <strong>sola lettura per i visitatori</strong>; per i progettisti e docenti gli strumenti di authoring sono accessibili nell'<strong>Area Autore</strong> protetta da PIN.
+          Un ambiente e-learning per la formazione asincrona: progressione vincolata a sblocco sequenziale (ispirata a <strong>Moodle</strong>), attività situazionali e tracciamento didattico. Include una <strong>Sandbox di Authoring</strong> aperta per testare in tempo reale la creazione, il riordino e la modifica di moduli e quiz.
         </p>
       </div>
     </section>
@@ -85,15 +85,9 @@
                 <svg class="icon" aria-hidden="true"><use href="#i-eye"></use></svg>
                 <span>Vista Studente</span>
               </button>
-              <!-- Nascosto di default per i visitatori, sbloccato solo con PIN -->
-              <button class="lms-switch-btn" id="btnModeEditor" type="button" role="tab" aria-selected="false" onclick="setLmsMode('editor')" style="display:none;">
+              <button class="lms-switch-btn" id="btnModeEditor" type="button" role="tab" aria-selected="false" onclick="setLmsMode('editor')">
                 <svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg>
-                <span>Vista Gestore</span>
-              </button>
-              <!-- Tasto discreto di accesso / blocco autore -->
-              <button class="lms-switch-btn" id="btnAuthorAuthToggle" type="button" onclick="toggleAuthorAuth()" title="Accesso per l'autore protetto da PIN">
-                <svg class="icon" id="authorAuthIcon" aria-hidden="true"><use href="#i-lock"></use></svg>
-                <span id="authorAuthText">Area Autore</span>
+                <span>Sandbox Authoring</span>
               </button>
             </div>
           </div>
@@ -150,21 +144,35 @@
 
           <!-- 2. GESTORE / AUTHORING EDITOR VIEW -->
           <div id="lmsEditorView" class="editor-panel" hidden>
+            <!-- Sandbox Informative Banner -->
+            <div class="sandbox-banner">
+              <div class="sandbox-banner-icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-bulb"></use></svg>
+              </div>
+              <div class="sandbox-banner-text">
+                <strong>🛠️ Modalità Sandbox Didattico (Micro-Authoring):</strong>
+                Tutte le modifiche, creazioni ed eliminazioni di step avvengono in tempo reale nella memoria locale del tuo browser (<code>localStorage</code>) e non alterano il sito pubblico. Puoi testare la sequenzialità, esportare il file aggiornato <code>courses.json</code> o ripristinare i corsi demo in qualsiasi momento.
+              </div>
+            </div>
+
             <div class="editor-head">
               <div>
                 <h2>Authoring Tool: Gestione Pillole Didattiche</h2>
-                <p>Personalizza i testi pedagogici, riordina gli step, collega link a video YouTube/Vimeo o esporta i corsi in formato JSON.</p>
+                <p>Personalizza i testi pedagogici, riordina gli step, collega link a video YouTube/Vimeo, crea flashcard e riflessioni, o esporta i corsi.</p>
               </div>
               <div class="btn-bar">
-                <button class="btn btn-secondary btn-sm" type="button" onclick="exportCoursesJSON()" title="Scarica tutti i corsi salvati in formato JSON">
-                  <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>Esporta JSON
+                <button class="btn btn-secondary btn-sm" type="button" onclick="exportCoursesJSON()" title="Scarica il file courses.json pronto per l'aggiornamento">
+                  <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>Esporta courses.json
                 </button>
-                <button class="btn btn-secondary btn-sm" type="button" onclick="triggerImportJSON()" title="Carica corsi da un file JSON precedentemente salvato">
+                <button class="btn btn-secondary btn-sm" type="button" onclick="triggerImportJSON()" title="Carica corsi da un file JSON salvato">
                   <svg class="icon" aria-hidden="true"><use href="#i-upload"></use></svg>Importa JSON
                 </button>
                 <input type="file" id="lmsFileInput" accept=".json" style="display:none" onchange="importCoursesFromFile(event)">
-                <button class="btn btn-secondary btn-sm" type="button" onclick="handleResetCourses()">
-                  <svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg>Ripristina Predefiniti
+                <button class="btn btn-secondary btn-sm" type="button" onclick="exportXApiLog()" title="Esporta log delle attività didattiche in formato xAPI Statement (JSON)">
+                  <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>Log xAPI
+                </button>
+                <button class="btn btn-secondary btn-sm" type="button" onclick="handleResetCourses()" title="Ripristina i corsi e progressi originali">
+                  <svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg>Ripristina Demo
                 </button>
                 <button class="btn btn-terra btn-sm" type="button" onclick="handleCreateNewCourse()">
                   <svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>Nuova Pillola Formativa
@@ -203,7 +211,9 @@
                 <div class="btn-bar">
                   <button class="btn btn-secondary btn-sm" type="button" onclick="addNewStepDirectly('video')">+ Video</button>
                   <button class="btn btn-secondary btn-sm" type="button" onclick="addNewStepDirectly('text')">+ Testo</button>
+                  <button class="btn btn-secondary btn-sm" type="button" onclick="addNewStepDirectly('flashcard')">+ Flashcard</button>
                   <button class="btn btn-secondary btn-sm" type="button" onclick="addNewStepDirectly('game')">+ Gioco a Bivi</button>
+                  <button class="btn btn-secondary btn-sm" type="button" onclick="addNewStepDirectly('reflection')">+ Riflessione</button>
                   <button class="btn btn-secondary btn-sm" type="button" onclick="addNewStepDirectly('quiz')">+ Quiz</button>
                 </div>
               </div>
@@ -280,7 +290,7 @@
             <li><a href="lms.html">Piattaforma LMS</a></li>
             <li><a href="progetti.html">Casi studio &amp; mappa</a></li>
             <li><a href="profilo.html">Curriculum</a></li>
-            <li><a href="#" onclick="promptAuthorLogin(); return false;"><svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg><span id="footerAuthorLinkText">Accesso Autore (PIN)</span></a></li>
+            <li><a href="lms.html" onclick="setLmsMode('editor'); return false;"><svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg>Sandbox Authoring</a></li>
             <li><a href="#" onclick="handleResetCourses(); return false;"><svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg>Ripristina Corsi Demo</a></li>
           </ul>
         </div>
