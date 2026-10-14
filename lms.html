@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=20261013">
+  <link rel="stylesheet" href="styles.css?v=20261014-skilla">
   <script>(function(){var d=document.documentElement,t;d.classList.add('js');try{t=localStorage.getItem('ab-theme')}catch(e){}if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.setAttribute('data-theme',t)})();</script>
 </head>
 <body>
@@ -98,7 +98,7 @@
               </button>
               <button class="lms-switch-btn" id="btnRecruiterUnlock" type="button" onclick="unlockAllRecruiterMode()" title="Sblocca istantaneamente tutti i moduli per la consultazione rapida HR">
                 <svg class="icon" aria-hidden="true"><use href="#i-unlock"></use></svg>
-                <span>🔓 Sblocca tutto (Vista Recruiter)</span>
+                <span>🔓 Sblocca tutto <span class="switch-long">(Vista Recruiter)</span></span>
               </button>
             </div>
           </div>
@@ -120,17 +120,12 @@
             </div>
 
             <div class="lms-grid-body">
-              <!-- Syllabus Sidebar -->
-              <aside class="lms-syllabus" id="lmsSyllabusCol">
-                <button type="button" class="syllabus-toggle" id="syllabusToggle" aria-expanded="false" aria-controls="lmsNavList" onclick="toggleSyllabusMobile()">
-                  <span>Moduli del percorso formativo</span>
-                  <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
-                </button>
-                <div class="syllabus-head">Progressione Moduli</div>
-                <ul class="syllabus-list" id="lmsNavList">
+              <!-- Horizontal Stepper (Skilla-Style) -->
+              <nav class="lms-syllabus" id="lmsSyllabusCol" aria-label="Progressione moduli del percorso">
+                <ul class="syllabus-list" id="lmsNavList" role="list">
                   <!-- Populated by JS with accessible buttons -->
                 </ul>
-              </aside>
+              </nav>
 
               <!-- Main Content Area -->
               <div class="lms-view-content">
@@ -342,6 +337,6 @@
   </footer>
 
   <script src="main.js"></script>
-  <script src="lms_engine.js?v=20261013"></script>
+  <script src="lms_engine.js?v=20261014-skilla"></script>
 </body>
 </html>

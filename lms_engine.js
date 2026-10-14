@@ -594,6 +594,7 @@
         btn.className = `syllabus-item ${isActive ? 'is-active' : ''} ${isDone ? 'is-done' : ''} ${!isUnlocked ? 'is-locked' : ''}`;
         btn.setAttribute('aria-current', isActive ? 'step' : 'false');
         if (!isUnlocked) btn.setAttribute('aria-disabled', 'true');
+        btn.title = `Modulo ${idx + 1}: ${step.title}`;
 
         let iconName = 'file-text';
         if (step.type === 'video') iconName = 'video';
@@ -605,12 +606,13 @@
 
         let stateIcon = '';
         if (!isUnlocked) {
-          stateIcon = `<span class="syllabus-state" title="Modulo bloccato"><svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg></span>`;
+          stateIcon = `<span class="syllabus-state is-state-locked" title="Modulo bloccato"><svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg></span>`;
         } else if (isDone) {
-          stateIcon = `<span class="syllabus-state" style="color:var(--accent);" title="Completato"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span>`;
+          stateIcon = `<span class="syllabus-state is-state-done" style="color:var(--accent);" title="Completato"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span>`;
         }
 
         btn.innerHTML = `
+          <span class="syllabus-step-num">${idx + 1}</span>
           <span class="step-icon">
             <svg class="icon" aria-hidden="true"><use href="#i-${iconName}"></use></svg>
           </span>
@@ -621,9 +623,6 @@
         btn.onclick = () => {
           if (isUnlocked) {
             currentStepIndex = idx;
-            // Close mobile syllabus if open
-            const col = document.getElementById('lmsSyllabusCol');
-            if (col && col.classList.contains('is-open')) window.toggleSyllabusMobile();
             renderPlayerUI();
           } else {
             showToast('Questo modulo è bloccato. Completa l\'attività precedente per sbloccarlo.', 'info');
@@ -633,6 +632,14 @@
         li.appendChild(btn);
         navList.appendChild(li);
       });
+
+      // Centratura automatica dello step attivo nella barra orizzontale
+      const activeItem = navList.querySelector('.syllabus-item.is-active');
+      if (activeItem) {
+        requestAnimationFrame(() => {
+          activeItem.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        });
+      }
     }
 
     // Render Active Step Content
