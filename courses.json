@@ -384,5 +384,108 @@
         "text": "<p>Congratulazioni! Hai completato l'intero Learning Object multimediale <strong>Dai Fossili alle Piume</strong>.</p><p>Hai scoperto come i dinosauri sono sopravvissuti, perché hanno sviluppato le prime piume e come l'Archaeopteryx rappresenti il ponte evolutivo verso gli uccelli che vediamo volare oggi intorno a noi.</p><div class='callout-quote'>🎓 <strong>Riconoscimento delle Competenze:</strong> Clicca sui pulsanti in basso per visualizzare e stampare l'<strong>Attestato di Giovane Paleontologo</strong> con il badge ufficiale disegnato da Zoe Pinzuti!</div>"
       }
     ]
+  },
+  {
+    "id": "corso-ai-prompting",
+    "title": "Lavorare con l'AI: Prompting Efficace e Sicuro",
+    "category": "Corporate AI Enablement & Game-Based Learning",
+    "badge": "Modulo 3 · Game-Based Microlearning",
+    "badgeImage": "moduli-formativi/corso-clark-mayer/badge_certified_id.png",
+    "objectives": [
+      {
+        "bloom": "Applicare",
+        "text": "Padroneggiare la 'Formula dei 4 Mattoni' (Contesto, Ruolo, Formato, Vincoli) per strutturare prompt efficaci in ambito aziendale."
+      },
+      {
+        "bloom": "Valutare",
+        "text": "Discriminare comportamenti sicuri (anonimizzazione preventiva, Grounding) da rischi critici (Shadow AI, violazioni GDPR, allucinazioni)."
+      },
+      {
+        "bloom": "Creare",
+        "text": "Progettare in autonomia un prompt lavorativo completo, verificandone l'efficacia tramite rubrica strutturata."
+      }
+    ],
+    "steps": [
+      {
+        "type": "text",
+        "title": "1. Introduzione & Formula dei 4 Mattoni",
+        "badge": "Livello 1 · Le 4 regole d'oro",
+        "text": "<p>Tutti oggi usiamo l'<strong>Intelligenza Artificiale</strong> al lavoro per risparmiare tempo, ma spesso otteniamo risposte generiche o rischiamo di esporre dati aziendali riservati.</p><p>Un prompt efficace si fonda sulla <strong>Formula dei 4 Mattoni</strong>:</p><ul><li><strong>1. Contesto:</strong> l'insieme delle informazioni di sfondo che spiegano la situazione e l'obiettivo.</li><li><strong>2. Ruolo:</strong> il punto di vista o la figura professionale che chiediamo all'AI di assumere.</li><li><strong>3. Formato:</strong> la struttura visiva in cui vogliamo ricevere l'output (es. elenco puntato, tabella).</li><li><strong>4. Vincoli:</strong> i limiti precisi da rispettare (lunghezza massima, tono di voce, uso esclusivo dei dati forniti).</li></ul><div class='callout-quote'>🎮 <strong>Vuoi provare la versione Game-Based completa a 28 blocchi?</strong> Puoi giocarla anche nel <a href='moduli-formativi/corso-ai-prompting/gioco-interattivo.html' target='_blank'>Simulatore Interattivo</a> o leggere lo <a href='moduli-formativi/corso-ai-prompting/storyboard-ai-prompting.html'>Storyboard integrale</a>.</div>"
+      },
+      {
+        "type": "flashcard",
+        "title": "2. Flashcard: I 4 Mattoni del Prompt",
+        "badge": "Livello 1 · Richiamo Attivo",
+        "frontText": "🧩 Qual è la differenza tra 'Formato' e 'Vincoli' nella costruzione di un prompt aziendale?",
+        "backText": "Il FORMATO definisce la struttura visiva dell'output (es. 'Crea una tabella a 3 colonne' o 'Riassumi in 5 punti elenco'), mentre i VINCOLI stabiliscono i paletti da non superare (es. 'Massimo 120 parole, tono formale, usa solo i dati allegati').",
+        "tip": "Gira la card per consolidare i due mattoni finali della formula."
+      },
+      {
+        "type": "quiz",
+        "title": "3. Verifica: Costruire la Sequenza Corretta",
+        "badge": "Livello 1 · Verifica Formativa",
+        "question": "Quale tra questi prompt applica in modo completo la Formula dei 4 Mattoni (Contesto + Ruolo + Formato + Vincoli)?",
+        "options": [
+          {
+            "text": "Scrivi una presentazione sui risultati del trimestre.",
+            "correct": false,
+            "feedback": "❌ Troppo vago: mancano ruolo, formato e vincoli; l'AI produrrà un testo generico."
+          },
+          {
+            "text": "Devo presentare i risultati trimestrali al team (Contesto). Agisci come esperto di comunicazione interna (Ruolo). Prepara una scaletta in 3 punti (Formato). Non superare 150 parole e usa un tono motivante (Vincoli).",
+            "correct": true,
+            "feedback": "✅ <strong>Esatto!</strong> Tutti i 4 mattoni sono presenti e guidano l'AI verso un risultato mirato fin dal primo tentativo."
+          },
+          {
+            "text": "Fammi un riassunto veloce di tutto quello che sai sulla comunicazione aziendale.",
+            "correct": false,
+            "feedback": "❌ Non contestualizzato all'obiettivo operativo."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "title": "4. Sicurezza dei Dati, Shadow AI & Allucinazioni",
+        "badge": "Livello 2 · Quando condividere dati?",
+        "text": "<p>Uno studio della <strong>Harvard Business School</strong> e del <strong>MIT</strong> ha dimostrato che chi usa l'AI con il 'pilota automatico' commette il <strong>19% di errori in più</strong> nei compiti complessi.</p><ul><li><strong>Shadow AI & GDPR:</strong> caricare file con nomi, email o dati finanziari su siti AI gratuiti o su account personali (anche a pagamento) espone l'azienda a violazioni di sicurezza.</li><li><strong>Anonimizzazione preventiva:</strong> sostituisci sempre i nomi reali con sigle generiche come <code>[CLIENTE A]</code> prima di inviare il prompt.</li><li><strong>Grounding contro le allucinazioni:</strong> vincola l'AI a usare <em>esclusivamente il testo fornito</em> e verifica sempre statistiche e fonti.</li></ul>"
+      },
+      {
+        "type": "game",
+        "title": "5. Scenario Decisionale: Il Caso di Andrea (Ufficio Acquisti)",
+        "badge": "Livello 3 · Applicazione Situazionale",
+        "scenario": "🎯 <strong>Scenario Aziendale:</strong> Andrea lavora nel team Acquisti e domani deve presentare un confronto tra le offerte economiche di tre nuovi fornitori strategici. Nei PDF originali compaiono nomi dei referenti, contatti diretti e clausole di riservatezza. Qual è il modo corretto di procedere?",
+        "options": [
+          {
+            "text": "A) Caricare i tre PDF originali su un sito gratuito trovato online che confronta i documenti in automatico.",
+            "correct": false,
+            "feedback": "❌ <strong>Grave rischio Shadow AI:</strong> espone dati personali e segreti contrattuali su un server esterno non autorizzato."
+          },
+          {
+            "text": "B) Usare l'assistente AI aziendale approvato, incollando solo i dati tecnici ed economici anonimizzati (Fornitore A, B e C) e chiedendo una tabella basata solo sul testo fornito.",
+            "correct": true,
+            "feedback": "🎉 <strong>Scelta ottimale!</strong> Protegge la riservatezza (anonimizzazione + ambiente aziendale) ed evita allucinazioni grazie al Grounding sul testo."
+          },
+          {
+            "text": "C) Chiedere all'AI pubblica senza allegare nulla: 'Dimmi quali sono i migliori fornitori e quanto costano', fidandosi dei prezzi generati.",
+            "correct": false,
+            "feedback": "❌ <strong>Rischio allucinazioni:</strong> l'AI inventerebbe prezzi non corrispondenti alle offerte reali."
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "title": "6. Laboratorio Pratico: Scrivi il Tuo Prompt",
+        "badge": "Livello 3 · Produzione Autonoma",
+        "prompt": "✍️ <strong>Tocca a te!</strong> Devi inviare una mail a tutto il tuo team per invitarli a un corso di aggiornamento di 2 ore previsto per venerdì, spiegando perché è utile. Scrivi qui sotto il prompt che daresti all'AI includendo <strong>Contesto, Ruolo, Formato e Vincoli</strong>:",
+        "placeholder": "Scrivi qui il tuo prompt strutturato..."
+      },
+      {
+        "type": "completion",
+        "title": "7. Percorso Completato!",
+        "badge": "Traguardo Finale · AI Co-Pilot",
+        "badgeImage": "moduli-formativi/corso-clark-mayer/badge_certified_id.png",
+        "text": "<p>Complimenti! Hai completato il percorso <strong>Lavorare con l'AI: Prompting Efficace e Sicuro</strong>. Ricorda che l'Intelligenza Artificiale dà il meglio solo quando a guidarla c'è il tuo pensiero critico.</p>"
+      }
+    ]
   }
 ]
