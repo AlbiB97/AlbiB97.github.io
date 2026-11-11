@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storyboard &amp; Progettazione Didattica · Lavorare con l'AI | Alberto Bedeschi</title>
+  <meta name="description" content="Documento di Instructional Design e Storyboard completo (28 blocchi su 3 livelli) del percorso Game-Based Learning 'Lavorare con l'AI: Prompting Efficace e Sicuro' a cura di Alberto Bedeschi.">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --bg: #faf8f4;
+      --surface: #ffffff;
+      --surface-2: #f4efe6;
+      --text: #1d211f;
+      --text-muted: #4d524e;
+      --text-soft: #686c67;
+      --border: #e2ddd2;
+      --accent: #2a5c45;
+      --accent-soft: #eaf3ed;
+      --terra: #a94d2e;
+      --terra-soft: #fbf0ec;
+      --font-serif: "Fraunces", "Charter", Georgia, serif;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 32px 18px 56px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .toolbar-nav {
+      max-width: 900px;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-back, .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-back:hover, .btn-action:hover {
+      background: var(--surface-2);
+      color: var(--terra);
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+    .btn-primary:hover {
+      background: #1e4231;
+      color: #ffffff;
+    }
+    .sheet {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 42px 44px;
+      box-shadow: 0 12px 34px rgba(29, 33, 31, 0.05);
+    }
+    .doc-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--terra);
+      background: var(--terra-soft);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      line-height: 1.22;
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      margin: 32px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--surface-2);
+      color: var(--accent);
+    }
+    h3 {
+      font-size: 1.02rem;
+      margin: 18px 0 8px;
+      color: var(--text);
+    }
+    p { margin-bottom: 10px; color: var(--text-muted); }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 20px 0 28px;
+    }
+    .meta-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .meta-card strong {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-soft);
+      margin-bottom: 3px;
+    }
+    .meta-card span {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+    .block-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .block-item.challenge {
+      border-left-color: var(--terra);
+      background: #fffdfb;
+    }
+    .block-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .block-num {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+    .block-type {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .block-item.challenge .block-type {
+      background: var(--terra-soft);
+      color: var(--terra);
+    }
+    .fb-note {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: var(--surface-2);
+      border-radius: 8px;
+      font-size: 0.86rem;
+      color: var(--text);
+    }
+    @media print {
+      .toolbar-nav { display: none; }
+      body { padding: 0; background: #fff; }
+      .sheet { border: none; box-shadow: none; padding: 10px; }
+    }
+    @media (max-width: 640px) {
+      .sheet { padding: 24px 18px; }
+      h1 { font-size: 1.55rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar-nav">
+    <a href="../../progetti.html" class="btn-back">← Torna ai Casi Studio</a>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <a href="gioco-interattivo.html" class="btn-action">🎮 Apri Simulatore Interattivo</a>
+      <button type="button" class="btn-action btn-primary" onclick="window.print()">🖨️ Stampa / Salva PDF</button>
+    </div>
+  </div>
+
+  <article class="sheet">
+    <span class="doc-tag">Instructional Design Blueprint &amp; Storyboard Completo</span>
+    <h1>Lavorare con l'AI: Prompting Efficace e Sicuro</h1>
+    <p>Progettazione didattica e sceneggiatura integrale di un modulo di <strong>Game-Based Microlearning aziendale</strong> (Introduzione + 3 livelli, 28 blocchi complessivi) dedicato all'uso consapevole, efficace e conforme al GDPR dell'Intelligenza Artificiale Generativa in contesti corporate.</p>
+
+    <div class="meta-grid">
+      <div class="meta-card">
+        <strong>Progettista Formativo</strong>
+        <span>Alberto Bedeschi</span>
+      </div>
+      <div class="meta-card">
+        <strong>Destinatari (Target)</strong>
+        <span>Popolazione aziendale trasversale</span>
+      </div>
+      <div class="meta-card">
+        <strong>Struttura &amp; Durata</strong>
+        <span>3 Livelli · 28 Blocchi (~10 min)</span>
+      </div>
+      <div class="meta-card">
+        <strong>Authoring &amp; Output</strong>
+        <span>Gamindo Builder + HTML5 Player</span>
+      </div>
+    </div>
+
+    <h2>1. Obiettivi Formativi (Tassonomia di Bloom)</h2>
+    <ul>
+      <li><strong>Comprendere &amp; Applicare:</strong> Padroneggiare la <em>"Formula dei 4 Mattoni"</em> (<strong>Contesto, Ruolo, Formato, Vincoli</strong>) per trasformare richieste generiche in prompt strutturati fin dal primo tentativo.</li>
+      <li><strong>Analizzare &amp; Valutare:</strong> Discriminare tra pratiche sicure (<em>Anonimizzazione preventiva, Grounding sul testo fornito, ambienti AI aziendali</em>) e comportamenti a rischio (<em>Shadow AI, esposizione dati GDPR, mancata verifica delle allucinazioni</em>).</li>
+      <li><strong>Creare:</strong> Redigere in autonomia un prompt lavorativo completo, ricevendo una valutazione analitica basata su rubrica.</li>
+    </ul>
+
+    <h2>2. Sceneggiatura Blocco per Blocco (28 Blocchi)</h2>
+
+    <h3>🎬 Introduzione al Percorso (Blocco 0 · 3 Pagine)</h3>
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 0 · Introduzione</span><span class="block-type">3 Micro-Slide di Ingaggio</span></div>
+      <p><strong>Pagina 1:</strong> Tutti oggi usiamo l'Intelligenza Artificiale al lavoro per risparmiare tempo. Questo è certo. Ma non tutti otteniamo davvero i risultati che vorremmo...</p>
+      <p><strong>Pagina 2:</strong> Spesso le risposte dell'AI sembrano generiche, imprecise o "robotiche". E, ancora più importante, basta condividere l'informazione sbagliata in chat per mettere a rischio dati aziendali riservati…</p>
+      <p><strong>Pagina 3:</strong> <strong>E tu? Quanto ne sai sul Prompting efficace e sicuro? Sei in grado di guidare l'AI senza correre rischi?</strong> Scoprilo in questo percorso!</p>
+    </div>
+
+    <h3>1° Livello — Le 4 regole d'oro (Blocchi 1–10 · Vite illimitate + Ripeti errori)</h3>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 1</span><span class="block-type">Immagine o video</span></div>
+      <p>Un prompt efficace (cioè l'istruzione che diamo all'AI) deve avere 4 elementi fondamentali. Il primo è senz'altro il contesto!</p>
+    </div>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 2</span><span class="block-type">Testo informativo</span></div>
+      <p>In altre parole, l'AI non può leggere nella nostra mente: per darle modo di risponderci in modo utile, dobbiamo prima spiegarle <strong>in quale situazione ci troviamo</strong> e <strong>qual è il nostro obiettivo</strong>. Vediamo se hai compreso… Prova a indovinare la prossima parola!</p>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 3</span><span class="block-type">Sfida · Indovina la parola</span></div>
+      <p><strong>Definizione:</strong> L'insieme delle informazioni di sfondo che aiutano l'AI a capire la situazione → <strong><code>CONTESTO</code></strong></p>
+      <div class="fb-note"><strong>Curiosità / Feedback:</strong> Senza contesto, l'AI tira a indovinare! Scrivere "Scrivi una mail di scuse" produce un testo generico; scrivere "Scrivi una mail per un cliente storico che ha subito un ritardo di 2 giorni nella consegna" permette all'AI di calibrare subito il messaggio.</div>
+    </div>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 4</span><span class="block-type">Testo informativo</span></div>
+      <p>Ok: adesso prova a indovinare gli altri <strong>3 elementi</strong> che trasformano una richiesta vaga in un prompt perfetto!</p>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 5</span><span class="block-type">Sfida · Indovina la parola</span></div>
+      <p><strong>Definizione:</strong> Il punto di vista o la figura professionale che chiediamo all'AI di assumere → <strong><code>RUOLO</code></strong></p>
+      <div class="fb-note"><strong>Curiosità / Feedback:</strong> Assegnare un ruolo all'AI (ad esempio: "Agisci come un esperto di comunicazione interna" oppure "Rispondi come un formatore aziendale") cambia immediatamente il vocabolario, il taglio e la profondità tecnica della risposta.</div>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 6</span><span class="block-type">Sfida · Indovina la parola</span></div>
+      <p><strong>Definizione:</strong> La struttura visiva in cui vogliamo ricevere la risposta (es. tabella o elenco) → <strong><code>FORMATO</code></strong></p>
+      <div class="fb-note"><strong>Curiosità / Feedback:</strong> Se non specifichi il formato, l'AI tenderà a scrivere lunghi muri di testo. Chiedere fin da subito "Riassumi in 5 punti elenco" oppure "Crea una tabella a 3 colonne" ti fa risparmiare metà del tempo di revisione!</div>
+    </div>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 7</span><span class="block-type">Testo informativo</span></div>
+      <p>Sempre più difficile! Stavolta dovrai ancora indovinare la parola ma ci saranno anche altre lettere nello schema… Non farti distrarre e rintraccia il quarto elemento di un prompt efficace!</p>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 8</span><span class="block-type">Sfida · Squares (Griglia lettere)</span></div>
+      <p><strong>Definizione:</strong> I limiti precisi da rispettare (es. lunghezza massima o parole da evitare) → <strong><code>VINCOLI</code></strong></p>
+      <div class="fb-note"><strong>Curiosità / Feedback:</strong> Dare dei vincoli chiari è il segreto dei professionisti: indicare "Usa massimo 100 parole", "Usa un tono cordiale ma formale" o "Usa solo i dati presenti nel testo allegato" evita che l'AI divaghi o inventi informazioni.</div>
+    </div>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 9</span><span class="block-type">Testo informativo</span></div>
+      <p>Questi 4 elementi compongono la <strong>"Formula dei 4 Mattoni"</strong>: <strong>Contesto</strong> (la situazione e l'obiettivo), <strong>Ruolo</strong> (chi deve interpretare l'AI), <strong>Formato</strong> (come strutturare l'output), <strong>Vincoli</strong> (limiti di lunghezza, tono e fonti). Ora prova tu a metterli in pratica!</p>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 10</span><span class="block-type">Sfida · Sequenze (Timeline)</span></div>
+      <p><strong>Consegna:</strong> Costruisci un prompt completo ordinando i 4 mattoni nella sequenza logica: Contesto, Ruolo, Formato, Vincoli.</p>
+      <p>1. <em>Devo presentare i risultati trimestrali al team.</em><br>2. <em>Agisci come un esperto di comunicazione aziendale.</em><br>3. <em>Prepara una scaletta divisa in 3 punti principali.</em><br>4. <em>Non superare 150 parole e usa un tono motivante.</em></p>
+    </div>
+
+    <h3>2° Livello — Quando condividere dati? (Blocchi 11–21 · Casi Situazionali)</h3>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 11</span><span class="block-type">Testo informativo</span></div>
+      <p>Scrivere un buon prompt non basta: bisogna anche sapere quali informazioni è sicuro condividere con l'AI e quando bisogna invece verificare il risultato. E tu: come ti comporti di solito?</p>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 12</span><span class="block-type">Sondaggio · Scelta multipla</span></div>
+      <p><strong>Domanda:</strong> Quando l'AI ti fornisce una risposta ben scritta e ricca di dati, cosa fai di solito?<br>• <em>Mi fido quasi subito: se è scritta bene, la uso così com'è</em><br>• <em>Controllo sempre i dati e le fonti prima di utilizzarla</em></p>
+    </div>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 13</span><span class="block-type">Testo informativo · Evidenza Scientifica</span></div>
+      <p>Uno studio della <strong>Harvard Business School</strong> e del <strong>MIT</strong> ha dimostrato che chi usa l'AI lavorando con il "pilota automatico" commette il <strong>19% di errori in più</strong> nei compiti complessi, perché smette di controllare se l'AI ha inventato un dato (<em>allucinazione</em>) o se ha esposto informazioni riservate!</p>
+    </div>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocchi 14 &amp; 15</span><span class="block-type">Media + Lancio Casi Aziendali</span></div>
+      <p>Analizza le seguenti 5 situazioni quotidiane in azienda e decidi per ogni caso se il comportamento del collega è corretto e sicuro.</p>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 16 · Caso Martina</span><span class="block-type">Sfida · Vero o Falso</span></div>
+      <p>Martina deve preparare un report sulle vendite e carica su un sito AI gratuito trovato online il file Excel contenente nomi, email, telefoni e fatturato di tutti i clienti dell'azienda. → <strong><code>FALSO</code></strong></p>
+      <div class="fb-note"><strong>Feedback:</strong> Caricare dati personali dei clienti (GDPR) o dati finanziari riservati su tool AI pubblici e non approvati dall'azienda ("Shadow AI") espone l'organizzazione a gravi violazioni di sicurezza.</div>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 17 · Caso Luca</span><span class="block-type">Sfida · Vero o Falso</span></div>
+      <p>Luca deve riassumere gli appunti di una riunione interna sul lancio di un nuovo progetto. Prima di incollare il testo nel prompt, sostituisce i nomi reali delle persone e dei clienti con sigle generiche come [CLIENTE A]. → <strong><code>VERO</code></strong></p>
+      <div class="fb-note"><strong>Feedback:</strong> Anonimizzare i testi rimuovendo nomi propri, riferimenti contrattuali e dati sensibili PRIMA di inviare il prompt è una delle regole d'oro per proteggere la riservatezza.</div>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 18 · Caso Sara</span><span class="block-type">Sfida · Vero o Falso</span></div>
+      <p>Sara chiede all'AI di cercare tre statistiche recenti sul mercato italiano per inserirle nella presentazione per il Direttore. L'AI cita tre percentuali molto precise e Sara le inserisce nelle slide senza controllare le fonti. → <strong><code>FALSO</code></strong></p>
+      <div class="fb-note"><strong>Feedback:</strong> L'AI generativa predice le parole più probabili ma può soffrire di "allucinazioni", inventando statistiche, date o fonti verosimili ma inesistenti. I numeri vanno sempre verificati su fonti ufficiali.</div>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 19 · Caso Francesco</span><span class="block-type">Sfida · Vero o Falso</span></div>
+      <p>Francesco incolla nel prompt un articolo pubblico di settore e scrive: "Riassumi in 4 punti solo le informazioni presenti in questo testo, senza aggiungere dati esterni". → <strong><code>VERO</code></strong></p>
+      <div class="fb-note"><strong>Feedback:</strong> Chiedere all'AI di basarsi esclusivamente sul testo fornito (tecnica chiamata "Grounding") è il modo migliore per evitare che il modello inventi informazioni non verificate.</div>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 20 · Caso Sofia</span><span class="block-type">Sfida · Vero o Falso</span></div>
+      <p>Sofia usa il proprio account personale a pagamento su un'AI esterna per tradurre un contratto riservato non ancora firmato, convinta che basti pagare l'abbonamento privato per rispettare la policy aziendale. → <strong><code>FALSO</code></strong></p>
+      <div class="fb-note"><strong>Feedback:</strong> Un account personale (anche a pagamento) resta fuori dal perimetro di sicurezza dell'azienda. Per i documenti di lavoro riservati bisogna usare esclusivamente gli strumenti AI approvati dal team IT.</div>
+    </div>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 21</span><span class="block-type">Testo informativo · Sintesi</span></div>
+      <p>Riepilogo comparativo delle buone pratiche (strumenti approvati, anonimizzazione preventiva, grounding, verifica fonti) rispetto ai comportamenti da evitare (violazioni GDPR, Shadow AI, assenza di fact-checking).</p>
+    </div>
+
+    <h3>3° Livello — Mettiti alla prova! (Blocchi 22–28 · 3 Vite ❤️)</h3>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 22</span><span class="block-type">Testo informativo</span></div>
+      <p>Lancio della verifica finale con vincolo di <strong>3 vite ❤️</strong> per stimolare l'attenzione e verificare il consolidamento delle competenze.</p>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 23</span><span class="block-type">Sfida · Cruciverba (5 Parole Chiave)</span></div>
+      <p>1. L'istruzione o domanda che scriviamo per guidare l'AI → <strong><code>PROMPT</code></strong><br>
+         2. Le informazioni di sfondo che spiegano all'AI la situazione → <strong><code>CONTESTO</code></strong><br>
+         3. Il punto di vista professionale che chiediamo all'AI di assumere → <strong><code>RUOLO</code></strong><br>
+         4. I limiti di lunghezza o di stile che diamo nella richiesta → <strong><code>VINCOLI</code></strong><br>
+         5. Quando l'AI inventa un dato o una fonte inesistente ma verosimile → <strong><code>ALLUCINAZIONE</code></strong></p>
+    </div>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 24</span><span class="block-type">Testo informativo</span></div>
+      <p>Come si dice: "dal dire al fare c'è di mezzo il mare!" Leggi la prossima storia e decidi come agire!</p>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 25 · Caso Andrea (Acquisti)</span><span class="block-type">Sfida · Scenario Decisionale</span></div>
+      <p>Andrea deve confrontare entro domani tre offerte economiche riservate in PDF contenenti nomi, contatti e clausole di riservatezza. Scelta corretta: <strong>usare l'assistente AI aziendale approvato, incollando solo i dati tecnici ed economici anonimizzati (Fornitore A, B e C) e chiedendo una tabella basata solo sul testo fornito.</strong></p>
+    </div>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 26</span><span class="block-type">Testo informativo</span></div>
+      <p>Introduzione alla prova finale di produzione autonoma del prompt senza alternative preimpostate.</p>
+    </div>
+
+    <div class="block-item challenge">
+      <div class="block-head"><span class="block-num">Blocco 27</span><span class="block-type">Sfida · Domanda Aperta valutata da AI</span></div>
+      <p><strong>Consegna per l'utente:</strong> Devi inviare una mail a tutto il tuo team per invitarli a un corso di aggiornamento di 2 ore previsto per venerdì, spiegando perché è utile. Scrivi il prompt che daresti all'AI usando Contesto, Ruolo, Formato e Vincoli!</p>
+      <div class="fb-note"><strong>Rubrica di valutazione AI (1–10):</strong> Verifica la presenza dei 4 pilastri (Contesto: invito al corso di venerdì di 2h; Ruolo: comunicazione interna/HR; Formato: mail breve/punti elenco; Vincoli: tono motivante, lunghezza massima, zero dati sensibili).</div>
+    </div>
+
+    <div class="block-item">
+      <div class="block-head"><span class="block-num">Blocco 28</span><span class="block-type">Testo informativo · Conclusione</span></div>
+      <p><strong>Complimenti!</strong> Hai concluso con successo questo percorso formativo sull'uso efficace e sicuro dell'Intelligenza Artificiale al lavoro. Ma la sfida continua... Porta le competenze che hai acquisito nelle tue attività quotidiane e ricorda che l'AI dà il meglio solo quando a guidarla c'è il tuo pensiero critico!</p>
+    </div>
+  </article>
+</body>
+</html>
