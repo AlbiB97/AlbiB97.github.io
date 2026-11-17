@@ -4,26 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Storyboard &amp; Progettazione Didattica · Lavorare con l'AI | Alberto Bedeschi</title>
-  <meta name="description" content="Documento di Instructional Design e Storyboard completo (28 blocchi su 3 livelli) del percorso Game-Based Learning 'Lavorare con l'AI: Prompting Efficace e Sicuro' a cura di Alberto Bedeschi.">
+  <meta name="description" content="Documento di Instructional Design e Storyboard completo (26 blocchi su 3 livelli) del percorso Game-Based Learning 'Lavorare con l'AI: Prompting Efficace e Sicuro' a cura di Alberto Bedeschi.">
+  <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+  <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('ab-theme')}catch(e){}if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.setAttribute('data-theme',t)})();</script>
   <style>
     :root {
       --bg: #faf8f4;
       --surface: #ffffff;
       --surface-2: #f4efe6;
+      --challenge-bg: #fffdfb;
       --text: #1d211f;
       --text-muted: #4d524e;
       --text-soft: #686c67;
       --border: #e2ddd2;
       --accent: #2a5c45;
+      --accent-strong: #1e4231;
       --accent-soft: #eaf3ed;
+      --on-accent: #ffffff;
       --terra: #a94d2e;
       --terra-soft: #fbf0ec;
       --font-serif: "Fraunces", "Charter", Georgia, serif;
       --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color-scheme: light;
+    }
+    [data-theme="dark"] {
+      --bg: #121614;
+      --surface: #1a1f1c;
+      --surface-2: #212724;
+      --challenge-bg: #1f1b19;
+      --text: #ece9e2;
+      --text-muted: #bfc3bd;
+      --text-soft: #959a94;
+      --border: #2c332f;
+      --accent: #6dbb93;
+      --accent-strong: #8fd0ae;
+      --accent-soft: #1d2d25;
+      --on-accent: #0e1a13;
+      --terra: #e3916f;
+      --terra-soft: #2e211b;
+      color-scheme: dark;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -64,12 +88,12 @@
     }
     .btn-primary {
       background: var(--accent);
-      color: #ffffff;
+      color: var(--on-accent);
       border-color: var(--accent);
     }
     .btn-primary:hover {
-      background: #1e4231;
-      color: #ffffff;
+      background: var(--accent-strong);
+      color: var(--on-accent);
     }
     .sheet {
       max-width: 900px;
@@ -112,6 +136,8 @@
       color: var(--text);
     }
     p { margin-bottom: 10px; color: var(--text-muted); }
+    .sheet ul { padding-left: 20px; margin-bottom: 12px; color: var(--text-muted); }
+    .sheet li { margin-bottom: 6px; }
     .meta-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -147,7 +173,7 @@
     }
     .block-item.challenge {
       border-left-color: var(--terra);
-      background: #fffdfb;
+      background: var(--challenge-bg);
     }
     .block-head {
       display: flex;
@@ -184,8 +210,23 @@
       color: var(--text);
     }
     @media print {
+      :root, [data-theme="dark"] {
+        --bg: #ffffff;
+        --surface: #ffffff;
+        --surface-2: #f4efe6;
+        --challenge-bg: #fffdfb;
+        --text: #111111;
+        --text-muted: #2d312e;
+        --text-soft: #555555;
+        --border: #d0d0d0;
+        --accent: #2a5c45;
+        --accent-soft: #eaf3ed;
+        --terra: #a94d2e;
+        --terra-soft: #fbf0ec;
+        color-scheme: light;
+      }
       .toolbar-nav { display: none; }
-      body { padding: 0; background: #fff; }
+      body { padding: 0; background: #ffffff; }
       .sheet { border: none; box-shadow: none; padding: 10px; }
     }
     @media (max-width: 640px) {
