@@ -29,155 +29,491 @@
   // Default Courses Database (Fallback & Template)
   const defaultCourses = [
     {
-      id: "corso-clark-mayer",
-      title: "Benessere Digitale & Gestione del Carico Cognitivo",
-      category: "Instructional Design & AI",
-      badge: "Modulo 1 · Microlearning",
-      objectives: [
-        { bloom: "Comprendere", text: "Distinguere le tre componenti della Cognitive Load Theory (intrinseco, estraneo, pertinente)." },
-        { bloom: "Applicare", text: "Progettare sequenze di microlearning asincrono per prevenire il sovraccarico e il tecnostress." },
-        { bloom: "Valutare", text: "Verificare la qualità dei materiali e-learning prima del rilascio con criteri di accessibilità e tracciamento." }
+      "id": "corso-clark-mayer",
+      "title": "Scienza dell'Apprendimento Digitale & Principi di Clark & Mayer",
+      "category": "Instructional Design & E-Learning",
+      "badge": "Modulo 1 · Mobile-First Microlearning",
+      "badgeImage": "moduli-formativi/corso-clark-mayer/badge_certified_id.png",
+      "infographicUrl": "moduli-formativi/corso-clark-mayer/scienza_apprendimento_digitale.png",
+      "objectives": [
+        {
+          "bloom": "Comprendere",
+          "text": "Distinguere l'architettura cognitiva della memoria (di lavoro vs a lungo termine) e prevenire l'essential overload."
+        },
+        {
+          "bloom": "Applicare",
+          "text": "Applicare il Principio di Segmentazione progettando unità di microlearning autonome a ritmo controllato dal discente."
+        },
+        {
+          "bloom": "Valutare",
+          "text": "Valutare l'efficacia di un corso e-learning tramite il Principio di Coerenza, eliminando elementi grafici e sonori estranei."
+        }
       ],
-      steps: [
+      "steps": [
         {
-          type: "video",
-          title: "1. Video Intro: Attenzione e Tecnostress",
-          badge: "Fase 1 · Ingaggio Iniziale",
-          videoTitle: "Pillola Video 1: L'impatto del Sovraccarico Cognitivo",
-          videoDuration: "01:45",
-          videoUrl: "",
-          text: "<strong>Obiettivo didattico:</strong> Esplorare l'impatto del continuo cambio di contesto (<em>context switching</em>) e come la progettazione formativa a micro-blocchi favorisce il recupero dell'attenzione."
+          "type": "text",
+          "title": "1. Obiettivi Formativi & Tassonomia di Bloom",
+          "badge": "Fase Iniziale · Quadro delle Competenze",
+          "text": "<p>Benvenuto nel modulo di <strong>Mobile-First Microlearning</strong> dedicato all'evidence-based instructional design (Clark & Mayer). Prima di iniziare la visione delle pillole video, ecco i traguardi didattici categorizzati secondo la <strong>Tassonomia di Bloom</strong>:</p><div class='objectives-list-step'><div class='objective-item'><span class='bloom-tag'>Comprendere</span><span>Distinguere l'architettura cognitiva della memoria (di lavoro vs a lungo termine) e prevenire il sovraccarico essenziale (<em>essential overload</em>).</span></div><div class='objective-item'><span class='bloom-tag'>Applicare</span><span>Applicare il Principio di Segmentazione progettando unità didattiche autonome (<em>chunking</em>) fruite a ritmo controllato dal discente.</span></div><div class='objective-item'><span class='bloom-tag'>Valutare</span><span>Valutare storyboards e materiali digitali applicando il Principio di Coerenza, eliminando grafica decorativa e stimoli estranei.</span></div></div><div class='callout-quote'>🎯 <strong>Architettura del percorso:</strong> Ogni argomento è strutturato in una sequenza rigorosa: video pillola verticale, approfondimento teorico, flashcard di active retrieval, quiz situazionale e riflessione metacognitiva.</div>"
         },
         {
-          type: "text",
-          title: "2. Quadro Didattico: Cognitive Load Theory",
-          badge: "Fase 2 · Approfondimento Concettuale",
-          text: "<p>La <strong>Cognitive Load Theory (Sweller)</strong> suddivide il carico cognitivo in tre componenti fondamentali:</p><ul><li><strong>Carico Intrinseco:</strong> la difficoltà intrinseca del contenuto stesso. Si gestisce con una corretta gradualità didattica (Tassonomia di Bloom).</li><li><strong>Carico Estraneo:</strong> il rumore generato da una cattiva interfaccia, slide dense o audio disturbato. Deve tendere a zero.</li><li><strong>Carico Pertinente:</strong> l'energia mentale dedicata alla reale costruzione di schemi mentali stabili. Va massimizzato.</li></ul><div class='callout-quote'>💡 <strong>Regola per l'Instructional Designer:</strong> Riduciamo a zero il carico estraneo affinché tutto il potenziale cognitivo dello studente sia canalizzato nella comprensione reale.</div>"
+          "type": "video",
+          "title": "2. Video 1: Il Carico Cognitivo & La Memoria",
+          "badge": "Pillola 1 · Mobile-First (9:16)",
+          "videoTitle": "Architettura Cognitiva: Memoria di Lavoro vs Lungo Termine",
+          "videoDuration": "00:45",
+          "videoUrl": "moduli-formativi/corso-clark-mayer/video1_carico_cognitivo.mp4",
+          "isVertical": true
         },
         {
-          type: "flashcard",
-          title: "3. Flashcard Didattica: I 3 Carichi Cognitivi",
-          badge: "Fase 3 · Consolidamento Rapido",
-          frontText: "🧠 Che cos'è il 'Carico Pertinente' (Germane Load) e perché l'Instructional Designer deve massimizzarlo?",
-          backText: "È lo sforzo cognitivo impiegato nell'elaborazione attiva e nell'integrazione delle nuove nozioni nella memoria a lungo termine. Va massimizzato guidando lo studente a collegare il nuovo contenuto alle conoscenze pregresse.",
-          tip: "Clicca sulla card (o premi Spazio) per ruotarla e verificare la tua comprensione."
+          "type": "text",
+          "title": "3. Quadro Didattico: Carico Cognitivo & Memoria",
+          "badge": "Fase 1 · Approfondimento Concettuale",
+          "text": "<p>L'architettura cognitiva dell'apprendimento (<strong>Clark & Mayer</strong>) individua due strutture mentali cardine per la formazione digitale:</p><ul><li><strong>Memoria di Lavoro:</strong> ha una capacità strettamente limitata (può gestire solo pochissimi elementi simultanei) ed è volatile ed effimera nel tempo.</li><li><strong>Memoria a Lungo Termine:</strong> è l'archivio permanente che immagazzina schemi mentali e competenze consolidate.</li></ul><div class='callout-quote'>⚠️ <strong>Essential Overload:</strong> Quando un corso digitale inonda la memoria di lavoro con un flusso ininterrotto di nozioni prima che abbia avuto il tempo di organizzarle, si verifica un blocco cognitivo immediato che annulla la ritenzione.</div>"
         },
         {
-          type: "video",
-          title: "4. Video 2: Caso Studio Pratico con AI",
-          badge: "Fase 4 · Applicazione Pratica",
-          videoTitle: "Pillola Video 2: Ristrutturare un Manuale di 50 Pagine",
-          videoDuration: "02:10",
-          videoUrl: "",
-          text: "<strong>Caso reale:</strong> Analisi di documentazione aziendale complessa tramite NotebookLM su fonti certificate, con validazione pedagogica umana e scomposizione in moduli da 3 minuti."
+          "type": "flashcard",
+          "title": "4. Flashcard: Memoria di Lavoro vs Lungo Termine",
+          "badge": "Fase 1 · Consolidamento Rapido",
+          "frontText": "🧠 Perché un corso e-learning denso di nozioni continue provoca 'Essential Overload'?",
+          "backText": "Perché la memoria di lavoro ha una capacità ridotta ed è effimera. Senza pause e attivatori per trasferire i dati nella memoria a lungo termine, le informazioni non vengono assimilate e decadono rapidamente.",
+          "tip": "Clicca sulla card (o premi Spazio) per ruotarla e verificare la tua comprensione."
         },
         {
-          type: "game",
-          title: "5. Gioco Didattico: Scenario di Progettazione",
-          badge: "Fase 5 · Attività Gamificata (Sblocca il passaggio)",
-          scenario: "🎯 <strong>Scenario di Decisione:</strong> Un'azienda ti chiede di formare 200 dipendenti su una nuova procedura interna. I dipendenti hanno solo 10 minuti di pausa tra un turno e l'altro. Quale strategia didattica applichi per garantire efficacia senza sovraccarico?",
-          options: [
-            { text: "A) Invio di un manuale PDF di 60 pagine con richiesta di firma di presa visione via email.", correct: false, feedback: "❌ <strong>Scelta non idonea:</strong> Crea un forte sovraccarico cognitivo, disimpegno e un tasso di ritenzione quasi nullo. Riprova!" },
-            { text: "B) Una sequenza di 3 micro-pillole da 2 minuti fruibili su smartphone, ciascuna seguita da una singola domanda situazionale.", correct: true, feedback: "🎉 <strong>Risposta Corretta!</strong> Il microlearning asincrono da 2 minuti rispetta i vincoli di tempo ed elimina il sovraccarico cognitivo. L'attività è superata e lo step successivo è ora sbloccato!" },
-            { text: "C) Un webinar sincrono obbligatorio di 4 ore registrato senza momenti interattivi.", correct: false, feedback: "❌ <strong>Scelta non idonea:</strong> Non compatibile con i turni operativi e causa rapido affaticamento mentale (digital burnout). Riprova!" }
+          "type": "quiz",
+          "title": "5. Quiz di Verifica: Architettura Cognitiva",
+          "badge": "Fase 1 · Verifica Formativa",
+          "question": "Secondo Clark e Mayer, quale strategia didattica previene il sovraccarico essenziale (essential overload)?",
+          "options": [
+            {
+              "text": "Condensare tutti i concetti in un'unica lezione intensiva da 30 minuti senza pause.",
+              "correct": false,
+              "feedback": "❌ Non corretto: supera la capacità della memoria di lavoro, provocando affaticamento e distrazione."
+            },
+            {
+              "text": "Strutturare il contenuto in nuclei graduali, permettendo alla memoria di lavoro di elaborare e integrare prima di proseguire.",
+              "correct": true,
+              "feedback": "✅ <strong>Esatto!</strong> Rispettare i limiti della memoria di lavoro garantisce il consolidamento nella memoria a lungo termine."
+            },
+            {
+              "text": "Aggiungere musica ritmata in sottofondo per tenere sveglia l'attenzione del discente.",
+              "correct": false,
+              "feedback": "❌ Non corretto: la musica aggiunge carico cognitivo estraneo."
+            }
           ]
         },
         {
-          type: "reflection",
-          title: "6. Riflessione Metacognitiva: Diario di Bordo",
-          badge: "Fase 6 · Attività Riflessiva",
-          prompt: "✍️ <strong>Spazio di Auto-Valutazione:</strong> Pensa a un corso o una lezione che hai frequentato recentemente in cui hai sperimentato sovraccarico informativo. Quale elemento 'estraneo' (slide dense, spiegazioni ridondanti, distrazioni) avrebbe potuto essere eliminato con un buon instructional design?",
-          placeholder: "Annota qui la tua riflessione personale (viene salvata automaticamente nel tuo browser)..."
+          "type": "reflection",
+          "title": "6. Riflessione Metacognitiva: Il Tuo Carico Cognitivo",
+          "badge": "Fase 1 · Diario Metacognitivo",
+          "prompt": "✍️ <strong>Spazio di Auto-Valutazione:</strong> Pensa a un corso o a un manuale tecnico che hai studiato recentemente. In quale momento hai avvertito saturazione cognitiva e cosa avrebbe potuto fare il formatore per evitarla?",
+          "placeholder": "Annota qui la tua riflessione personale (viene salvata in automatico nel tuo browser)..."
         },
         {
-          type: "video",
-          title: "7. Video 3: Checklist Operativa di Qualità",
-          badge: "Fase 7 · Consolidamento & Sintesi",
-          videoTitle: "Pillola Video 3: I 4 Criteri di Validazione di un Corso",
-          videoDuration: "01:30",
-          videoUrl: "",
-          text: "In questa pillola finale vengono fissati i 4 criteri di qualità prima del rilascio in piattaforma e-learning: coerenza con gli obiettivi di Bloom, conformità WCAG, feedback metacognitivo e tracciamento SCORM/xAPI."
+          "type": "video",
+          "title": "7. Video 2: Il Principio di Segmentazione (Microlearning)",
+          "badge": "Pillola 2 · Mobile-First (9:16)",
+          "videoTitle": "Segmenting Principle: Scomposizione in Unità Autonome",
+          "videoDuration": "00:48",
+          "videoUrl": "moduli-formativi/corso-clark-mayer/video2_segmentazione.mp4",
+          "isVertical": true
         },
         {
-          type: "quiz",
-          title: "8. Quiz Finale di Valutazione",
-          badge: "Fase 8 · Valutazione Formativa (Sblocca la certificazione)",
-          question: "Qual è il vantaggio pedagogico principale nell'uso di NotebookLM per l'Instructional Designer?",
-          options: [
-            { text: "Generare contenuti fittizi e teorie inventate in modo totalmente autonomo.", correct: false, feedback: "⚠️ Non corretto: l'obiettivo non è inventare, ma elaborare fonti reali senza allucinazioni." },
-            { text: "Ancorare l'estrazione dei concetti e le sintesi esclusivamente ai documenti primari caricati dal formatore umano.", correct: true, feedback: "✅ <strong>Esatto!</strong> L'ancoraggio rigoroso (grounding) previene le allucinazioni e garantisce fedeltà pedagogica e scientifica. Quiz superato!" },
-            { text: "Sostituire la figura del progettista formativo ed eliminare ogni supervisione umana.", correct: false, feedback: "⚠️ Non corretto: il giudizio pedagogico umano rimane il fulcro insostituibile." }
+          "type": "text",
+          "title": "8. Quadro Didattico: Il Principio di Segmentazione",
+          "badge": "Fase 2 · Approfondimento Concettuale",
+          "text": "<p><strong>Il Principio di Segmentazione (Segmenting Principle):</strong> Clark e Mayer dimostrano che le persone apprendono meglio quando una materia complessa è suddivisa in <em>brevi unità didattiche autonome (chunking)</em> fruite al ritmo controllato dal discente (<em>learner-paced</em>).</p><div class='callout-quote'>⏱️ <strong>Il potere del Microlearning:</strong> Permettere allo studente di decidere quando passare al blocco successivo offre il tempo indispensabile per elaborare ciascun concetto prima di accogliere nuove nozioni.</div>"
+        },
+        {
+          "type": "flashcard",
+          "title": "9. Flashcard: Segmentazione & Chunking",
+          "badge": "Fase 2 · Consolidamento Rapido",
+          "frontText": "🧩 In che modo la segmentazione (chunking) rende il microlearning efficace e memorabile?",
+          "backText": "Scomponendo compiti complessi in unità indipendenti a ritmo autonomo, il discente non subisce un flusso passivo: ha il tempo di riflettere e consolidare ogni singolo schema prima di procedere.",
+          "tip": "Gira la flashcard per verificare il principio pedagogico del chunking."
+        },
+        {
+          "type": "quiz",
+          "title": "10. Quiz di Progettazione: Applicare la Segmentazione",
+          "badge": "Fase 2 · Verifica Formativa",
+          "question": "Un'azienda ti commissiona un corso su una procedura complessa. Come applichi il Principio di Segmentazione?",
+          "options": [
+            {
+              "text": "Mostri l'intera procedura in un'unica video-lezione continua da 40 minuti.",
+              "correct": false,
+              "feedback": "❌ Non corretto: viola il principio di segmentazione e sovraccarica il discente."
+            },
+            {
+              "text": "Scomponi il percorso in micro-pillole da 1-2 minuti focalizzate su singoli task, con navigazione controllata dal discente.",
+              "correct": true,
+              "feedback": "✅ <strong>Risposta Corretta!</strong> La scomposizione modulare a ritmo autonomo azzera il sovraccarico e massimizza la memorizzazione operativa."
+            },
+            {
+              "text": "Invii un unico documento PDF da 80 pagine invitando i colleghi a leggerlo autonomamente.",
+              "correct": false,
+              "feedback": "❌ Non corretto: manca la mediazione didattica e la gradualità interattiva."
+            }
           ]
         },
         {
-          type: "completion",
-          title: "9. Completamento & Dispensa Finale",
-          badge: "Fase 9 · Conclusione del Percorso",
-          text: "Congratulazioni! Hai completato l'intero percorso didattico sequenziale, superando la flashcard, il dilemma situazionale, la riflessione guidata e il test finale di verifica formativa."
+          "type": "reflection",
+          "title": "11. Riflessione Metacognitiva: Scomporre la Complessità",
+          "badge": "Fase 2 · Diario Metacognitivo",
+          "prompt": "✍️ <strong>Laboratorio di Chunking:</strong> Individua una competenza complessa che insegni o usi nel tuo lavoro. Come la suddivideresti in 3 micro-moduli da 1 minuto ciascuno?",
+          "placeholder": "Descrivi i tuoi 3 micro-chunk e la loro logica sequenziale..."
+        },
+        {
+          "type": "video",
+          "title": "12. Video 3: Il Principio di Coerenza (Eliminare il Superfluo)",
+          "badge": "Pillola 3 · Mobile-First (9:16)",
+          "videoTitle": "Coherence Principle: Eliminare Stimoli Estranei e Grafica Inutile",
+          "videoDuration": "00:46",
+          "videoUrl": "moduli-formativi/corso-clark-mayer/video3_coerenza.mp4",
+          "isVertical": true
+        },
+        {
+          "type": "text",
+          "title": "13. Quadro Didattico: Il Principio di Coerenza",
+          "badge": "Fase 3 · Approfondimento Concettuale",
+          "text": "<p><strong>Il Principio di Coerenza (Coherence Principle):</strong> Clark e Mayer spiegano perché nei corsi e-learning è fondamentale eliminare grafica puramente decorativa, testi ridondanti e musiche di sottofondo inutili.</p><div class='callout-quote'>✂️ <strong>Eliminare gli stimoli estranei:</strong> Gli elementi visivi o sonori non pertinenti generano <em>carico cognitivo estraneo</em>, affaticando la mente dello studente e riducendo drasticamente la capacità di comprendere i contenuti centrali.</div>"
+        },
+        {
+          "type": "flashcard",
+          "title": "14. Flashcard: Il Principio di Coerenza",
+          "badge": "Fase 3 · Consolidamento Rapido",
+          "frontText": "✂️ Perché nei corsi digitali è fondamentale eliminare grafica puramente decorativa e musica di sottofondo inutile?",
+          "backText": "Perché generano 'carico cognitivo estraneo'. Il cervello dello studente è costretto a spendere energia mentale per ignorare gli stimoli irrilevanti, riducendo la capacità di comprendere e memorizzare i contenuti centrali.",
+          "tip": "Gira la flashcard per analizzare il ruolo del carico cognitivo estraneo."
+        },
+        {
+          "type": "quiz",
+          "title": "15. Quiz di Revisione Didattica: Applicare la Coerenza",
+          "badge": "Fase 3 · Verifica Formativa",
+          "question": "Durante la revisione dello storyboard di un corso digitale, noti schermate cariche di illustrazioni decorative, testo ridondante e musica di sottofondo continua. Come intervieni?",
+          "options": [
+            {
+              "text": "Mantieni tutto invariato perché gli stimoli visivi e sonori rendono la lezione più accattivante.",
+              "correct": false,
+              "feedback": "❌ Non corretto: gli stimoli decorativi causano l'effetto 'seductive details' e riducono l'apprendimento."
+            },
+            {
+              "text": "Elimini le illustrazioni decorative, rimuovi la musica di sottofondo e ripulisci il testo per focalizzare l'attenzione sui contenuti centrali.",
+              "correct": true,
+              "feedback": "✅ <strong>Esatto!</strong> Il Principio di Coerenza impone di eliminare qualsiasi elemento che non supporti direttamente l'obiettivo pedagogico."
+            },
+            {
+              "text": "Aggiungi ulteriori effetti sonori per ogni interazione dell'utente.",
+              "correct": false,
+              "feedback": "❌ Non corretto: aumenta ulteriormente il rumore cognitivo estraneo."
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "title": "16. Riflessione Metacognitiva: Caccia al Carico Estraneo",
+          "badge": "Fase 3 · Diario Metacognitivo",
+          "prompt": "✍️ <strong>Audit di Coerenza:</strong> Pensa a un materiale e-learning, slide o video in cui hai notato elementi decorativi o ridondanti. Quale elemento avresti tagliato e perché?",
+          "placeholder": "Condividi la tua analisi critica..."
+        },
+        {
+          "type": "completion",
+          "title": "17. Completamento & Certificazione",
+          "badge": "Traguardo Finale · Competenze Validate",
+          "badgeImage": "moduli-formativi/corso-clark-mayer/badge_certified_id.png",
+          "text": "<p>Hai completato con successo l'intero percorso didattico sequenziale, dimostrando padronanza dell'architettura della memoria, del Principio di Segmentazione e del Principio di Coerenza secondo l'evidence-based design di <strong>Clark & Mayer</strong>.</p>"
         }
       ]
     },
     {
-      id: "corso-territorio",
-      title: "Mappatura Territoriale & Risorse Educative (Accento)",
-      category: "Educativa & Digital Tools",
-      badge: "Modulo 2 · Gestione Risorse",
-      objectives: [
-        { bloom: "Riconoscere", text: "Identificare i nodi chiave della rete educativa sul territorio di Reggio Emilia." },
-        { bloom: "Organizzare", text: "Strutturare banche dati condivise e georeferenziate su Google My Maps per équipe multidisciplinari." },
-        { bloom: "Valutare", text: "Garantire il rispetto del GDPR e della riservatezza nella gestione della documentazione dei minori (DOS)." }
+      "id": "corso-dinosauri-learning-object",
+      "title": "Dai Fossili alle Piume · Dinosauri ed Evoluzione",
+      "category": "Didattica Primaria & Learning Object (BES)",
+      "badge": "Modulo 2 · Progetto K-12 & Illustrazioni Originali",
+      "badgeImage": "moduli-formativi/corso-dinosauri-learning-object/badge_giovane_paleontologo.png",
+      "infographicUrl": "moduli-formativi/corso-dinosauri-learning-object/copertina_dai_fossili_alle_piume.jpg",
+      "objectives": [
+        {
+          "bloom": "Comprendere",
+          "text": "Distinguere le tre ere geologiche del Mesozoico (Triassico, Giurassico, Cretacico) e l'importanza dei fossili per ricostruire la vita del passato."
+        },
+        {
+          "bloom": "Analizzare",
+          "text": "Comprendere la funzione biologica originaria delle piume nei dinosauri (termoregolazione e protezione) prima dello sviluppo del volo."
+        },
+        {
+          "bloom": "Valutare",
+          "text": "Riconoscere l'Archaeopteryx come anello di congiunzione anatomico tra dinosauri e uccelli moderni (ossa cave, sterno carenato, ali)."
+        }
       ],
-      steps: [
+      "steps": [
         {
-          type: "video",
-          title: "1. Video Intro: La Frammentazione Territoriale",
-          badge: "Fase 1 · Il Contesto",
-          videoTitle: "Pillola Video: Il Lavoro dell'Educatore sul Territorio",
-          videoDuration: "01:30",
-          videoUrl: "",
-          text: "L'esperienza sul campo con <strong>Accento Cooperativa Sociale</strong>: il raccordo costante con i Servizi Sociali di Reggio Emilia e la necessità di una mappa condivisa."
+          "type": "text",
+          "title": "1. Inquadramento Pedagogico & Scheda del Learning Object",
+          "badge": "Fase 1 · Progettazione & Target",
+          "text": "<p>Benvenuto nel Learning Object <strong>Dai Fossili alle Piume</strong>, un percorso multimediale animato progettato per avvicinare i bambini alla paleontologia e alla teoria dell'evoluzione biologica.</p><div class='objectives-list-step'><div class='objective-item'><span class='bloom-tag'>Target & BES</span><span>Progettato per la <strong>scuola primaria (6–9 anni)</strong>, percorsi informali e allievi con <strong>Bisogni Educativi Speciali (BES)</strong>, grazie a video brevi, linguaggio chiaro ed empatia visiva.</span></div><div class='objective-item'><span class='bloom-tag'>Co-Design Artistico</span><span><strong>Progettazione didattica, storyboard e montaggio audio-video:</strong> Alberto Bedeschi (esame universitario UNIMORE, Prof. Poletti, 2021).<br><strong>Illustrazioni e sfondi originali disegnati a mano con Procreate:</strong> Zoe Pinzuti.</span></div><div class='objective-item'><span class='bloom-tag'>LMS Multi-Piattaforma</span><span>Validato su <strong>Moodle</strong> (ambiente completo con forum cooperativi) e su <strong>TalentLMS</strong> (ambiente lineare, immediato e accessibile da casa).</span></div></div><div class='callout-quote'>🦖 <strong>Approccio Didattico:</strong> Struttura lineare conforme agli indici di Brenda Laurel (frequenza e variabilità calibrate per l'età), arricchita da verifiche formative gamificate e attestato finale.</div>"
         },
         {
-          type: "text",
-          title: "2. Architettura dei Dati: Google My Maps & Gecos",
-          badge: "Fase 2 · Integrazione Strumenti",
-          text: "<p>Unire strumenti gestionali (Gecos per le ore, Google Drive per i dossier DOS) a una mappa geografica interattiva per visualizzare a colpo d'occhio sportelli di ascolto, centri pomeridiani e risorse per minori.</p><div class='callout-quote'>📍 <strong>Impatto:</strong> Riduzione dei tempi di orientamento delle famiglie e maggiore efficacia per le équipe multidisciplinari.</div>"
+          "type": "video",
+          "title": "2. Capitolo 1: Chi siamo noi dinosauri?",
+          "badge": "Capitolo 1 · Video Animato (16:9)",
+          "videoTitle": "Capitolo 1: Chi siamo noi dinosauri? (Le origini e i fossili)",
+          "videoDuration": "01:28",
+          "videoUrl": "moduli-formativi/corso-dinosauri-learning-object/capitolo1_chi_siamo_noi_dinosauri.mp4",
+          "isVertical": false
         },
         {
-          type: "flashcard",
-          title: "3. Flashcard: Il Principio di Riservatezza DOS",
-          badge: "Fase 3 · Consolidamento Normativo",
-          frontText: "📋 Quali precauzioni sono imprescindibili quando si digitalizzano dossier educativi su minori?",
-          backText: "Accesso con privilegi minimi su Google Drive aziendale, pseudonimizzazione delle informazioni sensibili, divieto di condivisione su canali non protetti e conformità al GDPR e ai regolamenti dei Servizi Sociali.",
-          tip: "Gira la flashcard per verificare la regola di compliance."
+          "type": "flashcard",
+          "title": "3. Flashcard: Come conosciamo i Dinosauri?",
+          "badge": "Fase 2 · Consolidamento Concettuale",
+          "frontText": "🦴 Come facciamo a sapere che aspetto avevano i dinosauri se nessun essere umano li ha mai visti vivi?",
+          "backText": "Attraverso i reperti fossili! Nel corso di milioni di anni, resti di ossa, uova, impronte, foglie e perfino escrementi si sono trasformati in roccia solida, conservando indizi preziosi per gli scienziati paleontologi.",
+          "tip": "Clicca sulla card per girarla e scoprire come si formano i fossili."
         },
         {
-          type: "game",
-          title: "4. Attività Interattiva: Scelta della Risorsa",
-          badge: "Fase 4 · Decisione Operativa",
-          scenario: "🎯 <strong>Scenario Operativo:</strong> Una famiglia seguita dal servizio sociale necessita di un supporto pomeridiano per compiti e socializzazione per un minore. Quale risorsa mappata sul territorio selezioni?",
-          options: [
-            { text: "A) Pronto Soccorso Ospedaliero.", correct: false, feedback: "❌ Risorsa medica per emergenze, non pertinente al bisogno educativo." },
-            { text: "B) Polo Educativo Territoriale con laboratori di media education e spazio compiti.", correct: true, feedback: "🎉 <strong>Esatto!</strong> Il Polo Educativo risponde sia al bisogno didattico sia alla prevenzione del ritiro sociale. Attività superata!" },
-            { text: "C) Ufficio Tributi Comunale.", correct: false, feedback: "❌ Ente amministrativo non correlato." }
+          "type": "quiz",
+          "title": "4. Quiz: Alla Scoperta dei Fossili",
+          "badge": "Verifica Capitolo 1",
+          "question": "Quali elementi del passato possono trasformarsi in fossili dopo milioni di anni?",
+          "options": [
+            {
+              "text": "Solo oggetti di plastica e metalli moderni.",
+              "correct": false,
+              "feedback": "❌ No: la plastica e i metalli moderni non esistevano all'epoca dei dinosauri!"
+            },
+            {
+              "text": "Ossa, uova, impronte e foglie ricoperte da strati di fango e roccia.",
+              "correct": true,
+              "feedback": "🎉 <strong>Bravissimo!</strong> I fossili sono proprio resti di esseri viventi trasformati in pietra nel corso del tempo."
+            },
+            {
+              "text": "Solo l'acqua del mare e le nuvole nel cielo.",
+              "correct": false,
+              "feedback": "❌ No: l'acqua e le nuvole evaporano e cambiano forma continuamente."
+            }
           ]
         },
         {
-          type: "quiz",
-          title: "5. Quiz di Verifica: Privacy & Documentazione DOS",
-          badge: "Fase 5 · Conformità & Metodo",
-          question: "Nell'aggiornamento della documentazione DOS su cloud, quale principio è prioritario?",
-          options: [
-            { text: "Condividere i dati sensibili pubblicamente senza protezioni.", correct: false, feedback: "⚠️ Grave violazione della normativa privacy." },
-            { text: "Rispetto rigoroso della riservatezza (GDPR) e tracciamento orario certificato.", correct: true, feedback: "✅ <strong>Corretto!</strong> Riservatezza ed etica documentale sono il cardine del lavoro educativo." },
-            { text: "Evitare qualsiasi verbalizzazione scritta.", correct: false, feedback: "⚠️ La tracciabilità condivisa è fondamentale per l'équipe." }
+          "type": "video",
+          "title": "5. Capitolo 2: Che fine abbiamo fatto?",
+          "badge": "Capitolo 2 · Video Animato (16:9)",
+          "videoTitle": "Capitolo 2: L'Era Mesozoica e la Grande Estinzione",
+          "videoDuration": "01:26",
+          "videoUrl": "moduli-formativi/corso-dinosauri-learning-object/capitolo2_che_fine_abbiamo_fatto.mp4",
+          "isVertical": false
+        },
+        {
+          "type": "flashcard",
+          "title": "6. Flashcard: Le Tre Ere del Mesozoico",
+          "badge": "Fase 3 · Consolidamento Temporale",
+          "frontText": "⏳ Quali sono i tre grandi periodi dell'Era Mesozoica in cui vissero i dinosauri?",
+          "backText": "Triassico (comparsa dei primi dinosauri), Giurassico (il periodo d'oro in cui dominarono la Terra) e Cretacico (il terzo periodo, conclusosi 65 milioni di anni fa con l'impatto del meteorite).",
+          "tip": "Gira la card per memorizzare le tre epoche geologiche."
+        },
+        {
+          "type": "quiz",
+          "title": "7. Quiz: Il Mistero dell'Estinzione",
+          "badge": "Verifica Capitolo 2",
+          "question": "Cosa accadde circa 65 milioni di anni fa sulla Terra?",
+          "options": [
+            {
+              "text": "Un gigantesco meteorite e grandi cambiamenti climatici causarono l'estinzione di molte specie, ma alcuni sopravvissuti iniziarono a evolversi.",
+              "correct": true,
+              "feedback": "🎉 <strong>Esatto!</strong> L'impatto e il clima spazzarono via molte specie, ma i sopravvissuti intrapresero un lungo cammino evolutivo."
+            },
+            {
+              "text": "Tutti i dinosauri salirono su navicelle spaziali e lasciarono la Terra.",
+              "correct": false,
+              "feedback": "❌ No: questa è solo fantascienza!"
+            },
+            {
+              "text": "Non cambiò assolutamente nulla e la Terra rimase identica a prima.",
+              "correct": false,
+              "feedback": "❌ No: il pianeta subì sconvolgimenti epocali."
+            }
           ]
         },
         {
-          type: "completion",
-          title: "6. Scheda Finale del Caso Accento",
-          badge: "Fase 6 · Conclusione",
-          text: "Modulo completato! Dimostrazione dell'integrazione tra competenze educative territoriali e digitalizzazione dei processi."
+          "type": "video",
+          "title": "8. Capitolo 3: Dinosauri Piumati",
+          "badge": "Capitolo 3 · Video Animato (16:9)",
+          "videoTitle": "Capitolo 3: I Dromeosauri e il Segreto delle Piume",
+          "videoDuration": "01:26",
+          "videoUrl": "moduli-formativi/corso-dinosauri-learning-object/capitolo3_dinosauri_piumati.mp4",
+          "isVertical": false
+        },
+        {
+          "type": "video",
+          "title": "9. Capitolo 3.5: Focus Archaeopteryx",
+          "badge": "Capitolo 3.5 · Video Animato (16:9)",
+          "videoTitle": "Capitolo 3.5: L'Antica Penna e il Fossile di Berlino",
+          "videoDuration": "01:26",
+          "videoUrl": "moduli-formativi/corso-dinosauri-learning-object/capitolo3_5_archaeopteryx.mp4",
+          "isVertical": false
+        },
+        {
+          "type": "flashcard",
+          "title": "10. Flashcard: A cosa servivano le Piume?",
+          "badge": "Fase 4 · Principio Evolutivo",
+          "frontText": "🪶 A cosa servivano le prime piume comparse sui piccoli dinosauri milioni di anni fa?",
+          "backText": "Non per volare! I dinosauri erano animali a sangue caldo: le prime piume servivano come un 'cappotto termico' per trattenere il calore corporeo e per farsi notare dai propri simili con colori vivaci.",
+          "tip": "Gira la card per verificare la vera funzione biologica originaria."
+        },
+        {
+          "type": "quiz",
+          "title": "11. Quiz: Le Abilità dell'Archaeopteryx",
+          "badge": "Verifica Capitolo 3 & 3.5",
+          "question": "Come si muoveva l'Archaeopteryx (l'antica penna) nel suo ambiente naturale?",
+          "options": [
+            {
+              "text": "Nuotava velocissimo negli abissi marini come uno squalo.",
+              "correct": false,
+              "feedback": "❌ No: l'Archaeopteryx viveva sulla terraferma tra la vegetazione."
+            },
+            {
+              "text": "Si arrampicava sugli alberi con i suoi lunghi artigli e planava grazie alle sue antiche ali piumate.",
+              "correct": true,
+              "feedback": "🎉 <strong>Corretto!</strong> Non volava ancora battendo le ali come gli uccelli moderni, ma era un provetto arrampicatore e planatore."
+            },
+            {
+              "text": "Scavava gallerie sotto terra per nascondersi dalla luce.",
+              "correct": false,
+              "feedback": "❌ No: non era un animale sotterraneo."
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "title": "12. Capitolo 4: Dai dinosauri agli uccelli",
+          "badge": "Capitolo 4 · Video Animato (16:9)",
+          "videoTitle": "Capitolo 4: L'Evoluzione dei Polsi, delle Ossa Cave e del Volo",
+          "videoDuration": "01:26",
+          "videoUrl": "moduli-formativi/corso-dinosauri-learning-object/capitolo4_dai_dinosauri_agli_uccelli.mp4",
+          "isVertical": false
+        },
+        {
+          "type": "flashcard",
+          "title": "13. Flashcard: Il Segreto del Volo",
+          "badge": "Fase 5 · Anatomia Comparata",
+          "frontText": "🕊️ Quali trasformazioni fisiche permisero ai dinosauri sopravvissuti di diventare uccelli e conquistare il cielo?",
+          "backText": "Le ossa sono diventate cave e leggerissime, i muscoli pettorali si sono potenziati grazie a uno sterno con carena, gli artigli hanno lasciato spazio alle ali e la lunga coda ossea si è accorciata.",
+          "tip": "Gira la card per ripassare gli adattamenti al volo."
+        },
+        {
+          "type": "reflection",
+          "title": "14. Diario dell'Esploratore: Uno Sguardo al Cielo",
+          "badge": "Fase 6 · Attivazione Metacognitiva",
+          "scenario": "🔭 <strong>Diario del Giovane Paleontologo:</strong><br>Hai mai guardato un passero, una rondine o un piccione pensando che sono i discendenti diretti dei dinosauri? Quale curiosità ti ha colpito di più in questo viaggio evolutivo? Raccontalo con parole tue!",
+          "tip": "Scrivi una breve riflessione (almeno 15 caratteri) per condividere la tua scoperta scientifica e sbloccare l'attestato finale."
+        },
+        {
+          "type": "completion",
+          "title": "15. Missione Paleontologica Completata!",
+          "badge": "Fase 7 · Traguardo Finale",
+          "badgeImage": "moduli-formativi/corso-dinosauri-learning-object/badge_giovane_paleontologo.png",
+          "text": "<p>Congratulazioni! Hai completato l'intero Learning Object multimediale <strong>Dai Fossili alle Piume</strong>.</p><p>Hai scoperto come i dinosauri sono sopravvissuti, perché hanno sviluppato le prime piume e come l'Archaeopteryx rappresenti il ponte evolutivo verso gli uccelli che vediamo volare oggi intorno a noi.</p><div class='callout-quote'>🎓 <strong>Riconoscimento delle Competenze:</strong> Clicca sui pulsanti in basso per visualizzare e stampare l'<strong>Attestato di Giovane Paleontologo</strong> con il badge ufficiale disegnato da Zoe Pinzuti!</div>"
+        }
+      ]
+    },
+    {
+      "id": "corso-ai-prompting",
+      "title": "Lavorare con l'AI: Prompting Efficace e Sicuro",
+      "category": "Corporate AI Enablement & Game-Based Learning",
+      "badge": "Modulo 3 · Game-Based Microlearning",
+      "badgeImage": "moduli-formativi/corso-clark-mayer/badge_certified_id.png",
+      "objectives": [
+        {
+          "bloom": "Applicare",
+          "text": "Padroneggiare la 'Formula dei 4 Mattoni' (Contesto, Ruolo, Formato, Vincoli) per strutturare prompt efficaci in ambito aziendale."
+        },
+        {
+          "bloom": "Valutare",
+          "text": "Discriminare comportamenti sicuri (anonimizzazione preventiva, Grounding) da rischi critici (Shadow AI, violazioni GDPR, allucinazioni)."
+        },
+        {
+          "bloom": "Creare",
+          "text": "Progettare in autonomia un prompt lavorativo completo, verificandone l'efficacia tramite rubrica strutturata."
+        }
+      ],
+      "steps": [
+        {
+          "type": "text",
+          "title": "1. Introduzione & Formula dei 4 Mattoni",
+          "badge": "Livello 1 · Le 4 regole d'oro",
+          "text": "<p>Tutti oggi usiamo l'<strong>Intelligenza Artificiale</strong> al lavoro per risparmiare tempo, ma spesso otteniamo risposte generiche o rischiamo di esporre dati aziendali riservati.</p><p>Un prompt efficace si fonda sulla <strong>Formula dei 4 Mattoni</strong>:</p><ul><li><strong>1. Contesto:</strong> l'insieme delle informazioni di sfondo che spiegano la situazione e l'obiettivo.</li><li><strong>2. Ruolo:</strong> il punto di vista o la figura professionale che chiediamo all'AI di assumere.</li><li><strong>3. Formato:</strong> la struttura visiva in cui vogliamo ricevere l'output (es. elenco puntato, tabella).</li><li><strong>4. Vincoli:</strong> i limiti precisi da rispettare (lunghezza massima, tono di voce, uso esclusivo dei dati forniti).</li></ul><div class='callout-quote'>🎮 <strong>Vuoi provare la versione Game-Based completa a 28 blocchi?</strong> Puoi giocarla anche nel <a href='moduli-formativi/corso-ai-prompting/gioco-interattivo.html' target='_blank'>Simulatore Interattivo</a> o leggere lo <a href='moduli-formativi/corso-ai-prompting/storyboard-ai-prompting.html'>Storyboard integrale</a>.</div>"
+        },
+        {
+          "type": "flashcard",
+          "title": "2. Flashcard: I 4 Mattoni del Prompt",
+          "badge": "Livello 1 · Richiamo Attivo",
+          "frontText": "🧩 Qual è la differenza tra 'Formato' e 'Vincoli' nella costruzione di un prompt aziendale?",
+          "backText": "Il FORMATO definisce la struttura visiva dell'output (es. 'Crea una tabella a 3 colonne' o 'Riassumi in 5 punti elenco'), mentre i VINCOLI stabiliscono i paletti da non superare (es. 'Massimo 120 parole, tono formale, usa solo i dati allegati').",
+          "tip": "Gira la card per consolidare i due mattoni finali della formula."
+        },
+        {
+          "type": "quiz",
+          "title": "3. Verifica: Costruire la Sequenza Corretta",
+          "badge": "Livello 1 · Verifica Formativa",
+          "question": "Quale tra questi prompt applica in modo completo la Formula dei 4 Mattoni (Contesto + Ruolo + Formato + Vincoli)?",
+          "options": [
+            {
+              "text": "Scrivi una presentazione sui risultati del trimestre.",
+              "correct": false,
+              "feedback": "❌ Troppo vago: mancano ruolo, formato e vincoli; l'AI produrrà un testo generico."
+            },
+            {
+              "text": "Devo presentare i risultati trimestrali al team (Contesto). Agisci come esperto di comunicazione interna (Ruolo). Prepara una scaletta in 3 punti (Formato). Non superare 150 parole e usa un tono motivante (Vincoli).",
+              "correct": true,
+              "feedback": "✅ <strong>Esatto!</strong> Tutti i 4 mattoni sono presenti e guidano l'AI verso un risultato mirato fin dal primo tentativo."
+            },
+            {
+              "text": "Fammi un riassunto veloce di tutto quello che sai sulla comunicazione aziendale.",
+              "correct": false,
+              "feedback": "❌ Non contestualizzato all'obiettivo operativo."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": "4. Sicurezza dei Dati, Shadow AI & Allucinazioni",
+          "badge": "Livello 2 · Quando condividere dati?",
+          "text": "<p>Uno studio della <strong>Harvard Business School</strong> e del <strong>MIT</strong> ha dimostrato che chi usa l'AI con il 'pilota automatico' commette il <strong>19% di errori in più</strong> nei compiti complessi.</p><ul><li><strong>Shadow AI & GDPR:</strong> caricare file con nomi, email o dati finanziari su siti AI gratuiti o su account personali (anche a pagamento) espone l'azienda a violazioni di sicurezza.</li><li><strong>Anonimizzazione preventiva:</strong> sostituisci sempre i nomi reali con sigle generiche come <code>[CLIENTE A]</code> prima di inviare il prompt.</li><li><strong>Grounding contro le allucinazioni:</strong> vincola l'AI a usare <em>esclusivamente il testo fornito</em> e verifica sempre statistiche e fonti.</li></ul>"
+        },
+        {
+          "type": "game",
+          "title": "5. Scenario Decisionale: Il Caso di Andrea (Ufficio Acquisti)",
+          "badge": "Livello 3 · Applicazione Situazionale",
+          "scenario": "🎯 <strong>Scenario Aziendale:</strong> Andrea lavora nel team Acquisti e domani deve presentare un confronto tra le offerte economiche di tre nuovi fornitori strategici. Nei PDF originali compaiono nomi dei referenti, contatti diretti e clausole di riservatezza. Qual è il modo corretto di procedere?",
+          "options": [
+            {
+              "text": "A) Caricare i tre PDF originali su un sito gratuito trovato online che confronta i documenti in automatico.",
+              "correct": false,
+              "feedback": "❌ <strong>Grave rischio Shadow AI:</strong> espone dati personali e segreti contrattuali su un server esterno non autorizzato."
+            },
+            {
+              "text": "B) Usare l'assistente AI aziendale approvato, incollando solo i dati tecnici ed economici anonimizzati (Fornitore A, B e C) e chiedendo una tabella basata solo sul testo fornito.",
+              "correct": true,
+              "feedback": "🎉 <strong>Scelta ottimale!</strong> Protegge la riservatezza (anonimizzazione + ambiente aziendale) ed evita allucinazioni grazie al Grounding sul testo."
+            },
+            {
+              "text": "C) Chiedere all'AI pubblica senza allegare nulla: 'Dimmi quali sono i migliori fornitori e quanto costano', fidandosi dei prezzi generati.",
+              "correct": false,
+              "feedback": "❌ <strong>Rischio allucinazioni:</strong> l'AI inventerebbe prezzi non corrispondenti alle offerte reali."
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "title": "6. Laboratorio Pratico: Scrivi il Tuo Prompt",
+          "badge": "Livello 3 · Produzione Autonoma",
+          "prompt": "✍️ <strong>Tocca a te!</strong> Devi inviare una mail a tutto il tuo team per invitarli a un corso di aggiornamento di 2 ore previsto per venerdì, spiegando perché è utile. Scrivi qui sotto il prompt che daresti all'AI includendo <strong>Contesto, Ruolo, Formato e Vincoli</strong>:",
+          "placeholder": "Scrivi qui il tuo prompt strutturato..."
+        },
+        {
+          "type": "completion",
+          "title": "7. Percorso Completato!",
+          "badge": "Traguardo Finale · AI Co-Pilot",
+          "badgeImage": "moduli-formativi/corso-clark-mayer/badge_certified_id.png",
+          "text": "<p>Complimenti! Hai completato il percorso <strong>Lavorare con l'AI: Prompting Efficace e Sicuro</strong>. Ricorda che l'Intelligenza Artificiale dà il meglio solo quando a guidarla c'è il tuo pensiero critico.</p>"
         }
       ]
     }
@@ -302,15 +638,32 @@
   }
 
   function finishInit() {
+    let startIdx = 0;
+    try {
+      const param = new URLSearchParams(window.location.search).get('course');
+      if (param) {
+        const byId = courses.findIndex(c => c.id === param);
+        if (byId >= 0) {
+          startIdx = byId;
+        } else {
+          const asNum = parseInt(param, 10);
+          if (!isNaN(asNum) && asNum >= 0 && asNum < courses.length) {
+            startIdx = asNum;
+          }
+        }
+      }
+    } catch (e) {}
+
+    activeCourseIndex = startIdx;
     renderCourseSelector();
-    loadCourse(0);
+    loadCourse(startIdx);
   }
 
   document.addEventListener('DOMContentLoaded', initLmsData);
 
   // Flashcard dynamic measurement & 3D flip toggle
   window.adjustCurrentFlashcardHeight = function () {
-    const contentArea = document.getElementById('stepContentArea');
+    const contentArea = document.getElementById('lmsStepContent');
     if (!contentArea) return;
     const card = contentArea.querySelector('.flashcard-card');
     const front = contentArea.querySelector('.flashcard-front');
@@ -463,18 +816,50 @@
     showToast(`Esportati ${log.length} statement xAPI con successo!`, 'success');
   };
 
-  // Render Course Selector in Toolbar
+  // Render Course Selector in Toolbar & Quick Tabs
   function renderCourseSelector() {
     const select = document.getElementById('lmsCourseSelect');
-    if (!select) return;
-    select.innerHTML = '';
-    courses.forEach((c, idx) => {
-      const opt = document.createElement('option');
-      opt.value = idx;
-      opt.textContent = `${c.badge || 'Modulo'}: ${c.title}`;
-      select.appendChild(opt);
-    });
-    select.value = activeCourseIndex;
+    if (select) {
+      select.innerHTML = '';
+      courses.forEach((c, idx) => {
+        const opt = document.createElement('option');
+        opt.value = idx;
+        opt.textContent = `${c.badge || 'Modulo'}: ${c.title}`;
+        select.appendChild(opt);
+      });
+      select.value = activeCourseIndex;
+    }
+
+    const tabsWrap = document.getElementById('lmsCourseTabs');
+    if (tabsWrap) {
+      tabsWrap.innerHTML = '';
+      courses.forEach((c, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `lms-course-tab${idx === activeCourseIndex ? ' is-active' : ''}`;
+        btn.setAttribute('aria-pressed', String(idx === activeCourseIndex));
+        btn.innerHTML = `
+          <span class="lms-course-tab-badge">${escapeHtml(c.badge || `Modulo ${idx + 1}`)}</span>
+          <span class="lms-course-tab-title">${escapeHtml(c.title)}</span>
+        `;
+        btn.onclick = () => switchCourse(idx);
+        tabsWrap.appendChild(btn);
+      });
+    }
+  }
+
+  function syncCourseSelectorState() {
+    const select = document.getElementById('lmsCourseSelect');
+    if (select) select.value = activeCourseIndex;
+
+    const tabsWrap = document.getElementById('lmsCourseTabs');
+    if (tabsWrap) {
+      tabsWrap.querySelectorAll('.lms-course-tab').forEach((btn, idx) => {
+        const active = idx === activeCourseIndex;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-pressed', String(active));
+      });
+    }
   }
 
   // Switch Mode (Player vs Editor / Sandbox)
@@ -511,6 +896,7 @@
     if (isNaN(activeCourseIndex) || activeCourseIndex < 0 || activeCourseIndex >= courses.length) {
       activeCourseIndex = 0;
     }
+    syncCourseSelectorState();
     const course = courses[activeCourseIndex];
     const prog = getCourseProgress(course.id);
     currentStepIndex = Math.min(prog.lastStepIndex || 0, course.steps.length - 1);
@@ -524,6 +910,7 @@
 
   function loadCourse(index) {
     activeCourseIndex = index;
+    syncCourseSelectorState();
     const course = courses[activeCourseIndex];
     if (course) {
       const prog = getCourseProgress(course.id);
@@ -532,6 +919,146 @@
       currentStepIndex = 0;
     }
     renderPlayerUI();
+  }
+
+  /** Restituisce configurazione, testi e link di completamento coerenti con il corso attivo. */
+  function getCourseCompletionMeta(course) {
+    const id = course ? course.id : '';
+    if (id === 'corso-dinosauri-learning-object') {
+      return {
+        certUrl: 'attestato_giovane_paleontologo.html',
+        certLabel: 'Diploma Ufficiale Giovane Paleontologo',
+        certModalText: "Si certifica il completamento dell'intero Learning Object 'Dai Fossili alle Piume', con superamento di tutti i capitoli animati e delle prove di verifica paleontologica.",
+        infographicLabel: "Copertina &amp; Identità Visiva del Learning Object",
+        cardsHTML: `
+          <div class="completion-card">
+            <h4>
+              <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-file-text"></use></svg>
+              Scheda del Learning Object
+            </h4>
+            <p>Progettazione didattica, target 6-9 anni, illustrazioni di Zoe Pinzuti e validazione Moodle/TalentLMS.</p>
+            <button type="button" class="btn btn-primary btn-sm" onclick="goToStep(0)">
+              Rileggi Scheda Didattica <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </button>
+          </div>
+
+          <div class="completion-card">
+            <h4>
+              <svg class="icon" aria-hidden="true" style="color:var(--terra);"><use href="#i-award"></use></svg>
+              Attestato Giovane Paleontologo
+            </h4>
+            <p>Visualizza e stampa il diploma ufficiale A4 con il badge dell'Archaeopteryx.</p>
+            <a href="attestato_giovane_paleontologo.html" target="_blank" rel="noopener" class="btn btn-terra btn-sm">
+              Apri Attestato Ufficiale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+            </a>
+          </div>
+        `
+      };
+    }
+
+    if (id === 'corso-ai-prompting') {
+      const certUrl = 'attestato_completamento.html?course=corso-ai-prompting';
+      return {
+        certUrl,
+        certLabel: 'Micro-Attestato AI & Prompting',
+        certModalText: "Si certifica il completamento del percorso 'Lavorare con l'AI: Prompting Efficace e Sicuro', con padronanza della Formula dei 4 Mattoni, prevenzione Shadow AI e verifica delle allucinazioni.",
+        infographicLabel: "Schema Riepilogativo del Modulo AI",
+        cardsHTML: `
+          <div class="completion-card">
+            <h4>
+              <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-book"></use></svg>
+              Storyboard &amp; Player Gamindo
+            </h4>
+            <p>Consulta la sceneggiatura integrale da 26 blocchi o gioca la versione Game-Based su Gamindo Builder.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <a href="moduli-formativi/corso-ai-prompting/storyboard-ai-prompting.html" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                Storyboard (26 blocchi) <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+              </a>
+              <a href="https://go.gamindo.com/?cd=OU5MQXY7KD-PA_01OX-aN-A_010DHYHHIMEMOPH7Q0ANPNIM76H7DCA94-HY9Q8P-aPQL8AN-aOWOPaG56OXSUFI.1F8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                Gioca su Gamindo <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="completion-card">
+            <h4>
+              <svg class="icon" aria-hidden="true" style="color:var(--terra);"><use href="#i-award"></use></svg>
+              Attestato di Competenze AI
+            </h4>
+            <p>Visualizza e stampa il certificato A4 con le competenze acquisite sul prompting sicuro.</p>
+            <a href="${certUrl}" target="_blank" rel="noopener" class="btn btn-terra btn-sm">
+              Apri Attestato Ufficiale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+            </a>
+          </div>
+        `
+      };
+    }
+
+    if (id === 'corso-clark-mayer' || id === 'corso-benessere') {
+      return {
+        certUrl: 'attestato_completamento.html',
+        certLabel: 'Micro-Attestato di Completamento',
+        certModalText: "Si certifica il completamento dell'intero percorso didattico asincrono a progressione vincolata, con esito positivo nelle prove di verifica formativa e situazionale.",
+        infographicLabel: "Mappa Concettuale Integrata: Scienza dell'Apprendimento Digitale",
+        cardsHTML: `
+          <div class="completion-card">
+            <h4>
+              <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-file-text"></use></svg>
+              Dispensa Didattica Riassuntiva
+            </h4>
+            <p>Evidence-Based Instructional Design: Architettura Cognitiva &amp; Principi di Clark &amp; Mayer (2024).</p>
+            <a href="dispensa_didattica_riassuntiva.html" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+              Apri la Scheda Finale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+            </a>
+          </div>
+
+          <div class="completion-card">
+            <h4>
+              <svg class="icon" aria-hidden="true" style="color:var(--terra);"><use href="#i-award"></use></svg>
+              Attestato di Competenze ID
+            </h4>
+            <p>Visualizza e stampa l'attestato nominativo con il badge Certified ID.</p>
+            <a href="attestato_completamento.html" target="_blank" rel="noopener" class="btn btn-terra btn-sm">
+              Apri Attestato Ufficiale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+            </a>
+          </div>
+        `
+      };
+    }
+
+    // Fallback generico per nuove pillole create dall'utente nella Sandbox Authoring
+    const safeCourseTitle = escapeHtml((course && course.title) || 'Modulo Didattico');
+    const customTitleParam = encodeURIComponent((course && course.title) || 'Pillola Formativa');
+    const customCertUrl = `attestato_completamento.html?title=${customTitleParam}`;
+    return {
+      certUrl: customCertUrl,
+      certLabel: 'Attestato di Completamento',
+      certModalText: `Si certifica il completamento del percorso formativo "${safeCourseTitle}" nella Sandbox LMS.`,
+      infographicLabel: 'Schema Visivo del Modulo',
+      cardsHTML: `
+        <div class="completion-card">
+          <h4>
+            <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-file-text"></use></svg>
+            Riepilogo del Percorso
+          </h4>
+          <p>Rileggi dall'inizio gli step didattici e le verifiche della pillola formativa creata.</p>
+          <button type="button" class="btn btn-primary btn-sm" onclick="goToStep(0)">
+            Torna all'inizio <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </button>
+        </div>
+
+        <div class="completion-card">
+          <h4>
+            <svg class="icon" aria-hidden="true" style="color:var(--terra);"><use href="#i-award"></use></svg>
+            Attestato di Completamento
+          </h4>
+          <p>Visualizza e stampa l'attestato personalizzato A4 per questo modulo.</p>
+          <a href="${customCertUrl}" target="_blank" rel="noopener" class="btn btn-terra btn-sm">
+            Apri Attestato Ufficiale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+          </a>
+        </div>
+      `
+    };
   }
 
   // Toggle Syllabus on mobile
@@ -890,13 +1417,13 @@
           </div>
         `;
 
-      const isModule1 = (activeCourseIndex === 0 || (course && (course.id === 'corso-clark-mayer' || course.id === 'corso-benessere')));
+      const completionMeta = getCourseCompletionMeta(course);
       const infographicUrl = step.infographicUrl || (course && course.infographicUrl);
       const infographicHTML = infographicUrl ? `
         <div class="infographic-box" style="margin: 20px auto 26px auto; max-width: 620px; text-align: center;">
           <p style="font-size: 0.88rem; font-weight: 600; color: var(--text-muted); margin-bottom: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
             <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-layers"></use></svg>
-            ${isModule1 ? "Mappa Concettuale Integrata: Scienza dell'Apprendimento Digitale" : "Copertina &amp; Identità Visiva del Learning Object"}
+            ${completionMeta.infographicLabel}
           </p>
           <a href="${escapeHtml(infographicUrl)}" target="_blank" rel="noopener" title="Clicca per ingrandire l'immagine ad alta risoluzione" style="display:block; border-radius:12px; overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--border); background:var(--surface);">
             <img src="${escapeHtml(infographicUrl)}" alt="${escapeHtml(course.title)}" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:12px;">
@@ -919,51 +1446,7 @@
           ${infographicHTML}
 
           <div class="completion-actions">
-            ${isModule1 ? `
-            <div class="completion-card">
-              <h4>
-                <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-file-text"></use></svg>
-                Dispensa Didattica Riassuntiva
-              </h4>
-              <p>Evidence-Based Instructional Design: Architettura Cognitiva &amp; Principi di Clark &amp; Mayer (2024).</p>
-              <a href="dispensa_didattica_riassuntiva.html" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
-                Apri la Scheda Finale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
-              </a>
-            </div>
-
-            <div class="completion-card">
-              <h4>
-                <svg class="icon" aria-hidden="true" style="color:var(--terra);"><use href="#i-award"></use></svg>
-                Attestato di Competenze ID
-              </h4>
-              <p>Visualizza e stampa l'attestato nominativo con il badge Certified ID.</p>
-              <a href="attestato_completamento.html" target="_blank" rel="noopener" class="btn btn-terra btn-sm">
-                Apri Attestato Ufficiale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
-              </a>
-            </div>
-            ` : `
-            <div class="completion-card">
-              <h4>
-                <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-file-text"></use></svg>
-                Scheda del Learning Object
-              </h4>
-              <p>Progettazione didattica, target 6-9 anni, illustrazioni di Zoe Pinzuti e validazione Moodle/TalentLMS.</p>
-              <button type="button" class="btn btn-primary btn-sm" onclick="goToStep(0)">
-                Rileggi Scheda Didattica <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
-              </button>
-            </div>
-
-            <div class="completion-card">
-              <h4>
-                <svg class="icon" aria-hidden="true" style="color:var(--terra);"><use href="#i-award"></use></svg>
-                Attestato Giovane Paleontologo
-              </h4>
-              <p>Visualizza e stampa il diploma ufficiale A4 con il badge dell'Archaeopteryx.</p>
-              <a href="attestato_giovane_paleontologo.html" target="_blank" rel="noopener" class="btn btn-terra btn-sm">
-                Apri Attestato Ufficiale <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
-              </a>
-            </div>
-            `}
+            ${completionMeta.cardsHTML}
           </div>
         </div>
       `;
@@ -1930,10 +2413,8 @@
     const body = document.getElementById('certModalBody');
     if (!modal || !body) return;
 
-    const isModule1 = (activeCourseIndex === 0 || (course && (course.id === 'corso-clark-mayer' || course.id === 'corso-benessere')));
-    const certUrl = isModule1
-      ? 'attestato_completamento.html'
-      : 'attestato_giovane_paleontologo.html';
+    const completionMeta = getCourseCompletionMeta(course);
+    const certUrl = completionMeta.certUrl;
 
     const today = new Date().toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
     const badgeImg = course.badgeImage || (course.steps && course.steps.find(s => s.badgeImage)?.badgeImage);
@@ -1945,15 +2426,13 @@
       <div style="text-align:center; padding:20px 16px; border:2px solid var(--accent); border-radius:14px; background:var(--surface-2);">
         ${badgeModalHTML}
         <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); font-weight:700; margin-bottom:6px;">
-          ${isModule1 ? 'Micro-Attestato di Completamento' : 'Diploma Ufficiale Giovane Paleontologo'}
+          ${completionMeta.certLabel}
         </div>
         <h3 style="font-family:var(--font-serif); font-size:1.45rem; color:var(--text); margin-bottom:12px;">
           ${escapeHtml(course.title)}
         </h3>
         <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:14px;">
-          ${isModule1
-            ? "Si certifica il completamento dell'intero percorso didattico asincrono a progressione vincolata, con esito positivo nelle prove di verifica formativa e situazionale."
-            : "Si certifica il completamento dell'intero Learning Object 'Dai Fossili alle Piume', con superamento di tutti i capitoli animati e delle prove di verifica paleontologica."}
+          ${completionMeta.certModalText}
         </p>
         <div style="margin-bottom:16px;">
           <a href="${certUrl}" target="_blank" rel="noopener" class="btn btn-terra btn-sm" style="display:inline-flex; align-items:center; gap:8px;">
@@ -1986,11 +2465,8 @@
 
   window.printCertificate = function () {
     const course = courses[activeCourseIndex];
-    const isModule1 = (activeCourseIndex === 0 || (course && (course.id === 'corso-clark-mayer' || course.id === 'corso-benessere')));
-    const certUrl = isModule1
-      ? 'attestato_completamento.html'
-      : 'attestato_giovane_paleontologo.html';
-    window.open(certUrl, '_blank');
+    const completionMeta = getCourseCompletionMeta(course);
+    window.open(completionMeta.certUrl, '_blank');
   };
 
   // Learning Analytics & Progress Modal

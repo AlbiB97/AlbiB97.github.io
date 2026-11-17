@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Scheda Didattica Riassuntiva · Evidence-Based Instructional Design | Alberto Bedeschi</title>
   <meta name="description" content="Scheda didattica riassuntiva: Architettura Cognitiva, Principi di Clark & Mayer (2024), Microlearning Mobile-First e checklist operativa a cura di Alberto Bedeschi.">
+  <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+  <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('ab-theme')}catch(e){}if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.setAttribute('data-theme',t)})();</script>
   <style>
     :root {
       --bg: #faf8f4;
@@ -19,11 +22,32 @@
       --text-soft: #686c67;
       --border: #e2ddd2;
       --accent: #2a5c45;
+      --accent-strong: #1e4231;
       --accent-soft: #eaf3ed;
+      --accent-border: #c9dfd1;
+      --on-accent: #ffffff;
       --terra: #a94d2e;
       --terra-soft: #fbf0ec;
       --font-serif: "Fraunces", "Charter", Georgia, serif;
       --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color-scheme: light;
+    }
+    [data-theme="dark"] {
+      --bg: #121614;
+      --surface: #1a1f1c;
+      --surface-2: #212724;
+      --text: #ece9e2;
+      --text-muted: #bfc3bd;
+      --text-soft: #959a94;
+      --border: #2c332f;
+      --accent: #6dbb93;
+      --accent-strong: #8fd0ae;
+      --accent-soft: #1d2d25;
+      --accent-border: #2d4a3b;
+      --on-accent: #0e1a13;
+      --terra: #e3916f;
+      --terra-soft: #2e211b;
+      color-scheme: dark;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -71,7 +95,7 @@
       align-items: center;
       gap: 8px;
       background: var(--accent);
-      color: #ffffff;
+      color: var(--on-accent);
       border: none;
       padding: 9px 18px;
       border-radius: 8px;
@@ -81,7 +105,7 @@
       transition: background-color 0.2s ease, transform 0.15s ease;
     }
     .btn-print:hover {
-      background: #1e4231;
+      background: var(--accent-strong);
     }
     .btn-print:active {
       transform: translateY(1px);
@@ -107,7 +131,7 @@
       display: inline-block;
       background: var(--accent-soft);
       color: var(--accent);
-      border: 1px solid #c9dfd1;
+      border: 1px solid var(--accent-border);
       font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -231,6 +255,21 @@
     }
 
     @media print {
+      :root, [data-theme="dark"] {
+        --bg: #ffffff;
+        --surface: #ffffff;
+        --surface-2: #f4efe6;
+        --text: #111111;
+        --text-muted: #2d312e;
+        --text-soft: #555555;
+        --border: #d0d0d0;
+        --accent: #2a5c45;
+        --accent-soft: #eaf3ed;
+        --accent-border: #c9dfd1;
+        --terra: #a94d2e;
+        --terra-soft: #fbf0ec;
+        color-scheme: light;
+      }
       .no-print { display: none !important; }
       body { padding: 0 !important; background: #ffffff !important; }
       .sheet {

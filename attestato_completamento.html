@@ -343,9 +343,9 @@
         <!-- Badge Ufficiale Certified ID -->
         <img src="moduli-formativi/corso-clark-mayer/badge_certified_id.png" alt="Badge Certified ID - Evidence-Based Learning Design" class="badge-hero">
 
-        <div class="diploma-header-tag">Micro-Attestato di Competenze Formative</div>
+        <div class="diploma-header-tag" id="certHeaderTag">Micro-Attestato di Competenze Formative</div>
         <h1 class="diploma-title">Certificato di Completamento Didattico</h1>
-        <div class="diploma-subtitle">Evidence-Based Instructional Design &amp; Principi Multimediali</div>
+        <div class="diploma-subtitle" id="certSubtitle">Evidence-Based Instructional Design &amp; Principi Multimediali</div>
         
         <div class="diploma-divider"></div>
 
@@ -353,12 +353,12 @@
           Si certifica con merito che il discente ha completato l'intero percorso didattico asincrono a progressione vincolata su piattaforma LMS, superando le prove di verifica formativa e active retrieval practice sul corso:
         </p>
 
-        <div class="diploma-recipient">
+        <div class="diploma-recipient" id="certCourseTitle">
           Scienza dell'Apprendimento Digitale &amp; Principi di Clark &amp; Mayer
         </div>
 
         <!-- Competenze Acquisite e Livelli di Bloom -->
-        <div class="competencies-grid">
+        <div class="competencies-grid" id="certCompetencies">
           <div class="competency-card">
             <span class="competency-tag">Comprendere</span>
             <div><strong>Architettura della Memoria:</strong> Padronanza dei limiti della memoria di lavoro rispetto alla memoria a lungo termine e prevenzione dell'<em>essential overload</em>.</div>
@@ -392,11 +392,65 @@
   </main>
 
   <script>
-    // Imposta la data odierna in formato esteso italiano
+    // Imposta la data odierna e adatta il certificato se richiesto da un modulo specifico
     document.addEventListener('DOMContentLoaded', () => {
       const el = document.getElementById('certDate');
       if (el) {
         el.textContent = new Date().toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const courseParam = params.get('course');
+      const customTitle = params.get('title');
+
+      if (courseParam === 'corso-ai-prompting') {
+        document.title = "Attestato di Competenze · Lavorare con l'AI | Alberto Bedeschi";
+        const tag = document.getElementById('certHeaderTag');
+        const sub = document.getElementById('certSubtitle');
+        const titleEl = document.getElementById('certCourseTitle');
+        const compEl = document.getElementById('certCompetencies');
+        if (tag) tag.textContent = 'Micro-Attestato AI Enablement & Game-Based Learning';
+        if (sub) sub.textContent = 'Corporate AI Enablement, Prompt Engineering & Sicurezza dei Dati';
+        if (titleEl) titleEl.textContent = "Lavorare con l'AI: Prompting Efficace e Sicuro";
+        if (compEl) {
+          compEl.innerHTML = `
+            <div class="competency-card">
+              <span class="competency-tag">Applicare</span>
+              <div><strong>Formula dei 4 Mattoni:</strong> Strutturazione di prompt efficaci combinando <em>Contesto, Ruolo, Formato e Vincoli</em> operativi.</div>
+            </div>
+            <div class="competency-card">
+              <span class="competency-tag">Valutare</span>
+              <div><strong>Sicurezza &amp; GDPR:</strong> Prevenzione della <em>Shadow AI</em>, anonimizzazione preventiva dei dati e utilizzo di ambienti aziendali autorizzati.</div>
+            </div>
+            <div class="competency-card">
+              <span class="competency-tag">Decidere</span>
+              <div><strong>Grounding &amp; Verifica:</strong> Controllo critico delle fonti per prevenire le <em>allucinazioni</em> nei flussi decisionali e documentali.</div>
+            </div>
+          `;
+        }
+      } else if (customTitle) {
+        document.title = `Attestato di Competenze · ${customTitle} | Alberto Bedeschi`;
+        const sub = document.getElementById('certSubtitle');
+        const titleEl = document.getElementById('certCourseTitle');
+        const compEl = document.getElementById('certCompetencies');
+        if (sub) sub.textContent = 'Percorso di Microlearning Asincrono · Sandbox LMS';
+        if (titleEl) titleEl.textContent = customTitle;
+        if (compEl) {
+          compEl.innerHTML = `
+            <div class="competency-card">
+              <span class="competency-tag">Comprendere</span>
+              <div><strong>Fruizione Sequenziale:</strong> Completamento progressivo di tutti i moduli didattici previsti dal percorso formativo.</div>
+            </div>
+            <div class="competency-card">
+              <span class="competency-tag">Applicare</span>
+              <div><strong>Apprendimento Attivo:</strong> Superamento delle attività interattive e dei momenti di consolidamento metacognitivo.</div>
+            </div>
+            <div class="competency-card">
+              <span class="competency-tag">Valutare</span>
+              <div><strong>Verifica Formativa:</strong> Esito positivo nelle prove di controllo dell'apprendimento integrate nell'ambiente LMS.</div>
+            </div>
+          `;
+        }
       }
     });
   </script>

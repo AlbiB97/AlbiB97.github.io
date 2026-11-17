@@ -761,6 +761,52 @@ img, svg, iframe { display: block; max-width: 100%; }
 .skill-pill-card p { font-size: 0.9rem; line-height: 1.6; }
 
 /* 8. CASI STUDIO =========================================== */
+.quick-jump {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.quick-jump-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-soft);
+  margin-right: 4px;
+}
+.quick-jump-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: all 0.2s var(--ease);
+}
+.quick-jump-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.quick-jump-pill.is-featured {
+  border-color: var(--terra-soft-border);
+  background: var(--terra-soft);
+  color: var(--terra);
+}
+.quick-jump-pill.is-featured:hover {
+  border-color: var(--terra);
+  background: var(--terra);
+  color: #fff;
+}
+
 .case-study {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -768,6 +814,7 @@ img, svg, iframe { display: block; max-width: 100%; }
   padding: 44px;
   margin-bottom: 32px;
   box-shadow: var(--shadow-sm);
+  scroll-margin-top: calc(var(--header-h) + 20px);
 }
 .case-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
 .case-title { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 14px; max-width: 28ch; }
@@ -1090,6 +1137,50 @@ img, svg, iframe { display: block; max-width: 100%; }
   margin: 0;
 }
 
+.portfolio-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.portfolio-link-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.2s var(--ease), border-color 0.2s ease, background 0.2s ease;
+}
+.portfolio-link-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: var(--surface);
+}
+.portfolio-link-card-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--terra);
+}
+.portfolio-link-card strong {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.3;
+  color: var(--text);
+}
+.portfolio-link-card span:last-child {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+@media (max-width: 768px) {
+  .portfolio-links-grid { grid-template-columns: 1fr; }
+}
+
 /* 10. PIATTAFORMA LMS ====================================== */
 .lms-box {
   background: var(--surface);
@@ -1166,6 +1257,59 @@ img, svg, iframe { display: block; max-width: 100%; }
 .lms-switch-btn.is-unlocked:hover {
   background: var(--terracotta);
   color: #fff;
+}
+
+.lms-course-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 22px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.lms-course-tab {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 9px 13px;
+  text-align: left;
+  font: inherit;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+.lms-course-tab:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.lms-course-tab.is-active {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+.lms-course-tab-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--terra);
+}
+.lms-course-tab.is-active .lms-course-tab-badge {
+  color: rgba(255, 255, 255, 0.85);
+}
+[data-theme="dark"] .lms-course-tab.is-active .lms-course-tab-badge {
+  color: rgba(14, 26, 19, 0.85);
+}
+.lms-course-tab-title {
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .lms-header-info {
@@ -2377,6 +2521,13 @@ textarea.form-input { resize: vertical; min-height: 90px; line-height: 1.55; }
   }
   .lms-switch-btn span {
     text-align: center;
+  }
+  .lms-course-tabs {
+    padding: 10px 14px;
+  }
+  .lms-course-tab {
+    flex: 1 1 100%;
+    padding: 8px 12px;
   }
   .lms-header-info {
     padding: 14px 16px;
