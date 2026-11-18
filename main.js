@@ -130,7 +130,7 @@
     document.addEventListener('click', (e) => {
       if (header.classList.contains('nav-open') && !header.contains(e.target)) setOpen(false);
     });
-    window.matchMedia('(min-width: 901px)').addEventListener('change', (mq) => { if (mq.matches) setOpen(false); });
+    window.matchMedia('(min-width: 961px)').addEventListener('change', (mq) => { if (mq.matches) setOpen(false); });
 
     const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
     onScroll();

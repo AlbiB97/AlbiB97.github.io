@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=20261117">
+  <link rel="stylesheet" href="styles.css?v=20261119">
   <script>(function(){var d=document.documentElement,t;d.classList.add('js');try{t=localStorage.getItem('ab-theme')}catch(e){}if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.setAttribute('data-theme',t)})();</script>
 </head>
 <body>
@@ -76,11 +76,10 @@
 
           <!-- Top Toolbar -->
           <div class="lms-toolbar">
-            <div class="lms-course-picker">
-              <label for="lmsCourseSelect">Pillola formativa:</label>
-              <select class="lms-select" id="lmsCourseSelect" onchange="switchCourse(this.value)">
-                <!-- Populated by JS -->
-              </select>
+            <div class="lms-toolbar-brand">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Ambiente Micro-LMS</span>
+              <span class="lms-toolbar-count" id="lmsCourseCount">3 moduli</span>
             </div>
 
             <div class="lms-switch-group" role="tablist" aria-label="Modalità piattaforma">
@@ -341,7 +340,7 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
-  <script src="lms_engine.js?v=20261117"></script>
+  <script src="main.js?v=20261119"></script>
+  <script src="lms_engine.js?v=20261119"></script>
 </body>
 </html>

@@ -830,6 +830,11 @@
       select.value = activeCourseIndex;
     }
 
+    const countEl = document.getElementById('lmsCourseCount');
+    if (countEl) {
+      countEl.textContent = `${courses.length} ${courses.length === 1 ? 'modulo' : 'moduli'}`;
+    }
+
     const tabsWrap = document.getElementById('lmsCourseTabs');
     if (tabsWrap) {
       tabsWrap.innerHTML = '';
@@ -851,6 +856,11 @@
   function syncCourseSelectorState() {
     const select = document.getElementById('lmsCourseSelect');
     if (select) select.value = activeCourseIndex;
+
+    const countEl = document.getElementById('lmsCourseCount');
+    if (countEl) {
+      countEl.textContent = `${courses.length} ${courses.length === 1 ? 'modulo' : 'moduli'}`;
+    }
 
     const tabsWrap = document.getElementById('lmsCourseTabs');
     if (tabsWrap) {
