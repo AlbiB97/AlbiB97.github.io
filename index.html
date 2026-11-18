@@ -13,7 +13,11 @@
   <meta property="og:site_name" content="Alberto Bedeschi — Portfolio">
   <meta property="og:title" content="Alberto Bedeschi — Progettista Formativo Digitale">
   <meta property="og:description" content="Pedagogia, strumenti digitali e percorsi di apprendimento: casi studio, un prototipo LMS interattivo e il curriculum.">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://albib97.github.io/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://albib97.github.io/og-card.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,23 +48,24 @@
         <span class="brand-mark" aria-hidden="true">AB</span>
         <span class="brand-text">
           <span class="brand-name">Alberto Bedeschi</span>
-          <span class="brand-role">Progettista Formativo Digitale</span>
+          <span class="brand-role" data-i18n="brand.role">Progettista Formativo Digitale</span>
         </span>
       </a>
       <nav id="site-nav" class="site-nav" aria-label="Navigazione principale">
         <ul class="nav-menu">
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="chi-sono.html">Chi sono</a></li>
-          <li><a href="lms.html">Piattaforma LMS</a></li>
-          <li><a href="progetti.html">Casi studio</a></li>
-          <li><a href="profilo.html">Curriculum</a></li>
-          <li><a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-primary btn-sm nav-cta">Scrivimi</a></li>
+          <li><a href="index.html" aria-current="page" data-i18n="nav.home">Home</a></li>
+          <li><a href="chi-sono.html" data-i18n="nav.about">Chi sono</a></li>
+          <li><a href="lms.html" data-i18n="nav.lms">Piattaforma LMS</a></li>
+          <li><a href="progetti.html" data-i18n="nav.projects">Casi studio</a></li>
+          <li><a href="profilo.html" data-i18n="nav.cv">Curriculum</a></li>
+          <li><a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-primary btn-sm nav-cta" data-contact-trigger data-i18n="nav.cta">Scrivimi</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
         <a href="https://www.linkedin.com/in/alberto-bedeschi" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="Profilo LinkedIn" title="LinkedIn">
           <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
         </a>
+        <button class="icon-btn lang-toggle" type="button" data-lang-toggle aria-label="Switch language to English" title="Switch language (IT / EN)">EN</button>
         <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Attiva tema scuro">
           <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
           <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
@@ -77,19 +82,19 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="reveal">
-          <div class="intro-tag"><span class="status-dot" aria-hidden="true"></span>Reggio Emilia &amp; remoto · Disponibile a collaborazioni</div>
-          <h1 class="intro-title">Pedagogia, strumenti digitali e <em>percorsi di apprendimento</em>.</h1>
-          <p class="intro-lead">
+          <div class="intro-tag" data-i18n-html="home.tag"><span class="status-dot" aria-hidden="true"></span>Reggio Emilia &amp; remoto · Disponibile a collaborazioni</div>
+          <h1 class="intro-title" data-i18n-html="home.title">Pedagogia, strumenti digitali e <em>percorsi di apprendimento</em>.</h1>
+          <p class="intro-lead" data-i18n-html="home.lead">
             Mi chiamo <strong>Alberto Bedeschi</strong>. Laureato con 100/110 in <em>Digital Education</em> e attualmente studente magistrale in <em>Teorie e Metodi del Digital Learning</em> (LM-93) presso UNIMORE. Mi appassiona la progettazione formativa, il microlearning e l'uso consapevole dell'Intelligenza Artificiale a supporto dello studio e dei processi educativi.
           </p>
           <div class="cta-row">
-            <a href="progetti.html" class="btn btn-primary" title="Esplora i casi studio e le demo interattive">
+            <a href="progetti.html" class="btn btn-primary" title="Esplora i casi studio e le demo interattive" data-i18n-html="home.cta.projects">
               Esplora casi studio &amp; demo <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
             </a>
-            <a href="Alberto_Bedeschi_CV.pdf?v=3" download="Alberto_Bedeschi_CV.pdf" class="btn btn-secondary" title="Scarica direttamente il Curriculum Vitae in formato PDF A4">
+            <a href="Alberto_Bedeschi_CV.pdf?v=3" download="Alberto_Bedeschi_CV.pdf" class="btn btn-secondary" title="Scarica direttamente il Curriculum Vitae in formato PDF A4" data-i18n-html="home.cta.cv">
               <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>Scarica CV in PDF
             </a>
-            <button type="button" class="btn btn-ghost" data-copy="alberto.bedeschi97@gmail.com" title="Copia indirizzo email">
+            <button type="button" class="btn btn-ghost" data-copy="alberto.bedeschi97@gmail.com" title="Copia indirizzo email" data-i18n-html="home.cta.copy">
               <svg class="icon" aria-hidden="true"><use href="#i-copy"></use></svg>Copia email
             </button>
           </div>
@@ -100,36 +105,36 @@
             <span class="profile-monogram" aria-hidden="true">AB</span>
             <div>
               <h2 class="profile-name">Alberto Bedeschi</h2>
-              <div class="profile-status"><span class="status-dot" aria-hidden="true"></span>Progettista formativo digitale</div>
+              <div class="profile-status" data-i18n-html="home.card.status"><span class="status-dot" aria-hidden="true"></span>Progettista formativo digitale</div>
             </div>
           </div>
           <ul class="fact-list">
             <li>
               <span class="fact-icon"><svg class="icon" aria-hidden="true"><use href="#i-cap"></use></svg></span>
               <div>
-                <div class="fact-title">Laurea in Digital Education · 100/110</div>
-                <div class="fact-sub">UNIMORE · L-19, curriculum Educatore psico-sociale</div>
+                <div class="fact-title" data-i18n="home.fact1.title">Laurea in Digital Education · 100/110</div>
+                <div class="fact-sub" data-i18n="home.fact1.sub">UNIMORE · L-19, curriculum Educatore psico-sociale</div>
               </div>
             </li>
             <li>
               <span class="fact-icon"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg></span>
               <div>
-                <div class="fact-title">Magistrale LM-93 in corso</div>
-                <div class="fact-sub">Teorie e Metodi del Digital Learning</div>
+                <div class="fact-title" data-i18n="home.fact2.title">Magistrale LM-93 in corso</div>
+                <div class="fact-sub" data-i18n="home.fact2.sub">Teorie e Metodi del Digital Learning</div>
               </div>
             </li>
             <li>
               <span class="fact-icon terra"><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg></span>
               <div>
-                <div class="fact-title">Tirocinio Skilla – Amicucci Formazione</div>
-                <div class="fact-sub">300 ore · Giudizio finale del tutor: «Ottimo»</div>
+                <div class="fact-title" data-i18n="home.fact3.title">Tirocinio Skilla – Amicucci Formazione</div>
+                <div class="fact-sub" data-i18n="home.fact3.sub">300 ore · Giudizio finale del tutor: «Ottimo»</div>
               </div>
             </li>
             <li>
               <span class="fact-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg></span>
               <div>
-                <div class="fact-title">Educatore territoriale</div>
-                <div class="fact-sub">Accento Cooperativa Sociale · Reggio Emilia</div>
+                <div class="fact-title" data-i18n="home.fact4.title">Educatore territoriale</div>
+                <div class="fact-sub" data-i18n="home.fact4.sub">Accento Cooperativa Sociale · Reggio Emilia</div>
               </div>
             </li>
           </ul>
@@ -140,45 +145,45 @@
     <!-- Aree del portfolio -->
     <section class="section-tight" aria-labelledby="aree-title">
       <div class="container">
-        <h2 class="section-label" id="aree-title">Aree del portfolio</h2>
+        <h2 class="section-label" id="aree-title" data-i18n="home.areas.label">Aree del portfolio</h2>
         <div class="overview-grid reveal-stagger">
           <article class="overview-card">
-            <div class="card-num">01 / Percorso &amp; visione</div>
-            <h3 class="card-title">Chi sono</h3>
-            <p class="card-text">Il mio percorso tra scienze dell'educazione, curiosità per l'evoluzione dell'IA, media literacy e ricerca sociale sul fenomeno dell'isolamento giovanile (Hikikomori).</p>
+            <div class="card-num" data-i18n="home.area1.num">01 / Percorso &amp; visione</div>
+            <h3 class="card-title" data-i18n="home.area1.title">Chi sono</h3>
+            <p class="card-text" data-i18n="home.area1.text">Il mio percorso tra scienze dell'educazione, curiosità per l'evoluzione dell'IA, media literacy e ricerca sociale sul fenomeno dell'isolamento giovanile (Hikikomori).</p>
             <div class="card-foot">
-              <span class="badge badge-terra">Visione didattica</span>
-              <a href="chi-sono.html" class="card-link">Leggi <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+              <span class="badge badge-terra" data-i18n="home.area1.badge">Visione didattica</span>
+              <a href="chi-sono.html" class="card-link" data-i18n-html="home.area1.link">Leggi <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
             </div>
           </article>
 
           <article class="overview-card">
-            <div class="card-num">02 / E-learning environment</div>
-            <h3 class="card-title">Piattaforma LMS &amp; pillole</h3>
-            <p class="card-text">Un prototipo di microlearning ispirato a Moodle: prova il corso con progressione a sblocco vincolato (video, gioco didattico e quiz) o usa il gestore per creare nuovi moduli.</p>
+            <div class="card-num" data-i18n="home.area2.num">02 / E-learning environment</div>
+            <h3 class="card-title" data-i18n="home.area2.title">Piattaforma LMS &amp; pillole</h3>
+            <p class="card-text" data-i18n="home.area2.text">Un prototipo di microlearning ispirato a Moodle: prova il corso con progressione a sblocco vincolato (video, gioco didattico e quiz) o usa il gestore per creare nuovi moduli.</p>
             <div class="card-foot">
-              <span class="badge badge-green">Simulazione interattiva</span>
-              <a href="lms.html" class="card-link">Prova la piattaforma <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+              <span class="badge badge-green" data-i18n="home.area2.badge">Simulazione interattiva</span>
+              <a href="lms.html" class="card-link" data-i18n-html="home.area2.link">Prova la piattaforma <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
             </div>
           </article>
 
           <article class="overview-card">
-            <div class="card-num">03 / Casi studio reali</div>
-            <h3 class="card-title">Casi studio &amp; progetti</h3>
-            <p class="card-text">I progetti sul campo e interattivi: il minigioco aziendale <strong>Lavorare con l'AI (Prompting &amp; Sicurezza)</strong>, la <strong>Mappa Digitale per la Prossimità</strong> per Accento e il tirocinio in Skilla.</p>
+            <div class="card-num" data-i18n="home.area3.num">03 / Casi studio reali</div>
+            <h3 class="card-title" data-i18n="home.area3.title">Casi studio &amp; progetti</h3>
+            <p class="card-text" data-i18n-html="home.area3.text">I progetti sul campo e interattivi: il minigioco aziendale <strong>Lavorare con l'AI (Prompting &amp; Sicurezza)</strong>, la <strong>Mappa Digitale per la Prossimità</strong> per Accento e il tirocinio in Skilla.</p>
             <div class="card-foot">
-              <span class="badge badge-terra">Demo &amp; Mappa live</span>
-              <a href="progetti.html" class="card-link">Vedi i progetti <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+              <span class="badge badge-terra" data-i18n="home.area3.badge">Demo &amp; Mappa live</span>
+              <a href="progetti.html" class="card-link" data-i18n-html="home.area3.link">Vedi i progetti <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
             </div>
           </article>
 
           <article class="overview-card">
-            <div class="card-num">04 / Esperienze &amp; formazione</div>
-            <h3 class="card-title">Curriculum vitae</h3>
-            <p class="card-text">Il riassunto chiaro e trasparente del mio percorso universitario, delle prime esperienze lavorative (Skilla, Accento, tutoraggio) e delle competenze pratiche maturate.</p>
+            <div class="card-num" data-i18n="home.area4.num">04 / Esperienze &amp; formazione</div>
+            <h3 class="card-title" data-i18n="home.area4.title">Curriculum vitae</h3>
+            <p class="card-text" data-i18n="home.area4.text">Il riassunto chiaro e trasparente del mio percorso universitario, delle prime esperienze lavorative (Skilla, Accento, tutoraggio) e delle competenze pratiche maturate.</p>
             <div class="card-foot">
-              <span class="badge">Stampabile in PDF</span>
-              <a href="profilo.html" class="card-link">Consulta il CV <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+              <span class="badge" data-i18n="home.area4.badge">Stampabile in PDF</span>
+              <a href="profilo.html" class="card-link" data-i18n-html="home.area4.link">Consulta il CV <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
             </div>
           </article>
         </div>
@@ -189,8 +194,8 @@
     <section class="quote-band">
       <div class="container">
         <blockquote class="reveal">
-          <p>«La tecnologia è un facilitatore didattico, mai il fine ultimo.»</p>
-          <p>Il mio approccio unisce l'attenzione alla persona e ai contesti sociali con l'uso pratico degli strumenti digitali (Google Workspace, NotebookLM, Gecos). L'obiettivo è sempre ridurre l'affaticamento cognitivo e favorire un apprendimento accessibile a tutti.</p>
+          <p data-i18n="home.quote.1">«La tecnologia è un facilitatore didattico, mai il fine ultimo.»</p>
+          <p data-i18n="home.quote.2">Il mio approccio unisce l'attenzione alla persona e ai contesti sociali con l'uso pratico degli strumenti digitali (Google Workspace, NotebookLM, Gecos). L'obiettivo è sempre ridurre l'affaticamento cognitivo e favorire un apprendimento accessibile a tutti.</p>
         </blockquote>
       </div>
     </section>
@@ -202,34 +207,35 @@
         <div class="footer-brand">
           <span class="brand-mark" aria-hidden="true">AB</span>
           <h2>Alberto Bedeschi</h2>
-          <p>Progettista formativo digitale e studente magistrale in Teorie e Metodi del Digital Learning (LM-93).</p>
+          <p data-i18n="footer.bio">Progettista formativo digitale e studente magistrale in Teorie e Metodi del Digital Learning (LM-93).</p>
         </div>
         <div class="footer-col">
-          <h3>Esplora</h3>
+          <h3 data-i18n="footer.explore">Esplora</h3>
           <ul>
-            <li><a href="chi-sono.html">Chi sono</a></li>
-            <li><a href="lms.html">Piattaforma LMS</a></li>
-            <li><a href="progetti.html">Casi studio &amp; progetti</a></li>
-            <li><a href="profilo.html">Curriculum</a></li>
+            <li><a href="chi-sono.html" data-i18n="nav.about">Chi sono</a></li>
+            <li><a href="lms.html" data-i18n="nav.lms">Piattaforma LMS</a></li>
+            <li><a href="progetti.html" data-i18n="footer.projects">Casi studio &amp; progetti</a></li>
+            <li><a href="profilo.html" data-i18n="nav.cv">Curriculum</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3>Contatti</h3>
+          <h3 data-i18n="footer.contacts">Contatti</h3>
           <ul>
             <li><a href="mailto:alberto.bedeschi97@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>alberto.bedeschi97@gmail.com</a></li>
             <li><a href="tel:+393405888657"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>340 588 8657</a></li>
             <li><a href="https://www.linkedin.com/in/alberto-bedeschi" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>LinkedIn</a></li>
-            <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Reggio Emilia · Automunito</span></li>
+            <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg><span data-i18n="footer.location">Reggio Emilia · Automunito</span></span></li>
           </ul>
         </div>
       </div>
       <div class="footer-copy">
         <span>© <span data-year>2026</span> Alberto Bedeschi</span>
-        <span>Spazio professionale e didattico</span>
+        <span data-i18n="footer.tagline">Spazio professionale e didattico</span>
       </div>
     </div>
   </footer>
 
   <script src="main.js?v=20261119"></script>
+  <script src="i18n.js?v=20261119"></script>
 </body>
 </html>

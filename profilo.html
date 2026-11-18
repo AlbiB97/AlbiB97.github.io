@@ -13,6 +13,11 @@
   <meta property="og:site_name" content="Alberto Bedeschi — Portfolio">
   <meta property="og:title" content="Curriculum vitae | Alberto Bedeschi">
   <meta property="og:description" content="Esperienze, formazione e competenze di Alberto Bedeschi, progettista formativo digitale.">
+  <meta property="og:image" content="https://albib97.github.io/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://albib97.github.io/og-card.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,23 +34,24 @@
         <span class="brand-mark" aria-hidden="true">AB</span>
         <span class="brand-text">
           <span class="brand-name">Alberto Bedeschi</span>
-          <span class="brand-role">Progettista Formativo Digitale</span>
+          <span class="brand-role" data-i18n="brand.role">Progettista Formativo Digitale</span>
         </span>
       </a>
       <nav id="site-nav" class="site-nav" aria-label="Navigazione principale">
         <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="chi-sono.html">Chi sono</a></li>
-          <li><a href="lms.html">Piattaforma LMS</a></li>
-          <li><a href="progetti.html">Casi studio</a></li>
-          <li><a href="profilo.html" aria-current="page">Curriculum</a></li>
-          <li><a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-primary btn-sm nav-cta">Scrivimi</a></li>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="chi-sono.html" data-i18n="nav.about">Chi sono</a></li>
+          <li><a href="lms.html" data-i18n="nav.lms">Piattaforma LMS</a></li>
+          <li><a href="progetti.html" data-i18n="nav.projects">Casi studio</a></li>
+          <li><a href="profilo.html" aria-current="page" data-i18n="nav.cv">Curriculum</a></li>
+          <li><a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-primary btn-sm nav-cta" data-contact-trigger data-i18n="nav.cta">Scrivimi</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
         <a href="https://www.linkedin.com/in/alberto-bedeschi" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="Profilo LinkedIn" title="LinkedIn">
           <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
         </a>
+        <button class="icon-btn lang-toggle" type="button" data-lang-toggle aria-label="Switch language to English" title="Switch language (IT / EN)">EN</button>
         <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Attiva tema scuro">
           <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
           <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
@@ -60,9 +66,9 @@
   <main id="main">
     <section class="page-intro">
       <div class="container reveal">
-        <div class="intro-tag">Curriculum vitae · Dati &amp; percorso</div>
+        <div class="intro-tag" data-i18n="cv.tag">Curriculum vitae · Dati &amp; percorso</div>
         <h1 class="intro-title">Alberto Bedeschi</h1>
-        <p class="intro-lead">
+        <p class="intro-lead" data-i18n="cv.lead">
           Laureato in Digital Education (100/110) e studente magistrale in Teorie e Metodi del Digital Learning (LM-93) presso UNIMORE. Coniugo metodologia pedagogica, accessibilità e strumenti digitali: cerco opportunità nell'instructional design, nell'e-learning aziendale, nelle risorse umane (HR Training &amp; Development) o nel coordinamento didattico-organizzativo. Automunito su Reggio Emilia e disponibile anche da remoto (full-time o part-time).
         </p>
         <div class="print-contact-bar">
@@ -73,16 +79,16 @@
           <span><strong>Portfolio:</strong> https://albib97.github.io</span>
         </div>
         <div class="cta-row mt-md no-print">
-          <a href="Alberto_Bedeschi_CV.pdf?v=3" download="Alberto_Bedeschi_CV.pdf" class="btn btn-primary" title="Scarica direttamente il file PDF A4 per gestionali HR">
+          <a href="Alberto_Bedeschi_CV.pdf?v=3" download="Alberto_Bedeschi_CV.pdf" class="btn btn-primary" title="Scarica direttamente il file PDF A4 per gestionali HR" data-i18n-html="cv.btn.pdf">
             <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>Scarica CV in PDF
           </a>
-          <button type="button" class="btn btn-secondary" data-print title="Stampa o salva via browser">
+          <button type="button" class="btn btn-secondary" data-print title="Stampa o salva via browser" data-i18n-html="cv.btn.print">
             <svg class="icon" aria-hidden="true"><use href="#i-printer"></use></svg>Stampa o salva via browser
           </button>
           <a href="https://www.linkedin.com/in/alberto-bedeschi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Profilo LinkedIn di Alberto Bedeschi">
             <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>LinkedIn
           </a>
-          <a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-secondary">
+          <a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-secondary" data-contact-trigger>
             <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>alberto.bedeschi97@gmail.com
           </a>
         </div>
@@ -96,55 +102,55 @@
         <article class="cv-card reveal" aria-labelledby="cv-esperienze">
           <h2 class="cv-section-title" id="cv-esperienze">
             <span class="fact-icon"><svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg></span>
-            Esperienze professionali
+            <span data-i18n="cv.sec.exp">Esperienze professionali</span>
           </h2>
 
           <ol class="timeline">
             <li class="timeline-item">
               <div class="job-header">
-                <h3 class="job-title">Tirocinio in instructional design &amp; e-learning</h3>
-                <span class="job-period">2025 · 300 ore</span>
+                <h3 class="job-title" data-i18n="cv.j1.title">Tirocinio in instructional design &amp; e-learning</h3>
+                <span class="job-period" data-i18n="cv.j1.period">2025 · 300 ore</span>
               </div>
-              <div class="job-company">Skilla – Amicucci Formazione Srl (Civitanova Marche / remoto)</div>
+              <div class="job-company" data-i18n="cv.j1.company">Skilla – Amicucci Formazione Srl (Civitanova Marche / remoto)</div>
               <div class="job-desc">
                 <ul>
-                  <li><strong>Revisione didattica &amp; storyboard:</strong> correzione di storyboard e revisione pedagogico-linguistica di prodotti e-learning per il controllo qualità prima del rilascio.</li>
-                  <li><strong>Assessment &amp; quiz:</strong> stesura di test e quiz di verifica dell'apprendimento per i moduli formativi.</li>
-                  <li><strong>Accessibilità &amp; localizzazione:</strong> controllo dell'accessibilità dei contenuti digitali (WCAG) e predisposizione di materiali multimediali per traduzione e localizzazione.</li>
-                  <li><strong>IA generativa &amp; tutor "Arianna":</strong> controllo e feedback sulle risposte di chatbot basati su IA generativa; supporto operativo nelle riunioni di team per l'ideazione del tutor <em>Arianna</em>.</li>
-                  <li><strong>Competenze di processo:</strong> comprensione degli standard SCORM, del funzionamento degli ambienti LMS e dei formati di microlearning e gamification.</li>
+                  <li data-i18n-html="cv.j1.b1"><strong>Revisione didattica &amp; storyboard:</strong> correzione di storyboard e revisione pedagogico-linguistica di prodotti e-learning per il controllo qualità prima del rilascio.</li>
+                  <li data-i18n-html="cv.j1.b2"><strong>Assessment &amp; quiz:</strong> stesura di test e quiz di verifica dell'apprendimento per i moduli formativi.</li>
+                  <li data-i18n-html="cv.j1.b3"><strong>Accessibilità &amp; localizzazione:</strong> controllo dell'accessibilità dei contenuti digitali (WCAG) e predisposizione di materiali multimediali per traduzione e localizzazione.</li>
+                  <li data-i18n-html="cv.j1.b4"><strong>IA generativa &amp; tutor "Arianna":</strong> controllo e feedback sulle risposte di chatbot basati su IA generativa; supporto operativo nelle riunioni di team per l'ideazione del tutor <em>Arianna</em>.</li>
+                  <li data-i18n-html="cv.j1.b5"><strong>Competenze di processo:</strong> comprensione degli standard SCORM, del funzionamento degli ambienti LMS e dei formati di microlearning e gamification.</li>
                 </ul>
-                <span class="badge badge-terra job-highlight"><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg>Giudizio finale del tutor aziendale: «Ottimo»</span>
+                <span class="badge badge-terra job-highlight" data-i18n-html="cv.j1.badge"><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg>Giudizio finale del tutor aziendale: «Ottimo»</span>
               </div>
             </li>
 
             <li class="timeline-item">
               <div class="job-header">
-                <h3 class="job-title">Educatore — Educativa territoriale</h3>
-                <span class="job-period">Apr 2026 – Lug 2026</span>
+                <h3 class="job-title" data-i18n="cv.j2.title">Educatore — Educativa territoriale</h3>
+                <span class="job-period" data-i18n="cv.j2.period">Apr 2026 – Lug 2026</span>
               </div>
-              <div class="job-company">Accento Società Cooperativa Sociale — Reggio Emilia</div>
+              <div class="job-company" data-i18n="cv.j2.company">Accento Società Cooperativa Sociale — Reggio Emilia</div>
               <div class="job-desc">
                 <ul>
-                  <li>Progettazione di una mappa territoriale interattiva (Google My Maps) e di un database delle risorse locali con NotebookLM.</li>
-                  <li>Educativa domiciliare e territoriale in raccordo con i Servizi Sociali ed équipe multidisciplinari.</li>
-                  <li>Affiancamento educativo in contesti familiari complessi, nel rispetto della riservatezza e del GDPR.</li>
-                  <li>Aggiornamento della documentazione ufficiale (DOS) su Google Drive e rendicontazione oraria sul gestionale Gecos.</li>
-                  <li>Supporto nell'uso di strumenti digitali e piattaforme collaborative.</li>
+                  <li data-i18n="cv.j2.b1">Progettazione di una mappa territoriale interattiva (Google My Maps) e di un database delle risorse locali con NotebookLM.</li>
+                  <li data-i18n="cv.j2.b2">Educativa domiciliare e territoriale in raccordo con i Servizi Sociali ed équipe multidisciplinari.</li>
+                  <li data-i18n="cv.j2.b3">Affiancamento educativo in contesti familiari complessi, nel rispetto della riservatezza e del GDPR.</li>
+                  <li data-i18n="cv.j2.b4">Aggiornamento della documentazione ufficiale (DOS) su Google Drive e rendicontazione oraria sul gestionale Gecos.</li>
+                  <li data-i18n="cv.j2.b5">Supporto nell'uso di strumenti digitali e piattaforme collaborative.</li>
                 </ul>
               </div>
             </li>
 
             <li class="timeline-item is-current">
               <div class="job-header">
-                <h3 class="job-title">Tutoraggio educativo &amp; supporto allo studio</h3>
-                <span class="job-period">2020 – in corso</span>
+                <h3 class="job-title" data-i18n="cv.j3.title">Tutoraggio educativo &amp; supporto allo studio</h3>
+                <span class="job-period" data-i18n="cv.j3.period">2020 – in corso</span>
               </div>
-              <div class="job-company">Attività autonoma</div>
+              <div class="job-company" data-i18n="cv.j3.company">Attività autonoma</div>
               <div class="job-desc">
                 <ul>
-                  <li>Supporto individuale al metodo di studio, alla motivazione e alla gestione dell'ansia da prestazione scolastica.</li>
-                  <li>Integrazione recente di strumenti di IA generativa per personalizzare e adattare le spiegazioni didattiche in base ai bisogni dell'allievo.</li>
+                  <li data-i18n="cv.j3.b1">Supporto individuale al metodo di studio, alla motivazione e alla gestione dell'ansia da prestazione scolastica.</li>
+                  <li data-i18n="cv.j3.b2">Integrazione recente di strumenti di IA generativa per personalizzare e adattare le spiegazioni didattiche in base ai bisogni dell'allievo.</li>
                 </ul>
               </div>
             </li>
@@ -155,41 +161,41 @@
         <article class="cv-card reveal" aria-labelledby="cv-formazione">
           <h2 class="cv-section-title" id="cv-formazione">
             <span class="fact-icon"><svg class="icon" aria-hidden="true"><use href="#i-cap"></use></svg></span>
-            Formazione accademica
+            <span data-i18n="cv.sec.edu">Formazione accademica</span>
           </h2>
 
           <ol class="timeline">
             <li class="timeline-item is-current">
               <div class="job-header">
-                <h3 class="job-title">Laurea Magistrale in Teorie e Metodi del Digital Learning (LM-93)</h3>
-                <span class="job-period">2026 – in corso</span>
+                <h3 class="job-title" data-i18n="cv.e1.title">Laurea Magistrale in Teorie e Metodi del Digital Learning (LM-93)</h3>
+                <span class="job-period" data-i18n="cv.e1.period">2026 – in corso</span>
               </div>
               <div class="job-company">UNIMORE — Università degli Studi di Modena e Reggio Emilia</div>
               <div class="job-desc">
-                <p>Modelli didattici per l'e-learning, instructional design, epistemologia dei media e applicazione dell'Intelligenza Artificiale ai contesti educativi e organizzativi.</p>
+                <p data-i18n="cv.e1.desc">Modelli didattici per l'e-learning, instructional design, epistemologia dei media e applicazione dell'Intelligenza Artificiale ai contesti educativi e organizzativi.</p>
               </div>
             </li>
 
             <li class="timeline-item">
               <div class="job-header">
-                <h3 class="job-title">Laurea Triennale in Digital Education (L-19)</h3>
-                <span class="job-period">2025 · 100/110</span>
+                <h3 class="job-title" data-i18n="cv.e2.title">Laurea Triennale in Digital Education (L-19)</h3>
+                <span class="job-period" data-i18n="cv.e2.period">2025 · 100/110</span>
               </div>
               <div class="job-company">UNIMORE — Università degli Studi di Modena e Reggio Emilia</div>
               <div class="job-desc">
-                <p><strong>Curriculum:</strong> Educatore psico-sociale nei contesti digitali.</p>
-                <p><strong>Tesi di laurea:</strong> <em>"Hikikomori: un'analisi multidimensionale"</em>. Studio sul fenomeno del ritiro sociale giovanile e delle subculture di rete, che indaga le potenzialità della narrazione condivisa e del medium digitale come ponte di aggancio relazionale.</p>
+                <p data-i18n-html="cv.e2.curr"><strong>Curriculum:</strong> Educatore psico-sociale nei contesti digitali.</p>
+                <p data-i18n-html="cv.e2.thesis"><strong>Tesi di laurea:</strong> <em>"Hikikomori: un'analisi multidimensionale"</em>. Studio sul fenomeno del ritiro sociale giovanile e delle subculture di rete, che indaga le potenzialità della narrazione condivisa e del medium digitale come ponte di aggancio relazionale. <a href="scheda_tesi_hikikomori.html" class="no-print" style="font-weight:600; text-decoration:underline;">Leggi la Scheda Tesi →</a></p>
               </div>
             </li>
 
             <li class="timeline-item">
               <div class="job-header">
-                <h3 class="job-title">Diploma di Tecnico dei Servizi Socio-Sanitari</h3>
+                <h3 class="job-title" data-i18n="cv.e3.title">Diploma di Tecnico dei Servizi Socio-Sanitari</h3>
                 <span class="job-period">2020</span>
               </div>
               <div class="job-company">Istituto Galvani Iodi — Reggio Emilia</div>
               <div class="job-desc">
-                <p>Basi relazionali, psicologia, diritto socio-sanitario e comunicazione interpersonale.</p>
+                <p data-i18n="cv.e3.desc">Basi relazionali, psicologia, diritto socio-sanitario e comunicazione interpersonale.</p>
               </div>
             </li>
           </ol>
@@ -199,12 +205,12 @@
         <article class="cv-card reveal" aria-labelledby="cv-competenze">
           <h2 class="cv-section-title" id="cv-competenze">
             <span class="fact-icon terra"><svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg></span>
-            Competenze chiave
+            <span data-i18n="cv.sec.skills">Competenze chiave</span>
           </h2>
 
           <div class="skills-grid">
             <div class="skills-box green">
-              <h3><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>Digitale &amp; progettuale</h3>
+              <h3 data-i18n-html="cv.sk.digital"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>Digitale &amp; progettuale</h3>
               <ul class="chip-list">
                 <li class="chip">Revisione storyboard</li>
                 <li class="chip">Controllo qualità e-learning</li>
@@ -222,7 +228,7 @@
             </div>
 
             <div class="skills-box terra">
-              <h3><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg>Relazionale &amp; organizzativo</h3>
+              <h3 data-i18n-html="cv.sk.soft"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg>Relazionale &amp; organizzativo</h3>
               <ul class="chip-list">
                 <li class="chip">Lavoro in équipe</li>
                 <li class="chip">Raccordo con enti e servizi</li>
@@ -237,20 +243,20 @@
             </div>
 
             <div class="skills-box">
-              <h3><svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>Lingue</h3>
+              <h3 data-i18n-html="cv.sk.lang"><svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>Lingue</h3>
               <div class="lang-list">
                 <div class="lang-row">
-                  <strong>Italiano</strong>
+                  <strong data-i18n="cv.lang.it">Italiano</strong>
                   <div class="lang-bar" role="img" aria-label="Madrelingua"><span class="w-100"></span></div>
-                  <span class="lang-level">Madrelingua</span>
+                  <span class="lang-level" data-i18n="cv.lang.it.lvl">Madrelingua</span>
                 </div>
                 <div class="lang-row">
-                  <strong>Inglese</strong>
+                  <strong data-i18n="cv.lang.en">Inglese</strong>
                   <div class="lang-bar" role="img" aria-label="Livello B2"><span class="w-67"></span></div>
                   <span class="lang-level">B2</span>
                 </div>
                 <div class="lang-row">
-                  <strong>Spagnolo</strong>
+                  <strong data-i18n="cv.lang.es">Spagnolo</strong>
                   <div class="lang-bar" role="img" aria-label="Livello B1"><span class="w-50"></span></div>
                   <span class="lang-level">B1</span>
                 </div>
@@ -258,7 +264,7 @@
             </div>
 
             <div class="skills-box">
-              <h3><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Disponibilità</h3>
+              <h3 data-i18n-html="cv.sk.avail"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Disponibilità</h3>
               <ul class="chip-list">
                 <li class="chip">Full-time</li>
                 <li class="chip">Part-time</li>
@@ -274,7 +280,7 @@
         <article class="cv-card reveal no-print" aria-labelledby="cv-portfolio-live">
           <h2 class="cv-section-title" id="cv-portfolio-live">
             <span class="fact-icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg></span>
-            Progetti &amp; Learning Object giocabili
+            <span data-i18n="cv.sec.live">Progetti &amp; Learning Object giocabili</span>
           </h2>
           <div class="portfolio-links-grid">
             <a href="progetti.html#case-gamindo-ai" class="portfolio-link-card">
@@ -315,34 +321,35 @@
         <div class="footer-brand">
           <span class="brand-mark" aria-hidden="true">AB</span>
           <h2>Alberto Bedeschi</h2>
-          <p>Progettista formativo digitale e studente magistrale in Teorie e Metodi del Digital Learning (LM-93).</p>
+          <p data-i18n="footer.bio">Progettista formativo digitale e studente magistrale in Teorie e Metodi del Digital Learning (LM-93).</p>
         </div>
         <div class="footer-col">
-          <h3>Esplora</h3>
+          <h3 data-i18n="footer.explore">Esplora</h3>
           <ul>
-            <li><a href="chi-sono.html">Chi sono</a></li>
-            <li><a href="lms.html">Piattaforma LMS</a></li>
-            <li><a href="progetti.html">Casi studio &amp; progetti</a></li>
-            <li><a href="profilo.html">Curriculum</a></li>
+            <li><a href="chi-sono.html" data-i18n="nav.about">Chi sono</a></li>
+            <li><a href="lms.html" data-i18n="nav.lms">Piattaforma LMS</a></li>
+            <li><a href="progetti.html" data-i18n="footer.projects">Casi studio &amp; progetti</a></li>
+            <li><a href="profilo.html" data-i18n="nav.cv">Curriculum</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3>Contatti</h3>
+          <h3 data-i18n="footer.contacts">Contatti</h3>
           <ul>
             <li><a href="mailto:alberto.bedeschi97@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>alberto.bedeschi97@gmail.com</a></li>
             <li><a href="tel:+393405888657"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>340 588 8657</a></li>
             <li><a href="https://www.linkedin.com/in/alberto-bedeschi" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>LinkedIn</a></li>
-            <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Reggio Emilia · Automunito</span></li>
+            <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg><span data-i18n="footer.location">Reggio Emilia · Automunito</span></span></li>
           </ul>
         </div>
       </div>
       <div class="footer-copy">
         <span>© <span data-year>2026</span> Alberto Bedeschi</span>
-        <span>Spazio professionale e didattico</span>
+        <span data-i18n="footer.tagline">Spazio professionale e didattico</span>
       </div>
     </div>
   </footer>
 
   <script src="main.js?v=20261119"></script>
+  <script src="i18n.js?v=20261119"></script>
 </body>
 </html>

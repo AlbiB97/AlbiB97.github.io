@@ -12,7 +12,12 @@
   <meta property="og:locale" content="it_IT">
   <meta property="og:site_name" content="Alberto Bedeschi — Portfolio">
   <meta property="og:title" content="Piattaforma LMS &amp; Microlearning | Alberto Bedeschi">
-  <meta property="og:description" content="Simulatore LMS con sblocco sequenziale vincolato e strumento di authoring didattico.">
+  <meta property="og:description" content="Simulatore LMS con sblocco sequenziale vincolato, esportazione SCORM 1.2, log xAPI e strumento di authoring didattico.">
+  <meta property="og:image" content="https://albib97.github.io/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://albib97.github.io/og-card.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,23 +35,24 @@
         <span class="brand-mark" aria-hidden="true">AB</span>
         <span class="brand-text">
           <span class="brand-name">Alberto Bedeschi</span>
-          <span class="brand-role">Progettista Formativo Digitale</span>
+          <span class="brand-role" data-i18n="brand.role">Progettista Formativo Digitale</span>
         </span>
       </a>
       <nav id="site-nav" class="site-nav" aria-label="Navigazione principale">
         <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="chi-sono.html">Chi sono</a></li>
-          <li><a href="lms.html" aria-current="page">Piattaforma LMS</a></li>
-          <li><a href="progetti.html">Casi studio</a></li>
-          <li><a href="profilo.html">Curriculum</a></li>
-          <li><a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-primary btn-sm nav-cta">Scrivimi</a></li>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="chi-sono.html" data-i18n="nav.about">Chi sono</a></li>
+          <li><a href="lms.html" aria-current="page" data-i18n="nav.lms">Piattaforma LMS</a></li>
+          <li><a href="progetti.html" data-i18n="nav.projects">Casi studio</a></li>
+          <li><a href="profilo.html" data-i18n="nav.cv">Curriculum</a></li>
+          <li><a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-primary btn-sm nav-cta" data-contact-trigger data-i18n="nav.cta">Scrivimi</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
         <a href="https://www.linkedin.com/in/alberto-bedeschi" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="Profilo LinkedIn" title="LinkedIn">
           <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
         </a>
+        <button class="icon-btn lang-toggle" type="button" data-lang-toggle aria-label="Switch language to English" title="Switch language (IT / EN)">EN</button>
         <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Attiva tema scuro">
           <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
           <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
@@ -61,10 +67,10 @@
   <main id="main">
     <section class="page-intro">
       <div class="container reveal">
-        <div class="intro-tag">E-Learning Environment · Didattica Interattiva</div>
-        <h1 class="intro-title">Piattaforma LMS: <em>Player Sequenziale</em> &amp; Gestore</h1>
-        <p class="intro-lead">
-          Un ambiente e-learning per la formazione asincrona: progressione vincolata a sblocco sequenziale (ispirata a <strong>Moodle</strong>), attività situazionali e tracciamento didattico. Include una <strong>Sandbox di Authoring</strong> aperta per testare in tempo reale la creazione, il riordino e la modifica di moduli e quiz.
+        <div class="intro-tag" data-i18n="lms.tag">E-Learning Environment · Didattica Interattiva</div>
+        <h1 class="intro-title" data-i18n-html="lms.title">Piattaforma LMS: <em>Player Sequenziale</em> &amp; Gestore</h1>
+        <p class="intro-lead" data-i18n-html="lms.lead">
+          Un ambiente e-learning per la formazione asincrona: progressione vincolata a sblocco sequenziale (ispirata a <strong>Moodle</strong>), attività situazionali, tracciamento xAPI ed <strong>esportazione reale SCORM 1.2 (.zip)</strong>. Include una <strong>Sandbox di Authoring</strong> aperta per testare in tempo reale la creazione, il riordino e la modifica di moduli e quiz.
         </p>
       </div>
     </section>
@@ -171,6 +177,9 @@
                 <p>Personalizza i testi pedagogici, riordina gli step, collega link a video YouTube/Vimeo, crea flashcard e riflessioni, o esporta i corsi.</p>
               </div>
               <div class="btn-bar">
+                <button class="btn btn-primary btn-sm" type="button" onclick="exportScorm12Package()" title="Genera e scarica un pacchetto SCORM 1.2 (.zip) reale con imsmanifest.xml pronto per Moodle o TalentLMS">
+                  <svg class="icon" aria-hidden="true"><use href="#i-award"></use></svg>Esporta SCORM 1.2 (.zip)
+                </button>
                 <button class="btn btn-secondary btn-sm" type="button" onclick="exportCoursesJSON()" title="Scarica il file courses.json pronto per l'aggiornamento">
                   <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>Esporta courses.json
                 </button>
@@ -310,37 +319,38 @@
         <div class="footer-brand">
           <span class="brand-mark" aria-hidden="true">AB</span>
           <h2>Alberto Bedeschi</h2>
-          <p>Progettista formativo digitale e studente magistrale in Teorie e Metodi del Digital Learning (LM-93).</p>
+          <p data-i18n="footer.bio">Progettista formativo digitale e studente magistrale in Teorie e Metodi del Digital Learning (LM-93).</p>
         </div>
         <div class="footer-col">
-          <h3>Esplora</h3>
+          <h3 data-i18n="footer.explore">Esplora</h3>
           <ul>
-            <li><a href="chi-sono.html">Chi sono</a></li>
-            <li><a href="lms.html">Piattaforma LMS</a></li>
-            <li><a href="progetti.html">Casi studio &amp; progetti</a></li>
-            <li><a href="profilo.html">Curriculum</a></li>
+            <li><a href="chi-sono.html" data-i18n="nav.about">Chi sono</a></li>
+            <li><a href="lms.html" data-i18n="nav.lms">Piattaforma LMS</a></li>
+            <li><a href="progetti.html" data-i18n="footer.projects">Casi studio &amp; progetti</a></li>
+            <li><a href="profilo.html" data-i18n="nav.cv">Curriculum</a></li>
             <li><a href="lms.html" onclick="setLmsMode('editor'); return false;"><svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg>Sandbox Authoring</a></li>
             <li><a href="#" onclick="handleResetCourses(); return false;"><svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg>Ripristina Corsi Demo</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3>Contatti</h3>
+          <h3 data-i18n="footer.contacts">Contatti</h3>
           <ul>
             <li><a href="mailto:alberto.bedeschi97@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>alberto.bedeschi97@gmail.com</a></li>
             <li><a href="tel:+393405888657"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>340 588 8657</a></li>
             <li><a href="https://www.linkedin.com/in/alberto-bedeschi" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>LinkedIn</a></li>
-            <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Reggio Emilia · Automunito</span></li>
+            <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg><span data-i18n="footer.location">Reggio Emilia · Automunito</span></span></li>
           </ul>
         </div>
       </div>
       <div class="footer-copy">
         <span>© <span data-year>2026</span> Alberto Bedeschi</span>
-        <span>Spazio professionale e didattico</span>
+        <span data-i18n="footer.tagline">Spazio professionale e didattico</span>
       </div>
     </div>
   </footer>
 
   <script src="main.js?v=20261119"></script>
+  <script src="i18n.js?v=20261119"></script>
   <script src="lms_engine.js?v=20261119"></script>
 </body>
 </html>

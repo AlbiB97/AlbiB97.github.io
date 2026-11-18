@@ -13,6 +13,11 @@
   <meta property="og:site_name" content="Alberto Bedeschi — Portfolio">
   <meta property="og:title" content="Casi studio | Alberto Bedeschi">
   <meta property="og:description" content="Tirocinio in Skilla, minigioco aziendale AI su Gamindo Builder, Mappa Digitale per Accento e Instructional Design con NotebookLM.">
+  <meta property="og:image" content="https://albib97.github.io/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://albib97.github.io/og-card.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,23 +35,24 @@
         <span class="brand-mark" aria-hidden="true">AB</span>
         <span class="brand-text">
           <span class="brand-name">Alberto Bedeschi</span>
-          <span class="brand-role">Progettista Formativo Digitale</span>
+          <span class="brand-role" data-i18n="brand.role">Progettista Formativo Digitale</span>
         </span>
       </a>
       <nav id="site-nav" class="site-nav" aria-label="Navigazione principale">
         <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="chi-sono.html">Chi sono</a></li>
-          <li><a href="lms.html">Piattaforma LMS</a></li>
-          <li><a href="progetti.html" aria-current="page">Casi studio</a></li>
-          <li><a href="profilo.html">Curriculum</a></li>
-          <li><a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-primary btn-sm nav-cta">Scrivimi</a></li>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="chi-sono.html" data-i18n="nav.about">Chi sono</a></li>
+          <li><a href="lms.html" data-i18n="nav.lms">Piattaforma LMS</a></li>
+          <li><a href="progetti.html" aria-current="page" data-i18n="nav.projects">Casi studio</a></li>
+          <li><a href="profilo.html" data-i18n="nav.cv">Curriculum</a></li>
+          <li><a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-primary btn-sm nav-cta" data-contact-trigger data-i18n="nav.cta">Scrivimi</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
         <a href="https://www.linkedin.com/in/alberto-bedeschi" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="Profilo LinkedIn" title="LinkedIn">
           <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
         </a>
+        <button class="icon-btn lang-toggle" type="button" data-lang-toggle aria-label="Switch language to English" title="Switch language (IT / EN)">EN</button>
         <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Attiva tema scuro">
           <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
           <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
@@ -61,17 +67,17 @@
   <main id="main">
     <section class="page-intro">
       <div class="container reveal">
-        <div class="intro-tag">Esperienze sul campo · Attività reali</div>
-        <h1 class="intro-title">Casi studio &amp; <em>esperienze professionali</em></h1>
-        <p class="intro-lead">
+        <div class="intro-tag" data-i18n="proj.tag">Esperienze sul campo · Attività reali</div>
+        <h1 class="intro-title" data-i18n-html="proj.title">Casi studio &amp; <em>esperienze professionali</em></h1>
+        <p class="intro-lead" data-i18n="proj.lead">
           Le attività svolte concretamente tra contesti aziendali EdTech e interventi territoriali nel terzo settore: dall'e-learning corporate e game-based learning alla geolocalizzazione dei servizi di prossimità.
         </p>
         <nav class="quick-jump" aria-label="Indice rapido dei casi studio">
-          <span class="quick-jump-label">Vai a:</span>
-          <a href="#case-skilla" class="quick-jump-pill">1. Tirocinio Skilla</a>
-          <a href="#case-gamindo-ai" class="quick-jump-pill is-featured">2. Minigioco AI (Gamindo)</a>
-          <a href="#case-accento" class="quick-jump-pill">3. Mappa Accento</a>
-          <a href="#case-notebooklm" class="quick-jump-pill">4. Metodo NotebookLM</a>
+          <span class="quick-jump-label" data-i18n="proj.jump.label">Vai a:</span>
+          <a href="#case-skilla" class="quick-jump-pill" data-i18n="proj.jump.1">1. Tirocinio Skilla</a>
+          <a href="#case-gamindo-ai" class="quick-jump-pill is-featured" data-i18n="proj.jump.2">2. Minigioco AI (Gamindo)</a>
+          <a href="#case-accento" class="quick-jump-pill" data-i18n="proj.jump.3">3. Mappa Accento</a>
+          <a href="#case-notebooklm" class="quick-jump-pill" data-i18n="proj.jump.4">4. Metodo NotebookLM</a>
         </nav>
       </div>
     </section>
@@ -294,34 +300,35 @@
         <div class="footer-brand">
           <span class="brand-mark" aria-hidden="true">AB</span>
           <h2>Alberto Bedeschi</h2>
-          <p>Progettista formativo digitale e studente magistrale in Teorie e Metodi del Digital Learning (LM-93).</p>
+          <p data-i18n="footer.bio">Progettista formativo digitale e studente magistrale in Teorie e Metodi del Digital Learning (LM-93).</p>
         </div>
         <div class="footer-col">
-          <h3>Esplora</h3>
+          <h3 data-i18n="footer.explore">Esplora</h3>
           <ul>
-            <li><a href="chi-sono.html">Chi sono</a></li>
-            <li><a href="lms.html">Piattaforma LMS</a></li>
-            <li><a href="progetti.html">Casi studio &amp; progetti</a></li>
-            <li><a href="profilo.html">Curriculum</a></li>
+            <li><a href="chi-sono.html" data-i18n="nav.about">Chi sono</a></li>
+            <li><a href="lms.html" data-i18n="nav.lms">Piattaforma LMS</a></li>
+            <li><a href="progetti.html" data-i18n="footer.projects">Casi studio &amp; progetti</a></li>
+            <li><a href="profilo.html" data-i18n="nav.cv">Curriculum</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3>Contatti</h3>
+          <h3 data-i18n="footer.contacts">Contatti</h3>
           <ul>
             <li><a href="mailto:alberto.bedeschi97@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>alberto.bedeschi97@gmail.com</a></li>
             <li><a href="tel:+393405888657"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>340 588 8657</a></li>
             <li><a href="https://www.linkedin.com/in/alberto-bedeschi" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>LinkedIn</a></li>
-            <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Reggio Emilia · Automunito</span></li>
+            <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg><span data-i18n="footer.location">Reggio Emilia · Automunito</span></span></li>
           </ul>
         </div>
       </div>
       <div class="footer-copy">
         <span>© <span data-year>2026</span> Alberto Bedeschi</span>
-        <span>Spazio professionale e didattico</span>
+        <span data-i18n="footer.tagline">Spazio professionale e didattico</span>
       </div>
     </div>
   </footer>
 
   <script src="main.js?v=20261119"></script>
+  <script src="i18n.js?v=20261119"></script>
 </body>
 </html>

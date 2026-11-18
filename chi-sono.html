@@ -13,6 +13,11 @@
   <meta property="og:site_name" content="Alberto Bedeschi — Portfolio">
   <meta property="og:title" content="Chi sono | Alberto Bedeschi">
   <meta property="og:description" content="Il punto di contatto tra pedagogia, tecnologie digitali e contesti sociali.">
+  <meta property="og:image" content="https://albib97.github.io/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://albib97.github.io/og-card.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,23 +34,24 @@
         <span class="brand-mark" aria-hidden="true">AB</span>
         <span class="brand-text">
           <span class="brand-name">Alberto Bedeschi</span>
-          <span class="brand-role">Progettista Formativo Digitale</span>
+          <span class="brand-role" data-i18n="brand.role">Progettista Formativo Digitale</span>
         </span>
       </a>
       <nav id="site-nav" class="site-nav" aria-label="Navigazione principale">
         <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="chi-sono.html" aria-current="page">Chi sono</a></li>
-          <li><a href="lms.html">Piattaforma LMS</a></li>
-          <li><a href="progetti.html">Casi studio</a></li>
-          <li><a href="profilo.html">Curriculum</a></li>
-          <li><a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-primary btn-sm nav-cta">Scrivimi</a></li>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="chi-sono.html" aria-current="page" data-i18n="nav.about">Chi sono</a></li>
+          <li><a href="lms.html" data-i18n="nav.lms">Piattaforma LMS</a></li>
+          <li><a href="progetti.html" data-i18n="nav.projects">Casi studio</a></li>
+          <li><a href="profilo.html" data-i18n="nav.cv">Curriculum</a></li>
+          <li><a href="mailto:alberto.bedeschi97@gmail.com" class="btn btn-primary btn-sm nav-cta" data-contact-trigger data-i18n="nav.cta">Scrivimi</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
         <a href="https://www.linkedin.com/in/alberto-bedeschi" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="Profilo LinkedIn" title="LinkedIn">
           <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
         </a>
+        <button class="icon-btn lang-toggle" type="button" data-lang-toggle aria-label="Switch language to English" title="Switch language (IT / EN)">EN</button>
         <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Attiva tema scuro">
           <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
           <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
@@ -60,9 +66,9 @@
   <main id="main">
     <section class="page-intro">
       <div class="container reveal">
-        <div class="intro-tag">Percorso &amp; prospettiva</div>
-        <h1 class="intro-title">Esploro il punto di contatto tra <em>pedagogia</em>, tecnologie digitali e contesti sociali.</h1>
-        <p class="intro-lead">
+        <div class="intro-tag" data-i18n="about.tag">Percorso &amp; prospettiva</div>
+        <h1 class="intro-title" data-i18n-html="about.title">Esploro il punto di contatto tra <em>pedagogia</em>, tecnologie digitali e contesti sociali.</h1>
+        <p class="intro-lead" data-i18n-html="about.lead">
           Mi chiamo <strong>Alberto Bedeschi</strong>. Ho conseguito la Laurea con 100/110 in <em>Digital Education</em> (L-19) e sto proseguendo gli studi con la Laurea Magistrale in <em>Teorie e Metodi del Digital Learning</em> (LM-93) presso UNIMORE. Credo che gli strumenti tecnologici abbiano un valore reale solo quando poggiano su una chiara consapevolezza pedagogica e sull'ascolto dei bisogni delle persone.
         </p>
       </div>
@@ -71,20 +77,20 @@
     <section class="section-tight">
       <div class="container">
         <article class="essay-block reveal">
-          <div class="essay-eyebrow">Tecnologia &amp; apprendimento</div>
-          <h2 class="essay-title">Curiosità per l'IA: comprendere i meccanismi per applicarli con giudizio</h2>
+          <div class="essay-eyebrow" data-i18n="about.e1.eyebrow">Tecnologia &amp; apprendimento</div>
+          <h2 class="essay-title" data-i18n="about.e1.title">Curiosità per l'IA: comprendere i meccanismi per applicarli con giudizio</h2>
           <div class="essay-body">
-            <p>
+            <p data-i18n="about.e1.p1">
               Seguo con vivo interesse l'evoluzione dell'Intelligenza Artificiale. Non mi limito a usare gli strumenti come semplici "scatole nere", ma cerco di comprenderne il funzionamento di base, le opportunità e i limiti:
             </p>
             <ul class="essay-bullets">
-              <li>
+              <li data-i18n-html="about.e1.b1">
                 <strong>I modelli linguistici (LLM):</strong> studio come funzionano le finestre di contesto, le tecniche di prompt strutturato e l'estrazione ancorata alle fonti (<em>grounding</em>). Mi interessa capire come valutare la qualità delle risposte negli agenti conversazionali, come ho fatto durante il controllo del tutor <em>Arianna</em> in Skilla.
               </li>
-              <li>
+              <li data-i18n-html="about.e1.b2">
                 <strong>Uno sguardo alle nuove prospettive:</strong> seguo con curiosità il dibattito su come potrebbero evolvere i modelli di IA nei prossimi anni, riflettendo su come questi cambiamenti potranno trasformare il nostro modo di studiare e di interagire con la conoscenza.
               </li>
-              <li>
+              <li data-i18n-html="about.e1.b3">
                 <strong>Applicazione concreta:</strong> uso questi strumenti per risolvere problemi pratici di studio e di lavoro, ad esempio riorganizzare documentazione complessa e renderla facilmente consultabile a partire da fonti verificate (con NotebookLM) o impostare bozze di microlearning.
               </li>
             </ul>
@@ -92,23 +98,36 @@
         </article>
 
         <article class="essay-block reveal">
-          <div class="essay-eyebrow">Scienze dell'educazione &amp; sociale</div>
-          <h2 class="essay-title">Lo sguardo pedagogico: media literacy e nuove fragilità</h2>
+          <div class="essay-eyebrow" data-i18n="about.e2.eyebrow">Scienze dell'educazione &amp; sociale</div>
+          <h2 class="essay-title" data-i18n="about.e2.title">Lo sguardo pedagogico: media literacy e nuove fragilità</h2>
           <div class="essay-body">
-            <p>
+            <p data-i18n="about.e2.p1">
               La mia formazione universitaria nasce nelle scienze dell'educazione. Per questo considero fondamentale guardare sempre all'impatto che gli ambienti digitali hanno sul benessere delle persone e sui legami sociali:
             </p>
             <ul class="essay-bullets">
-              <li>
+              <li data-i18n-html="about.e2.b1">
                 <strong>Ritiro sociale e Hikikomori:</strong> ho dedicato la mia tesi di laurea all'analisi multidimensionale dell'isolamento giovanile contemporaneo. La ricerca va oltre i soli aspetti clinici ed esplora il valore della narrazione e l'uso del medium digitale e videoludico non come chiusura, ma come possibile ponte relazionale di ascolto e riaggancio.
               </li>
-              <li>
+              <li data-i18n-html="about.e2.b2">
                 <strong>Media literacy e benessere digitale:</strong> mi interessano le culture giovanili di rete, la prevenzione del cyberbullismo e la gestione del sovraccarico informativo, per aiutare studenti e lavoratori a costruire un rapporto più sano ed equilibrato con i dispositivi.
               </li>
-              <li>
+              <li data-i18n-html="about.e2.b3">
                 <strong>Inclusione e accessibilità (WCAG):</strong> cerco di applicare sempre i principi di accessibilità, perché i materiali didattici digitali siano chiari, leggibili e fruibili senza barriere cognitive o visive.
               </li>
             </ul>
+
+            <details class="thesis-preview">
+              <summary data-i18n-html="about.thesis.summary">Approfondisci la tesi (100/110): dal medium videoludico al Game-Based Learning</summary>
+              <div class="thesis-preview-body">
+                <p data-i18n-html="about.thesis.p">
+                  In <em>«Hikikomori: un'analisi multidimensionale»</em> (UNIMORE, 2025) ho analizzato come il videogioco offra uno <strong>spazio protetto d'errore</strong>, feedback formativo immediato e senso di agency: esattamente le leve pedagogiche che applico oggi nella progettazione di corsi e-learning e percorsi di Game-Based Learning.
+                </p>
+                <a href="scheda_tesi_hikikomori.html" class="btn btn-secondary btn-sm">
+                  <svg class="icon" aria-hidden="true"><use href="#i-file-text"></use></svg>
+                  <span data-i18n="about.thesis.btn">Apri la Scheda Sintetica della Tesi (stampabile PDF)</span>
+                </a>
+              </div>
+            </details>
           </div>
         </article>
       </div>
@@ -116,38 +135,38 @@
 
     <section class="section-tight" aria-labelledby="competenze-title">
       <div class="container">
-        <h2 class="section-label" id="competenze-title">Aree di competenza e interesse</h2>
+        <h2 class="section-label" id="competenze-title" data-i18n="about.skills.label">Aree di competenza e interesse</h2>
         <div class="skills-cards-grid reveal-stagger">
           <div class="skill-pill-card">
             <span class="fact-icon"><svg class="icon" aria-hidden="true"><use href="#i-cap"></use></svg></span>
-            <h3>Formazione &amp; studi</h3>
-            <p>Laurea triennale L-19 (100/110) e percorso magistrale in corso in <em>Teorie e Metodi del Digital Learning</em> (LM-93) presso UNIMORE.</p>
+            <h3 data-i18n="about.s1.title">Formazione &amp; studi</h3>
+            <p data-i18n-html="about.s1.text">Laurea triennale L-19 (100/110) e percorso magistrale in corso in <em>Teorie e Metodi del Digital Learning</em> (LM-93) presso UNIMORE.</p>
           </div>
           <div class="skill-pill-card">
             <span class="fact-icon"><svg class="icon" aria-hidden="true"><use href="#i-cpu"></use></svg></span>
-            <h3>Strumenti digitali &amp; IA</h3>
-            <p>Prompting ragionato, controllo qualità di assistenti formativi, gestione documentale con NotebookLM e Google Workspace.</p>
+            <h3 data-i18n="about.s2.title">Strumenti digitali &amp; IA</h3>
+            <p data-i18n="about.s2.text">Prompting ragionato, controllo qualità di assistenti formativi, gestione documentale con NotebookLM e Google Workspace.</p>
           </div>
           <div class="skill-pill-card">
             <span class="fact-icon terra"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg></span>
-            <h3>Progettazione didattica</h3>
-            <p>Microlearning a piccoli blocchi, game-based learning (Gamindo Builder), accessibilità WCAG e impostazione di percorsi e-learning (Moodle).</p>
+            <h3 data-i18n="about.s3.title">Progettazione didattica</h3>
+            <p data-i18n="about.s3.text">Microlearning a piccoli blocchi, game-based learning (Gamindo Builder), accessibilità WCAG e impostazione di percorsi e-learning (Moodle).</p>
           </div>
           <div class="skill-pill-card">
             <span class="fact-icon"><svg class="icon" aria-hidden="true"><use href="#i-map"></use></svg></span>
-            <h3>Mappatura &amp; organizzazione</h3>
-            <p>Mappe interattive per il territorio (Google My Maps), gestione di cartelle condivise (Drive) e rendicontazione su gestionali (Gecos).</p>
+            <h3 data-i18n="about.s4.title">Mappatura &amp; organizzazione</h3>
+            <p data-i18n="about.s4.text">Mappe interattive per il territorio (Google My Maps), gestione di cartelle condivise (Drive) e rendicontazione su gestionali (Gecos).</p>
           </div>
           <div class="skill-pill-card">
             <span class="fact-icon terra"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg></span>
-            <h3>Educazione &amp; relazione</h3>
-            <p>Approfondimento sul ritiro sociale (Hikikomori), ascolto attivo, media literacy, prevenzione del cyberbullismo e lavoro d'équipe.</p>
+            <h3 data-i18n="about.s5.title">Educazione &amp; relazione</h3>
+            <p data-i18n="about.s5.text">Approfondimento sul ritiro sociale (Hikikomori), ascolto attivo, media literacy, prevenzione del cyberbullismo e lavoro d'équipe.</p>
           </div>
         </div>
 
         <div class="cta-row center mt-lg reveal">
-          <a href="lms.html" class="btn btn-primary">Prova la piattaforma LMS <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
-          <a href="progetti.html" class="btn btn-secondary">Vedi i casi studio</a>
+          <a href="lms.html" class="btn btn-primary" data-i18n-html="about.cta.lms">Prova la piattaforma LMS <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+          <a href="progetti.html" class="btn btn-secondary" data-i18n="about.cta.projects">Vedi i casi studio</a>
         </div>
       </div>
     </section>
@@ -159,34 +178,35 @@
         <div class="footer-brand">
           <span class="brand-mark" aria-hidden="true">AB</span>
           <h2>Alberto Bedeschi</h2>
-          <p>Progettista formativo digitale e studente magistrale in Teorie e Metodi del Digital Learning (LM-93).</p>
+          <p data-i18n="footer.bio">Progettista formativo digitale e studente magistrale in Teorie e Metodi del Digital Learning (LM-93).</p>
         </div>
         <div class="footer-col">
-          <h3>Esplora</h3>
+          <h3 data-i18n="footer.explore">Esplora</h3>
           <ul>
-            <li><a href="chi-sono.html">Chi sono</a></li>
-            <li><a href="lms.html">Piattaforma LMS</a></li>
-            <li><a href="progetti.html">Casi studio &amp; progetti</a></li>
-            <li><a href="profilo.html">Curriculum</a></li>
+            <li><a href="chi-sono.html" data-i18n="nav.about">Chi sono</a></li>
+            <li><a href="lms.html" data-i18n="nav.lms">Piattaforma LMS</a></li>
+            <li><a href="progetti.html" data-i18n="footer.projects">Casi studio &amp; progetti</a></li>
+            <li><a href="profilo.html" data-i18n="nav.cv">Curriculum</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3>Contatti</h3>
+          <h3 data-i18n="footer.contacts">Contatti</h3>
           <ul>
             <li><a href="mailto:alberto.bedeschi97@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>alberto.bedeschi97@gmail.com</a></li>
             <li><a href="tel:+393405888657"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>340 588 8657</a></li>
             <li><a href="https://www.linkedin.com/in/alberto-bedeschi" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>LinkedIn</a></li>
-            <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Reggio Emilia · Automunito</span></li>
+            <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg><span data-i18n="footer.location">Reggio Emilia · Automunito</span></span></li>
           </ul>
         </div>
       </div>
       <div class="footer-copy">
         <span>© <span data-year>2026</span> Alberto Bedeschi</span>
-        <span>Spazio professionale e didattico</span>
+        <span data-i18n="footer.tagline">Spazio professionale e didattico</span>
       </div>
     </div>
   </footer>
 
   <script src="main.js?v=20261119"></script>
+  <script src="i18n.js?v=20261119"></script>
 </body>
 </html>

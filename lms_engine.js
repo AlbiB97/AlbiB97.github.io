@@ -2098,6 +2098,300 @@
     showToast('File courses.json scaricato! Sostituiscilo nella cartella del repository per aggiornare i corsi ufficiali.', 'success');
   };
 
+  // Pure-JS Zero-Dependency ZIP Builder (PKWARE STORE method 0, IEEE CRC-32)
+  function crc32Bytes(bytes) {
+    let crc = 0xffffffff;
+    for (let i = 0; i < bytes.length; i++) {
+      crc ^= bytes[i];
+      for (let j = 0; j < 8; j++) {
+        crc = (crc >>> 1) ^ (crc & 1 ? 0xedb88320 : 0);
+      }
+    }
+    return (crc ^ 0xffffffff) >>> 0;
+  }
+
+  function buildZipBlob(files) {
+    const enc = new TextEncoder();
+    const localParts = [];
+    const centralParts = [];
+    let offset = 0;
+
+    files.forEach((f) => {
+      const nameBytes = enc.encode(f.name);
+      const dataBytes = typeof f.content === 'string' ? enc.encode(f.content) : f.content;
+      const crc = crc32Bytes(dataBytes);
+      const size = dataBytes.length;
+
+      const localHeader = new Uint8Array(30 + nameBytes.length);
+      const lv = new DataView(localHeader.buffer);
+      lv.setUint32(0, 0x04034b50, true);
+      lv.setUint16(4, 20, true);
+      lv.setUint16(6, 0x0800, true);
+      lv.setUint16(8, 0, true);
+      lv.setUint16(10, 0, true);
+      lv.setUint16(12, 0x5921, true);
+      lv.setUint32(14, crc, true);
+      lv.setUint32(18, size, true);
+      lv.setUint32(22, size, true);
+      lv.setUint16(26, nameBytes.length, true);
+      lv.setUint16(28, 0, true);
+      localHeader.set(nameBytes, 30);
+
+      localParts.push(localHeader, dataBytes);
+
+      const cdHeader = new Uint8Array(46 + nameBytes.length);
+      const cv = new DataView(cdHeader.buffer);
+      cv.setUint32(0, 0x02014b50, true);
+      cv.setUint16(4, 20, true);
+      cv.setUint16(6, 20, true);
+      cv.setUint16(8, 0x0800, true);
+      cv.setUint16(10, 0, true);
+      cv.setUint16(12, 0, true);
+      cv.setUint16(14, 0x5921, true);
+      cv.setUint32(16, crc, true);
+      cv.setUint32(20, size, true);
+      cv.setUint32(24, size, true);
+      cv.setUint16(28, nameBytes.length, true);
+      cv.setUint16(30, 0, true);
+      cv.setUint16(32, 0, true);
+      cv.setUint16(34, 0, true);
+      cv.setUint16(36, 0, true);
+      cv.setUint32(38, 0, true);
+      cv.setUint32(42, offset, true);
+      cdHeader.set(nameBytes, 46);
+
+      centralParts.push(cdHeader);
+      offset += localHeader.length + dataBytes.length;
+    });
+
+    const cdSize = centralParts.reduce((acc, p) => acc + p.length, 0);
+    const eocd = new Uint8Array(22);
+    const ev = new DataView(eocd.buffer);
+    ev.setUint32(0, 0x06054b50, true);
+    ev.setUint16(4, 0, true);
+    ev.setUint16(6, 0, true);
+    ev.setUint16(8, files.length, true);
+    ev.setUint16(10, files.length, true);
+    ev.setUint32(12, cdSize, true);
+    ev.setUint32(16, offset, true);
+    ev.setUint16(20, 0, true);
+
+    return new Blob([...localParts, ...centralParts, eocd], { type: 'application/zip' });
+  }
+
+  function escapeXml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
+  }
+
+  // Export Active Course as Real SCORM 1.2 (.zip) Package
+  window.exportScorm12Package = function () {
+    const course = courses[activeCourseIndex];
+    if (!course) return;
+
+    const slug = (course.id || 'modulo-scorm').replace(/[^a-zA-Z0-9_-]/g, '_');
+    const manifestId = `MANIFEST_${slug}`;
+    const orgId = `ORG_${slug}`;
+    const itemId = `ITEM_${slug}`;
+    const resId = `RES_${slug}`;
+
+    const imsmanifest = `<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="${escapeXml(manifestId)}" version="1.0"
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+  <organizations default="${escapeXml(orgId)}">
+    <organization identifier="${escapeXml(orgId)}">
+      <title>${escapeXml(course.title)}</title>
+      <item identifier="${escapeXml(itemId)}" identifierref="${escapeXml(resId)}" isvisible="true">
+        <title>${escapeXml(course.title)}</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="${escapeXml(resId)}" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="index.html"/>
+    </resource>
+  </resources>
+</manifest>`;
+
+    const serializedCourse = JSON.stringify(course).replace(/<\//g, '<\\/');
+    const scoHtml = `<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${escapeHtml(course.title)} · SCORM 1.2</title>
+  <style>
+    :root { --bg:#faf8f4; --surf:#fff; --surf2:#f3efe7; --txt:#1d211f; --muted:#4d524e; --acc:#2a5c45; --terra:#a94d2e; --bdr:#e2ddd2; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--txt); padding:20px 14px 40px; line-height:1.6; }
+    .wrap { max-width:760px; margin:0 auto; background:var(--surf); border:1px solid var(--bdr); border-radius:16px; overflow:hidden; box-shadow:0 8px 28px rgba(0,0,0,0.06); }
+    .head { background:#1a1f1c; color:#fff; padding:16px 22px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
+    .head h1 { font-size:1.05rem; font-weight:700; }
+    .pill { font-size:0.72rem; font-weight:700; padding:3px 10px; border-radius:999px; background:rgba(109,187,147,0.2); color:#8fd0ae; }
+    .bar { height:5px; background:var(--surf2); }
+    .bar-fill { height:100%; background:var(--acc); width:0%; transition:width 0.3s ease; }
+    .body { padding:26px 24px; min-height:280px; }
+    .tag { display:inline-block; font-size:0.72rem; font-weight:700; text-transform:uppercase; color:var(--terra); margin-bottom:8px; }
+    h2 { font-size:1.3rem; margin-bottom:14px; }
+    p, li { color:var(--muted); margin-bottom:10px; }
+    ul { padding-left:20px; margin-bottom:12px; }
+    .opt { display:block; width:100%; text-align:left; padding:12px 14px; margin-bottom:8px; border:1.5px solid var(--bdr); border-radius:10px; background:var(--surf); cursor:pointer; font:inherit; color:var(--txt); }
+    .opt:hover { border-color:var(--acc); background:#eaf3ed; }
+    .opt.ok { border-color:#17703a; background:#e8f5ec; }
+    .opt.err { border-color:#b42318; background:#fdf0ee; }
+    .fb { margin-top:12px; padding:12px 14px; border-radius:10px; background:var(--surf2); font-size:0.9rem; display:none; }
+    .card { padding:22px; border-radius:12px; background:var(--surf2); border:1.5px solid var(--bdr); cursor:pointer; text-align:center; }
+    textarea { width:100%; min-height:110px; padding:12px; border-radius:10px; border:1px solid var(--bdr); font:inherit; margin-top:8px; }
+    .foot { padding:14px 24px; border-top:1px solid var(--bdr); background:var(--surf2); display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .btn { padding:9px 16px; border-radius:8px; border:none; font:inherit; font-weight:600; cursor:pointer; background:var(--acc); color:#fff; }
+    .btn.sec { background:var(--surf); color:var(--txt); border:1px solid var(--bdr); }
+    .btn:disabled { opacity:0.45; cursor:not-allowed; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <h1>${escapeHtml(course.title)}</h1>
+      <span class="pill" id="scormStatus">SCORM 1.2</span>
+    </div>
+    <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+    <div class="body" id="content"></div>
+    <div class="foot">
+      <button class="btn sec" id="btnPrev">← Precedente</button>
+      <span id="counter" style="font-size:0.84rem;color:var(--muted);"></span>
+      <button class="btn" id="btnNext">Continua →</button>
+    </div>
+  </div>
+  <script>
+    const COURSE = ${serializedCourse};
+    let idx = 0, flipped = false, answered = false, api = null;
+
+    function findAPI(win) {
+      let tries = 0;
+      while (win && !win.API && win.parent && win.parent !== win && tries++ < 10) win = win.parent;
+      return (win && win.API) ? win.API : (window.opener && window.opener.API ? window.opener.API : null);
+    }
+
+    function initScorm() {
+      api = findAPI(window);
+      const badge = document.getElementById('scormStatus');
+      if (api) {
+        api.LMSInitialize('');
+        api.LMSSetValue('cmi.core.lesson_status', 'incomplete');
+        api.LMSSetValue('cmi.core.score.min', '0');
+        api.LMSSetValue('cmi.core.score.max', '100');
+        api.LMSCommit('');
+        badge.textContent = 'SCORM 1.2 · API Connessa';
+      } else {
+        badge.textContent = 'SCORM 1.2 · Anteprima Locale';
+      }
+    }
+
+    function syncScorm() {
+      if (!api) return;
+      const pct = Math.round(((idx + 1) / COURSE.steps.length) * 100);
+      api.LMSSetValue('cmi.core.lesson_location', String(idx));
+      api.LMSSetValue('cmi.core.score.raw', String(pct));
+      if (idx === COURSE.steps.length - 1) api.LMSSetValue('cmi.core.lesson_status', 'completed');
+      api.LMSCommit('');
+    }
+
+    function render() {
+      const s = COURSE.steps[idx];
+      flipped = false; answered = false;
+      const pct = Math.round(((idx + 1) / COURSE.steps.length) * 100);
+      document.getElementById('barFill').style.width = pct + '%';
+      document.getElementById('counter').textContent = 'Step ' + (idx + 1) + ' di ' + COURSE.steps.length;
+      document.getElementById('btnPrev').disabled = idx === 0;
+      const nextBtn = document.getElementById('btnNext');
+      nextBtn.textContent = idx === COURSE.steps.length - 1 ? 'Completato ✓' : 'Continua →';
+      nextBtn.disabled = (s.type === 'quiz' || s.type === 'game');
+
+      const box = document.getElementById('content');
+      let html = '<span class="tag">' + (s.badge || s.type) + '</span><h2>' + (s.title || '') + '</h2>';
+      if (s.type === 'text' || s.type === 'completion') {
+        html += '<div>' + (s.text || '') + '</div>';
+      } else if (s.type === 'video') {
+        html += '<p><strong>' + (s.videoTitle || 'Risorsa video') + '</strong> (' + (s.videoDuration || '') + ')</p>' +
+          (s.text ? '<div>' + s.text + '</div>' : '') +
+          '<p style="font-size:0.85rem;margin-top:10px;">Sorgente video: <code>' + (s.videoUrl || 'non collegata') + '</code></p>';
+      } else if (s.type === 'flashcard') {
+        html += '<div class="card" id="fcCard"><strong>' + (s.frontText || '') + '</strong><p style="font-size:0.8rem;margin-top:10px;">(Clicca per girare la flashcard)</p></div>';
+      } else if (s.type === 'reflection') {
+        html += '<p>' + (s.prompt || s.scenario || '') + '</p><textarea placeholder="' + (s.placeholder || 'Scrivi qui...') + '"></textarea>';
+      } else if (s.type === 'quiz' || s.type === 'game') {
+        html += '<p>' + (s.question || s.scenario || '') + '</p><div id="opts"></div><div class="fb" id="fb"></div>';
+      }
+      box.innerHTML = html;
+
+      if (s.type === 'flashcard') {
+        const card = document.getElementById('fcCard');
+        card.onclick = () => {
+          flipped = !flipped;
+          card.innerHTML = flipped
+            ? '<div><strong>Risposta:</strong><br><br>' + (s.backText || '') + '</div>'
+            : '<strong>' + (s.frontText || '') + '</strong><p style="font-size:0.8rem;margin-top:10px;">(Clicca per girare la flashcard)</p>';
+        };
+      }
+      if (s.type === 'quiz' || s.type === 'game') {
+        const optsEl = document.getElementById('opts');
+        const fbEl = document.getElementById('fb');
+        (s.options || []).forEach((o) => {
+          const b = document.createElement('button');
+          b.className = 'opt';
+          b.textContent = o.text;
+          b.onclick = () => {
+            optsEl.querySelectorAll('.opt').forEach(x => x.classList.remove('ok', 'err'));
+            b.classList.add(o.correct ? 'ok' : 'err');
+            fbEl.style.display = 'block';
+            fbEl.innerHTML = o.feedback || (o.correct ? 'Corretto!' : 'Riprova!');
+            if (o.correct) { answered = true; nextBtn.disabled = false; }
+          };
+          optsEl.appendChild(b);
+        });
+      }
+      syncScorm();
+    }
+
+    document.getElementById('btnPrev').onclick = () => { if (idx > 0) { idx--; render(); } };
+    document.getElementById('btnNext').onclick = () => {
+      if (idx < COURSE.steps.length - 1) { idx++; render(); }
+      else if (api) { api.LMSSetValue('cmi.core.lesson_status', 'completed'); api.LMSCommit(''); }
+    };
+    window.addEventListener('beforeunload', () => { if (api) api.LMSFinish(''); });
+    initScorm();
+    render();
+  </script>
+</body>
+</html>`;
+
+    const blob = buildZipBlob([
+      { name: 'imsmanifest.xml', content: imsmanifest },
+      { name: 'index.html', content: scoHtml }
+    ]);
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `SCORM12_${slug}.zip`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 4000);
+    showToast(`📦 Pacchetto SCORM 1.2 "${a.download}" generato (pronto per Moodle / TalentLMS)!`, 'success');
+  };
+
   // Trigger file import
   window.triggerImportJSON = function () {
     const input = document.getElementById('lmsFileInput');

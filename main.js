@@ -130,7 +130,7 @@
     document.addEventListener('click', (e) => {
       if (header.classList.contains('nav-open') && !header.contains(e.target)) setOpen(false);
     });
-    window.matchMedia('(min-width: 961px)').addEventListener('change', (mq) => { if (mq.matches) setOpen(false); });
+    window.matchMedia('(min-width: 1001px)').addEventListener('change', (mq) => { if (mq.matches) setOpen(false); });
 
     const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
     onScroll();
@@ -255,7 +255,72 @@
     document.querySelectorAll('[data-copy]').forEach((btn) => {
       btn.addEventListener('click', async () => {
         const ok = await copyText(btn.getAttribute('data-copy'));
-        toast(ok ? 'Indirizzo email copiato negli appunti' : 'Impossibile copiare: seleziona il testo manualmente', ok ? 'success' : 'error');
+        const isEn = window.abI18n && window.abI18n.getLang() === 'en';
+        toast(
+          ok
+            ? (isEn ? 'Email address copied to clipboard' : 'Indirizzo email copiato negli appunti')
+            : (isEn ? 'Unable to copy: select the text manually' : 'Impossibile copiare: seleziona il testo manualmente'),
+          ok ? 'success' : 'error'
+        );
+      });
+    });
+  }
+
+  /* ---------- 8. Modale Contattami (alternativa a mailto:) ---------- */
+  function openContactModal() {
+    const tr = (k, it) => (window.abI18n && window.abI18n.t ? window.abI18n.t(k, it) : it);
+    const email = 'alberto.bedeschi97@gmail.com';
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent('Contatto dal Portfolio — Alberto Bedeschi')}`;
+
+    const dlg = document.createElement('dialog');
+    dlg.className = 'ui-dialog sm contact-dialog';
+    dlg.innerHTML = `
+      <div class="ui-dialog-head">
+        <h2>${escapeHtml(tr('contact.title', 'Scrivimi o contattami'))}</h2>
+        <button type="button" class="icon-btn btn-sm" data-close aria-label="${escapeHtml(tr('contact.close', 'Chiudi'))}">
+          ${icon('x')}
+        </button>
+      </div>
+      <div class="ui-dialog-body">
+        <p style="margin-bottom: 16px; font-size: 0.92rem; line-height: 1.6;">
+          ${escapeHtml(tr('contact.subtitle', 'Scegli il canale più comodo per te: rispondo rapidamente per opportunità in Instructional Design, E-Learning e Formazione HR (Reggio Emilia o remoto).'))}
+        </p>
+        <div class="contact-modal-actions">
+          <a href="${gmailUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
+            ${icon('mail')} ${escapeHtml(tr('contact.gmail', 'Scrivi con Gmail Web'))}
+          </a>
+          <button type="button" class="btn btn-secondary btn-block" data-modal-copy>
+            ${icon('copy')} ${escapeHtml(tr('contact.copy', 'Copia email'))} (${email})
+          </button>
+          <a href="https://www.linkedin.com/in/alberto-bedeschi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block">
+            ${icon('linkedin')} ${escapeHtml(tr('contact.linkedin', 'Scrivimi su LinkedIn'))}
+          </a>
+          <div class="contact-modal-subrow">
+            <a href="mailto:${email}" class="btn btn-ghost btn-sm">${icon('external')} ${escapeHtml(tr('contact.mailto', 'App Mail predefinita'))}</a>
+            <a href="tel:+393405888657" class="btn btn-ghost btn-sm">${icon('phone')} ${escapeHtml(tr('contact.phone', 'Chiama 340 588 8657'))}</a>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(dlg);
+
+    dlg.querySelector('[data-close]')?.addEventListener('click', () => dlg.close());
+    dlg.querySelector('[data-modal-copy]')?.addEventListener('click', async () => {
+      const ok = await copyText(email);
+      const isEn = window.abI18n && window.abI18n.getLang() === 'en';
+      toast(ok ? (isEn ? 'Email copied!' : 'Email copiata negli appunti!') : email, ok ? 'success' : 'error');
+    });
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('close', () => dlg.remove());
+    if (dlg.showModal) dlg.showModal();
+    else dlg.setAttribute('open', '');
+  }
+
+  function initContactTriggers() {
+    document.querySelectorAll('[data-contact-trigger]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        openContactModal();
       });
     });
   }
@@ -269,7 +334,7 @@
   }
 
   /* ---------- API globale ---------- */
-  window.ui = { toast, confirm: confirmDialog, prompt: promptDialog, dialog: openDialog, icon, escapeHtml, copyText };
+  window.ui = { toast, confirm: confirmDialog, prompt: promptDialog, dialog: openDialog, contact: openContactModal, icon, escapeHtml, copyText };
 
   /* ---------- Avvio ---------- */
   injectSprite();
@@ -278,6 +343,7 @@
     initNav();
     initReveal();
     initCopyButtons();
+    initContactTriggers();
     initPrintButtons();
     initYear();
   });

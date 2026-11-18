@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scheda Tesi di Laurea · Hikikomori: un'analisi multidimensionale | Alberto Bedeschi</title>
+  <meta name="description" content="Abstract e sintesi metodologica della tesi di laurea L-19 in Digital Education (100/110, UNIMORE) di Alberto Bedeschi: ritiro sociale giovanile, narrazione condivisa e medium videoludico come ponte educativo.">
+  <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Tesi di Laurea · Hikikomori e Medium Digitale | Alberto Bedeschi">
+  <meta property="og:description" content="Dal ritiro sociale al ponte relazionale: narrazione condivisa, cultura digitale e game-based learning.">
+  <meta property="og:image" content="https://albib97.github.io/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+  <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('ab-theme')}catch(e){}if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.setAttribute('data-theme',t)})();</script>
+  <style>
+    :root {
+      --bg: #faf8f4;
+      --surface: #ffffff;
+      --surface-2: #f4efe6;
+      --text: #1d211f;
+      --text-muted: #4d524e;
+      --text-soft: #686c67;
+      --border: #e2ddd2;
+      --accent: #2a5c45;
+      --accent-strong: #1e4231;
+      --accent-soft: #eaf3ed;
+      --accent-border: #c9dfd1;
+      --on-accent: #ffffff;
+      --terra: #a94d2e;
+      --terra-soft: #fbf0ec;
+      --font-serif: "Fraunces", "Charter", Georgia, serif;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color-scheme: light;
+    }
+    [data-theme="dark"] {
+      --bg: #121614;
+      --surface: #1a1f1c;
+      --surface-2: #212724;
+      --text: #ece9e2;
+      --text-muted: #bfc3bd;
+      --text-soft: #959a94;
+      --border: #2c332f;
+      --accent: #6dbb93;
+      --accent-strong: #8fd0ae;
+      --accent-soft: #1d2d25;
+      --accent-border: #2d4a3b;
+      --on-accent: #0e1a13;
+      --terra: #e3916f;
+      --terra-soft: #2e211b;
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 32px 18px 56px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .toolbar-nav {
+      max-width: 860px;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-back, .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-back {
+      color: var(--accent);
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .btn-back:hover { background: var(--surface-2); color: var(--terra); }
+    .btn-print {
+      background: var(--accent);
+      color: var(--on-accent);
+      border: 1px solid var(--accent);
+    }
+    .btn-print:hover { background: var(--accent-strong); }
+
+    .sheet {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--surface);
+      padding: 46px 50px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    }
+    .header {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 22px;
+      margin-bottom: 26px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--terra-soft);
+      color: var(--terra);
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 1.9rem;
+      font-weight: 600;
+      line-height: 1.22;
+      margin-bottom: 12px;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .meta-item {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .meta-item small {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-soft);
+      margin-bottom: 2px;
+    }
+    .meta-item span { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    h2 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      margin: 28px 0 12px;
+      padding-left: 12px;
+      border-left: 3px solid var(--terra);
+    }
+    p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.7; }
+    ul { margin: 10px 0 16px 22px; display: grid; gap: 10px; }
+    li { font-size: 0.93rem; color: var(--text-muted); line-height: 1.65; }
+    li strong { color: var(--text); }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 16px 0 22px;
+    }
+    .pillar-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .pillar-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.02rem;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .pillar-card p { font-size: 0.88rem; margin: 0; }
+
+    .bridge-box {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-top: 22px;
+    }
+    .bridge-box strong { color: var(--accent); }
+    .bridge-box p { color: var(--text); margin: 0; }
+
+    .footer-stamp {
+      margin-top: 38px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 0.83rem;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    @media (max-width: 680px) {
+      .sheet { padding: 26px 20px; }
+      h1 { font-size: 1.5rem; }
+      .pillars { grid-template-columns: 1fr; }
+    }
+    @media print {
+      :root, [data-theme="dark"] {
+        --bg: #ffffff;
+        --surface: #ffffff;
+        --surface-2: #f4efe6;
+        --text: #111111;
+        --text-muted: #2d312e;
+        --text-soft: #555555;
+        --border: #d0d0d0;
+        --accent: #2a5c45;
+        --accent-soft: #eaf3ed;
+        --accent-border: #c9dfd1;
+        --terra: #a94d2e;
+        --terra-soft: #fbf0ec;
+        color-scheme: light;
+      }
+      .no-print { display: none !important; }
+      body { padding: 0 !important; background: #ffffff !important; }
+      .sheet { border: none !important; box-shadow: none !important; padding: 0 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar-nav no-print">
+    <a href="chi-sono.html" class="btn-back">← Torna a «Chi sono»</a>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <a href="progetti.html#case-gamindo-ai" class="btn-back">🎮 Vedi progetto Game-Based Learning</a>
+      <button type="button" class="btn-print" onclick="window.print()">🖨️ Stampa / Salva PDF</button>
+    </div>
+  </div>
+
+  <main class="sheet">
+    <header class="header">
+      <span class="badge">Scheda Sintetica · Tesi di Laurea Triennale (L-19)</span>
+      <h1>Hikikomori: un'analisi multidimensionale</h1>
+      <p style="margin-bottom: 0;">Dal ritiro sociale giovanile alle potenzialità della narrazione condivisa e del medium videoludico come ponte educativo e relazionale.</p>
+      <div class="meta-grid">
+        <div class="meta-item"><small>Autore</small><span>Alberto Bedeschi</span></div>
+        <div class="meta-item"><small>Ateneo &amp; Corso</small><span>UNIMORE · Digital Education</span></div>
+        <div class="meta-item"><small>Valutazione Finale</small><span>100 / 110 (Anno 2025)</span></div>
+        <div class="meta-item"><small>Curriculum</small><span>Educatore psico-sociale digitale</span></div>
+      </div>
+    </header>
+
+    <section>
+      <h2>1. Abstract &amp; Domanda di Ricerca</h2>
+      <p>Il fenomeno del ritiro sociale volontario (<em>Hikikomori</em>) viene spesso ridotto nel dibattito mediatico a una "dipendenza da schermo" o a una patologia strettamente clinica. La tesi adotta invece uno <strong>sguardo multidimensionale</strong> (sociologico, psicopedagogico e mediologico) per analizzare come la pressione prestazionale, la fragilità dei contesti scolastici e l'assenza di spazi di parola autentici alimentino l'isolamento.</p>
+      <p>L'ipotesi progettuale centrale indaga un ribaltamento di prospettiva: <strong>l'ambiente digitale e videoludico non è la causa del ritiro, bensì un linguaggio abitato dai giovani che l'educatore e il progettista formativo possono trasformare in un ponte di riaggancio relazionale.</strong></p>
+    </section>
+
+    <section>
+      <h2>2. Le 4 Dimensioni dell'Analisi</h2>
+      <div class="pillars">
+        <div class="pillar-card">
+          <h3>1. Contesto Socio-Culturale</h3>
+          <p>Dall'origine giapponese alla diffusione in Europa e in Italia: il peso delle aspettative sociali, dello stigma del fallimento e della competizione scolastica.</p>
+        </div>
+        <div class="pillar-card">
+          <h3>2. Subculture di Rete</h3>
+          <p>Analisi delle comunità online, dei forum e degli spazi di identità mediata: perché lo schermo protegge dallo sguardo giudicante consentendo forme graduali di espressione.</p>
+        </div>
+        <div class="pillar-card">
+          <h3>3. Narrazione Condivisa</h3>
+          <p>Il valore pedagogico dello <em>storytelling</em> e della co-costruzione di storie come dispositivi sicuri per elaborare emozioni complesse senza esposizione forzata.</p>
+        </div>
+        <div class="pillar-card">
+          <h3>4. Medium Videoludico</h3>
+          <p>Il videogioco come "spazio protetto d'errore": meccaniche di feedback immediato, progressione per livelli e agency personale che riattivano il senso di autoefficacia.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Dal Ricercatore all'Instructional Designer: il Filo Rosso</h2>
+      <p>Gli stessi meccanismi analizzati nella ricerca universitaria guidano oggi il mio approccio alla progettazione e-learning e al <strong>Game-Based Learning</strong>:</p>
+      <ul>
+        <li><strong>Spazio sicuro per l'errore:</strong> nei percorsi digitali, sbagliare non deve generare vergogna o blocco, ma feedback formativo immediato che incoraggia a riprovare (come nei primi due livelli senza vite del mio modulo AI su Gamindo).</li>
+        <li><strong>Agency e ritmo controllato dal discente:</strong> offrire micro-traguardi raggiungibili e controllo sul proprio percorso riduce l'ansia prestazionale e aumenta la motivazione intrinseca.</li>
+        <li><strong>Storytelling situazionale:</strong> calare i concetti teorici in personaggi e dilemmi realistici attiva empatia e facilita il trasferimento delle competenze nella vita reale e lavorativa.</li>
+      </ul>
+
+      <div class="bridge-box">
+        <p><strong>💡 Impatto progettuale:</strong> studiare come i media digitali possano creare ponti relazionali permette di progettare esperienze formative aziendali ed educative più umane, accessibili (WCAG) e realmente coinvolgenti — lontane dalla formazione passiva "click &amp; sleep".</p>
+      </div>
+    </section>
+
+    <footer class="footer-stamp">
+      <span>Alberto Bedeschi · Tesi L-19 Digital Education (UNIMORE)</span>
+      <span>albib97.github.io · alberto.bedeschi97@gmail.com</span>
+    </footer>
+  </main>
+</body>
+</html>
